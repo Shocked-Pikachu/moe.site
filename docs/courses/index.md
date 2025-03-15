@@ -1,0 +1,25 @@
+# 课程
+
+本栏目汇集了我学习期间的部分课程笔记与资料。鉴于无法上传各位老师的完整讲义，仅依据我的笔记呈现的内容可能存在一定缺失。因此，这些资料仅供参考，主要面向正在修习相关课程的同学，希望能为大家的学习提供一些辅助。
+
+## 物理学
+
+<div class="grid cards" markdown>
+- [近代物理实验](modern-physics-lab)
+</div>
+
+
+## 经济与金融
+
+<div class="grid cards" markdown>
+- [经济学原理（I）](principles-of-economics)
+- [金融学概论](introduction-to-finance)
+- [产业组织理论](industrial-organization-theory)
+</div>
+
+## 其他
+
+<div class="grid cards" markdown>
+- [17 与 18 世纪的欧洲艺术音乐：巴洛克与古典风格](baroque-classical-style-music)
+- [人工智能基础](ai-basis)
+</div>
