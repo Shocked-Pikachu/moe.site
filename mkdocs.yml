@@ -1,8 +1,8 @@
-site_name: "Moe's Page"
-site_url: https://shocked-pikachu.github.io/Mkdocs-hello/
+site_name: "Moe's Site"
+site_url: https://shocked-pikachu.github.io/moe.site/
 
 copyright: |
-  &copy; 2025 <a href="https://github.com/Shocked-Pikachu" target="_blank" rel="noopener"> Haoyu Mo</a>
+  &copy; 2024 - 2025 <a href="https://github.com/Shocked-Pikachu" target="_blank" rel="noopener"> Haoyu Mo</a>
 
 theme:
   name: material
