@@ -1,4 +1,4 @@
-## 寡头与博弈论 (Oligopoly and Game Theory)
+# 寡头与博弈论 (Oligopoly and Game Theory)
 
 寡头情形下：策略性的互动 (strategic interactions)
 
@@ -13,7 +13,7 @@
 - 信息 (Information)
 - 收益 (Payoffs)
 
-### 囚徒困境 (Prisoner's Dilemma)
+## 囚徒困境 (Prisoner's Dilemma)
 
 $$
 \begin{array}{}
@@ -28,7 +28,7 @@ $$
 - 最佳应对 (best response)
 - 占优策略 (dominant strategy)
 
-### 纳什均衡 (Nash Equilibrium)
+## 纳什均衡 (Nash Equilibrium)
 
 博弈中每一个玩家，在其他玩家选择的策略既定时，选择了自己的最优策略。
 
@@ -39,7 +39,7 @@ $$
 
 如果用策略的思维思考问题，得到的结果和纳什均衡的结果应该一样。
 
-### 囚徒困境的福利分析
+## 囚徒困境的福利分析
 
 我们使用帕累托有效评价博弈的结果
 
@@ -60,9 +60,9 @@ $$
 
 重新思考纳什均衡：纳什均衡中，没有玩家单方面愿意偏离均衡结果？联合背离？？>> collusion proof?? 所有的博弈中纳什均衡存在？唯一？
 
-### 囚徒困境的应用
+## 囚徒困境的应用
 
-#### 团队合作
+### 团队合作
 
 shirk or effort
 
@@ -78,7 +78,7 @@ shirk or effort
 
 现实例子：网络协同
 
-#### 广告竞争
+### 广告竞争
 
 广告的作用：1. 广而告之，使市场的需求曲线外移；2. 使对方的需求曲线内移；3. 使需求曲线旋转；4. 向市场发出信号 (signaling)，解决信息的不对称问题
 
@@ -88,7 +88,7 @@ shirk or effort
 
 选择变多，带来的结果不仅仅是自己的选择变多 >> 知道对方手中的牌更多 >> 策略性的互动更加复杂
 
-#### 性别大战 (Battle of the Sexes)
+### 性别大战 (Battle of the Sexes)
 
 双方都没有占优策略。
 
@@ -96,7 +96,7 @@ shirk or effort
 
 此博弈中也存在策略性的互补。纳什均衡中恰好包含了所有帕累托有效的结果。
 
-#### 便士匹配 (Matching Pennies)
+### 便士匹配 (Matching Pennies)
 
 零和博弈 (zero-sum game) >> 博弈中的所有结果都是帕累托有效的
 
@@ -106,15 +106,15 @@ shirk or effort
 
 1抛硬币 >> 2对正反面无差异 >> 但是2为了让1在正反面无差异，他也会选择抛硬币
 
-### 纳什定理
+## 纳什定理
 
 在一个有N个玩家的博弈中（有限策略），至少存在一个纳什均衡
 
 纳什均衡在数学中就是*不动点*
 
-### 博弈论刻画的寡头
+## 博弈论刻画的寡头
 
-#### 价格竞争 (price competition)——Betrand竞争
+### 价格竞争 (price competition)——Betrand竞争
 
 唯一的纳什均衡：两个寡头的价格都等于边际成本
 
@@ -126,6 +126,6 @@ shirk or effort
 
 引入企业的异质性？
 
-#### 数量竞争 (quantity competition)——Cournot竞争
+### 数量竞争 (quantity competition)——Cournot竞争
 
 <div align=left> <img src="../../../assets/img/principles-of-economics-I/cournot-competition.png" width=600> </div>

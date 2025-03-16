@@ -1,6 +1,6 @@
-## 杂及前沿 (Miscellany and Frontiers)
+# 杂及前沿 (Miscellany and Frontiers)
 
-### 折现与净现值
+## 折现与净现值
 
 今天的1块钱 $\neq$ 明天的1块钱
 
@@ -24,13 +24,13 @@ $r=0 \ {\rm or}\ r\to \infty$ 意味着什么？
 
 技术上，折现的概念解决了**永续现金流**的计算问题 >> 收敛的等比数列求和
 
-### 基尼系数和洛伦茨曲线
+## 基尼系数和洛伦茨曲线
 
 efficiency and equity ??
 
 公平更多是一个主观而非客观的评判标准
 
-#### 洛伦茨曲线 (Lorenz curve)
+### 洛伦茨曲线 (Lorenz curve)
 
 Cumulative percentage of income -- cumulative percentage of households
 
@@ -47,7 +47,7 @@ Cumulative percentage of income -- cumulative percentage of households
 
 洛伦茨曲线刻画了社会上所有财富的分布，没有任何信息的丢失
 
-#### 基尼系数 (Gini coefficient)
+### 基尼系数 (Gini coefficient)
 
 基尼系数是基于一个经济体的分布得到的**一个数**
 
@@ -59,7 +59,7 @@ $$
 
 基尼系数为零 >> 只有社会完全公平这一种情况
 
-#### 基尼系数与经济不平等
+### 基尼系数与经济不平等
 
 基尼只是定义平等的一个指标
 
@@ -67,11 +67,11 @@ $$
 
 税收对基尼系数的影响？（在不考虑人们对税收的反应的情况下）
 
-### 信息经济学
+## 信息经济学
 
 信息不对称会给市场带来效率的损失 (inefficiency)
 
-#### 阿克洛夫的柠檬 (The Market for Lemons)
+### 阿克洛夫的柠檬 (The Market for Lemons)
 
 低质量的产品可能会驱逐高质量的产品（劣币驱逐良币）
 
@@ -97,7 +97,7 @@ $$
 >
 > 给鸡上保险，将土鸡品质关键指标与保险责任直接挂钩
 
-#### 信息不对称与市场激励
+### 信息不对称与市场激励
 
 交易双方可以采取手段来减少信息不对称带来的不利影响
 
@@ -133,7 +133,7 @@ Screening Model
 >
 > 其他例子：小米盒子还是电影院？
 
-#### 重温阿克洛夫的柠檬
+### 重温阿克洛夫的柠檬
 
 信息不对称会使得市场失灵 (market failure)
 
@@ -173,7 +173,7 @@ $$
 
 加入信息不对称的对象是市场内还是市场外？如果是市场内的卖家获得信息，拿到好信息的卖家想要离开市场；但如果是市场外的卖家获得信息，拿到不那么好信息的卖家可能想要重新回到市场。
 
-#### 信息不对称在保险市场中的应用：重回供需 (Information Asymmetry in Insurance Market)
+### 信息不对称在保险市场中的应用：重回供需 (Information Asymmetry in Insurance Market)
 
 在完全信息的市场上，供给和需求是割裂的（生产者的成本不因商品的销售对象的改变而发生变化）
 

@@ -1,4 +1,4 @@
-## 双赢的贸易 (Gains from Trade)
+# 双赢的贸易 (Gains from Trade)
 
 在全球经济中满足自身需求？
 
@@ -13,7 +13,7 @@ Joint PPF 一定是凹 (concave) 的 >> 体现有效的生产 >> 此结论**不�
 
 <div align=left> <img src="../../../assets/img/principles-of-economics-I/production-possibility-frontier.png" width=500> </div>
 
-### 贸易促进专业化？
+## 贸易促进专业化？
 
 人们会对激励做出反应！！
 

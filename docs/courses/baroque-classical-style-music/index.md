@@ -16,35 +16,35 @@
     早期欧洲音乐 (Early Modern Europe)
 </div>
 
-- [“巴洛克”？从⽂艺复兴末期出发](end-renaissance-concept-baroque)
+- [“巴洛克”？从⽂艺复兴末期出发](end-renaissance-concept-baroque.md)
 
-- [歌剧的诞⽣： “从蒙特威尔第的牧歌到蒙特威尔第的歌剧”](monteverdi-madrigals-operas)
+- [歌剧的诞⽣： “从蒙特威尔第的牧歌到蒙特威尔第的歌剧”](monteverdi-madrigals-operas.md)
 
-- [法国抒情悲剧中的权⼒与愉悦：从吕利到拉莫](spectacle-power-pleasure)
+- [法国抒情悲剧中的权⼒与愉悦：从吕利到拉莫](spectacle-power-pleasure.md)
 
-- [法国、意⼤利与北德的键盘音乐: L. 库普兰、弗雷斯科巴尔蒂、扬·皮泰尔索恩·斯韦林克、F. 库普兰、布克斯特胡德](baroque-keyboard-tradition)
+- [法国、意⼤利与北德的键盘音乐: L. 库普兰、弗雷斯科巴尔蒂、扬·皮泰尔索恩·斯韦林克、F. 库普兰、布克斯特胡德](baroque-keyboard-tradition.md)
 
-- [意⼤利协奏曲风格与调性的兴起：科雷利与维瓦尔第](italian-concerto-style)
+- [意⼤利协奏曲风格与调性的兴起：科雷利与维瓦尔第](italian-concerto-style.md)
 
-- [亨德尔的意⼤利歌剧、英国神剧与器乐作品](handel)
+- [亨德尔的意⼤利歌剧、英国神剧与器乐作品](handel.md)
 
-- [巴赫的键盘音乐：键盘十二平均律、哥德堡变奏曲](introduction-bach)
+- [巴赫的键盘音乐：键盘十二平均律、哥德堡变奏曲](introduction-bach.md)
 
-- [巴赫的协奏曲与组曲](bach-dance-suite-concertos)
+- [巴赫的协奏曲与组曲](bach-dance-suite-concertos.md)
 
-- [巴赫的声乐作品：康塔塔与受难曲](bach-cantatas-passions)
+- [巴赫的声乐作品：康塔塔与受难曲](bach-cantatas-passions.md)
 
 <div style="border: 1px solid black; padding: 10px; text-align: center;">
       音乐与现代性 (Music and Modernity)
 </div>
 
-- [喜歌剧的兴起：佩格莱西与歌剧中的⼆维性格](early-classical-styles)
+- [喜歌剧的兴起：佩格莱西与歌剧中的⼆维性格](early-classical-styles.md)
 
-- [奏鸣曲式：键盘奏鸣曲、早期交响乐与协奏曲](emergence-comic-operas)
+- [奏鸣曲式：键盘奏鸣曲、早期交响乐与协奏曲](emergence-comic-operas.md)
 
-- [莫扎特的喜歌剧：启蒙主义精神的体现](enlightenment-mozart-operas)
+- [莫扎特的喜歌剧：启蒙主义精神的体现](enlightenment-mozart-operas.md)
 
-- [有幽默感的海顿：弦乐四重奏与交响乐](haydn)
+- [有幽默感的海顿：弦乐四重奏与交响乐](haydn.md)
 
 ## 内容提要（来自课程大纲）
 

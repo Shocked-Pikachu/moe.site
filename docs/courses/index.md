@@ -5,21 +5,22 @@
 ## 物理学
 
 <div class="grid cards" markdown>
-- [近代物理实验](modern-physics-lab)
+- [近代物理实验](modern-physics-lab/index.md)
 </div>
 
 
 ## 经济与金融
 
 <div class="grid cards" markdown>
-- [经济学原理（I）](principles-of-economics)
-- [金融学概论](introduction-to-finance)
-- [产业组织理论](industrial-organization-theory)
+- [经济学原理（I）](principles-of-economics/index.md)
+- [金融学概论](introduction-to-finance/index.md)
+- [产业组织理论](industrial-organization-theory/index.md)
 </div>
+
 
 ## 其他
 
 <div class="grid cards" markdown>
-- [17 与 18 世纪的欧洲艺术音乐：巴洛克与古典风格](baroque-classical-style-music)
-- [人工智能基础](ai-basis)
+- [17 与 18 世纪的欧洲艺术音乐：巴洛克与古典风格](baroque-classical-style-music/index.md)
+- [人工智能基础](ai-basis/index.md)
 </div>

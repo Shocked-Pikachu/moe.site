@@ -1,8 +1,8 @@
-## 市场效率 (Market Efficiency)
+# 市场效率 (Market Efficiency)
 
-### 消费者剩余 (Consumer Surplus)
+## 消费者剩余 (Consumer Surplus)
 
-#### 支付意愿 (Willingness to pay, WTP)
+### 支付意愿 (Willingness to pay, WTP)
 
 消费者对于物品或者服务的评价
 
@@ -12,7 +12,7 @@
 
 一种市场的分配机制会扭曲人们对于自己支付意愿的展现（拍卖？信息的摩擦带来的无效率？） >> 一种让人们可以展现出自己真实支付意愿的分配方式：二价拍卖 (second-price auction)
 
-#### 引入市场和价格
+### 引入市场和价格
 
 消费者剩余：消费者从一件物品中得到的自己感觉到的收益
 
@@ -20,21 +20,21 @@
 
 变动价格 >> 价格下降让消费者变好有两个维度 >> extensive margin and intensive margin
 
-### 生产者剩余 (Producer Surplus)
+## 生产者剩余 (Producer Surplus)
 
-#### 出售意愿 (Willingness to sell)
+### 出售意愿 (Willingness to sell)
 
 也是成本（机会成本）
 
 边际成本曲线 (marginal cost) >> 同样地，这条曲线不依赖于市场
 
-#### 引入市场和价格
+### 引入市场和价格
 
 生产者剩余：经济中卖者得到的收益 >> 不等于利润 (?)，相差一个生产者进入市场的固定投资（不变成本）
 
 变动价格 >> 同理
 
-### 对均衡的福利分析 (Welfare Analysis of Equilibrium)
+## 对均衡的福利分析 (Welfare Analysis of Equilibrium)
 
 Total Surplus = Consumer Surplus + Producer Surplus = Total Willingness to Pay - Total Willingness to Sell
 
@@ -56,15 +56,15 @@ Total Surplus = Consumer Surplus + Producer Surplus = Total Willingness to Pay -
 
 自由市场中，价格反映了最后一单位产品的社会收益和最后一单位产品的社会成本
 
-### 对政策的福利评价 (Welfare Analysis of Policies)
+## 对政策的福利评价 (Welfare Analysis of Policies)
 
 所有社会的无效率都来自于市场上的数量和有效数量的偏离（yes? 还有一部分来自于资源的错配）
 
-#### 价格上限
+### 价格上限
 
 P-Q曲线上反映的是：在存在价格上限的前提下，社会福利损失的最小情况 >> 从边际和机会成本上考虑这个问题
 
-#### 税收
+### 税收
 
 无谓损失 (deadweight loss) >> 有一些本来应该可以获得剩余的交易因为税收没能进行 >> 图上反映了福利损失的最小情况
 
@@ -72,7 +72,7 @@ P-Q曲线上反映的是：在存在价格上限的前提下，社会福利损�
 
 完全无弹性的情况？人们（有一方）对于边际的变化没有反应，税收就变为仅仅转移支付
 
-#### 无谓损失的决定因素
+### 无谓损失的决定因素
 
 + 税收的规模
   + 税收规模变大 >> 税收？？无谓损失 $\uparrow$

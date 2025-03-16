@@ -1,3 +1,7 @@
+---
+title: Title
+template: home.html
+---
 # 关于
 
 ## 关于我

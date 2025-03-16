@@ -1,8 +1,8 @@
-## 市场与政策 (Markets and Government Policies)
+# 市场与政策 (Markets and Government Policies)
 
-### 价格控制 (Price Control)
+## 价格控制 (Price Control)
 
-#### 价格上限
+### 价格上限
 
 (**A Binding Price Ceiling**, a price ceiling that is lower than the equilibrium price/ **A Non-binding Price Ceiling**, a price ceiling that is higher than the equilibrium price)：只有价格高于平衡价格时，价格上限才会发生作用
 
@@ -14,7 +14,7 @@
 + 抽签（公平和效率的折中）
 + 票证（带来新的无效率？车牌就是一个例子）
 
-> #### 票证的历史沿革
+> **票证的历史沿革**
 >
 > 1953年我国宣布实行第一个“五年计划”，开始实行计划经济
 >
@@ -32,7 +32,7 @@
 
 租房控制：短期供给和需求都缺乏弹性；长期供给和需求都更具有弹性，更多人买房 >> 租房，excess demand $\uparrow$，更严重的短缺，导致无效率
 
-#### 价格下限 
+### 价格下限 
 
 (A Binding Price Floor)
 
@@ -46,15 +46,15 @@
 
 实证结果：提高最低工资促进就业 (David Card)！>> 模型背后的假设存在问题？？如何将理论和实验联系起来
 
-### 数量管制 (Quantity Control)
+## 数量管制 (Quantity Control)
 
 汽车牌照：拍卖？排队？抽签？
 
 数量上限or下限：争对不同的市场进行不同的考量（比如不能够对计划生育设置下限），有的时候这是一个离散的问题
 
-### 税收与补贴 (Tax and Subsidy)
+## 税收与补贴 (Tax and Subsidy)
 
-#### 税收的影响
+### 税收的影响
 
 对卖者征税：消费者实际支付的价格$P^d$上升，生产者实际收取的价格$P^s$下降
 
@@ -76,7 +76,7 @@
 
 从价税和从量税可以是等价的
 
-#### 税收负担
+### 税收负担
 
 税收在买卖双方的划分
 
@@ -84,7 +84,7 @@
 
 税收更多的落在市场上更加**缺乏弹性**的地方（即使政府可以决定税收在供需双方的负担）
 
-#### 补贴
+### 补贴
 
 中世纪的灾荒时期，贵族从米商手里购买大米，再以一半的价格转卖给穷人
 

@@ -1,11 +1,16 @@
 site_name: "Moe's Site"
 site_url: https://shocked-pikachu.github.io/moe.site/
 
+# Repository
+repo_name: Shocked-Pikachu/moe.site
+repo_url: https://github.com/Shocked-Pikachu/moe.site
+
 copyright: |
   &copy; 2024 - 2025 <a href="https://github.com/Shocked-Pikachu" target="_blank" rel="noopener"> Haoyu Mo</a>
 
 theme:
   name: material
+  custom_dir: docs/overrides
 
   language: zh
 
@@ -48,20 +53,30 @@ theme:
         icon: material/brightness-4
         name: Switch to system preference
 
-  font:
-      text: Roboto
-      code: Roboto Mono
+  font: false
+
+  icon:
+    logo: material/book-open-page-variant
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
 
 markdown_extensions:
+  - meta
   - attr_list
   - md_in_html
+  - footnotes
   - pymdownx.highlight:
       anchor_linenums: true
   - toc:
       permalink: true
   - pymdownx.arithmatex:
       generic: true
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -79,14 +94,28 @@ extra:
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML
 
+extra_css:
+  - stylesheets/extra.css
+
 plugins:
   - search:
       lang:
         - en
         - zh
+      separator: '[\s\-\.]+' # split words by space, dash, or dot
+
+  
+  - git-revision-date-localized:
+        enable_creation_date: true
+        type: date
+        exclude:
+        - index.md
+        timezone: Asia/Shanghai
+        locale: zh
+  
 
 nav:
-  - 关于: index.md
+  - 主页: index.md
   - 课程:
     - courses/index.md
     - 近代物理实验:
@@ -162,3 +191,4 @@ nav:
         - 奏鸣曲式：鍵盤奏鸣曲、早期交响乐与协奏曲: courses/baroque-classical-style-music/emergence-comic-operas.md
         - 莫扎特的喜歌剧：启蒙主义精神的体现: courses/baroque-classical-style-music/enlightenment-mozart-operas.md
         - 有幽默感的海顿：弦乐四重奏与交响乐: courses/baroque-classical-style-music/haydn.md
+  - 关于: about/index.md

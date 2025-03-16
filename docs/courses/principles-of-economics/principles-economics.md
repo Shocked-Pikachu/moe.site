@@ -1,19 +1,19 @@
-## 经济学基本原理 (Principles of Economics)
+# 经济学基本原理 (Principles of Economics)
 
 + 社会：资源是稀缺的 >> 人们面临权衡取舍 (tradeoffs)，生产存在边界 (production possibility frontier)
 + 互动：人们会对激励 (incentives) 作出反应
 + 理性人：理性人考虑边际 (margin)
 
-### 人们面临权衡取舍
+## 人们面临权衡取舍
 
-#### 机会成本 (Opportunity Cost)
+### 机会成本 (Opportunity Cost)
 
 + 显性成本：货币
 + 隐性成本：时间
 
 **机会成本 = 货币 + 时间** >> 不同选项的互斥性 >> 时间、资源的有限性带来的权衡取舍
 
-#### 取舍的标准
+### 取舍的标准
 
 方法1：收益大于成本 x
 
@@ -25,21 +25,21 @@
 
 + 时间成本，排他性
 
-### 生产存在边界
+## 生产存在边界
 
-#### 生产可能性边界 (Production Possibility Frontier)
+### 生产可能性边界 (Production Possibility Frontier)
 
 边界的斜率是负的 >> 机会成本
 
 一方的劳动生产率<u>变高</u> >> 生产另一方所需的机会成本会<u>变大</u>
 
-### 人们会对激励做出反应
+## 人们会对激励做出反应
 
 星巴克的涨价？？麦当劳和唐恩读乐低价咖啡的流入帮助星巴克筛选出了价格不敏感的消费者（产品的异质性）
 
 Opt-in & Opt-out: “默认选项”与产品设计
 
-### 理性人考虑边际
+## 理性人考虑边际
 
 理性人追求自身利益的最大化 (payoff maximization) >> 边际 (margin)
 

@@ -1,14 +1,14 @@
-## 供需的市场力量 (The Market Forces of Supply and Demand)
+# 供需的市场力量 (The Market Forces of Supply and Demand)
 
-### 需求和需求量
+## 需求和需求量
 
 需求量 (quantity demanded) >> 数字
 
 需求 (demand) >> 函数：以价格为自变量，需求量为因变量
 
-### 需求定律和需求曲线
+## 需求定律和需求曲线
 
-#### 需求定律 (the law of demand)
+### 需求定律 (the law of demand)
 
 **其他条件不变**，价格上升导致需求量下降 >> 房子？钻戒？价格中蕴含着商品的某种信息，需求定律被打破
 
@@ -34,9 +34,11 @@ $\gamma>0$ >> 替代品，$\gamma<0$ >> 互补品
 
 *注意替代品和互补品的定义。*
 
-### 供给与供给量的变化
+## 供给与供给量的变化
 
-### 均衡分析 (Equilibrium Analysis)
+*同需求完全一致的分析*
+
+## 均衡分析 (Equilibrium Analysis)
 
 Equilibrium price & Equilibrium quantity
 
@@ -66,7 +68,7 @@ sol. 需求曲线左移，厂家没有及时反应（价格具有黏性），导
 
 eg. 休渔期+需求不振 对市场价格的影响
 
-### 边际的力量
+## 边际的力量
 
 需求曲线 (D)=边际收益曲线 (MB)
 
