@@ -40,9 +40,9 @@
 
 - [喜歌剧的兴起：佩格莱西与歌剧中的⼆维性格](early-classical-styles)
 
-- [奏鸣曲式：鍵盤奏鸣曲、早期交响乐与协奏曲](emergence-comic-operas)
+- [奏鸣曲式：键盘奏鸣曲、早期交响乐与协奏曲](emergence-comic-operas)
 
-- [莫扎特的喜歌剧：启蒙主义精神的体现](enlightenment-mozart-opearas)
+- [莫扎特的喜歌剧：启蒙主义精神的体现](enlightenment-mozart-operas)
 
 - [有幽默感的海顿：弦乐四重奏与交响乐](haydn)
 
