@@ -1,0 +1,111 @@
+{% extends "main.html" %}
+{% block tabs %}
+  {{ super() }}
+  <style>
+  .md-header {
+    background-color: transparent !important;
+    box-shadow: none;
+  }
+  .md-tabs {
+    background-color: transparent !important;
+  }
+  .md-main__inner {
+    margin: 0;
+  }
+  .md-content {
+    display: block;
+  }
+  @media screen and (min-width: 60em) {
+    .md-sidebar--secondary {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 76.25em) {
+    .md-sidebar--primary {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 76.25em) {
+    .md-main {
+      display: none;
+    }
+  }
+  body, html {
+    margin: 0;
+    padding: 0;
+  }
+  .fullscreen-img {
+    /* width: 100%; */
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; /* make sure the text is below the image */
+    /* transition: left 0.2s, right 0.2s; */
+  }
+  .md-grid {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .header-content {
+    z-index: 1; /* make sure the text is above the image */
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  .md-button {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .main-page-button1 {
+    border: none !important;
+  }
+  .main-page-button2 {
+    color: white !important;
+    border: none !important;
+  }
+  .md-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  .container {
+    height: 81.5vh;
+    display: flex;
+    text-align: center;
+  }
+
+  /* 修复低端总是有空隙的bug */
+  [data-md-color-scheme="default"] .md-footer-meta {
+    background-color: black !important;
+  }
+
+
+  </style>
+  <section class="container">
+    <div class="md-grid md-typeset">
+      <div class="mdx-hero">
+        <div class="fullscreen-img">
+          <img src="assets/img/moon-star-trails.jpg" draggable="true">
+        </div>
+        <script src="assets/javascripts/extra.js"></script>
+
+        <div class="header-content">
+          <h1 style="color: white"><strong>Welcome to Moe's site!</strong></h1>
+          <p>这里是莫的个人空间 o(〃'▽'〃)o</p>
+          <a href="{{ 'courses' | url }}" title="Courses" class="md-button md-button--primary main-page-button1">
+            课程资料
+          </a>
+          <a href="{{ 'about/' | url }}" title="About" class="md-button main-page-button2">
+            关于我
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block content %} {% endblock %}
