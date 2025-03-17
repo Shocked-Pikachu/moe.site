@@ -106,7 +106,7 @@ plugins:
 
   
   - git-revision-date-localized:
-        enable_creation_date: true
+        enable_creation_date: false
         type: date
         exclude:
         - index.md
@@ -118,6 +118,10 @@ nav:
   - 主页: index.md
   - 课程:
     - courses/index.md
+    - 电动力学:
+        - courses/electrodynamics/index.md
+    - 现代主义音乐：挑战与挑衅:
+        - courses/musical-modernism/index.md
     - 近代物理实验:
         - courses/modern-physics-lab/index.md
     - 经济学原理（I）:
@@ -159,6 +163,8 @@ nav:
         - Futures: courses/introduction-to-finance/futures.md
         - Structured Finance: courses/introduction-to-finance/structured-finance.md
         - Financial Fragility: courses/introduction-to-finance/financial-fragility.md
+    - 广义相对论:
+        - courses/general-relativity/index.md
     - 人工智能基础:
         - courses/ai-basis/index.md
     - 产业组织理论:
