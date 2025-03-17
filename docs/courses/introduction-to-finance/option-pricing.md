@@ -76,7 +76,7 @@ Here $R=1+r_f$​
 We can solve for $x$ and $y$, then we know $C_0=xS_0+y$
 $$
 \begin{aligned}
-C_0&=\frac1R\left(\frac{R-d}{u-d}C_u+\frac{u-R}{u-d}C_d\right)\\
+C_0&=\frac1R\left(\frac{R-d}{u-d}C_u+\frac{u-R}{u-d}C_d\right)\\\
 &=\frac1R(qC_u+(1-q)C_d)
 \end{aligned}\nonumber
 $$

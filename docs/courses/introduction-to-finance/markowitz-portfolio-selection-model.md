@@ -23,9 +23,9 @@ Expected returns: $E(r_1),...E(r_n)$.
 Variances and covariances: covariance matrix
 $$
 \begin{pmatrix}
-\sigma_1^2 & \sigma_{12} & \cdots & \sigma_{1n}\\
-\sigma_{21}& \sigma_2^2  & \cdots & \sigma_{2n}\\
-\vdots		 & \vdots			 &				& \vdots\\
+\sigma_1^2 & \sigma_{12} & \cdots & \sigma_{1n}\\\
+\sigma_{21}& \sigma_2^2  & \cdots & \sigma_{2n}\\\
+\vdots		 & \vdots			 &				& \vdots\\\
 \sigma_{n1}& \sigma_{n2} & \cdots & \sigma_n^2
 \end{pmatrix}\nonumber
 $$
