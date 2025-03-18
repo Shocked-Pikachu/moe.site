@@ -86,13 +86,13 @@ Experimental music 实验音乐
 
 从这里开始，以梅伊、伽利略（Galilei）为代表的一群人认为文艺复兴的“完美音乐”并不完美，音乐应该向古希腊的创作方法学习
 
-~~*Arts perfecta* (Perfect Music) 复调音乐~~（音乐历史的发展和绘画美术的历史发展有不一致的地方）
+<s>*Arts perfecta* (Perfect Music) 复调音乐</s>（音乐历史的发展和绘画美术的历史发展有不一致的地方）
 
-Sensuous adornments of counterpoint :no_good:
+Sensuous adornments of counterpoint ❎
 
-The imitation of nature :ok:
+The imitation of nature ✅
 
-模仿？何为模仿？~~牧歌主义（Madrigalism）？~~
+模仿？何为模仿？<s>牧歌主义（Madrigalism）？</s>
 
 "Striking musical images, evoking the text almost literally" - 只从表面上进行模仿，是一种愚蠢的行为！
 

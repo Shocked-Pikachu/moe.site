@@ -163,6 +163,22 @@ nav:
         - Futures: courses/introduction-to-finance/futures.md
         - Structured Finance: courses/introduction-to-finance/structured-finance.md
         - Financial Fragility: courses/introduction-to-finance/financial-fragility.md
+    - 财务会计:
+        - courses/financial-accounting/index.md
+        - Lecture 1: courses/financial-accounting/lecture-1.md
+        - Lecture 2: courses/financial-accounting/lecture-2.md
+        - Lecture 3: courses/financial-accounting/lecture-3.md
+        - Lecture 4: courses/financial-accounting/lecture-4.md
+        - Lecture 5: courses/financial-accounting/lecture-5.md
+        - Lecture 6: courses/financial-accounting/lecture-6.md
+        - Lecture 7: courses/financial-accounting/lecture-7.md
+        - Lecture 8: courses/financial-accounting/lecture-8.md
+        - Lecture 9: courses/financial-accounting/lecture-9.md
+        - Lecture 10: courses/financial-accounting/lecture-10.md
+        - Lecture 11: courses/financial-accounting/lecture-11.md
+        - Lecture 12: courses/financial-accounting/lecture-12.md
+        - Lecture 13: courses/financial-accounting/lecture-13.md
+        - Lecture 14: courses/financial-accounting/lecture-14.md
     - 广义相对论:
         - courses/general-relativity/index.md
     - 人工智能基础:

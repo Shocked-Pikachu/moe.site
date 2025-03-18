@@ -17,8 +17,10 @@
 <div class="grid cards" markdown>
 - [经济学原理（I）](principles-of-economics/index.md)
 - [金融学概论](introduction-to-finance/index.md)
+- [财务会计](financial-accounting/index.md)
 - [产业组织理论](industrial-organization-theory/index.md)
 </div>
+
 
 
 ## 其他
