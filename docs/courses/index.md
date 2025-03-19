@@ -19,6 +19,7 @@
 - [金融学概论](introduction-to-finance/index.md)
 - [财务会计](financial-accounting/index.md)
 - [产业组织理论](industrial-organization-theory/index.md)
+- [财务报表分析](financial-statement-analysis/index.md)
 </div>
 
 
