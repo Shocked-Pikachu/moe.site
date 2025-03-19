@@ -1,0 +1,3906 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://shocked-pikachu.github.io/moe.site/courses/financial-statement-analysis/lecture-9/">
+      
+      
+        <link rel="prev" href="../lecture-8/">
+      
+      
+        <link rel="next" href="../lecture-10/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>Lecture 9 - Moe's Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lecture-9" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Moe&#39;s Site" class="md-header__button md-logo" aria-label="Moe's Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moe's Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lecture 9
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Shocked-Pikachu/moe.site" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Shocked-Pikachu/moe.site
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  课程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Moe&#39;s Site" class="md-nav__button md-logo" aria-label="Moe's Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    Moe's Site
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Shocked-Pikachu/moe.site" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Shocked-Pikachu/moe.site
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    课程
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../electrodynamics/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    电动力学
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            电动力学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../musical-modernism/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    现代主义音乐：挑战与挑衅
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            现代主义音乐：挑战与挑衅
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modern-physics-lab/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    近代物理实验
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            近代物理实验
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../principles-of-economics/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    经济学原理（I）
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            经济学原理（I）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/principles-economics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    经济学基本原理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/gains-from-trade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    双赢的贸易
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/market-forces-supply-demand/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    供需的市场力量
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/elasticity-application/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    弹性及其应用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/markets-government-policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    市场与政策
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/market-efficiency/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    市场效率
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/externality-public-goods/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    外部性及公共品
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/consumer-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    消费者理论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/producer-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    厂商理论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/firms-competitive-markets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    竞争市场中的企业
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/monopoly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垄断
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/monopolistic-competition-markets-factors-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垄断竞争及生产要素市场
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/oligopoly-game-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    寡头与博弈论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/miscellany-frontiers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    杂及前沿
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../introduction-to-finance/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    金融学概论
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            金融学概论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/time-value-money/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Allocating Resources Over Time
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/asset-classes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Asset Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/trading-margin-short-sale/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trading, Margin and Short Sale
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/stock-market-indexes-funds/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stock Market Indexes & Funds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/historical-returns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Historical Returns on Risky Portfolios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/introduction-portfolio-choice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Portfolio Choice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/constructing-portfolios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Constructing Portfolios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/optimal-risky-portfolios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimal Risky Portfolios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/markowitz-portfolio-selection-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markowitz Portfolio Selection Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/index-models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/capital-asset-pricing-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Capital Asset Pricing Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/arbitrage-pricing-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arbitrage Pricing Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/bond-prices-yields/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bond Prices and Yields
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/term-structure-interest-rates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Term Structure of Interest Rates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/equity-valuation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Equity Valuation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/option-strategies-put-call-parity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Option Strategies and Put-Call Parity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/option-pricing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Option Pricing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/futures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Futures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/structured-finance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structured Finance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/financial-fragility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Financial Fragility
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../financial-accounting/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    财务会计
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            财务会计
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 10
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 11
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 12
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 13
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 14
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../general-relativity/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    广义相对论
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            广义相对论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai-basis/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    人工智能基础
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../industrial-organization-theory/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    产业组织理论
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            产业组织理论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/introduction-comp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    产业组织简介，完全竞争
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/monopoly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垄断
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/oligopoly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    寡头
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/monocom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垄断竞争
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/price-discrimination/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    非线性定价与区别定价
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/tie-in-sale/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    捆绑销售
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/strategic-behavior/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    策略行为
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/durables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    耐用品
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/information/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    广告与信息
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/research-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    研究与开发
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/horizontal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    水平合并
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/vertical/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垂直合并
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/international-trade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    国际贸易
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../baroque-classical-style-music/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    17 与 18 世纪的欧洲艺术音乐：巴洛克与古典风格
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            17 与 18 世纪的欧洲艺术音乐：巴洛克与古典风格
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/end-renaissance-concept-baroque/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    “巴洛克”？从⽂艺复兴末期出发
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/monteverdi-madrigals-operas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    歌剧的诞⽣：“从蒙特威尔第的牧歌到蒙特威尔第的歌剧”
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/spectacle-power-pleasure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    法国抒情悲剧中的权⼒与愉悦：从吕利到拉莫
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/baroque-keyboard-tradition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    法国、意⼤利与北德的键盘音乐：L. 库普兰、弗雷斯科巴尔蒂、扬·皮泰尔索恩·斯韦林克、F. 库普兰、布克斯特胡德
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/italian-concerto-style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    意⼤利协奏曲风格与调性的兴起：科雷利与维瓦尔第
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/handel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    亨德尔的意⼤利歌剧、英国神剧与器乐作品
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/introduction-bach/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    巴赫的键盘音乐：键盘十二平均律、哥德堡变奏曲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/bach-dance-suite-concertos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    巴赫的协奏曲与组曲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/bach-cantatas-passions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    巴赫的声乐作品：康塔塔与受难曲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/early-classical-styles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    喜歌剧的兴起：佩格莱西与歌剧中的⼆维性格
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/emergence-comic-operas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    奏鸣曲式：鍵盤奏鸣曲、早期交响乐与协奏曲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/enlightenment-mozart-operas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    莫扎特的喜歌剧：启蒙主义精神的体现
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/haydn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    有幽默感的海顿：弦乐四重奏与交响乐
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    财务报表分析
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_12" id="__nav_2_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_12">
+            <span class="md-nav__icon md-icon"></span>
+            财务报表分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lecture 9
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 9
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      利润表项目分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="利润表项目分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      营业收入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      营业成本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      税金及附加
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      销售费用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      财务费用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      成本性态分析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leverage-coefficient" class="md-nav__link">
+    <span class="md-ellipsis">
+      杠杆系数（Leverage Coefficient）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      利得和损失
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#net-income" class="md-nav__link">
+    <span class="md-ellipsis">
+      净利润（Net Income）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      每股收益
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pe-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      市盈率（P/E Ratio）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="市盈率（P/E Ratio）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      换股合并对每股收益的影响
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      利润表同型分析
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 10
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 11
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 12
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      利润表项目分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="利润表项目分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      营业收入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      营业成本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      税金及附加
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      销售费用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      财务费用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      成本性态分析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leverage-coefficient" class="md-nav__link">
+    <span class="md-ellipsis">
+      杠杆系数（Leverage Coefficient）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      利得和损失
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#net-income" class="md-nav__link">
+    <span class="md-ellipsis">
+      净利润（Net Income）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      每股收益
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pe-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      市盈率（P/E Ratio）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="市盈率（P/E Ratio）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      换股合并对每股收益的影响
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      利润表同型分析
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="lecture-9">Lecture 9<a class="headerlink" href="#lecture-9" title="Permanent link">&para;</a></h1>
+<h2 id="_1">利润表项目分析<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Top line 就是营业收入，Bottom line 就是净利润（分别位于利润表的最顶端和最底端）</p>
+<h3 id="_2">营业收入<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>重点关注收入的规模（不同行业的规模意义不一样）、增幅（我们希望看到的是一个稳步增长的情况）、结构。处于成长阶段的企业，收入普遍呈现快速增长态势，增幅常常保持两位数</p>
+<blockquote>
+<p>腾讯的金融科技及企业服务份额近年来维持着不错的增长率（15%，给个人使用的微信和给企业使用的微信盈利能力的不同？），网络广告收入增长率也很高（23%）</p>
+</blockquote>
+<p>了解企业主要产品情况</p>
+<ul>
+<li>关注收入结构</li>
+<li>主打产品、销量和价格</li>
+</ul>
+<p>了解企业主要销售渠道</p>
+<ul>
+<li>啤酒：餐饮、夜场娱乐、终端卖场</li>
+</ul>
+<p>重视实地调研——验证收入的真实性（浑水调查的三板斧：蹲点、谈话、数人头）</p>
+<ul>
+<li>蒙牛，南孚：鼎晖在这两家公司上市之前就入股，通过实地调研确定有潜力的公司</li>
+<li>俏江南</li>
+<li>公路收费站</li>
+</ul>
+<p>关注公司重大客户——客户的专业化：租车公司</p>
+<p>注意终端用户动态（对于那些生产中间产品的企业，例如宁德时代）</p>
+<blockquote>
+<p>思考题：哪些企业容易形成销售收入规模？</p>
+<p>2024《财富》（<em>Fortune</em>）500 强（收入最高的 500 家公司）中的前 10 名：沃尔玛，亚马逊，国家电网，沙特阿美，中国石化，中国石油，苹果公司，联合健康集团，伯克希尔-哈撒韦公司，CVS Health 公司</p>
+<p>如果企业的规模足够大，且企业接近产业的下游，那么就可能把收入做大（上下游一体化）</p>
+<p>思考题：如何提高企业收入？</p>
+<ul>
+<li>增加市场销量（提高份额、扩大区域）</li>
+<li>提高产品价格（改进性能与服务）</li>
+<li>向产业链下游延伸（产品深加工）</li>
+<li>转变商业模式（“平台”变“电商”）</li>
+<li>多元化战略（增加新业务——铺摊子）</li>
+</ul>
+</blockquote>
+<h3 id="_3">营业成本<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>制造型企业的营业成本主要包括料（直接材料）、工（直接人工）、费（制造费用）</p>
+<blockquote>
+<p>青岛啤酒 2023 年的成本中原料成本占其总成本的比例达到 66%（包装材料的成本）</p>
+<p>中国航空的成本中占比最大的是航空油料成本（难以被航空公司控制）</p>
+</blockquote>
+<h3 id="_4">税金及附加<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>这一个项目主要和行业相关，白酒企业和房地产企业的税金和附加占比是比较高的</p>
+<h3 id="_5">销售费用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>靠近终端用户的企业销售费用会比较大（快消产品）</p>
+<blockquote>
+<p>中煤能源与中国神华的销售费用对比：中煤能源将运输煤炭的运输费和港杂费也算入销售费用，所以销售费用较高。但是中国神华相比起来销售费用低得多，这是因为中国神华的业务是煤电路港航，运输煤炭是企业内部的业务，对于中国神华来说就记入营业成本而非销售费用</p>
+</blockquote>
+<h3 id="_6">财务费用<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>企业的利息收入，汇率利得可以冲减财务费用，因此企业的财务费用有可能出现负数</p>
+<p>利润表的后面的项目基本是企业一次性的利得，不具有持续性和普遍性，因此不应该列入我们的重点研究对象</p>
+<h3 id="_7">成本性态分析<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>企业的营业成本、税金及附加与器件费用作为总经营成本还可以划分为：变动成本和固定成本（这是一个管理会计的概念，在财务会计中可以理解为费用）</p>
+<p>变动成本举例：</p>
+<ul>
+<li>零售型企业：主营业务成本</li>
+<li>制造型企业：直接材料、直接人工以及制造费用中的变动部分</li>
+<li>服务性行业：营业成本中的耗材，差旅费等支出</li>
+<li>税费：消费税、城建税</li>
+<li>期间费用：销售人员的提成，管理人员的奖金，运输费用</li>
+</ul>
+<p>固定成本举例：</p>
+<ul>
+<li>固定资产折旧、无形资产摊销（年限平均法）</li>
+<li>管理人员基本薪酬</li>
+<li>企业债务产生的利息负担</li>
+<li>财产保险费、办公与生产场地租金</li>
+</ul>
+<p><strong>成本性态的发展趋势</strong>：固定成本比重逐渐增大（设备自动化的提高，稳定的人员雇佣政策）</p>
+<p>变动成本与固定成本在总成本的比重也被称为成本结构</p>
+<blockquote>
+<p>哪类成本结构最优？这取决于对企业未来前景的一个预判。如果对企业未来的发展有信心，那么固定成本占比较高的成本结构较优；反之，若企业产销量不断下降，则变动成本占比较高的成本结构较优（大家对未来前瞻性的预判是很重要的）</p>
+</blockquote>
+<p>变动成本较低的企业有较大价格调整的空间（相当于在经济学中说企业生产的边际成本较低，只要边际收益大于边际成本企业就有动机进行生产），航空运输企业，高档酒店，制药企业</p>
+<p>成本—产量—利润（本量利）分析：<span class="arithmatex">\(Y=a+bX\)</span></p>
+<p>单位边际贡献 x 数量 - 固定成本 = 营业利润（营业利润为零的本量利分析，也被称为盈亏平衡分析）</p>
+<blockquote>
+<p>哪一项能够最大限度地提高一个正常企业（营业利润大于 0）的营业利润？（不考虑产品单价与销量之间的相互影响）</p>
+<ul>
+<li>产量单价增加 1%</li>
+<li>产品销售量增加 1%</li>
+<li>单位变动成本降低 1%</li>
+<li>固定成本降低 1%</li>
+</ul>
+<p>对于营业利润大于零的企业，营业收入大于营业成本，所以同样的营业收入的提升能够最大化程度的增加营业利润（第一个选项）</p>
+<p>价格管理是要得到高度重视的，提高利润的最好方式就是有基础有能力的提高价格（价格提升的空间 vs. 成本提高的代价）</p>
+</blockquote>
+<h3 id="leverage-coefficient">杠杆系数（Leverage Coefficient）<a class="headerlink" href="#leverage-coefficient" title="Permanent link">&para;</a></h3>
+<p>杠杆系数 = 边际贡献 / 营业利润 =（营业收入 - 变动成本）/（营业收入 - 变动成本 - 固定成本）</p>
+<p>杠杆系数和固定成本是同向的关系，即固定成本越高，杠杆系数越高</p>
+<p>营业利润变化的百分比 = 杠杆系数 x 营业收入变化的百分比</p>
+<p><em>假定：单价、单位变动成本、固定成本不变</em></p>
+<p>现实当中，两个会计期间中单价、单位变动成本和固定成本是常常发生变化的，因此上面的关系式不是时时成立的</p>
+<blockquote>
+<p>长江电力大部分费用都是固定成本，且电力的单价和单位变动成本几乎不变，所以这是一个很好的诠释杠杆系数作用的例子</p>
+<p>长江电力的杠杆系数相对比较大，所以一点点收入的波动都会带来营业利润的巨大波动</p>
+</blockquote>
+<h3 id="_8">利得和损失<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>资产减值损失/信用减值损失：反映资产价值减损形成的损失（不同资产计提减值损失的会计准则不同）</p>
+<p>有研究表明，计提与冲销资产减值准备是企业管理人员调节盈余的常用会计手段</p>
+<p>公允价值变动损益：以公允价值计价的资产，其公允价值发生变化对利润的影响</p>
+<p>交易性金融资产（特别是上市公司的股票）的公允价值比较透明公开，相对不容易受到操控，但投资性房地产公允价值的确定受多种因素影响</p>
+<p>投资收益：对于投资不是主业的企业</p>
+<ul>
+<li>持续性好的投资收益：来自于联营、合营企业</li>
+<li>持续性差的投资收益：来自于资产处置</li>
+</ul>
+<blockquote>
+<p>复星医药近十年投资收益的投资收益对净利润占比是比较高的，但是其中对联营、合营企业投资收益的规模都不是很大，这说明这家企业主要投资收益来自于对金融资产的处置，这部分投资收益是资本运作的结果，可能会对复星医药未来的收益造成较大风险</p>
+</blockquote>
+<p>企业通过取得政府补贴提升财务业绩</p>
+<ul>
+<li>企业取得的补贴记入“其他收益”、“营业外收入”</li>
+<li>依赖于政府的财政状况：中国政府的财政支出在持续扩大，但是财政收入在今年出现了萎缩</li>
+</ul>
+<h3 id="net-income">净利润（Net Income）<a class="headerlink" href="#net-income" title="Permanent link">&para;</a></h3>
+<p>净利润对长期股价的变化有很强的解释力——说明金融市场的成熟性</p>
+<p>行为金融学：功能锁定（Functional Fixation）投资者在决策过程中往往锁定于某种特定的表面信息，不能充分理解和利用有关信息来做出正确的投资决策</p>
+<h2 id="_9">每股收益<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>指股东每持有一股普通股所能享有的企业净利润或需承担的净亏损</p>
+<blockquote>
+<p>2012 年紫金矿业与中金黄金两家公司的每股收益分别为 0.24 元/股与 0.53 元/股，由此是否可以判断中金黄金公司盈利多？盈利能力强？</p>
+<p>净利润要分为每股收益和流通股数，每股收益多不代表盈利能力就强，事实上紫金矿业的净利润比中金黄金要高</p>
+</blockquote>
+<p>稀释每股收益：以基本每股收益为基础，假定企业所有发行在外的稀释性潜在普通股均已转换为普通股（从年初就转化为普通股），从而分别调整归属于普通股股东的当期净利润以及发行在外普通股的加权平均数计算的每股收益</p>
+<p>拆股：虽然国内没有拆股（高送转），但是拆股在国外很常见，拆股之后的每股收益也要缩小相应的倍数</p>
+<h2 id="pe-ratio">市盈率（P/E Ratio）<a class="headerlink" href="#pe-ratio" title="Permanent link">&para;</a></h2>
+<p>市盈率 = 总市值 / 净利润 = 每股市价 / 每股收益</p>
+<p>市盈率代表投资者为了获得每一元钱的利润所愿意支付的价格，一方面体现了投资者的投资信心，另一方面也反应了投资风险</p>
+<blockquote>
+<p>中国石油在中国上市的时候，Petrochina P/E: 48.6/0.83=58.6——五十多倍的市盈率说明股价被严重高估，出现巨大泡沫</p>
+<p>每股收益用哪一期间的每股收益？理论上我们应该用未来一段期间的平均收益进行计算，但是现实中我们不可能获得未来每股收益的数据，作为妥协，我们只能使用过去四个季度的平均收益进行计算</p>
+<p>对于未来增长潜力很大的股票，因为未来的每股收益是持续上升的，所以即使现在市盈率很高，在未来一段时间，由于每股收益的上升会导致市盈率的降低，从而回调到一个合适的区间。反之，对于未来前景不好的企业，人们对其估值得到的市盈率就会比较低</p>
+<p>判断一只股票的市盈率是高是低？除了看公司过去的盈利情况和未来的盈利前景，还要看在每股收益外，还有什么其他的因素会影响估值（财务风险）</p>
+</blockquote>
+<p>贵州茅台股票贵吗（2016 年）？</p>
+<ul>
+<li>股价：贵州茅台 244.4 元/股，老白干 48.4 元/股</li>
+<li>EPS：贵州茅台 12.4 元/股，老白干 0.55 元/股</li>
+<li>市盈率：贵州茅台 20，老白干 88</li>
+</ul>
+<p>Peter Lynch：每股收益增长率与市盈率</p>
+<ul>
+<li>每股收益增长率 50%，市盈率 25（16.7）</li>
+<li>每股收益增长率 20%，市盈率 20</li>
+</ul>
+<p><em>“小即佳”效应的原因：从长期来看，小型公司的股票往往比大型公司的股票产生更多的收益（对于大型公司，即使把一个行业所有的利润都放进这家公司中，每股收益的增长空间也已经不大了）</em></p>
+<h3 id="_10">换股合并对每股收益的影响<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>假定 1：汇金矿业按照 2:1 比例对聚合黄金 100% 换股合并</p>
+<p>假定 2：两公司之间无其他交易，未能形成协同效应</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>汇金矿业</th>
+<th>聚合黄金</th>
+<th>收购后汇金矿业</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>净利润</td>
+<td>100 亿元</td>
+<td>10 亿元</td>
+<td>110 亿元</td>
+</tr>
+<tr>
+<td>总股数</td>
+<td>200 亿股</td>
+<td>10 亿股</td>
+<td>220 亿股</td>
+</tr>
+<tr>
+<td>当前每股收益</td>
+<td>0.5 元/股</td>
+<td>1 元/股</td>
+<td>0.5 元/股</td>
+</tr>
+<tr>
+<td>当前市盈率</td>
+<td>10 倍</td>
+<td>10 倍</td>
+<td>-</td>
+</tr>
+<tr>
+<td>当前每股股价</td>
+<td>5 元/股</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>当前总市值</td>
+<td>1000 亿元</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>对于汇金矿业的股东来说，兼并收购前后每股收益不产生变化</p>
+<p>但是如果汇金矿业按照 3:1 比例对聚合黄金 100% 换股合并（每股市盈率为 15，即高估值收购），那么收购后汇金矿业每股收益会下降。反之，如果汇集矿业按照 1:1 比例进行换股合并，收购后汇金矿业每股收益会上升</p>
+<p>换股合并对原来企业每股收益的影响，和收购时的估值有关。如果以较高的市盈率收购，则每股收益下降，如果以较低的市盈率收购，则每股收益上升（可以从买利润的角度看兼并收购）</p>
+<p><em>评估市场的市场估值是否合理，要看其总体的盈利能力和股票价格是否匹配，即看市盈率是否在一个合理的范围内</em></p>
+<h2 id="_11">利润表同型分析<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>将公司的营业收入作为 100%，用用占营业收入的百分比表示各个成本、费用以及其他项目（注意不是所有项目除以营业收入都有实际意义的，如资产减值损失、一次性的利得和损失等项目）</p>
+<p>应重点关注营业利润之前各个部分占营业收入的比重，例如营业成本率（营业成本/营业收入），管理费用率（管理费用/营业收入）</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月19日 19:22:32">2025年3月19日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月19日 19:22:32">2025年3月19日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 - 2025 <a href="https://github.com/Shocked-Pikachu" target="_blank" rel="noopener"> Haoyu Mo</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/Shocked-Pikachu" target="_blank" rel="noopener" title="My Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<mohy@stu.pku.edu.cn>" target="_blank" rel="noopener" title="Send Me An Email" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
