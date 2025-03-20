@@ -1,0 +1,5810 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://shocked-pikachu.github.io/moe.site/courses/topics-quantitative-finance/variational-control-problems/">
+      
+      
+        <link rel="prev" href="../volatility/">
+      
+      
+        <link rel="next" href="../optimal-execution/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>Lecture 6 Brief Introduction to Variational and Control Problems - Moe's Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lecture-6-brief-introduction-to-variational-and-control-problems" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Moe&#39;s Site" class="md-header__button md-logo" aria-label="Moe's Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moe's Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lecture 6 Brief Introduction to Variational and Control Problems
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Shocked-Pikachu/moe.site" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Shocked-Pikachu/moe.site
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  课程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Moe&#39;s Site" class="md-nav__button md-logo" aria-label="Moe's Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    Moe's Site
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Shocked-Pikachu/moe.site" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Shocked-Pikachu/moe.site
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    课程
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../electrodynamics/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    电动力学
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            电动力学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../musical-modernism/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    现代主义音乐：挑战与挑衅
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            现代主义音乐：挑战与挑衅
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modern-physics-lab/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    近代物理实验
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            近代物理实验
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../principles-of-economics/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    经济学原理（I）
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            经济学原理（I）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/principles-economics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    经济学基本原理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/gains-from-trade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    双赢的贸易
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/market-forces-supply-demand/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    供需的市场力量
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/elasticity-application/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    弹性及其应用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/markets-government-policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    市场与政策
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/market-efficiency/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    市场效率
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/externality-public-goods/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    外部性及公共品
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/consumer-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    消费者理论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/producer-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    厂商理论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/firms-competitive-markets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    竞争市场中的企业
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/monopoly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垄断
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/monopolistic-competition-markets-factors-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垄断竞争及生产要素市场
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/oligopoly-game-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    寡头与博弈论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/miscellany-frontiers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    杂及前沿
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../introduction-to-finance/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    金融学概论
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            金融学概论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/time-value-money/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Allocating Resources Over Time
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/asset-classes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Asset Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/trading-margin-short-sale/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trading, Margin and Short Sale
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/stock-market-indexes-funds/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stock Market Indexes & Funds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/historical-returns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Historical Returns on Risky Portfolios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/introduction-portfolio-choice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Portfolio Choice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/constructing-portfolios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Constructing Portfolios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/optimal-risky-portfolios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimal Risky Portfolios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/markowitz-portfolio-selection-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markowitz Portfolio Selection Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/index-models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/capital-asset-pricing-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Capital Asset Pricing Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/arbitrage-pricing-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arbitrage Pricing Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/bond-prices-yields/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bond Prices and Yields
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/term-structure-interest-rates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Term Structure of Interest Rates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/equity-valuation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Equity Valuation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/option-strategies-put-call-parity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Option Strategies and Put-Call Parity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/option-pricing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Option Pricing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/futures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Futures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/structured-finance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structured Finance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/financial-fragility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Financial Fragility
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../financial-accounting/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    财务会计
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            财务会计
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 10
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 11
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 12
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 13
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 14
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    量化金融专题
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            量化金融专题
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../financial-engineering-nutshell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 1 Financial Engineering in a Nutshell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stochastic-calculus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 2 Crash Course on Stochastic Calculus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../black-scholes-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 3 The Black-Merton-Scholes Model and Beyond I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../black-scholes-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 4 The Black-Merton-Scholes Model and Beyond II
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../volatility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 5 Volatility and Volatility-Linked Derivatives
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lecture 6 Brief Introduction to Variational and Control Problems
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 6 Brief Introduction to Variational and Control Problems
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#agenda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agenda
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-variational-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a variational problem?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-order-criterion" class="md-nav__link">
+    <span class="md-ellipsis">
+      First order criterion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#euler-lagrange-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Euler-Lagrange equation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Euler-Lagrange equation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimal-control-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimal control theory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#richard-ernest-bellman" class="md-nav__link">
+    <span class="md-ellipsis">
+      Richard Ernest Bellman
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Лев Семёнович Понтря́гин
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-control-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a control problem?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stochastic-control-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stochastic control problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stochastic control problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bellmans-principle-of-optimality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bellman’s principle of optimality
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#value-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Value function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bellmans-principle-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bellman's principle again
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-hamilton-jacobi-bellman-hjb-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Hamilton-Jacobi-Bellman (HJB) equation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Hamilton-Jacobi-Bellman (HJB) equation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stochastic-control-problem-in-discrete-time-finite-horizon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stochastic control problem in discrete time - finite horizon
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamical-programming-principle-dpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamical programming principle (DPP)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backward-induction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backward induction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stochastic-control-problem-infinite-horizon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stochastic control problem - infinite horizon
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-2-mertons-portfolio-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2 - Merton's portfolio problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hara-utility" class="md-nav__link">
+    <span class="md-ellipsis">
+      HARA utility
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-economy" class="md-nav__link">
+    <span class="md-ellipsis">
+      The economy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evolution-of-the-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evolution of the assets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-financing-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Self-financing strategy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wealth-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wealth process
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stochastic-control-problem_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stochastic control problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stochastic control problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-value-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The value function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hamilton-jacobi-bellman-hjb-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hamilton-Jacobi-Bellman (HJB) equation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hamilton-Jacobi-Bellman (HJB) equation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-order-criterion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      First order criterion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ansatz" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ansatz
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ansatz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimal-weight-the-merton-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimal weight - the Merton ratio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optimal weight - the Merton ratio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-of-mertons-problem-in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation of Merton's problem in python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-python-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a python class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a python class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#policy-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimal-policy-the-merton-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimal policy, the Merton ratio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#histogram-of-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histogram of value
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#histogram-for-final-wealth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histogram for final wealth
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-quadratic-lq-control-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linear-quadratic (LQ) control problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hjb-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      HJB equation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HJB equation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-order-criterion_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      First order criterion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hjb-equation-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      HJB equation again
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ansatz_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ansatz
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matrix-riccati-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matrix Riccati equation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution-to-the-riccati-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution to the Riccati equation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appendix (Optional)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pontryagin-maximum-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pontryagin maximum principle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lagrange-multiplier-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lagrange multiplier process
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-order-criterion_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      First order criterion
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="First order criterion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pontryagins-maximum-principle-putting-things-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pontryagin's maximum principle - putting things together
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pontryagin&#39;s maximum principle - putting things together">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stochastic-maximum-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stochastic maximum principle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stochastic maximum principle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimal-execution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 7 Optimal Execution under Price Impact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../general-relativity/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    广义相对论
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            广义相对论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai-basis/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    人工智能基础
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../industrial-organization-theory/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    产业组织理论
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            产业组织理论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/introduction-comp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    产业组织简介，完全竞争
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/monopoly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垄断
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/oligopoly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    寡头
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/monocom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垄断竞争
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/price-discrimination/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    非线性定价与区别定价
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/tie-in-sale/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    捆绑销售
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/strategic-behavior/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    策略行为
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/durables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    耐用品
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/information/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    广告与信息
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/research-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    研究与开发
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/horizontal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    水平合并
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/vertical/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垂直合并
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/international-trade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    国际贸易
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../baroque-classical-style-music/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    17 与 18 世纪的欧洲艺术音乐：巴洛克与古典风格
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_12" id="__nav_2_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_12">
+            <span class="md-nav__icon md-icon"></span>
+            17 与 18 世纪的欧洲艺术音乐：巴洛克与古典风格
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/end-renaissance-concept-baroque/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    “巴洛克”？从⽂艺复兴末期出发
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/monteverdi-madrigals-operas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    歌剧的诞⽣：“从蒙特威尔第的牧歌到蒙特威尔第的歌剧”
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/spectacle-power-pleasure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    法国抒情悲剧中的权⼒与愉悦：从吕利到拉莫
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/baroque-keyboard-tradition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    法国、意⼤利与北德的键盘音乐：L. 库普兰、弗雷斯科巴尔蒂、扬·皮泰尔索恩·斯韦林克、F. 库普兰、布克斯特胡德
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/italian-concerto-style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    意⼤利协奏曲风格与调性的兴起：科雷利与维瓦尔第
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/handel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    亨德尔的意⼤利歌剧、英国神剧与器乐作品
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/introduction-bach/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    巴赫的键盘音乐：键盘十二平均律、哥德堡变奏曲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/bach-dance-suite-concertos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    巴赫的协奏曲与组曲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/bach-cantatas-passions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    巴赫的声乐作品：康塔塔与受难曲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/early-classical-styles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    喜歌剧的兴起：佩格莱西与歌剧中的⼆维性格
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/emergence-comic-operas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    奏鸣曲式：鍵盤奏鸣曲、早期交响乐与协奏曲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/enlightenment-mozart-operas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    莫扎特的喜歌剧：启蒙主义精神的体现
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/haydn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    有幽默感的海顿：弦乐四重奏与交响乐
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../financial-statement-analysis/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    财务报表分析
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_13" id="__nav_2_13_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_13">
+            <span class="md-nav__icon md-icon"></span>
+            财务报表分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 10
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 11
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 12
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#agenda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agenda
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-variational-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a variational problem?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-order-criterion" class="md-nav__link">
+    <span class="md-ellipsis">
+      First order criterion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#euler-lagrange-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Euler-Lagrange equation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Euler-Lagrange equation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimal-control-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimal control theory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#richard-ernest-bellman" class="md-nav__link">
+    <span class="md-ellipsis">
+      Richard Ernest Bellman
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Лев Семёнович Понтря́гин
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-control-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a control problem?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stochastic-control-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stochastic control problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stochastic control problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bellmans-principle-of-optimality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bellman’s principle of optimality
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#value-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Value function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bellmans-principle-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bellman's principle again
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-hamilton-jacobi-bellman-hjb-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Hamilton-Jacobi-Bellman (HJB) equation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Hamilton-Jacobi-Bellman (HJB) equation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stochastic-control-problem-in-discrete-time-finite-horizon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stochastic control problem in discrete time - finite horizon
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamical-programming-principle-dpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamical programming principle (DPP)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backward-induction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backward induction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stochastic-control-problem-infinite-horizon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stochastic control problem - infinite horizon
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-2-mertons-portfolio-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2 - Merton's portfolio problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hara-utility" class="md-nav__link">
+    <span class="md-ellipsis">
+      HARA utility
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-economy" class="md-nav__link">
+    <span class="md-ellipsis">
+      The economy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evolution-of-the-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evolution of the assets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-financing-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Self-financing strategy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wealth-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wealth process
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stochastic-control-problem_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stochastic control problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stochastic control problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-value-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The value function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hamilton-jacobi-bellman-hjb-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hamilton-Jacobi-Bellman (HJB) equation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hamilton-Jacobi-Bellman (HJB) equation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-order-criterion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      First order criterion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ansatz" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ansatz
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ansatz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimal-weight-the-merton-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimal weight - the Merton ratio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optimal weight - the Merton ratio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-of-mertons-problem-in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation of Merton's problem in python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-python-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a python class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a python class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#policy-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimal-policy-the-merton-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimal policy, the Merton ratio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#histogram-of-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histogram of value
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#histogram-for-final-wealth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histogram for final wealth
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-quadratic-lq-control-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linear-quadratic (LQ) control problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hjb-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      HJB equation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HJB equation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-order-criterion_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      First order criterion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hjb-equation-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      HJB equation again
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ansatz_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ansatz
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matrix-riccati-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matrix Riccati equation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution-to-the-riccati-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution to the Riccati equation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appendix (Optional)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pontryagin-maximum-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pontryagin maximum principle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lagrange-multiplier-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lagrange multiplier process
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-order-criterion_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      First order criterion
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="First order criterion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pontryagins-maximum-principle-putting-things-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pontryagin's maximum principle - putting things together
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pontryagin&#39;s maximum principle - putting things together">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stochastic-maximum-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stochastic maximum principle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stochastic maximum principle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="lecture-6-brief-introduction-to-variational-and-control-problems">Lecture 6: Brief Introduction to Variational and Control Problems<a class="headerlink" href="#lecture-6-brief-introduction-to-variational-and-control-problems" title="Permanent link">&para;</a></h1>
+<div class="arithmatex">\[
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\P}{\mathbb{P}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Eof}[1]{\mathbb{E}\left[ #1 \right]}
+\newcommand{\Pof}[1]{\mathbb{P}\left[ #1 \right]}
+\newcommand{\var}[1]{{\rm Var}\left( #1 \right)}
+\newcommand{\p}{\partial}
+\newcommand{\tr}{\mbox{tr}}
+\newcommand{\euro}{€}
+\newcommand{\yen}{¥}
+\newcommand{\argmax}{\mbox{argmax}}
+\newcommand{\argmin}{\mbox{argmin}}
+\newcommand{\1}[1]{\mathbb{1}_{\left\{ #1 \right\}}}
+\newcommand{\mbA}{\mathbf A}
+\newcommand{\mbB}{\mathbf B}
+\newcommand{\mbP}{\mathbf P}
+\newcommand{\mbQ}{\mathbf Q}
+\newcommand{\mbR}{\mathbf R}
+\newcommand{\mbS}{\mathbf S}
+\newcommand{\bA}{\boldsymbol A}
+\newcommand{\bB}{\boldsymbol B}
+\newcommand{\bP}{\boldsymbol P}
+\newcommand{\bp}{\boldsymbol p}
+\newcommand{\bu}{\boldsymbol u}
+\newcommand{\bW}{\boldsymbol W}
+\newcommand{\bX}{\boldsymbol X}
+\newcommand{\bx}{\boldsymbol x}
+\newcommand{\bSigma}{\boldsymbol \Sigma}
+\]</div>
+<p><center>
+<font size=5, color=blue> Tai-Ho Wang (王 太和)</font>
+</center>
+<center>
+<img src="../../../assets/img//topics-quantitative-finance/baruch-logo.jpg" align = "center" width=450>
+</center></p>
+<h2 id="agenda">Agenda<a class="headerlink" href="#agenda" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Variational problem</li>
+<li>Euler-Lagrange equation</li>
+<li>Control problem</li>
+<li>
+<p>Bellman's dynamical programming principle</p>
+<ul>
+<li>Hamilton-Jacobi-Bellman (HJB) equation</li>
+</ul>
+</li>
+<li>
+<p>Merton's portfolio problem</p>
+<ul>
+<li>Illustration by simulation</li>
+</ul>
+</li>
+<li>
+<p>Linear-quadratic (LQ) problem</p>
+</li>
+<li>Matrix Riccati equation and its solution</li>
+<li>Appendix (Optional)<ul>
+<li>Pontryagin's maximum principle</li>
+</ul>
+</li>
+</ul>
+<h2 id="what-is-a-variational-problem">What is a variational problem?<a class="headerlink" href="#what-is-a-variational-problem" title="Permanent link">&para;</a></h2>
+<p>Let <span class="arithmatex">\(L = L(t, x, \dot x)\)</span> be the (rate) of running cost/reward at time <span class="arithmatex">\(t\)</span>, state <span class="arithmatex">\(x\)</span>, and velocity <span class="arithmatex">\(\dot x\)</span>. The total cost/reward functional of the path <span class="arithmatex">\(x_t\)</span> (assumed differentiable) for  <span class="arithmatex">\(0 \leq t \leq T\)</span>, denoted by <span class="arithmatex">\(R[x_t]\)</span>, is given by
+$$
+R[x_t] := \int_0^T L(t, x_t, \dot x_t) dt,
+$$
+where <span class="arithmatex">\(L\)</span> is also referred to as the <em>Lagrangian</em> of the variational problem. </p>
+<p>The goal of a variational problem is to determine a path <span class="arithmatex">\(x_t\)</span>, for <span class="arithmatex">\(0 \leq t \leq T\)</span>, among a class <span class="arithmatex">\(\cC\)</span> of functions that minimizes/maximizes the total cost/reward. Precisely, 
+$$
+x^* = \mathop{\argmax/\argmin}_{x \in \cC} \int_0^T L(t, x_t, \dot x_t) dt,
+$$
+where <span class="arithmatex">\(\cC\)</span> is the class of functions under consideration. </p>
+<h2 id="first-order-criterion">First order criterion<a class="headerlink" href="#first-order-criterion" title="Permanent link">&para;</a></h2>
+<p>Suppose that the optimal path <span class="arithmatex">\(x_t\)</span> maximizes the reward functional</p>
+<div class="arithmatex">\[
+R[x]=\int_0^T\,L(t,x_t,\dot x_t)\,dt
+\]</div>
+<p>with boundary conditions <span class="arithmatex">\(x_0 = a\)</span>, <span class="arithmatex">\(x_T = b\)</span>. </p>
+<p>Let <span class="arithmatex">\(\varphi\)</span> be a perturbation with <span class="arithmatex">\(\varphi(0)=\varphi(T)=0\)</span>, due to the boundary conditions satisfied by the paths.
+The first order criterion for optimal path (should there exists one) reads</p>
+<div class="arithmatex">\[\left.\frac{d}{d\epsilon}\right|_{\epsilon=0}R[x+\epsilon\,\varphi,\dot x + \epsilon\,\dot \varphi]=0.\]</div>
+<h2 id="euler-lagrange-equation">Euler-Lagrange equation<a class="headerlink" href="#euler-lagrange-equation" title="Permanent link">&para;</a></h2>
+<p>Computing this derivative explicitly (suppressing explicit dependence on
+<span class="arithmatex">\(t\)</span>),</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; \left.\frac{d}{d\epsilon}\right|_{\epsilon=0}R[x + \epsilon \varphi, \dot x + \epsilon \dot\varphi] \\
+&amp;=&amp; \int_0^T\,\left\{\frac{\partial L}{\partial x}\,\varphi+\frac{\partial L}{\partial\dot x}\,\dot \varphi\right\}\,dt \\
+&amp;=&amp; \int_0^T\,\left\{\frac{\partial L}{\partial x}\,\varphi -  \frac{d}{dt}\frac{\partial L}{\partial\dot x}\, \varphi\right\}\,dt + \left.\frac{\partial L}{\partial\dot x}\,\varphi\right|_{t=0}^T  \quad (\mbox{by applying integration by parts}) \\
+&amp;=&amp; \int_0^T\,\left\{\frac{\partial L}{\partial x}-\frac{d}{dt}\frac{\partial L}{\partial\dot x}\right\}\,\varphi\,dt \quad (\mbox{since } \varphi(0) = \varphi(T) = 0)
+\end{eqnarray*}
+\]</div>
+<p>Since this must hold for any perturbation <span class="arithmatex">\(\varphi\)</span> with
+<span class="arithmatex">\(\varphi(0)=\varphi(T)=0\)</span>, we deduce</p>
+<blockquote>
+<p><font color="blue">The Euler-Lagrange equation </font>
+$$
+\frac{d}{d t}\,\left(\frac{\partial L}{\partial {\dot x} }\right)-\frac{\partial L}{\partial {x} } = 0
+$$
+    with boundary conditions <span class="arithmatex">\(x_0 = a\)</span> and <span class="arithmatex">\(x_T = b\)</span>.</p>
+</blockquote>
+<h4 id="note">Note<a class="headerlink" href="#note" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Boundary conditions may vary with the setting of the problem, as we shall see in the example that follows.</li>
+<li>We need the second variation to verify if a solution the Euler-Lagrange is truely optimal.  </li>
+</ul>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
+<p>Consider the problem of finding a curve from a given point to a given straight line
+that has minimum length. Without loss of generality, on the <span class="arithmatex">\(xy\)</span> plane we may assume the given straight line is the horizontal line <span class="arithmatex">\(y = T\)</span> for some <span class="arithmatex">\(T &gt; 0\)</span> and the given point is the origin.</p>
+<p>Let's parametrize the curve from origin to the line <span class="arithmatex">\(y = T\)</span> as <span class="arithmatex">\((x,y) = (x_t, t)\)</span>, for <span class="arithmatex">\(0 \leq t \leq T\)</span>. Thus, the problem can be recast as a variational problem as </p>
+<div class="arithmatex">\[
+\min_{x_t} D[\dot x_t] =  \min_{x_t} \int_0^T \sqrt{1 + \dot x_t^2} dt
+\]</div>
+<p>with <span class="arithmatex">\(x_0 = 0\)</span>. Note that there is no constraint on the terminal value <span class="arithmatex">\(x_T\)</span> and by construction the terminal point always lands on the line <span class="arithmatex">\(y = T\)</span>. We derive the first order criterion for the optimal path as follows. Let <span class="arithmatex">\(L(\dot x) = \sqrt{1 + \dot x^2}\)</span> and <span class="arithmatex">\(\varphi\)</span> be a perturbation with <span class="arithmatex">\(\varphi(0) = 0\)</span>. Then</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+\left.\frac{d}{d\epsilon}\right|_{\epsilon=0}D 
+&amp;=&amp; \int_0^T \, \left.\frac{d}{d\epsilon}\right|_{\epsilon=0} \left\{L(\dot x_t + \epsilon \dot\varphi_t)\right\}\,dt\\
+&amp;=&amp; \int_0^T\,\left\{ \frac{\partial L}{\partial\dot x}\,\dot \varphi\right\} \, dt \\
+&amp;=&amp; - \int_0^T \, \frac{d}{dt}\frac{\partial L}{\partial\dot x}\, \varphi \,dt + \left.\frac{\partial L}{\partial\dot x}\,\varphi\right|_{t=0}^T  \quad (\mbox{by applying integration by partys}) \\
+&amp;=&amp; -\int_0^T \, \frac{d}{d t}\frac{\partial L}{\partial\dot x} \, \varphi \, dt + \left.  \frac{\partial L}{\partial\dot x} \right|_T \varphi(T) \quad (\mbox{since } \varphi(0) = 0)
+\end{eqnarray*}
+\]</div>
+<p>Note that we have</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; \frac{\partial L}{\partial\dot x} = \frac{\dot x_t}{\sqrt{1 + \dot x_t^2}}, \\
+&amp;&amp; \frac{d}{dt} \frac{\partial L}{\partial\dot x}
+= \frac{d}{dt}\left(\frac{\dot x_t}{\sqrt{1 + \dot x_t^2}} \right)
+= \frac{\ddot x_t}{(1 + \dot x_t^2)^{3/2}}.
+\end{eqnarray*}
+\]</div>
+<p>Since the first order criterion holds for <em>any</em> perturbation <span class="arithmatex">\(\varphi\)</span>, it follows that </p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; \frac{d}{d t}\frac{\partial L}{\partial\dot x} = \frac{\ddot x_t}{(1 + \dot x_t^2)^{3/2}} = 0, \\
+&amp;&amp; \left.  \frac{\partial L}{\partial\dot x} \right|_{\dot x = \dot x_T} = \frac{\dot x_T}{\sqrt{1 + \dot x_T^2}} = 0.
+\end{eqnarray*}
+\]</div>
+<p>As a result, the optimal path <span class="arithmatex">\(x_t\)</span> must satisfy the second order ODE</p>
+<div class="arithmatex">\[
+\ddot x_t = 0
+\]</div>
+<p>with boundary conditions <span class="arithmatex">\(x_0 = 0\)</span> and <span class="arithmatex">\(\dot x_T = 0\)</span>. The solution is unsurprsingly given by <span class="arithmatex">\(x_t = 0\)</span> for <span class="arithmatex">\(0 \leq t \leq T\)</span>.</p>
+<h2 id="optimal-control-theory">Optimal control theory<a class="headerlink" href="#optimal-control-theory" title="Permanent link">&para;</a></h2>
+<p>Quotes from this <a href="https://en.wikipedia.org/wiki/Optimal_control">Wikipage</a>:</p>
+<blockquote>
+<ul>
+<li>
+<p>Optimal control theory, an extension of the calculus of variations, is a mathematical optimization method for deriving control policies. The method is largely due to the work of Lev Pontryagin and his collaborators in the Soviet Union and Richard Bellman in the United States.</p>
+</li>
+<li>
+<p>Optimal control deals with the problem of finding a control law for a given system such that a certain optimality criterion is achieved. A control problem includes a cost functional that is a function of state and control variables. An optimal control is a set of differential equations describing the paths of the control variables that minimize the cost functional. The optimal control can be derived using Pontryagin's maximum principle (a necessary condition also known as Pontryagin's minimum principle or simply Pontryagin's Principle), or by solving the Hamilton–Jacobi–Bellman equation (a sufficient condition).</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="richard-ernest-bellman">Richard Ernest Bellman<a class="headerlink" href="#richard-ernest-bellman" title="Permanent link">&para;</a></h2>
+<h2><img src="https://upload.wikimedia.org/wikipedia/en/7/7a/Richard_Ernest_Bellman.jpg" align = "center" width=200></h2>
+
+<p>Courtesy: Photos from the <a href="https://en.wikipedia.org/wiki/Richard_E._Bellman">Wikipage</a></p>
+<h2 id="_1">Лев Семёнович Понтря́гин<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2><img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Lev_Pontrjagin.jpg" align = "center" width=200></h2>
+
+<p>Courtesy: Photo from the <a href="https://en.wikipedia.org/wiki/Lev_Pontryagin">Wikipage</a></p>
+<h2 id="what-is-a-control-problem">What is a control problem?<a class="headerlink" href="#what-is-a-control-problem" title="Permanent link">&para;</a></h2>
+<p>A control problem consists of</p>
+<ul>
+<li>State variables</li>
+<li>Control variables</li>
+<li>Set of admissible controls</li>
+<li>Performance criterion</li>
+<li>Objective functional</li>
+</ul>
+<p>A control problem is <em>stochastic</em> if the state variables are driven by stochastic processes; otherwise, it is <em>deterministic</em>. </p>
+<p>Performance criterion usually consists of a running cost/reward and a terminal cost/reward.</p>
+<p>The goal of a control problem is to determine control policies, also called <em>optimal controls</em>, among all adimssible policies that maximize or minimize the objective functional.</p>
+<p>A control problem can be of finite or infinite horizon. A discount factor is usually required for an infinite horizon control problem as finiteness/well-definedness of the objective functional is concerned. </p>
+<p>The <em>value function</em> of a control problem is the optimal value of the objective functional when the controled system is in a specific state at a certain time. </p>
+<p>A control problem is called <em>Markovian</em> if the state variables follow a Markov process. </p>
+<p>One of key ingredients in solving control problems is the <em>Bellman's principle</em>, also knowns as the <em>dynamic programming principle</em> satisfied by the value function.  </p>
+<h2 id="stochastic-control-problem">Stochastic control problem<a class="headerlink" href="#stochastic-control-problem" title="Permanent link">&para;</a></h2>
+<p>Consider the following stochastic control problem aiming at minimizing expected costs among all admissible controls.</p>
+<div class="arithmatex">\[
+  \min_{v\in\mathcal G[0,T]} \E\left[g(X^{(v)}_T) + \int_0^T h(s,X^{(v)}_s,v_s) ds \right],
+\]</div>
+<p>where
+* <span class="arithmatex">\(\mathcal G[0,T]\)</span> is the collection of admissible controls in the time interval <span class="arithmatex">\([0,T]\)</span> 
+* the state variable <span class="arithmatex">\(X^{(v)}_t\)</span> is driven by the controlled SDE
+    $$
+      dX^{(v)}_t = \mu( t,X^{(v)}_t, v_t) dt + \sigma(t,X^{(v)}_t, v_t) dW_t.
+    $$
+* <span class="arithmatex">\(g(X^{(v)}_T) + \int_0^T h(s,X^{(v)}_s,v_s) ds\)</span> is the performance criterion for policy <span class="arithmatex">\(v \in \cG[0, T]\)</span>
+* <span class="arithmatex">\(g\)</span> is referred to as the <em>terminal cost</em> and <span class="arithmatex">\(h\)</span> is the <em>running cost</em></p>
+<h4 id="note_1">Note<a class="headerlink" href="#note_1" title="Permanent link">&para;</a></h4>
+<p>The problem reduces to a deterministic control problem if <span class="arithmatex">\(\sigma \equiv 0\)</span>.</p>
+<h2 id="bellmans-principle-of-optimality">Bellman’s principle of optimality<a class="headerlink" href="#bellmans-principle-of-optimality" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>An optimal policy has the property that whatever the initial state and
+initial decision are, the remaining decisions must constitute an optimal
+policy with regard to the state resulting from the first decision.</p>
+</blockquote>
+<p>(See Bellman, 1957, Chap. III.3.)</p>
+<h2 id="value-function">Value function<a class="headerlink" href="#value-function" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>For a given admissible control <span class="arithmatex">\(v\in\mathcal G[t,T]\)</span>, define the objective functional <span class="arithmatex">\(J^{(v)}\)</span> as</p>
+<div class="arithmatex">\[
+  J^{(v)}(t,x) = \E\left[\left. g(X^{(v)}_T) + \int_t^T h(s,X^{(v)}_s,v_s) ds \right| X_t = x \right].
+\]</div>
+</li>
+<li>
+<p>The <em>value function</em> <span class="arithmatex">\(J(t,x)\)</span> for a stochastic control problem is defined as</p>
+<div class="arithmatex">\[
+  J(t,x) = \min_{v\in\mathcal G[t,T]} J^{(v)}(t,x).
+\]</div>
+</li>
+<li>
+<p>The value function <span class="arithmatex">\(J\)</span> at <span class="arithmatex">\((t,x)\)</span> is the optimal value of the control problem conditioned on the process starting at <span class="arithmatex">\((t,x)\)</span> and applying the optimal control thereafter.</p>
+</li>
+</ul>
+<h2 id="bellmans-principle-again">Bellman's principle again<a class="headerlink" href="#bellmans-principle-again" title="Permanent link">&para;</a></h2>
+<p>The Bellman's principle can be rephrased in terms of value function as follow. For any <span class="arithmatex">\(0 &lt; \epsilon &lt; T -t\)</span>,</p>
+<div class="arithmatex">\[
+J(t,x) = \min_{v\in\mathcal G[t,t+\epsilon]} \E\left[\left. \int_t^{t+\epsilon} h(s,X^{(v)}_s,v_s) ds + J(t+\epsilon,X^{(v)}_{t+\epsilon}) \right| \cF_t \right].
+\]</div>
+<h2 id="the-hamilton-jacobi-bellman-hjb-equation">The Hamilton-Jacobi-Bellman (HJB) equation<a class="headerlink" href="#the-hamilton-jacobi-bellman-hjb-equation" title="Permanent link">&para;</a></h2>
+<p>The value function <span class="arithmatex">\(J\)</span> satisfies the terminal value problem</p>
+<div class="arithmatex">\[
+\p_t J(t,x) + \min_{v\in\mathcal G[t]} \{\mathcal L^{(v)} J(t,x) + h(t,x,v) \} = 0, \mbox{ for } t &lt; T
+\]</div>
+<p>with terminal condition</p>
+<div class="arithmatex">\[
+  J(T,x) = g(x),
+\]</div>
+<p>where <span class="arithmatex">\(\mathcal L^{(v)} := \frac{\sigma^2}2 \p_x^2 + \mu \p_x\)</span> is the associated infinitesimal generator of the controlled process </p>
+<div class="arithmatex">\[
+dX^{(v)}_t = \mu( t,X^{(v)}_t, v_t) dt + \sigma(t,X^{(v)}_t, v_t) dW_t.
+\]</div>
+<h4 id="note_2">Note<a class="headerlink" href="#note_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>The HJB equation is bascially an infinitesimal version of the Bellman's principle. </li>
+<li>The optimal policy (control) is given implicitly in terms of the value function <span class="arithmatex">\(J\)</span>.</li>
+<li>We shall need to verify that the solution to HJB equation is indeed the value function for the control problem. This process is usually referred to as <em>proving the verification theorem</em>. </li>
+</ul>
+<h2 id="stochastic-control-problem-in-discrete-time-finite-horizon">Stochastic control problem in discrete time - finite horizon<a class="headerlink" href="#stochastic-control-problem-in-discrete-time-finite-horizon" title="Permanent link">&para;</a></h2>
+<ul>
+<li>state variable <span class="arithmatex">\(X_t\)</span></li>
+<li>admissible control <span class="arithmatex">\(u_t \in \cA\)</span></li>
+<li>running cost: <span class="arithmatex">\(h(t, x, u)\)</span></li>
+<li>terminal cost: <span class="arithmatex">\(g(x)\)</span></li>
+</ul>
+<p>Performance criterion</p>
+<div class="arithmatex">\[
+g(X_T^{(u)}) + \sum_{t=0}^{T-1} h(t, X_t^{(u)}, u_t)
+\]</div>
+<p>Objective function </p>
+<div class="arithmatex">\[
+\Eof{g(X_T^{(u)}) + \sum_{t=0}^{T-1} h(t, X_t^{(u)}, u_t)}
+\]</div>
+<p>Value function </p>
+<div class="arithmatex">\[
+V(t,x) = \inf_{u\in\cA[t, T]} \E_{t,x}\left[g(X^{(u)}_T) + \sum_{s=t}^{T-1} h(s, X^{(u)}_s, u_s)\right]
+\]</div>
+<p><span class="arithmatex">\(Q\)</span>-function. For <span class="arithmatex">\(a \in \cA[t, t+1]\)</span> and <span class="arithmatex">\(t &lt; T\)</span>,</p>
+<div class="arithmatex">\[
+Q(t,x, a) = h(t, x, a) + \E_{t, x}\left[V(t+1, X_{t+1}^{(a)})\right]
+\]</div>
+<p>and </p>
+<div class="arithmatex">\[
+Q(T, x, a) = g(x).
+\]</div>
+<h2 id="dynamical-programming-principle-dpp">Dynamical programming principle (DPP)<a class="headerlink" href="#dynamical-programming-principle-dpp" title="Permanent link">&para;</a></h2>
+<p>For <span class="arithmatex">\(0 \leq t &lt; T\)</span>, the value function <span class="arithmatex">\(V(t, x)\)</span> satisfies the following Bellman's dynamical programming principle</p>
+<div class="arithmatex">\[
+V(t, x) = \inf_{u\in\cA[t, t+1]} \left\{h(t, x, u) + \E_{t, x}\left[ V(t+1, X^{(u)}_{t+1})\right]\right\}
+\]</div>
+<p>with terminal condition <span class="arithmatex">\(V(T, x) = g(x)\)</span>. Note that DPP implies 
+$$
+V(t, x) = \inf_{a\in\cA[t, t+1]} Q(t, x, a).
+$$</p>
+<p>Hence, we also have the DPP for <span class="arithmatex">\(Q\)</span>-function for <span class="arithmatex">\(0 \leq t &lt; T\)</span> as</p>
+<div class="arithmatex">\[
+Q(t,x, a) = h(t, x, a) + \E_{t, x}\left[\inf_{b\in\cA[t+1, t+2]}Q(t+1, X_{t+1}^{(a)}, b)\right].
+\]</div>
+<h2 id="backward-induction">Backward induction<a class="headerlink" href="#backward-induction" title="Permanent link">&para;</a></h2>
+<p>In discrete time setting, we can evaluate the value functions by backward induction. </p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+V(T - 1, x) &amp;=&amp; \inf_{u\in\cA[T-1, T]} \E_{T-1, x}\left[h(T-1, x, u) + V(T, X^{(u)}_T)\right] \\
+&amp;=&amp; \inf_{u\in\cA[T-1, T]} \E_{T-1, x}\left[h(T-1, x, u) + g(X^{(u)}_T)\right]
+\end{eqnarray*}
+\]</div>
+<p>Thus,</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+V(T - 2, x) &amp;=&amp; \inf_{u\in\cA[T-2, T-1]} \E_{T-2, x}\left[h(T-2, x, u) + V(T-1, X^{(u)}_T)\right] 
+\end{eqnarray*}
+\]</div>
+<p>and so on and so forth ...</p>
+<h2 id="stochastic-control-problem-infinite-horizon">Stochastic control problem - infinite horizon<a class="headerlink" href="#stochastic-control-problem-infinite-horizon" title="Permanent link">&para;</a></h2>
+<ul>
+<li>running cost: <span class="arithmatex">\(h(x, u)\)</span></li>
+<li>discount factor: <span class="arithmatex">\(\alpha\)</span></li>
+</ul>
+<p>Objective function </p>
+<div class="arithmatex">\[
+\Eof{\sum_{t=0}^\infty e^{-\alpha t} \, h(X_t^{(u)}, u_t)}
+\]</div>
+<ul>
+<li>value function </li>
+</ul>
+<div class="arithmatex">\[
+V(x) = \inf_{u\in\cA} \E_{x}\left[\sum_{t=0}^\infty e^{-\alpha t} h(X^{(u)}_t, u_t)\right]
+\]</div>
+<ul>
+<li>Dynamical programming</li>
+</ul>
+<div class="arithmatex">\[
+V(x) = e^{-\alpha} \inf_{u\in\cA[0,1]} \E_{x}\left[h(x, u) + V(X^{(u)}_1) \right]
+\]</div>
+<h2 id="example-1">Example 1<a class="headerlink" href="#example-1" title="Permanent link">&para;</a></h2>
+<p>Consider the previous problem of finding a curve from a given point to a given straight line that has minimum length. </p>
+<p>We recast the problem as a (deterministic) control problem as </p>
+<div class="arithmatex">\[
+\min_{u} \int_0^T \sqrt{1 + u_t^2} dt
+\]</div>
+<p>subject to <span class="arithmatex">\(dx_t = u_t dt\)</span> and <span class="arithmatex">\(x_0 = 0\)</span>. Let <span class="arithmatex">\(J\)</span> be the value function, i.e., </p>
+<div class="arithmatex">\[
+J(t, x) = \min_{u} \int_t^T \sqrt{1 + u_s^2} ds
+\]</div>
+<p>for <span class="arithmatex">\(\dot x_s = u_s\)</span> and <span class="arithmatex">\(x_t = x\)</span>. </p>
+<p>The associated HJB equation for value function <span class="arithmatex">\(J\)</span> reads</p>
+<div class="arithmatex">\[
+J_t + \min_u \left\{ \sqrt{1 + u^2} + u J_x \right\} = 0
+\]</div>
+<p>with terminal condition <span class="arithmatex">\(J(T, x) = 0\)</span>. First order criterion implies that </p>
+<div class="arithmatex">\[
+u = \frac{J_x}{\sqrt{1 - J_x^2}}.
+\]</div>
+<p>Substituting the <span class="arithmatex">\(u\)</span> into the HJB equation yields</p>
+<div class="arithmatex">\[
+J_t + \frac{1 + J_x^2}{\sqrt{1 - J_x^2}} = 0.
+\]</div>
+<p>A complicated looking equation with a very simple solution <span class="arithmatex">\(J(t, x) = T - t\)</span>, which is independent of <span class="arithmatex">\(x\)</span>. Thus, the optimal policy </p>
+<div class="arithmatex">\[
+u_t^* = \frac{J_x}{\sqrt{1 - J_x^2}} = 0 
+\]</div>
+<p>for all <span class="arithmatex">\(t\)</span>.</p>
+<h2 id="example-2-mertons-portfolio-problem">Example 2 - Merton's portfolio problem<a class="headerlink" href="#example-2-mertons-portfolio-problem" title="Permanent link">&para;</a></h2>
+<p>Quote from the <a href="https://en.wikipedia.org/wiki/Merton%27s_portfolio_problem">Wikipage</a>:</p>
+<blockquote>
+<p>Merton's portfolio problem is a well known problem in continuous-time finance and in particular intertemporal portfolio choice. An investor must choose how much to consume and must allocate his wealth between stocks and a risk-free asset so as to maximize expected utility. The problem was formulated and solved by Robert C. Merton in 1969 both for finite lifetimes and for the infinite case. Research has continued to extend and generalize the model to include factors like transaction costs and bankruptcy.</p>
+</blockquote>
+<h2 id="hara-utility">HARA utility<a class="headerlink" href="#hara-utility" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>HARA stands for <em>Hyperbolic Absolute Risk Aversion</em>.</p>
+<ul>
+<li>The Arrow-Pratt measure of absolute risk-aversion (ARA), a.k.a., the <em>coefficient of absolute risk aversion</em>, <span class="arithmatex">\(A\)</span> of a utility function <span class="arithmatex">\(U\)</span> is defined as <span class="arithmatex">\(A = -\frac{U''}{U'}\)</span>.</li>
+<li>The reciprocal of <span class="arithmatex">\(A\)</span> is referred to as risk tolerance <span class="arithmatex">\(T = \frac 1A\)</span>.</li>
+<li>
+<p>A utility function is said to exhibit hyperbolic absolute risk aversion if and only if the risk tolerance <span class="arithmatex">\(T\)</span> is a linear function:
+$$
+T(x) = \frac x{1 - \gamma} + \frac ba.
+$$</p>
+</li>
+<li>
+<p>HARA utility functions have the general form 
+$$
+U(x) = \frac{1 - \gamma}\gamma \left( \frac{a x}{1 - \gamma} + b\right)^\gamma
+$$</p>
+</li>
+<li>
+<p>HARA utility is often quoted as a power utility <span class="arithmatex">\(U(x) = x^\gamma\)</span>, for <span class="arithmatex">\(\gamma \in [0,1]\)</span>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="the-economy">The economy<a class="headerlink" href="#the-economy" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><span class="arithmatex">\(M_t\)</span>: price of riskless asset</p>
+</li>
+<li>
+<p><span class="arithmatex">\(S_t\)</span>: price of risky assset</p>
+</li>
+<li>
+<p><span class="arithmatex">\(u_t\)</span>: percentage/weight of wealth invested in the risky asset at time <span class="arithmatex">\(t\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(W_t\)</span>: investor's wealth at time <span class="arithmatex">\(t\)</span></p>
+</li>
+</ul>
+<h2 id="evolution-of-the-assets">Evolution of the assets<a class="headerlink" href="#evolution-of-the-assets" title="Permanent link">&para;</a></h2>
+<p>Let <span class="arithmatex">\(Z_t\)</span> be a Brownian motion.</p>
+<ul>
+<li>Riskless asset follows </li>
+</ul>
+<div class="arithmatex">\[
+dM_t = r M_t dt, \qquad M_0 = \mbox{initial amount in the money account}
+\]</div>
+<ul>
+<li>Risky asset follows a geometric Brownian motion/Black-Scholes model</li>
+</ul>
+<div class="arithmatex">\[
+\frac{dS_t}{S_t} = \mu dt + \sigma dZ_t
+\]</div>
+<ul>
+<li><span class="arithmatex">\(r\)</span>, <span class="arithmatex">\(\mu\)</span>, and <span class="arithmatex">\(\sigma &gt; 0\)</span> are constants. Assume <span class="arithmatex">\(\mu &gt; r &gt; 0\)</span>.</li>
+</ul>
+<h2 id="self-financing-strategy">Self-financing strategy<a class="headerlink" href="#self-financing-strategy" title="Permanent link">&para;</a></h2>
+<p>Let <span class="arithmatex">\(h_t\)</span> be the number of shares of the risky asset in the investor's porfolio and <span class="arithmatex">\(b_t\)</span> dollors in the riskless assets. Apparently, the investor's wealth <span class="arithmatex">\(W_t\)</span> at time <span class="arithmatex">\(t\)</span> is givevn by  </p>
+<div class="arithmatex">\[
+W_t = h_t S_t + b_t.
+\]</div>
+<p>A trading strategy <span class="arithmatex">\((h_t, b_t)\)</span> is called <em>self-financing</em> if the wealth process satisfies </p>
+<div class="arithmatex">\[
+dW_t = h_t dS_t + r b_t dt.
+\]</div>
+<h2 id="wealth-process">Wealth process<a class="headerlink" href="#wealth-process" title="Permanent link">&para;</a></h2>
+<p>Define </p>
+<div class="arithmatex">\[
+u_t = \frac{h_t S_t}{W_t}.
+\]</div>
+<p>We rewrite the wealth in terms of <span class="arithmatex">\(u_t\)</span> as </p>
+<div class="arithmatex">\[
+W_t = u_t W_t + (1 - u_t) W_t = \frac{u_t W_t}{S_t} S_t + (1 - u_t)W_t.
+\]</div>
+<p>The condition of self-financing implies that <span class="arithmatex">\(W_t\)</span> satisfies</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; dW_t = \frac{u_t W_t}{S_t} dS_t + (1 - u_t)W_t r dt
+\end{eqnarray*}
+\]</div>
+<p>or equivalently </p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+\frac{dW_t}{W_t} &amp;=&amp; u_t(\mu dt + \sigma dZ_t) + (1 - u_t) r dt \\
+&amp;=&amp; \{r + u_t(\mu - r) \} dt + u_t \sigma dZ_t
+\end{eqnarray*}
+\]</div>
+<h2 id="stochastic-control-problem_1">Stochastic control problem<a class="headerlink" href="#stochastic-control-problem_1" title="Permanent link">&para;</a></h2>
+<p>Merton's problem is recast as the following stochastic control problem</p>
+<div class="arithmatex">\[
+\max_{u \in \mathcal A} \Eof{U(W_T)}
+\]</div>
+<p>where <span class="arithmatex">\(W_t\)</span> follows the controlled geometric Brownian motion</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+\frac{dW_t}{W_t} &amp;=&amp; \{r + u_t(\mu - r) \} dt + u_t \sigma dZ_t
+\end{eqnarray*}
+\]</div>
+<h3 id="note_3">Note<a class="headerlink" href="#note_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="arithmatex">\(W_t\)</span> can be written as follows.
+$$
+W_t = W_0 e^{rt + \int_0^t {u_s(\mu - r) - \frac12 \sigma^2 u_s^2 } ds + \sigma \int_0^t u_s dW_s}
+$$</li>
+<li><span class="arithmatex">\(W_t \geq 0\)</span> </li>
+</ul>
+<h2 id="the-value-function">The value function<a class="headerlink" href="#the-value-function" title="Permanent link">&para;</a></h2>
+<p>The value function is defined as </p>
+<div class="arithmatex">\[
+V(t,w) = \max_{u \mathcal A[t,T]} \Eof{\left. U(W_T) \right| W_t = w}
+\]</div>
+<h2 id="hamilton-jacobi-bellman-hjb-equation">Hamilton-Jacobi-Bellman (HJB) equation<a class="headerlink" href="#hamilton-jacobi-bellman-hjb-equation" title="Permanent link">&para;</a></h2>
+<p>The value function <span class="arithmatex">\(V(t,w)\)</span> satisfies the HJB equation</p>
+<div class="arithmatex">\[
+V_t + \max_u \left\{ \frac{\sigma^2 u^2}2 w^2 V_{ww} + \left((\mu - r)u + r\right) w V_w \right\} = 0
+\]</div>
+<p>with terminal condition <span class="arithmatex">\(V(T, w) = U(w)\)</span>.</p>
+<h3 id="note_4">Note<a class="headerlink" href="#note_4" title="Permanent link">&para;</a></h3>
+<p>For general utility function <span class="arithmatex">\(U\)</span>, it is hard, if not impossible, to find closed form solution to the above HJB equation except the HARA utility.  </p>
+<h2 id="first-order-criterion_1">First order criterion<a class="headerlink" href="#first-order-criterion_1" title="Permanent link">&para;</a></h2>
+<p>Assuming <span class="arithmatex">\(V_{ww} &lt; 0\)</span>.</p>
+<div class="arithmatex">\[
+u = -\frac{(\mu - r)w V_w}{\sigma^2 w^2 V_{ww}} = -\frac{(\mu - r) V_w}{\sigma^2 w V_{ww}}
+\]</div>
+<p>The HJB equation becomes </p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+V_t - \frac{(\mu - r)^2 V_w^2}{2\sigma^2 V_{ww}} + r w V_w = 0
+\end{eqnarray*}
+\]</div>
+<p>with terminal condition <span class="arithmatex">\(V(T, w) = w^\gamma\)</span>.</p>
+<h2 id="ansatz">Ansatz<a class="headerlink" href="#ansatz" title="Permanent link">&para;</a></h2>
+<p>Assume the ansatz for value function <span class="arithmatex">\(V\)</span> </p>
+<div class="arithmatex">\[
+V(t,w) = a(t) w^\gamma
+\]</div>
+<p>Plug the ansatz into the HJB equation yields</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+a'(t) w^\gamma + \frac{(\mu - r)^2}{2\sigma^2} \frac\gamma{1 - \gamma} a(t) w^\gamma + r \gamma a(t) w^\gamma = 0
+\end{eqnarray*}
+\]</div>
+<p>Thus, <span class="arithmatex">\(a\)</span> satisfies</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+a'(t) + \left\{\frac{(\mu - r)^2}{2\sigma^2} \frac\gamma{1 - \gamma} + r \gamma \right\} a(t) = 0
+\end{eqnarray*}
+\]</div>
+<p>with terminal condition <span class="arithmatex">\(a(T) = 1\)</span>.</p>
+<p><span class="arithmatex">\(a\)</span> has the closed form expression</p>
+<div class="arithmatex">\[
+a(t) = e^{\alpha(T-t)},
+\]</div>
+<p>where $\alpha = \frac{(\mu - r)^2}{2\sigma^2} \frac\gamma{1 - \gamma} + r \gamma $. Hence, the value function <span class="arithmatex">\(V\)</span> is given by</p>
+<div class="arithmatex">\[
+V(t,w) = e^{\alpha(T - t)} w^\gamma. 
+\]</div>
+<h3 id="note_5">Note<a class="headerlink" href="#note_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="arithmatex">\(V_{ww} = e^{\alpha(T - t)} \gamma (\gamma - 1) w^{\gamma - 2} &lt; 0\)</span> since <span class="arithmatex">\(\gamma \in (0,1)\)</span>.</li>
+</ul>
+<h2 id="optimal-weight-the-merton-ratio">Optimal weight - the Merton ratio<a class="headerlink" href="#optimal-weight-the-merton-ratio" title="Permanent link">&para;</a></h2>
+<p>The optimal strategy <span class="arithmatex">\(u^*\)</span> reads</p>
+<div class="arithmatex">\[
+u^* = \frac{\mu - r}{\sigma^2(1 - \gamma)}
+\]</div>
+<p>In other words, the optimal strategy is to maintain a constant percentage/weight <span class="arithmatex">\(u^*\)</span>, determined by the Merton ratio, of the wealth invested in the risky asset. </p>
+<h3 id="note_6">Note<a class="headerlink" href="#note_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>The higher the excess return <span class="arithmatex">\(\mu - r\)</span> of the risky asset, the higher the weight <span class="arithmatex">\(u^*\)</span>.</p>
+</li>
+<li>
+<p>The higher the volatility <span class="arithmatex">\(\sigma\)</span> of the risky asset, the lower the weight <span class="arithmatex">\(u^*\)</span>. </p>
+</li>
+<li>
+<p>The less risk averse the investor is, i.e., <span class="arithmatex">\(\gamma\)</span> is closer to 1, the higher the weight <span class="arithmatex">\(u^*\)</span>.</p>
+</li>
+</ul>
+<h2 id="implementation-of-mertons-problem-in-python">Implementation of Merton's problem in <code>python</code><a class="headerlink" href="#implementation-of-mertons-problem-in-python" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># As always, import required modules</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">exp</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ss</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># parameters</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">mu</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">T</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">n_sim</span><span class="p">,</span> <span class="n">n_steps</span> <span class="o">=</span> <span class="mi">10_000</span><span class="p">,</span> <span class="mi">1000</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">dt</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">n_steps</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># utility </span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">U</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="n">w</span><span class="o">**</span><span class="n">gamma</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># optimal policy: Merton ratio</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">u_st</span> <span class="o">=</span> <span class="p">(</span><span class="n">mu</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">gamma</span><span class="p">)</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The Merton ratio is </span><span class="si">{</span><span class="n">u_st</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>The Merton ratio is 0.5555555555555557.
+</code></pre></div>
+<h2 id="create-a-python-class">Create a <code>python</code> <code>class</code><a class="headerlink" href="#create-a-python-class" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># value distribution</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># inputs</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># r, mu, sigma: risk free rate, expected return, volatility</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># W0, T: initial wealth, investment horizon</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># u: policy function/control</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># U: utility</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">class</span><span class="w"> </span><span class="nc">ValueDistribution</span><span class="p">:</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">W0</span><span class="o">=</span><span class="mi">10_000</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_sim</span><span class="o">=</span><span class="mi">10_000</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mu</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span> <span class="o">=</span> <span class="n">r</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">T</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">W0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">U</span> <span class="o">=</span> <span class="n">W0</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">U</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">n_sim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_steps</span> <span class="o">=</span> <span class="n">n_sim</span><span class="p">,</span> <span class="n">n_steps</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>        <span class="n">dt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">n_steps</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        <span class="c1"># initialize W</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">n_sim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_steps</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">W0</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        <span class="c1"># simulation </span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_steps</span><span class="p">):</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>            <span class="n">dZ</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_sim</span><span class="p">)</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>            <span class="n">dZ</span> <span class="o">=</span> <span class="n">dZ</span> <span class="o">-</span> <span class="n">dZ</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>            <span class="n">dZ</span> <span class="o">=</span> <span class="n">dZ</span><span class="o">/</span><span class="n">dZ</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>            <span class="n">dZ</span> <span class="o">=</span> <span class="n">dZ</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>            <span class="n">drift</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mu</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span> \
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>                <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>            <span class="n">diffusion</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">sigma</span> 
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">[:,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">drift</span><span class="o">*</span><span class="n">dt</span> <span class="o">+</span> <span class="n">diffusion</span><span class="o">*</span><span class="n">dZ</span><span class="p">)</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">V</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">U</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">V</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Simulated expected value under the given policy is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">W_hist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>        <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of wealth&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>        <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">V_hist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>        <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">V</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of objective&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>        <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">sample_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_path</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>        <span class="k">if</span> <span class="n">n_path</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">:</span>
+<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>            <span class="n">n_path</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_sim</span><span class="p">)</span>
+<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a>        <span class="n">dt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">n_steps</span>
+<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>        <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="o">+</span><span class="n">dt</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">[</span><span class="n">n_path</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Sample path number </span><span class="si">{</span><span class="n">n_path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">W0</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$t$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$W$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Wealth sample path&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a>
+<a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+</code></pre></div>
+<h3 id="policy-1">Policy 1<a class="headerlink" href="#policy-1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># policy function </span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">u1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="mf">0.01</span><span class="o">*</span><span class="n">w</span><span class="o">**</span><span class="mf">0.5</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># initial wealth</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">W0</span> <span class="o">=</span> <span class="mi">10_000</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># instantiate a class</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">ve1</span> <span class="o">=</span> <span class="n">ValueDistribution</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">u1</span><span class="p">,</span> <span class="n">W0</span><span class="o">=</span><span class="n">W0</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Simulated expected value under the given policy is 40.14333806809246.
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">ve1</span><span class="o">.</span><span class="n">W_hist</span><span class="p">()</span>
+</code></pre></div>
+<p>​  <br />
+<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_39_0.png" />
+​    </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">ve1</span><span class="o">.</span><span class="n">V_hist</span><span class="p">()</span>
+</code></pre></div>
+<p>​  <br />
+<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_40_0.png" />
+​    </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">ve1</span><span class="o">.</span><span class="n">sample_path</span><span class="p">()</span>
+</code></pre></div>
+<p>​  <br />
+<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_41_0.png" />
+​    </p>
+<h3 id="policy-2">Policy 2<a class="headerlink" href="#policy-2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># policy function </span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">u2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="mi">2</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># initial wealth</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">W0</span> <span class="o">=</span> <span class="mi">10_000</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># instantiate a class</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">ve2</span> <span class="o">=</span> <span class="n">ValueDistribution</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Simulated expected value under the given policy is 39.38645595535807.
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">ve2</span><span class="o">.</span><span class="n">W_hist</span><span class="p">()</span>
+</code></pre></div>
+<p>​  <br />
+<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_44_0.png" />
+​    </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">ve2</span><span class="o">.</span><span class="n">V_hist</span><span class="p">()</span>
+</code></pre></div>
+<p>​  <br />
+<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_45_0.png" />
+​    </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">ve2</span><span class="o">.</span><span class="n">sample_path</span><span class="p">()</span>
+</code></pre></div>
+<p>​  <br />
+<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_46_0.png" />
+​    </p>
+<h3 id="optimal-policy-the-merton-ratio">Optimal policy, the Merton ratio<a class="headerlink" href="#optimal-policy-the-merton-ratio" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Merton ratio</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">u_st</span> <span class="o">=</span> <span class="p">(</span><span class="n">mu</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">gamma</span><span class="p">)</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The Merton ratio is </span><span class="si">{</span><span class="n">u_st</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># optimal policy function </span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">u_opt</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="n">u_st</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1"># initial wealth</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="n">W0</span> <span class="o">=</span> <span class="mi">10_000</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="c1"># instantiate a class</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="n">ve_opt</span> <span class="o">=</span> <span class="n">ValueDistribution</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">u_opt</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>The Merton ratio is 0.5555555555555557.
+Simulated expected value under the given policy is 40.26303884310312.
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">ve_opt</span><span class="o">.</span><span class="n">sample_path</span><span class="p">()</span>
+</code></pre></div>
+<p>​  <br />
+<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_49_0.png" />
+​    </p>
+<h2 id="histogram-of-value">Histogram of value<a class="headerlink" href="#histogram-of-value" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">ve2</span><span class="o">.</span><span class="n">V</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$u_2$&#39;</span><span class="p">)</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">ve_opt</span><span class="o">.</span><span class="n">V</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;optimal&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">ve1</span><span class="o">.</span><span class="n">V</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$u_1$&#39;</span><span class="p">)</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</code></pre></div>
+<p>​  <br />
+<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_51_0.png" />
+​    </p>
+<h2 id="histogram-for-final-wealth">Histogram for final wealth<a class="headerlink" href="#histogram-for-final-wealth" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">ve2</span><span class="o">.</span><span class="n">W</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$u_2$&#39;</span><span class="p">)</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">ve_opt</span><span class="o">.</span><span class="n">W</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;optimal&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">ve1</span><span class="o">.</span><span class="n">W</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$u_1$&#39;</span><span class="p">)</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</code></pre></div>
+<p>​  <br />
+<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_53_0.png" />
+​    </p>
+<h2 id="linear-quadratic-lq-control-problem">Linear-quadratic (LQ) control problem<a class="headerlink" href="#linear-quadratic-lq-control-problem" title="Permanent link">&para;</a></h2>
+<p>An important class of control problems with solutions in closed form is the <em>LQ</em> problems. 
+A control problem is called an LQ problem if its state variables has linear drift and performance criterion is quadratic in running and terminal rewards. Specifically, the state variables <span class="arithmatex">\(\bX_t \in \R^d\)</span> and control <span class="arithmatex">\(\bu_t \in \R^\ell\)</span> are driven by</p>
+<div class="arithmatex">\[
+d\bX_t = (\mbA \bX_t + \mbB \bu_t) dt + \bSigma d\bW_t, 
+\]</div>
+<p>where <span class="arithmatex">\(\bA\)</span> is a <span class="arithmatex">\(d\times d\)</span> matrix, <span class="arithmatex">\(\bB\)</span> a <span class="arithmatex">\(d\times\ell\)</span> matrix, <span class="arithmatex">\(\bSigma\)</span> a <span class="arithmatex">\(d\times n\)</span> matrix, and <span class="arithmatex">\(\bW_t\)</span> is an <span class="arithmatex">\(n\)</span>-dimensional Brownian motion. 
+The performance criterion is given by </p>
+<div class="arithmatex">\[
+\bX_T' \mbP \bX_T + \int_0^T \left(\bX_t' \mbQ \bX_t + 2\bu_t' \mbS \bX_t + \bu_t' \mbR \bu_t \right) dt, 
+\]</div>
+<p>where <span class="arithmatex">\(\mbP\)</span>, <span class="arithmatex">\(\mbQ\)</span> are <span class="arithmatex">\(d\times d\)</span> symmetric matrices, <span class="arithmatex">\(\mbR\)</span> an <span class="arithmatex">\(\ell\times\ell\)</span> symmetric positive definite matrix, and <span class="arithmatex">\(\mbS\)</span> an <span class="arithmatex">\(\ell\times d\)</span> matrix.</p>
+<h2 id="hjb-equation">HJB equation<a class="headerlink" href="#hjb-equation" title="Permanent link">&para;</a></h2>
+<p>Let <span class="arithmatex">\(V\)</span> be the value function</p>
+<div class="arithmatex">\[
+V(t, \bx) = \min_{\bu} \Eof{\left. \bX_T' \mbP \bX_T + \int_t^T \left(\bX_s' \mbQ \bX_s + 2\bu_s' \mbS \bX_s + \bu_s' \mbR \bu_s \right) ds\right|\bX_t = \bx}.
+\]</div>
+<p><span class="arithmatex">\(V\)</span> satisfies the following HJB equation</p>
+<div class="arithmatex">\[
+V_t + \frac12\tr(\bSigma\bSigma'\nabla^2 V) + \min_{\bu}\left\{(\mbA \bx + \mbB \bu)' \nabla V + \bx'\mbQ\bx + 2\bu' \mbS \bx + \bu_t' \mbR \bu_t \right\} = 0 
+\]</div>
+<p>with terminal condition <span class="arithmatex">\(V(T, \bx) = \bx'\mbP\bx\)</span>.</p>
+<h4 id="note_7">Note<a class="headerlink" href="#note_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li><span class="arithmatex">\(\mbR\)</span> is assumed positive definite. </li>
+</ul>
+<h2 id="first-order-criterion_2">First order criterion<a class="headerlink" href="#first-order-criterion_2" title="Permanent link">&para;</a></h2>
+<p>Assume <span class="arithmatex">\(\mbR\)</span> is positive definite. The first order criterion implies </p>
+<div class="arithmatex">\[
+2 \mbR \bu + \mbB'\nabla V + 2\mbS \bx = 0.  
+\]</div>
+<p>Thus, the optimal policy is given in terms of value function by </p>
+<div class="arithmatex">\[
+\bu = - \frac12 \mbR^{-1} (\mbB'\nabla V + 2\mbS \bx).
+\]</div>
+<h2 id="hjb-equation-again">HJB equation again<a class="headerlink" href="#hjb-equation-again" title="Permanent link">&para;</a></h2>
+<p>We have </p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; \bu' \mbB' \nabla V + \bu'\mbR\bu + 2 \bu' \mbS \bx \\
+&amp;=&amp; -\frac12 (\nabla V' \mbB + 2\bx'\mbS')\mbR^{-1} \mbB' \nabla V + \frac14 (\nabla V' \mbB + 2\bx'\mbS') \mbR^{-1} \mbR \mbR^{-1} (\mbB'\nabla V + 2\mbS\bx) - (\nabla V'\mbB + 2 \bx'\mbS')\mbR^{-1} \mbS \bx \\
+&amp;=&amp; -\frac14 \nabla V' \mbB \mbR^{-1} \mbB' \nabla V - \nabla V'\mbB\mbR^{-1} \mbS \bx -  \bx'\mbS' \mbR^{-1} \mbS \bx 
+\end{eqnarray*}
+\]</div>
+<p>Substituting into the HJB equation yields </p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; V_t + \frac12\tr(\bSigma\bSigma'\nabla^2 V) + \max_{\bu}\left\{(\mbA \bx + \mbB \bu)' \nabla V + \bx'\mbQ\bx + \bu'\mbR\bu + 2 \bu' \mbS \bx\right\} \\
+&amp;=&amp; V_t + \frac12\tr(\bSigma\bSigma'\nabla^2 V) + \bx'\mbA' \nabla V + \bx'\mbQ\bx - \frac14 \nabla V' \mbB \mbR^{-1} \mbB' \nabla V - \nabla V'\mbB\mbR^{-1} \mbS \bx -  \bx'\mbS' \mbR^{-1} \mbS \bx
+\end{eqnarray*}
+\]</div>
+<h2 id="ansatz_1">Ansatz<a class="headerlink" href="#ansatz_1" title="Permanent link">&para;</a></h2>
+<p>Assume the ansatz for value function <span class="arithmatex">\(V(t, \bx) = \bx' H_1 \bx + H_0\)</span>. We have</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; V_t = \bx' \dot H_1 \bx + \dot H_0, \\
+&amp;&amp; \nabla V = 2 H_1 \bx, \\
+&amp;&amp; \nabla^2 V = 2 H_1.
+\end{eqnarray*}
+\]</div>
+<p>Plugging into the HJB equation implies</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; V_t + \frac12\tr(\bSigma\bSigma'\nabla^2 V) + \bx'\mbA' \nabla V + \bx'\mbQ\bx - \frac14 \nabla V' \mbB \mbR^{-1} \mbB' \nabla V - \nabla V'\mbB\mbR^{-1} \mbS \bx - \bx'\mbS' \mbR^{-1} \mbS \bx \\
+&amp;=&amp; \bx' \dot H_1 \bx + \dot H_0 + \tr(\bSigma\bSigma'H_1) + 2 \bx' \mbA' H_1 \bx + \bx' \mbQ\bx - \bx' H_1\mbB\mbR^{-1}\mbB'H_1 \bx - 2\bx' H_1 \mbB \mbR^{-1}\mbS \bx - \bx'\mbS' \mbR^{-1}\mbS \bx \\
+&amp;=&amp; \bx'\dot H_1 \bx + \dot H_0 + \tr(\bSigma\bSigma'H_1) + \bx' \mbA' H_1 \bx + \bx' H_1 \mbA \bx + \bx' \mbQ\bx - \bx' H_1\mbB\mbR^{-1}\mbB'H_1 \bx \\
+&amp;&amp; - \bx' H_1 \mbB \mbR^{-1}\mbS \bx - \bx' \mbS' \mbR^{-1} \mbB' H_1\bx - \bx'\mbS' \mbR^{-1}\mbS \bx. 
+\end{eqnarray*}
+\]</div>
+<p>The optimal (feedback) control <span class="arithmatex">\(\bu^*\)</span> becomes</p>
+<div class="arithmatex">\[
+\bu^* = - \frac12 \mbR^{-1} \mbB'\nabla V = - \mbR^{-1} (\mbB' H_1 + \mbS)\bx
+\]</div>
+<h2 id="matrix-riccati-equation">Matrix Riccati equation<a class="headerlink" href="#matrix-riccati-equation" title="Permanent link">&para;</a></h2>
+<p>Compare the coefficients and obtain the matrix Riccati equation</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; \dot H_1 - H_1\mbB\mbR^{-1}\mbB'H_1 + (\mbA - \mbB\mbR^{-1}\mbS)' H_1 + H_1 (\mbA - \mbB\mbR^{-1}\mbS) + \mbQ - \mbS'\mbR^{-1}\mbS = 0 \\
+&amp;&amp; \dot H_0 + \tr(\bSigma\bSigma'H_1) = 0
+\end{eqnarray*}
+\]</div>
+<p>with terminal condition <span class="arithmatex">\(H_1(T) = \mbP\)</span> and <span class="arithmatex">\(H_0(T) = 0\)</span>.</p>
+<h2 id="solution-to-the-riccati-equation">Solution to the Riccati equation<a class="headerlink" href="#solution-to-the-riccati-equation" title="Permanent link">&para;</a></h2>
+<p>The solution to the matrix Riccati equation for <span class="arithmatex">\(H_1\)</span> can be obtained by </p>
+<div class="arithmatex">\[
+H_1 = M N^{-1}, 
+\]</div>
+<p>where <span class="arithmatex">\(M\)</span>, <span class="arithmatex">\(N\)</span> satisfy the linear ODEs</p>
+<div class="arithmatex">\[
+\frac{d}{dt} \left[\begin{array}{c} M \\ N \end{array}\right] =
+\left[\begin{array}{cc} -(\mbA - \mbB\mbR^{-1}\mbS) &amp; -\mbQ + \mbS'\mbR^{-1}\mbS \\ 
+-\mbB \mbR^{-1} \mbB' &amp; \mbA - \mbB\mbR^{-1}\mbS
+\end{array}\right] \,
+\left[\begin{array}{c} M \\ N \end{array}\right]
+\]</div>
+<p>with terminal conditions <span class="arithmatex">\(M_T = H_1(T)\)</span> and <span class="arithmatex">\(N_T = I\)</span>.</p>
+<p>The solution to the linear system can be written as </p>
+<div class="arithmatex">\[
+\left[\begin{array}{c} M \\ N\end{array}\right] =e^{-(T-t)\Psi} \,
+\left[\begin{array}{c} \mbP \\ I \end{array}\right]
+\]</div>
+<p>where </p>
+<div class="arithmatex">\[
+\Psi = \left[\begin{array}{cc} -(\mbA - \mbB\mbR^{-1}\mbS) &amp; -\mbQ + \mbS'\mbR^{-1}\mbS \\ 
+-\mbB \mbR^{-1} \mbB' &amp; \mbA - \mbB\mbR^{-1}\mbS
+\end{array}\right]
+\]</div>
+<h2 id="appendix-optional">Appendix (Optional)<a class="headerlink" href="#appendix-optional" title="Permanent link">&para;</a></h2>
+<h2 id="pontryagin-maximum-principle">Pontryagin maximum principle<a class="headerlink" href="#pontryagin-maximum-principle" title="Permanent link">&para;</a></h2>
+<p>Consider the deterministic control problem</p>
+<div class="arithmatex">\[
+\min_{u_t \in \cA} g(x_T) + \int_0^T h(s, x_s, u_s) ds
+\]</div>
+<p>where <span class="arithmatex">\(x_t\)</span> is driven by </p>
+<div class="arithmatex">\[
+\dot x_t = b(t, x_t, u_t), \qquad x_0 = x_0.
+\]</div>
+<h2 id="lagrange-multiplier-process">Lagrange multiplier process<a class="headerlink" href="#lagrange-multiplier-process" title="Permanent link">&para;</a></h2>
+<p>Introducing the Lagrange multiplier <span class="arithmatex">\(p_t\)</span>, the control problem is then recast as </p>
+<div class="arithmatex">\[
+\min_{x, u, p} \left\{g(x_T) + \int_0^T h(t, x_t, u_t) dt + \int_0^T p_t\left[\dot x_t - b(t, x_t, u_t)\right] dt \right\}
+\]</div>
+<h2 id="first-order-criterion_3">First order criterion<a class="headerlink" href="#first-order-criterion_3" title="Permanent link">&para;</a></h2>
+<p>The first order criterion with respect to <span class="arithmatex">\(x\)</span> implies that </p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; \left.\frac{d}{d\epsilon}\right|_{\epsilon=0} \left\{g(x_T + \epsilon \varphi_T) + \int_0^T h(t, x_t + \epsilon\varphi_t, u_t) dt + \int_0^T p_t\left[\dot x_t + \epsilon \dot \varphi_t - b(t, x_t+\epsilon\varphi_t, u_t)\right] dt \right\} \\
+&amp;=&amp; g'(x_T)\varphi_T + \int_0^T h_x \varphi_t dt + \int_0^T p_t\left[\dot \varphi_t - b_x\varphi_t\right] dt \\
+&amp;=&amp; g'(x_T)\varphi_T + \int_0^T (-\dot p_t + h_x - p_tb_x) \varphi_t dt + \left. p_t\varphi_t \right|_0^T \\
+&amp;=&amp; \left\{g'(x_T) + p_T\right\}\varphi_T + \int_0^T (-\dot p_t + h_x - p_tb_x) \varphi_t dt 
+\end{eqnarray*}
+\]</div>
+<p>since <span class="arithmatex">\(\varphi_0 = 0\)</span>. Since perturbation <span class="arithmatex">\(\varphi\)</span> is arbitrary, we conclude that <span class="arithmatex">\(p_t\)</span> satisfies the ODE </p>
+<div class="arithmatex">\[
+\dot p_t = h_x(t, x_t, u_t) - p_t b_x(t, x_t, u_t)
+\]</div>
+<p>with terminal condition <span class="arithmatex">\(p_T = -g'(x_T)\)</span>. </p>
+<h4 id="note_8">Note<a class="headerlink" href="#note_8" title="Permanent link">&para;</a></h4>
+<ul>
+<li>The last ODE for the "Lagrange multiplier" <span class="arithmatex">\(p_t\)</span> is also referred to as the <font color=blue><em>adjoint equation</em></font>. </li>
+<li>Optimal control <span class="arithmatex">\(u^*_t\)</span> is given in feedback form by <span class="arithmatex">\(u^* = \argmin_u \left\{h(t, x, u) - p b(t, x, u)\right\}\)</span>. </li>
+<li>First order criterior with respect to <span class="arithmatex">\(p\)</span> yields the "constraint" <span class="arithmatex">\(\dot x_t = b(t, x_t, u_t)\)</span>.</li>
+</ul>
+<h2 id="pontryagins-maximum-principle-putting-things-together">Pontryagin's maximum principle - putting things together<a class="headerlink" href="#pontryagins-maximum-principle-putting-things-together" title="Permanent link">&para;</a></h2>
+<p>The following system of equations is the renowned Pontryagin's maximum principle</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; \dot x_t = b(t, x_t, u_t^*) \\
+&amp;&amp; \dot p_t= h_x(t, x_t, u_t^*) - p_t b_x(t, x_t, u_t^*), \\
+&amp;&amp; u_t^* = \argmin_u \left\{h(t, x_t, u) - p_t b(t, x_t, u)\right\}
+\end{eqnarray*}
+\]</div>
+<p>with initial condition <span class="arithmatex">\(x_0 = x_0\)</span> and terminal condition <span class="arithmatex">\(p_T = -g'(x_T)\)</span>.</p>
+<p>The above system of equations are usually written in terms of a Hamiltonian. Specifically, define the Hamiltonian <span class="arithmatex">\(H\)</span> as </p>
+<div class="arithmatex">\[
+H(t, x, u, p) = h(t, x, u) - b(t, x, u)p.
+\]</div>
+<p>Then the system of ODEs is given by </p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; \dot x_t = - H_p(t, x_t, u^*_t, p_t), \\
+&amp;&amp; \dot p_t = H_x(t, x_t, u^*_t, p_t), \\
+&amp;&amp; u_t^* = \argmin_u H(t, x, u, p)
+\end{eqnarray*}
+\]</div>
+<h4 id="note_9">Note<a class="headerlink" href="#note_9" title="Permanent link">&para;</a></h4>
+<p>The stochastic version of the Pontryagin's maximum principle is theoretically more involved. </p>
+<h2 id="stochastic-maximum-principle">Stochastic maximum principle<a class="headerlink" href="#stochastic-maximum-principle" title="Permanent link">&para;</a></h2>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; dx_t = b(t, x_t, u_t) dt + \sigma(t, x_t, u_t) dW_t\\
+&amp;&amp; dp_t = \left\{h_x(t, x_t, u_t) - p_t b_x(t, x_t, u_t) - q_t \sigma_x(t, x_t, u_t) \right\} dt + q_t dW_t \\
+&amp;&amp; u_t = \argmax_u \{h(t, x_t, u_t) - p_t b(t, x_t, u) - q_t \sigma(t, x_t, u)\}
+\end{eqnarray*}
+\]</div>
+<p>with initial condition <span class="arithmatex">\(x_0 = x_0\)</span> and terminal condition <span class="arithmatex">\(p_T = -g'(x_T)\)</span></p>
+<h4 id="note_10">Note<a class="headerlink" href="#note_10" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Stochastic maximum principle consists of a system of forward and backward SDEs.</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月20日 12:58:20">2025年3月20日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月20日 12:58:20">2025年3月20日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 - 2025 <a href="https://github.com/Shocked-Pikachu" target="_blank" rel="noopener"> Haoyu Mo</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/Shocked-Pikachu" target="_blank" rel="noopener" title="My Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<mohy@stu.pku.edu.cn>" target="_blank" rel="noopener" title="Send Me An Email" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

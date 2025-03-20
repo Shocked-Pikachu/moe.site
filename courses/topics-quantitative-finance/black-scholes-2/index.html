@@ -1,0 +1,5314 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://shocked-pikachu.github.io/moe.site/courses/topics-quantitative-finance/black-scholes-2/">
+      
+      
+        <link rel="prev" href="../black-scholes-1/">
+      
+      
+        <link rel="next" href="../volatility/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>Lecture 4 The Black-Merton-Scholes Model and Beyond II - Moe's Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lecture-4-the-black-merton-scholes-model-and-beyond-ii" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Moe&#39;s Site" class="md-header__button md-logo" aria-label="Moe's Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moe's Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lecture 4 The Black-Merton-Scholes Model and Beyond II
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Shocked-Pikachu/moe.site" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Shocked-Pikachu/moe.site
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  课程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Moe&#39;s Site" class="md-nav__button md-logo" aria-label="Moe's Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    Moe's Site
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Shocked-Pikachu/moe.site" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Shocked-Pikachu/moe.site
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    课程
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../electrodynamics/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    电动力学
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            电动力学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../musical-modernism/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    现代主义音乐：挑战与挑衅
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            现代主义音乐：挑战与挑衅
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modern-physics-lab/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    近代物理实验
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            近代物理实验
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../principles-of-economics/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    经济学原理（I）
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            经济学原理（I）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/principles-economics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    经济学基本原理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/gains-from-trade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    双赢的贸易
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/market-forces-supply-demand/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    供需的市场力量
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/elasticity-application/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    弹性及其应用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/markets-government-policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    市场与政策
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/market-efficiency/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    市场效率
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/externality-public-goods/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    外部性及公共品
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/consumer-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    消费者理论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/producer-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    厂商理论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/firms-competitive-markets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    竞争市场中的企业
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/monopoly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垄断
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/monopolistic-competition-markets-factors-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垄断竞争及生产要素市场
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/oligopoly-game-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    寡头与博弈论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../principles-of-economics/miscellany-frontiers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    杂及前沿
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../introduction-to-finance/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    金融学概论
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            金融学概论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/time-value-money/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Allocating Resources Over Time
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/asset-classes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Asset Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/trading-margin-short-sale/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trading, Margin and Short Sale
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/stock-market-indexes-funds/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stock Market Indexes & Funds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/historical-returns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Historical Returns on Risky Portfolios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/introduction-portfolio-choice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Portfolio Choice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/constructing-portfolios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Constructing Portfolios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/optimal-risky-portfolios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimal Risky Portfolios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/markowitz-portfolio-selection-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markowitz Portfolio Selection Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/index-models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/capital-asset-pricing-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Capital Asset Pricing Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/arbitrage-pricing-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arbitrage Pricing Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/bond-prices-yields/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bond Prices and Yields
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/term-structure-interest-rates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Term Structure of Interest Rates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/equity-valuation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Equity Valuation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/option-strategies-put-call-parity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Option Strategies and Put-Call Parity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/option-pricing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Option Pricing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/futures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Futures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/structured-finance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structured Finance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-finance/financial-fragility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Financial Fragility
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../financial-accounting/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    财务会计
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            财务会计
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 10
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 11
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 12
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 13
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-accounting/lecture-14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 14
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    量化金融专题
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            量化金融专题
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../financial-engineering-nutshell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 1 Financial Engineering in a Nutshell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stochastic-calculus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 2 Crash Course on Stochastic Calculus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../black-scholes-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 3 The Black-Merton-Scholes Model and Beyond I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lecture 4 The Black-Merton-Scholes Model and Beyond II
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 4 The Black-Merton-Scholes Model and Beyond II
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#agenda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agenda
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-black-scholes-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Black-Scholes world
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#black-scholes-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Black-Scholes model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Black-Scholes model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#black-scholes-pde" class="md-nav__link">
+    <span class="md-ellipsis">
+      Black-Scholes PDE
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Black-Scholes PDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-black-scholes-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Black-Scholes formula
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Black-Scholes formula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implied-volatility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implied volatility
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volatility-smile-of-spx-on-sep-15-2011" class="md-nav__link">
+    <span class="md-ellipsis">
+      Volatility smile of SPX on Sep-15, 2011
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gaussian-process-revisited" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gaussian process revisited
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gaussian process revisited">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regression-in-multivariate-normal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regression in multivariate normal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gaussian-process-regression-gpr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gaussian process regression (GPR)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gaussian process regression (GPR)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implied-volatility-surface-from-gpr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implied volatility surface from GPR
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implied volatility surface from GPR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolutions-to-smile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resolutions to smile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-volatility-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local volatility model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-bachelier-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example - Bachelier model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#louis-bachelier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Louis Bachelier
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-cev-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example - CEV model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example - CEV model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stochastic-volatility-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stochastic volatility model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stochastic volatility model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numerical-and-approximate-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Numerical and approximate solutions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-the-heston-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example - the Heston model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example - the Heston model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heston-model-in-log-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heston model in log return
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joint-characteristic-function-for-log-return-and-integrated-variance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Joint characteristic function for log return and integrated variance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feynman-kac-formula-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feynman-Kac formula again
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solving-the-terminal-value-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solving the terminal value problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution-to-system-of-odes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution to system of ODEs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution to system of ODEs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../volatility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 5 Volatility and Volatility-Linked Derivatives
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variational-control-problems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 6 Brief Introduction to Variational and Control Problems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimal-execution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 7 Optimal Execution under Price Impact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../general-relativity/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    广义相对论
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            广义相对论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai-basis/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    人工智能基础
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../industrial-organization-theory/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    产业组织理论
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            产业组织理论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/introduction-comp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    产业组织简介，完全竞争
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/monopoly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垄断
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/oligopoly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    寡头
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/monocom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垄断竞争
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/price-discrimination/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    非线性定价与区别定价
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/tie-in-sale/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    捆绑销售
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/strategic-behavior/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    策略行为
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/durables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    耐用品
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/information/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    广告与信息
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/research-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    研究与开发
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/horizontal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    水平合并
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/vertical/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垂直合并
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industrial-organization-theory/international-trade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    国际贸易
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../baroque-classical-style-music/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    17 与 18 世纪的欧洲艺术音乐：巴洛克与古典风格
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_12" id="__nav_2_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_12">
+            <span class="md-nav__icon md-icon"></span>
+            17 与 18 世纪的欧洲艺术音乐：巴洛克与古典风格
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/end-renaissance-concept-baroque/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    “巴洛克”？从⽂艺复兴末期出发
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/monteverdi-madrigals-operas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    歌剧的诞⽣：“从蒙特威尔第的牧歌到蒙特威尔第的歌剧”
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/spectacle-power-pleasure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    法国抒情悲剧中的权⼒与愉悦：从吕利到拉莫
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/baroque-keyboard-tradition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    法国、意⼤利与北德的键盘音乐：L. 库普兰、弗雷斯科巴尔蒂、扬·皮泰尔索恩·斯韦林克、F. 库普兰、布克斯特胡德
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/italian-concerto-style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    意⼤利协奏曲风格与调性的兴起：科雷利与维瓦尔第
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/handel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    亨德尔的意⼤利歌剧、英国神剧与器乐作品
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/introduction-bach/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    巴赫的键盘音乐：键盘十二平均律、哥德堡变奏曲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/bach-dance-suite-concertos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    巴赫的协奏曲与组曲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/bach-cantatas-passions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    巴赫的声乐作品：康塔塔与受难曲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/early-classical-styles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    喜歌剧的兴起：佩格莱西与歌剧中的⼆维性格
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/emergence-comic-operas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    奏鸣曲式：鍵盤奏鸣曲、早期交响乐与协奏曲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/enlightenment-mozart-operas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    莫扎特的喜歌剧：启蒙主义精神的体现
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baroque-classical-style-music/haydn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    有幽默感的海顿：弦乐四重奏与交响乐
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../financial-statement-analysis/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    财务报表分析
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_13" id="__nav_2_13_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_13">
+            <span class="md-nav__icon md-icon"></span>
+            财务报表分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 10
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 11
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financial-statement-analysis/lecture-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 12
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#agenda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agenda
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-black-scholes-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Black-Scholes world
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#black-scholes-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Black-Scholes model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Black-Scholes model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#black-scholes-pde" class="md-nav__link">
+    <span class="md-ellipsis">
+      Black-Scholes PDE
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Black-Scholes PDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-black-scholes-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Black-Scholes formula
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Black-Scholes formula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implied-volatility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implied volatility
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volatility-smile-of-spx-on-sep-15-2011" class="md-nav__link">
+    <span class="md-ellipsis">
+      Volatility smile of SPX on Sep-15, 2011
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gaussian-process-revisited" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gaussian process revisited
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gaussian process revisited">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regression-in-multivariate-normal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regression in multivariate normal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gaussian-process-regression-gpr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gaussian process regression (GPR)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gaussian process regression (GPR)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implied-volatility-surface-from-gpr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implied volatility surface from GPR
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implied volatility surface from GPR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolutions-to-smile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resolutions to smile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-volatility-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local volatility model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-bachelier-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example - Bachelier model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#louis-bachelier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Louis Bachelier
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-cev-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example - CEV model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example - CEV model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stochastic-volatility-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stochastic volatility model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stochastic volatility model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numerical-and-approximate-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Numerical and approximate solutions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-the-heston-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example - the Heston model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example - the Heston model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heston-model-in-log-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heston model in log return
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joint-characteristic-function-for-log-return-and-integrated-variance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Joint characteristic function for log return and integrated variance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feynman-kac-formula-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feynman-Kac formula again
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solving-the-terminal-value-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solving the terminal value problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution-to-system-of-odes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution to system of ODEs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution to system of ODEs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="lecture-4-the-black-merton-scholes-model-and-beyond-ii">Lecture 4: The Black-Merton-Scholes Model and Beyond II<a class="headerlink" href="#lecture-4-the-black-merton-scholes-model-and-beyond-ii" title="Permanent link">&para;</a></h1>
+<div class="arithmatex">\[
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\F}{\mathcal{F} }
+\newcommand{\cF}{\mathcal{F} }
+\newcommand{\E}{\mathbb{E} }
+\newcommand{\Eof}[1]{\mathbb{E}\left[ #1 \right]}
+\newcommand{\Etof}[1]{\mathbb{E}_t\left[ #1 \right]}
+\newcommand{\Sdof}[1]{\mathbb{Sd}\left[ #1 \right]}
+\def\Cov{{ \mbox{Cov} }}
+\def\Var{{ \mbox{Var} }}
+\newcommand{\1}{\mathbf{1} }
+\newcommand{\p}{\partial}
+\newcommand{\PP}{\mathbb{P} }
+\newcommand{\Pof}[1]{\mathbb{P}\left[ #1 \right]}
+\newcommand{\QQ}{\mathbb{Q} }
+\newcommand{\R}{\mathbb{R} }
+\newcommand{\DD}{\mathbb{D} }
+\newcommand{\HH}{\mathbb{H} }
+\newcommand{\spn}{\mathrm{span} }
+\newcommand{\cov}{\mathrm{cov} }
+\newcommand{\HS}{\mathcal{L}_{\mathrm{HS}} }
+\newcommand{\Hess}{\mathrm{Hess} }
+\newcommand{\trace}{\mathrm{trace} }
+\newcommand{\LL}{\mathcal{L} }
+\newcommand{\s}{\mathcal{S} }
+\newcommand{\ee}{\mathcal{E} }
+\newcommand{\ff}{\mathcal{F} }
+\newcommand{\hh}{\mathcal{H} }
+\newcommand{\bb}{\mathcal{B} }
+\newcommand{\dd}{\mathcal{D} }
+\newcommand{\g}{\mathcal{G} }
+\newcommand{\half}{\frac{1}{2} }
+\newcommand{\T}{\mathcal{T} }
+\newcommand{\bit}{\begin{itemize}}
+\newcommand{\eit}{\end{itemize}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\tr}{\mbox{tr}}
+\newcommand{\inn}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\bX}{\boldsymbol X}
+\newcommand{\bY}{\boldsymbol Y}
+\newcommand{\bSigma}{\boldsymbol \Sigma}
+\newcommand{\bm}{\boldsymbol m}
+\newcommand{\bx}{\boldsymbol x}
+\newcommand{\by}{\boldsymbol y}
+\newcommand{\bepsilon}{\boldsymbol\epsilon}
+\newcommand{\bmu}{\boldsymbol\mu}
+\newcommand{\bxi}{\boldsymbol\xi}
+\]</div>
+<p><center>
+<font size=5, color=blue> Tai-Ho Wang (王 太和)</font>
+</center>
+<center>
+<img src="../../../assets/img//topics-quantitative-finance/baruch-logo.jpg" align = "center" width=450>
+</center></p>
+<h2 id="agenda">Agenda<a class="headerlink" href="#agenda" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Black-Merton-Scholes model revisited</li>
+<li>Implied volatility<ul>
+<li>Gaussian process regression (GPR) fit for implied volatility curve</li>
+</ul>
+</li>
+<li>Local volatility model</li>
+<li>Stochastic volatility model<ul>
+<li>Heston models</li>
+</ul>
+</li>
+</ul>
+<h2 id="the-black-scholes-world">The Black-Scholes world<a class="headerlink" href="#the-black-scholes-world" title="Permanent link">&para;</a></h2>
+<p>The Black–Scholes model assumes that the market consists of at least one risky asset, usually called the stock, and one riskless asset, usually called the money market, cash, or bond.</p>
+<p>Assumptions on the assets:</p>
+<ul>
+<li>(riskless rate) The rate of return on the riskless asset is constant and thus called the risk-free interest rate.</li>
+<li>(Brownian motion) The instantaneous log return of stock price is a Brownian motion with drift; and we will assume its drift and volatility are constant (if they are time-varying, we can deduce a suitably modified Black–Scholes formula quite simply, as long as the volatility is not random). As a result, the stock price follows a geometric Brownian motion. </li>
+<li>The stock does not pay dividend.</li>
+</ul>
+<p>Assumptions on the market:</p>
+<ul>
+<li>There exists no arbitrage opportunity.</li>
+<li>It is possible to borrow and lend any amount, even fractional, of cash at the riskless rate.</li>
+<li>It is possible to buy and sell any amount, even fractional, of the stock, including short selling.</li>
+<li>Frictionless market: the transactions do not incur any fees or costs.</li>
+</ul>
+<h2 id="black-scholes-model">Black-Scholes model<a class="headerlink" href="#black-scholes-model" title="Permanent link">&para;</a></h2>
+<p>Assume the price of the underlying asset follows the stochastic differential equation</p>
+<div class="arithmatex">\[
+\frac{dS_t}{S_t} = \mu dt + \sigma dW_t,
+\]</div>
+<p>where</p>
+<ul>
+<li><span class="arithmatex">\(\mu\)</span>: (constant) expected return </li>
+<li><span class="arithmatex">\(\sigma\)</span>: (constant) volatility </li>
+<li><span class="arithmatex">\(W_t\)</span>: standard Brownian motion</li>
+</ul>
+<p>For each time <span class="arithmatex">\(t\)</span>, <span class="arithmatex">\(S_t\)</span> is lognormally distributed. More precisely,</p>
+<div class="arithmatex">\[
+S_t \sim S_0 \exp\left[\left(\mu - \frac{\sigma^2}{2}\right)t + \sigma \sqrt t Z \right]
+\]</div>
+<p>where <span class="arithmatex">\(Z\)</span> is a standard normal random variable.</p>
+<h4 id="note">Note<a class="headerlink" href="#note" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(S_t\)</span> has the closed form expression</p>
+<div class="arithmatex">\[
+S_t = S_0 e^{\left(\mu - \frac{\sigma^2}2 \right) t+ \sigma W_t}
+\]</div>
+<p>and is also referred to as a <em>geometric Brownian motion</em>.</p>
+<h2 id="black-scholes-pde">Black-Scholes PDE<a class="headerlink" href="#black-scholes-pde" title="Permanent link">&para;</a></h2>
+<p>We conclude that the price <span class="arithmatex">\(C\)</span> of a call option satisfies</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+   \frac{\p C}{\p t} + \frac{\sigma^2}{2}S^2\frac{\p^2 C}{\p S^2} + rS\frac{\p C}{\p S} - rC = 0,
+   \mbox{ for } 0 &lt; S &lt; \infty, \quad 0 \leq t &lt; T
+\end{eqnarray*}
+\]</div>
+<p>with terminal condition</p>
+<div class="arithmatex">\[
+C(T,S) = (S - K)^+
+\]</div>
+<p>and boundary conditions</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+   &amp;&amp; C(t,0) = 0  \\
+   &amp;&amp; C(t,S) \sim S - K e^{-r(T - t)} \mbox{ as } S \to\infty \\
+   &amp;&amp; \mbox{ or more specificly} \lim_{S\to\infty} \frac{C(t, S)}S = 1 
+\end{eqnarray*}
+\]</div>
+<h4 id="note_1">Note<a class="headerlink" href="#note_1" title="Permanent link">&para;</a></h4>
+<p>The Black-Scholes pricing PDE does not depend on the drift <span class="arithmatex">\(\mu\)</span>.</p>
+<h2 id="the-black-scholes-formula">The Black-Scholes formula<a class="headerlink" href="#the-black-scholes-formula" title="Permanent link">&para;</a></h2>
+<p>For call</p>
+<div class="arithmatex">\[
+C = S e^{-d\tau} N(d_1) - K e^{-r\tau} N(d_2)
+\]</div>
+<p>where <span class="arithmatex">\(\tau\)</span> is time to expiry, <span class="arithmatex">\(N(\cdot)\)</span> denotes the cdf for standard normal, and </p>
+<div class="arithmatex">\[
+d_1 = \frac{\log\left(\frac{Se^{-d\tau}}{Ke^{-r\tau}}\right)}{\sigma\sqrt\tau}+ \frac{\sigma\sqrt\tau}2, \qquad d_2 = d_1 - \sigma \sqrt\tau
+\]</div>
+<p>For put</p>
+<div class="arithmatex">\[
+P = K e^{-r\tau} N(-d_2) - S e^{-d\tau} N(-d_1).
+\]</div>
+<h3 id="note_2">Note<a class="headerlink" href="#note_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Put-call parity</p>
+<div class="arithmatex">\[
+C - P = S e^{-d\tau} - K e^{-r\tau}.
+\]</div>
+</li>
+<li>
+<p>Financial meaning of <span class="arithmatex">\(N(d_1)\)</span> and <span class="arithmatex">\(N(d_2)\)</span></p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">sqrt</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Black-Scholes formulas</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># call</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">bs_call</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">d1</span> <span class="o">=</span> <span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">s</span><span class="o">/</span><span class="n">K</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">sigma</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">d2</span> <span class="o">=</span> <span class="n">d1</span> <span class="o">-</span> <span class="n">sigma</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">c</span> <span class="o">=</span> <span class="n">s</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">d</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span> <span class="o">-</span> <span class="n">K</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">d2</span><span class="p">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">delta</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">d</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">gamma</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">d</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span><span class="o">/</span><span class="n">s</span><span class="o">/</span><span class="n">sigma</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="n">c</span><span class="p">,</span> <span class="s1">&#39;delta&#39;</span><span class="p">:</span> <span class="n">delta</span><span class="p">,</span> <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="n">gamma</span><span class="p">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># put</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="k">def</span><span class="w"> </span><span class="nf">bs_put</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="n">d1</span> <span class="o">=</span> <span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">s</span><span class="o">/</span><span class="n">K</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">sigma</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="n">d2</span> <span class="o">=</span> <span class="n">d1</span> <span class="o">-</span> <span class="n">sigma</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="n">p</span> <span class="o">=</span> <span class="n">K</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="n">d2</span><span class="p">)</span> <span class="o">-</span> <span class="n">s</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">d</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="n">d1</span><span class="p">)</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="n">delta</span> <span class="o">=</span> <span class="o">-</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">d</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="n">d1</span><span class="p">)</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="n">gamma</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">d</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span><span class="o">/</span><span class="n">s</span><span class="o">/</span><span class="n">sigma</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;p&#39;</span><span class="p">:</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;delta&#39;</span><span class="p">:</span> <span class="n">delta</span><span class="p">,</span> <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="n">gamma</span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">bs_call</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">bs_put</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="s1">&#39;p&#39;</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>({&#39;c&#39;: 11.489697553016399,
+  &#39;delta&#39;: 0.5465034987964444,
+  &#39;gamma&#39;: 0.013207627175872894},
+ 12.489697553016399)
+</code></pre></div>
+<h2 id="implied-volatility">Implied volatility<a class="headerlink" href="#implied-volatility" title="Permanent link">&para;</a></h2>
+<p>"A wrong number to a wrong formula for a correct answer."</p>
+<ul>
+<li>
+<p>In the Black-Scholes model there is a one-to-one correspondence between the price of the option and the volatility parameter <span class="arithmatex">\(\sigma\)</span> (Why? Because the first derivative of option price with respect <span class="arithmatex">\(\sigma\)</span>, or vega, is positive). The option prices are often quoted by stating this specific volatility, called the <em>implied volatility</em>.</p>
+</li>
+<li>
+<p>In Black-Scholes world, the volatility is assumed constant. But in reality, options of different strike require different volatilities to match their market prices. This is referred to as the <em>volatility smile</em>.</p>
+</li>
+</ul>
+<h2 id="volatility-smile-of-spx-on-sep-15-2011">Volatility smile of SPX on Sep-15, 2011<a class="headerlink" href="#volatility-smile-of-spx-on-sep-15-2011" title="Permanent link">&para;</a></h2>
+<p><img alt="impv" src="../../../assets/img//topics-quantitative-finance/lecture-4/impv.jpg" /></p>
+<h2 id="gaussian-process-revisited">Gaussian process revisited<a class="headerlink" href="#gaussian-process-revisited" title="Permanent link">&para;</a></h2>
+<p>A stochastic "process" <span class="arithmatex">\(f_\bx\)</span>, (multi-)indexed by <span class="arithmatex">\(\bx\in\R^d\)</span>, is called a <em>Gaussian process</em> if all its finite dimensional distributions are jointly Gaussian. Precisely, given any finite set of (multi-)indices <span class="arithmatex">\(\bx_1, \cdots, \bx_n\)</span>, the random variables <span class="arithmatex">\(f_{\bx_1}, \cdots, f_{\bx_n}\)</span> are jointly Gaussian. As a result, the distribution of a Gaussian process is fully characterized by the mean function <span class="arithmatex">\(m(\bx)\)</span> and the autocovariance function, a.k.a., the <em>kernel</em>, <span class="arithmatex">\(k(\bx, \by)\)</span>. For example, the <span class="arithmatex">\(n\)</span>-dimensional random vector <span class="arithmatex">\((f_{\bx_1}, \cdots, f_{\bx_n})\)</span> is multivariate normally distribtuted <span class="arithmatex">\(N(\bmu, \bSigma)\)</span> with</p>
+<div class="arithmatex">\[
+\bmu = \left[\begin{array}{c}
+m(\bx_1) \\
+\vdots \\
+m(\bx_n)
+\end{array}\right], \qquad 
+\bSigma = \left[\begin{array}{ccc}
+k(\bx_1, \bx_1) &amp; \cdots &amp; k(\bx_1, \bx_n) \\
+\vdots &amp; \ddots &amp; \vdots \\
+k(\bx_n, \bx_1) &amp; \cdots &amp; k(\bx_n, \bx_n)
+\end{array}\right].
+\]</div>
+<h4 id="note_3">Note<a class="headerlink" href="#note_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Commonly used kernels are the <em>radial basis functions (RBFs)</em>
+$$
+k(\bx,\by) = A e^{-\frac{|\bx - \by|^\alpha}{2\ell^2}},
+$$
+where <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(\alpha\)</span>, and <span class="arithmatex">\(\ell\)</span> are (hyper)parameters to be estimated.</li>
+<li>The smoothness of the kernel <span class="arithmatex">\(k\)</span> determines the smoothess of the process <span class="arithmatex">\(f_\bx\)</span>.</li>
+<li>Brownian motion is when <span class="arithmatex">\(d=1\)</span>, <span class="arithmatex">\(m(x) = 0\)</span>, and <span class="arithmatex">\(k(x,y) = \min\{x, y\}\)</span>.</li>
+</ul>
+<h2 id="regression-in-multivariate-normal">Regression in multivariate normal<a class="headerlink" href="#regression-in-multivariate-normal" title="Permanent link">&para;</a></h2>
+<p>Let <span class="arithmatex">\((\bX, \bY)\)</span> be multivariate normal random variables.</p>
+<p>Recall the following regression equations for the multivariate normal random variables <span class="arithmatex">\((\bX, \bY)\)</span>.</p>
+<div class="arithmatex">\[
+\bX|\bY = \Eof{\bX} + \Sigma_{\bX\bY}\Sigma_{\bY\bY}^{-1}(\bY - \Eof{\bY})+ \bepsilon,
+\]</div>
+<p>where <span class="arithmatex">\(\bY\)</span>, <span class="arithmatex">\(\bepsilon\)</span> are independent and </p>
+<div class="arithmatex">\[
+\Sigma_{\bepsilon} = \Sigma_{\bX} - \Sigma_{\bX\bY} \Sigma_{\bY\bY}^{-1} \Sigma_{\bY\bX}.
+\]</div>
+<p>Hence,</p>
+<div class="arithmatex">\[
+\Eof{\bX|\bY} = \Eof{\bX} + \Sigma_{\bX\bY} \Sigma_{\bY}^{-1}(\bY - \Eof{\bY}), \qquad
+\Sigma_{\bX|\bY} = \Sigma_{\bX} - \Sigma_{\bX\bY} \Sigma_{\bY\bY}^{-1} \Sigma_{\bY\bX}.
+\]</div>
+<h2 id="gaussian-process-regression-gpr">Gaussian process regression (GPR)<a class="headerlink" href="#gaussian-process-regression-gpr" title="Permanent link">&para;</a></h2>
+<p>The "regression" is performed in a Baysian style. The underlying regression model is </p>
+<div class="arithmatex">\[
+y = f_\bx + u,
+\]</div>
+<p>where <span class="arithmatex">\(f_\bx\)</span> is a Gaussian process and <span class="arithmatex">\(u\)</span> is normally distributed with mean zero and variance <span class="arithmatex">\(\sigma^2\)</span>, independent of <span class="arithmatex">\(f_\bx\)</span>.</p>
+<p>For a given prior mean function <span class="arithmatex">\(m^{pr}(\bx)\)</span>, a prior kerel <span class="arithmatex">\(k^{pr}(\bx,\by)\)</span>, and a given set of observations <span class="arithmatex">\(\{y_1, \cdots, y_n\}\)</span>, the posterior mean function <span class="arithmatex">\(m^{po}(\bx)\)</span> and the posterior kernel <span class="arithmatex">\(k^{po}(\bx, \by)\)</span> are inferred by applying the regression equation provided in the last cell. </p>
+<p>Let </p>
+<div class="arithmatex">\[
+\bY = [y_1 \cdots y_n]' \qquad \mbox{ and } \qquad \bX = [\bx_1 \cdots \bx_n],
+\]</div>
+<p>where <span class="arithmatex">\(y_i = f_{\bx_i} + u_i\)</span> for <span class="arithmatex">\(i = 1, 2, \cdots, n\)</span>. </p>
+<p>Note that </p>
+<div class="arithmatex">\[
+\Var(y_i, y_j) = k(\bx_i, \bx_j) + \sigma^2, \quad \cov(f_\bx, y_i) = k(\bx, \bx_i).
+\]</div>
+<p>By the regression formula, the posterior distribution of <span class="arithmatex">\(f_{\bx}\)</span> conditioned on <span class="arithmatex">\(\bY\)</span> is </p>
+<div class="arithmatex">\[
+f_\bx|\bY = \Eof{f_\bx} + \Sigma_{\bx\bY} \Sigma_{\bY\bY}^{-1}(\bY - \Eof{\bY}) + \varepsilon,
+\]</div>
+<p>where <span class="arithmatex">\(\Sigma_{\bx\bY}\)</span> is the row vector of covariances between <span class="arithmatex">\(f_\bx\)</span> and <span class="arithmatex">\(\bY\)</span>, and <span class="arithmatex">\(\Sigma_{\bY\bY}\)</span> the <span class="arithmatex">\(n\times n\)</span> covariance matrix of <span class="arithmatex">\(\bY\)</span>. Their entries are given respectively by</p>
+<div class="arithmatex">\[
+(\Sigma_{\bx\bY})_i = k^{pr}(\bx, \bx_i), \quad (\Sigma_{\bY\bY})_{ij} = k^{pr}(\bx_i, \bx_j) + \sigma^2\delta_{ij}. 
+\]</div>
+<p><span class="arithmatex">\(\varepsilon\)</span> is normally distributed with mean zero and variance given by </p>
+<div class="arithmatex">\[
+\Var(\varepsilon) = k(\bx, \bx) - \Sigma_{\bx\bY} \Sigma_{\bY\bY}^{-1} \Sigma_{\bY\bx}. 
+\]</div>
+<p>The posterior mean function <span class="arithmatex">\(m^{po}(\bx)\)</span> is thus obtained as </p>
+<div class="arithmatex">\[
+m^{po}(\bx) = m^{pr}(\bx) + \Sigma_{\bx\bY} \Sigma_{\bY\bY}^{-1}(\bY - m^{pr}(\bX))
+\]</div>
+<p>and the posterior kernel <span class="arithmatex">\(k^{po}\)</span></p>
+<div class="arithmatex">\[
+k^{po}(\bx, \tilde\bx) = k^{pr}(\bx, \tilde\bx) - \Sigma_{\bx\bY} \Sigma_{\bY\bY}^{-1} \Sigma_{\bY\tilde\bx}.
+\]</div>
+<h4 id="note_4">Note<a class="headerlink" href="#note_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>The posterior mean function can be used as a point estimator </li>
+<li>The posterior kernel for confidence interval</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># hyperparameters by guessing</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">sigma</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># target function</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">mu</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># observations</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># set seed for reproducing the result</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">2718</span><span class="p">)</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">x_is</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_is</span><span class="p">)</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="n">y_is</span> <span class="o">=</span> <span class="n">mu</span><span class="p">(</span><span class="n">x_is</span><span class="p">)</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">*</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="c1"># prior mean function</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="c1"># set as the sample mean of observations</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="n">y_mean</span> <span class="o">=</span> <span class="n">y_is</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="n">m</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">y_mean</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="c1"># prior kernel</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="n">k</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">A</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">l</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="c1"># calculate the covariance matrices</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="n">tmp</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x_is</span><span class="p">,</span> <span class="n">x_is</span><span class="p">)</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="n">Sigma_YY</span> <span class="o">=</span> <span class="n">k</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="n">Sigma_YY</span> <span class="o">=</span> <span class="n">Sigma_YY</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="c1"># determine Sigma_YY_inv(Y - EY) by solving the linear system Sigma_YY x = Y - EY</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="n">Sigma_YY_inv_Y_EY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Sigma_YY</span><span class="p">,</span> <span class="n">y_is</span> <span class="o">-</span> <span class="n">m</span><span class="p">(</span><span class="n">x_is</span><span class="p">))</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="c1"># posterior mean function</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="n">mpo</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">m</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="n">k</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x_is</span><span class="p">)</span><span class="o">*</span><span class="n">Sigma_YY_inv_Y_EY</span><span class="p">)</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="c1"># vectorize</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="n">mpo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">mpo</span><span class="p">)</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="c1"># fitted values</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="n">yhat</span> <span class="o">=</span> <span class="n">mpo</span><span class="p">(</span><span class="n">x_is</span><span class="p">)</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="c1"># absolute errors</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="n">abs_errs</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y_is</span> <span class="o">-</span> <span class="n">yhat</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">abs_errs</span><span class="p">))</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y_is</span><span class="p">,</span> <span class="s1">&#39;yhat&#39;</span><span class="p">:</span> <span class="n">yhat</span><span class="p">,</span> <span class="s1">&#39;abs_errs&#39;</span><span class="p">:</span> <span class="n">abs_errs</span><span class="p">})</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>1.1358253459151362
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>y</th>
+      <th>yhat</th>
+      <th>abs_errs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3.516755</td>
+      <td>2.380930</td>
+      <td>1.135825</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2.332123</td>
+      <td>2.222288</td>
+      <td>0.109835</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.019894</td>
+      <td>1.974779</td>
+      <td>0.954885</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.895070</td>
+      <td>1.707121</td>
+      <td>0.187948</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.725995</td>
+      <td>1.448850</td>
+      <td>0.277145</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1.480932</td>
+      <td>1.189129</td>
+      <td>0.291803</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.870354</td>
+      <td>0.908513</td>
+      <td>0.038160</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.704656</td>
+      <td>0.610133</td>
+      <td>0.094523</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>-0.257049</td>
+      <td>0.324002</td>
+      <td>0.581051</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.279927</td>
+      <td>0.087312</td>
+      <td>0.192615</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.247570</td>
+      <td>-0.077739</td>
+      <td>0.325309</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>-0.758467</td>
+      <td>-0.172100</td>
+      <td>0.586367</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>-0.108623</td>
+      <td>-0.212834</td>
+      <td>0.104212</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>-0.305841</td>
+      <td>-0.218536</td>
+      <td>0.087306</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>-0.150473</td>
+      <td>-0.195562</td>
+      <td>0.045090</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>-0.030276</td>
+      <td>-0.132750</td>
+      <td>0.102473</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>-0.229478</td>
+      <td>-0.010076</td>
+      <td>0.219402</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>-0.173393</td>
+      <td>0.181518</td>
+      <td>0.354910</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>0.514295</td>
+      <td>0.422797</td>
+      <td>0.091498</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>0.818159</td>
+      <td>0.666638</td>
+      <td>0.151521</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>1.001742</td>
+      <td>0.858620</td>
+      <td>0.143122</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># plot</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_is</span><span class="p">,</span> <span class="n">y_is</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;observed&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_is</span><span class="p">,</span> <span class="n">mu</span><span class="p">(</span><span class="n">x_is</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_is</span><span class="p">,</span> <span class="n">yhat</span><span class="p">,</span> <span class="s1">&#39;o--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GPR fit&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</code></pre></div>
+<p><img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_16_0.png" />
+​    </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># posterior kernel</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">kpo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xp</span><span class="p">):</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">Sigma_YY_inv_Yxp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Sigma_YY</span><span class="p">,</span> <span class="n">k</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">x_is</span><span class="p">))</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">Sigma_xY</span> <span class="o">=</span> <span class="n">k</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x_is</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="k">return</span> <span class="n">k</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xp</span><span class="p">)</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">Sigma_xY</span><span class="o">*</span><span class="n">Sigma_YY_inv_Yxp</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># wrap everthing up as functions</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># The posterior mean function from GPR</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># inputs: </span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># m: prior mean function </span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1"># k: prior kernel</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># y: observations</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1"># x: indices</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c1"># </span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1"># output: the posterior mean function</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">pos_mean</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.001</span><span class="p">):</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    <span class="c1"># calculate the covariance matrices</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    <span class="n">tmp</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x_is</span><span class="p">,</span> <span class="n">x_is</span><span class="p">)</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    <span class="n">Sigma_YY</span> <span class="o">=</span> <span class="n">k</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>    <span class="n">Sigma_YY</span> <span class="o">=</span> <span class="n">Sigma_YY</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>    <span class="c1"># determine Sigma_YY_inv(Y - EY) by solving the linear system Sigma_YY x = Y - EY</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>    <span class="n">Sigma_YY_inv_Y_EY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Sigma_YY</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="n">m</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>    <span class="c1"># return the posterior mean function</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>    <span class="k">return</span> <span class="k">lambda</span> <span class="n">xx</span><span class="p">:</span> <span class="n">m</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="n">k</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">Sigma_YY_inv_Y_EY</span><span class="p">)</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="c1"># The posterior kernel from GPR</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="c1"># inputs: </span>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="c1"># k: prior kernel</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="c1"># x: indices</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="c1"># </span>
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="c1"># output: the posterior kernel</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="k">def</span><span class="w"> </span><span class="nf">pos_kernel</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>
+<a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>    <span class="c1"># calculate the covariance matrices</span>
+<a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>    <span class="n">tmp</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x_is</span><span class="p">,</span> <span class="n">x_is</span><span class="p">)</span>
+<a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>    <span class="n">Sigma_YY</span> <span class="o">=</span> <span class="n">k</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span>
+<a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>    <span class="n">Sigma_YY</span> <span class="o">=</span> <span class="n">Sigma_YY</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>
+<a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>    <span class="c1"># return the posterior kernel</span>
+<a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">xp</span><span class="p">):</span>
+<a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>        <span class="c1"># determine Sigma_YY_inv Sigma_Yxp by solving the linear system Sigma_YY x = Sigma_Yxp</span>
+<a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a>        <span class="n">Sigma_YY_inv_Yxp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Sigma_YY</span><span class="p">,</span> <span class="n">k</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+<a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a>        <span class="n">Sigma_xY</span> <span class="o">=</span> <span class="n">k</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a>        <span class="k">return</span> <span class="n">k</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">xp</span><span class="p">)</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">Sigma_xY</span><span class="o">*</span><span class="n">Sigma_YY_inv_Yxp</span><span class="p">)</span>
+<a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a>
+<a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a>    <span class="k">return</span> <span class="n">_</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># an example of overfitting</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">mpo</span> <span class="o">=</span> <span class="n">pos_mean</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">y_is</span><span class="p">,</span> <span class="n">x_is</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">mpo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">mpo</span><span class="p">)</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">mpo</span><span class="p">(</span><span class="n">x_is</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([ 3.54621538,  2.19815658,  1.28890099,  1.60897726,  1.85557559,
+        1.50339612,  0.92003406,  0.41076722,  0.14251242,  0.11383494,
+        0.00924226, -0.29950277, -0.45034976, -0.24524099, -0.036229  ,
+       -0.11867752, -0.25938903, -0.07346743,  0.42936134,  0.85544179,
+        0.99444426])
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># plot</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_is</span><span class="p">,</span> <span class="n">y_is</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;observed&#39;</span><span class="p">)</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_is</span><span class="p">,</span> <span class="n">mu</span><span class="p">(</span><span class="n">x_is</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_is</span><span class="p">,</span> <span class="n">mpo</span><span class="p">(</span><span class="n">x_is</span><span class="p">),</span> <span class="s1">&#39;o--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GPR fit&#39;</span><span class="p">)</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</code></pre></div>
+<p>​  <br />
+<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_20_0.png" />
+​    </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># effect of sigma</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">sigmas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">sigma</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sigmas</span><span class="p">)),</span> <span class="n">sigmas</span><span class="p">):</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="n">mpo</span> <span class="o">=</span> <span class="n">pos_mean</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">y_is</span><span class="p">,</span> <span class="n">x_is</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="n">mpo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">mpo</span><span class="p">)</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_is</span><span class="p">,</span> <span class="n">y_is</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;observed&#39;</span><span class="p">)</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_is</span><span class="p">,</span> <span class="n">mu</span><span class="p">(</span><span class="n">x_is</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_is</span><span class="p">,</span> <span class="n">mpo</span><span class="p">(</span><span class="n">x_is</span><span class="p">),</span> <span class="s1">&#39;o--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GPR fit&#39;</span><span class="p">)</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;$\sigma$=</span><span class="si">{</span><span class="n">sigma</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</code></pre></div>
+<p>​  <br />
+<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_21_0.png" />
+​    </p>
+<h2 id="implied-volatility-surface-from-gpr">Implied volatility surface from GPR<a class="headerlink" href="#implied-volatility-surface-from-gpr" title="Permanent link">&para;</a></h2>
+<p>To apply GPR to construct implied volatility curve for a given fixed time to expiry, the observations <span class="arithmatex">\(y_1, \cdots, y_n\)</span> are the implied volatilities inferred from the market traded optios whereas the index <span class="arithmatex">\(\bx\)</span> is set as the logmoneyness, i.e., the logarithm of the ratio between strike and forward price. The authors of the  paper "Machine Learning for Quantitative Finance: Fast Derivative Pricing, Hedging and Fitting" by Spiegeleer, Madan, Reyners, and Schoutens, chose the radial basis function  </p>
+<div class="arithmatex">\[
+k(x, y) = A e^{-\frac{|x-y|^2}{2\ell^2}}
+\]</div>
+<p>as the prior kernel, where <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(\ell\)</span> are hyperparameters, and a quadratic function as the prior mean function.</p>
+<h4 id="note_5">Note<a class="headerlink" href="#note_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>There is no guarantee that the GPR interpolated/extrapolated implied volatility surface would be free of arbitrage.</li>
+<li>Nonconvexity of call price as a function of strike indicates the existence of butterfly spread arbitrage and nonmonotonicity indicates bull spread arbitrage. </li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># for example, consider a parabolic implied volatility curve in logmoneyness</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1"># k = logmoneyness</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">sig_imp</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">a</span><span class="o">*</span><span class="n">k</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">k</span> <span class="o">+</span> <span class="n">c</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">s</span> <span class="o">=</span> <span class="mi">10</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="n">ks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="n">ivs</span> <span class="o">=</span> <span class="n">sig_imp</span><span class="p">(</span><span class="n">ks</span><span class="p">)</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1"># plot the implied vol curve</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ks</span><span class="p">,</span> <span class="n">ivs</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;logmoneyness&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;implied volatility&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">);</span>
+</code></pre></div>
+<p>​  <br />
+<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_23_0.png" />
+​    </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># plot the call prices vs strikes</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">Ks</span> <span class="o">=</span> <span class="n">s</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">ks</span><span class="p">)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">cs</span> <span class="o">=</span> <span class="n">bs_call</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="n">Ks</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">ivs</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Ks</span><span class="p">,</span> <span class="n">cs</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;strikes&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;call prices&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">);</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1"># The call price is increasing with strike price in some interval -&gt; Arbitrage!</span>
+</code></pre></div>
+<p>​  <br />
+<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_24_0.png" />
+​    </p>
+<h2 id="resolutions-to-smile">Resolutions to smile<a class="headerlink" href="#resolutions-to-smile" title="Permanent link">&para;</a></h2>
+<p>Approaches to resolve the skew/smile problem
+- Local volatility model
+    - Assume the volatility is a function of the underlying asset and time.
+    - Market is complete.
+    - Volatility function is recoverable from the market data (Dupire formula) - easy to calibrate.
+    - Dupire (diffusion model), Derman-Kani(Markov chain model)</p>
+<ul>
+<li>
+<p>Stochastic volatility model</p>
+<ul>
+<li>Assume the volatility itself follows another stochastic process.</li>
+<li>Incomplete market.</li>
+<li>Volatility of volatility is unobservable</li>
+<li>Heston's model, SABR model, Hull-White model, etc.</li>
+<li>Fractional volatility models</li>
+</ul>
+</li>
+<li>
+<p>Jump diffusion models (e.g. Merton jump diffusion), exponential Levy models (e.g. CGMY), etc.</p>
+</li>
+</ul>
+<h2 id="local-volatility-model">Local volatility model<a class="headerlink" href="#local-volatility-model" title="Permanent link">&para;</a></h2>
+<p>The local volatility model assumes that the evolution of the price <span class="arithmatex">\(S_t\)</span> of the underlying under risk neutral probability (with zero interest rate) is governed by the SDE
+$$
+\frac{dS_t}{S_t} =  \sigma_\ell (S_t,t) dW_t.
+$$</p>
+<p><span class="arithmatex">\(\sigma_\ell\)</span> is referred to as the <em>local volatility function</em>. In other words, rather than taking the volatility as a constant as in the Black-Scholes model, the local volatility model allows the volatility to depend on, and only on, the underlying price <span class="arithmatex">\(s\)</span> and time <span class="arithmatex">\(t\)</span>.</p>
+<p>The associated pricing equation for the local volatility model (assume interest rate <span class="arithmatex">\(r=0\)</span>) is given by</p>
+<div class="arithmatex">\[
+\frac{\p u}{\p t} + \frac{\sigma_\ell^2(s,t)}{2}s^2\frac{\p^2 u}{\p s^2} = 0.
+\]</div>
+<p>In addition to being a complete market, one fascinating feature of the local volatility model is that the local volatility function <span class="arithmatex">\(\sigma_\ell\)</span> ideally can be read off from the market data of vanilla calls by applying the Dupire's formula</p>
+<div class="arithmatex">\[
+\sigma^2_\ell(K,T) = \frac{\frac{\p C}{\p T}}{\frac12 K^2 \frac{\p^2 C}{\p K^2}}
+\]</div>
+<p>should one observe the premia of calls for all strikes <span class="arithmatex">\(K\)</span> and expiries <span class="arithmatex">\(T\)</span>. In practice, we have far less observed data; a method of interpolating/extrapolating the lacking call premia is required to determine the local volatility function <span class="arithmatex">\(\sigma_\ell\)</span>.  </p>
+<h2 id="example-bachelier-model">Example - Bachelier model<a class="headerlink" href="#example-bachelier-model" title="Permanent link">&para;</a></h2>
+<p>The Bachelier model can be regarded as a local volatility model with the local volatility function given by <span class="arithmatex">\(\sigma_\ell(s) = \frac{\sigma}s\)</span>. Hence, the model reads</p>
+<div class="arithmatex">\[
+dS_t = \sigma dW_t \quad \Longleftrightarrow \quad S_t = S_0 + \sigma W_t.
+\]</div>
+<p>In other words, the price of the underlying evolves as a (shifted and rescaled) Brownian motion. The associated pricing equation in the Bachelier model reads </p>
+<div class="arithmatex">\[
+\frac{\p u}{\p t} + \frac{\sigma^2}{2} \frac{\p^2 u}{\p s^2} = 0,
+\]</div>
+<p>which is the classcial (backward) heat equation, and the premium <span class="arithmatex">\(c\)</span> of call struck at <span class="arithmatex">\(K\)</span> with time-to-expiry <span class="arithmatex">\(\tau\)</span> is given by </p>
+<div class="arithmatex">\[
+c = \frac{\sigma\sqrt\tau}{\sqrt{2\pi}} \, e^{-\frac{(s - K)^2}{2\sigma^2\tau}} + (s - K) \, N\left(\frac{s - K}{\sigma\sqrt\tau}\right).
+\]</div>
+<h2 id="louis-bachelier">Louis Bachelier<a class="headerlink" href="#louis-bachelier" title="Permanent link">&para;</a></h2>
+<h2><img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/LouisBachelier.jpg" align = "center" width=160></h2>
+<p><br>
+Courtesy: Photo from Wikipedia
+<br></p>
+<p>Quotes from the <a href="https://en.wikipedia.org/wiki/Louis_Bachelier">Wikipage</a></p>
+<blockquote>
+<p>Louis Jean-Baptiste Alphonse Bachelier (French: [baʃəlje]; March 11, 1870 – April 28, 1946) was a French mathematician at the turn of the 20th century. He is credited with being the first person to model the stochastic process now called Brownian motion, as part of his PhD thesis The Theory of Speculation (Théorie de la spéculation, published 1900).</p>
+<p>Bachelier’s Doctoral thesis, which introduced for the first time a mathematical model of Brownian motion and its use for valuing stock options, is historically the first paper to use advanced mathematics in the study of finance. Thus, Bachelier is considered as the forefather of mathematical finance and a pioneer in the study of stochastic processes. </p>
+</blockquote>
+<h2 id="example-cev-model">Example - CEV model<a class="headerlink" href="#example-cev-model" title="Permanent link">&para;</a></h2>
+<p>The constant elasticity of variance (CEV) model is a local volatility model with the local volatility function given by a power function in the price of the underlying. Specifically, the CEV model reads
+$$
+\frac{dS_t}{S_t} = \alpha S_t^\beta dW_t
+$$
+with <span class="arithmatex">\(\alpha &gt; 0\)</span> and <span class="arithmatex">\(\beta &gt; -1\)</span>. Here the constant <span class="arithmatex">\(\beta\)</span> is the elasticity of variance (<span class="arithmatex">\(dv/v\cdot S/dS\)</span>), for which the model is called the <em>constant elasticity of variance model</em>. The associated pricing equation in the CEV model reads </p>
+<div class="arithmatex">\[
+\frac{\p u}{\p t} + \frac{\alpha^2}2 s^{2 + 2\beta} \frac{\p^2 u}{\p s^2} = 0.
+\]</div>
+<h3 id="note_6">Note<a class="headerlink" href="#note_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="arithmatex">\(\beta = -1\)</span> is the Bachelier model.</li>
+<li><span class="arithmatex">\(\beta &lt; 0\)</span> corresponds to leverage effect which is usually observed in equity markets.</li>
+<li><span class="arithmatex">\(\beta &gt; 0\)</span> corresponds to reverse leverage effect often observed in commodity markets</li>
+</ul>
+<h2 id="stochastic-volatility-model">Stochastic volatility model<a class="headerlink" href="#stochastic-volatility-model" title="Permanent link">&para;</a></h2>
+<p>Stochastic volatility models impose that the volatility (or equivalently the variance) <em>per se</em> is a stochastic process which may or may not be correlated to the driving Brownian motion of the underlying. A generic stochastic volatility model is of the form</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; \frac{dS_t}{S_t} = \sqrt{v_t} \, dW_t, \\
+&amp;&amp; d v_t = a(t, v_t) dt + b(t, v_t) \, dZ_t,
+\end{eqnarray*}
+\]</div>
+<p>where <span class="arithmatex">\(W_t\)</span> and <span class="arithmatex">\(Z_t\)</span> are correlated Brownian motions with correlation <span class="arithmatex">\(\rho\)</span>. The process <span class="arithmatex">\(v_t\)</span> is usually referred to as the <em>instantaneous variance</em> and its square root <span class="arithmatex">\(\sigma_t := \sqrt{v_t}\)</span> the <em>instantaneous volatility</em> of the underlying at time <span class="arithmatex">\(t\)</span>.</p>
+<p>Commonly used stochastic volatility models include 
+- Heston model
+- Hull-White model
+- Stochastic alpha-beta-rho (SABR) model</p>
+<h3 id="note_7">Note<a class="headerlink" href="#note_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Incomplete market. </li>
+<li>Instantaneous volatility process is latent. </li>
+<li>Conditions on the functions <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> are required for the positivity of <span class="arithmatex">\(v_t\)</span>.</li>
+</ul>
+<h2 id="numerical-and-approximate-solutions">Numerical and approximate solutions<a class="headerlink" href="#numerical-and-approximate-solutions" title="Permanent link">&para;</a></h2>
+<p>As opposed to Black-Scholes model, local volatility and stochastic volatility models generally admit no closed form expressions for vanilla options as simple as the Black-Scholes formula. One is required to resort to numerical or approximate solutions as practical applications are concerned. Commonly used methodologies include</p>
+<ul>
+<li>
+<p>Monte Carlo simulation</p>
+<ul>
+<li>Less sensitive to dimensionality</li>
+<li>More flexible for additional extra features for pricing problems</li>
+<li>Usually slower than numerical PDE though improved efficient schemes exist</li>
+</ul>
+</li>
+<li>
+<p>Numerical PDE solver</p>
+<ul>
+<li>Faster than simulation but still slow for calibration</li>
+<li>More involved and technical in mathematics than Monte Carlo</li>
+</ul>
+</li>
+<li>
+<p>Asymptotic expansions</p>
+<ul>
+<li>Approximate solution, not exact</li>
+<li>Fast enough for calibration</li>
+<li>Solution is up to an order of a small parameter, but in closed form</li>
+</ul>
+</li>
+</ul>
+<h2 id="example-the-heston-model">Example - the Heston model<a class="headerlink" href="#example-the-heston-model" title="Permanent link">&para;</a></h2>
+<p>The dynamic of Heston's model under risk neutral probability with zero interest rate reads</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; \frac{d S_t}{S_t} = \sqrt{v_t}dB_t,  \\
+&amp;&amp; d v_t = \lambda(m - v_t)dt + \eta \sqrt{v_t} dZ_t, \\
+&amp;&amp; \mathbb{E}[dB_t dZ_t] = \rho dt.
+\end{eqnarray*}
+\]</div>
+<p>The pricing equation in Heston's model reads</p>
+<div class="arithmatex">\[
+\frac{\p u}{\p t} + \frac{s^2 v}{2}\frac{\p^2 u}{\p s^2} + \rho \eta s v \frac{\p^2 u}{\p s \p v} +  \frac{\eta^2 v}{2}\frac{\p^2 u}{\p v^2} + \lambda(m - v) \frac{\p u}{\p v} = 0
+\]</div>
+<p>and the premium <span class="arithmatex">\(c\)</span> of a call struck at <span class="arithmatex">\(K\)</span> has the following quasi-closed form (modulo a one-dimensional integral) expression</p>
+<div class="arithmatex">\[
+c = K \,\left\{ e^x \,P_1(x,v,\tau ) - P_0(x ,v ,\tau)\right\},
+\]</div>
+<p>where <span class="arithmatex">\(x = \log s - \log K\)</span> and</p>
+<div class="arithmatex">\[
+    P_j (x,v,\tau ) =\frac{1}{2} + \frac{1}{\pi }\,\int_0^\infty \,\mathop{Re} \left\{ {\frac{{\exp \{ C_j (u,\tau )\,\bar v + D_j(u,\tau )\,v + i\,u\,x\} }}{{i\,u}}} \right\} \, du, \quad j = 0,1.
+\]</div>
+<h3 id="note_8">Note<a class="headerlink" href="#note_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The condition on the coefficients <span class="arithmatex">\(2\lambda m \geq \eta^2\)</span> guarantees that the variance process <span class="arithmatex">\(v_t\)</span> never hit zero. In practice, the condition is at times not met. </li>
+<li>Technical note: call premium from characteristic function</li>
+</ul>
+<div class="arithmatex">\[
+c = S - \frac{\sqrt{SK}}\pi \, \int_0^\infty Re\left\{ e^{-iuk} \phi\left(u - \frac i2 \right) \right\} \frac{du}{u^2 + \frac14},
+\]</div>
+<p>where <span class="arithmatex">\(\phi\)</span> is the characteristic function of <span class="arithmatex">\(\log(S_T/S_0)\)</span>, <span class="arithmatex">\(k = \log(K/S_0)\)</span> denotes the logmoneyness, and <span class="arithmatex">\(i = \sqrt{-1}\)</span>. </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># numerical integration in python</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">quad</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">quad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>(2.0, 2.220446049250313e-14)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># complex number in python</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="o">+</span><span class="mi">7</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">imag</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>((-2+0j), 3.0, 7.0)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Heston characteristic function</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">phi_heston</span><span class="p">(</span><span class="n">lmda</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">vbar</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>        <span class="n">al</span> <span class="o">=</span> <span class="o">-</span><span class="n">u</span><span class="o">*</span><span class="n">u</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">u</span><span class="o">/</span><span class="mi">2</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>        <span class="n">bet</span> <span class="o">=</span> <span class="n">lmda</span> <span class="o">-</span> <span class="n">rho</span><span class="o">*</span><span class="n">eta</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">u</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>        <span class="n">gam</span> <span class="o">=</span> <span class="n">eta</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>        <span class="n">d</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">bet</span><span class="o">*</span><span class="n">bet</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">al</span><span class="o">*</span><span class="n">gam</span><span class="p">)</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>        <span class="n">rp</span> <span class="o">=</span> <span class="p">(</span><span class="n">bet</span> <span class="o">+</span> <span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">gam</span><span class="p">)</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>        <span class="n">rm</span> <span class="o">=</span> <span class="p">(</span><span class="n">bet</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">gam</span><span class="p">)</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>        <span class="n">g</span> <span class="o">=</span> <span class="n">rm</span><span class="o">/</span><span class="n">rp</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>        <span class="n">D</span> <span class="o">=</span> <span class="n">rm</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">d</span><span class="o">*</span><span class="n">t</span><span class="p">))</span><span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">g</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">d</span><span class="o">*</span><span class="n">t</span><span class="p">))</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>        <span class="n">C</span> <span class="o">=</span> <span class="n">lmda</span> <span class="o">*</span> <span class="p">(</span><span class="n">rm</span> <span class="o">*</span> <span class="n">t</span> <span class="o">-</span> <span class="mi">2</span><span class="o">/</span><span class="n">eta</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">log</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">g</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="n">t</span><span class="p">)))</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">g</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>        <span class="k">return</span> <span class="n">exp</span><span class="p">(</span><span class="n">C</span><span class="o">*</span><span class="n">vbar</span> <span class="o">+</span> <span class="n">D</span><span class="o">*</span><span class="n">v</span><span class="p">)</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>    <span class="k">return</span> <span class="n">_</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># call price from chf </span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">call_option</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    <span class="n">integrand</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">u</span><span class="o">*</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">phi</span><span class="p">(</span><span class="n">u</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">u</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">))</span><span class="o">.</span><span class="n">real</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    <span class="n">tmp</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>    <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">tmp</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># parameters for Heston model</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">lmda</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">vbar</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="mf">0.6067</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7571</span><span class="p">,</span> <span class="mf">0.2928</span><span class="p">,</span> <span class="mf">0.0707</span><span class="p">,</span> <span class="mf">.0654</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">call_option</span><span class="p">(</span><span class="n">phi_heston</span><span class="p">(</span><span class="n">lmda</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">vbar</span><span class="p">,</span> <span class="n">v</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.09701405804263008
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># plot</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">_</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">xx</span><span class="p">:</span> <span class="n">call_option</span><span class="p">(</span><span class="n">phi_heston</span><span class="p">(</span><span class="n">lmda</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">vbar</span><span class="p">,</span> <span class="n">v</span><span class="p">),</span> <span class="n">xx</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="n">y</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;logmoneyness&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;call price&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;moneyness&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">);</span>
+</code></pre></div>
+<p>​  <br />
+<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_39_0.png" />
+​    </p>
+<h2 id="heston-model-in-log-return">Heston model in log return<a class="headerlink" href="#heston-model-in-log-return" title="Permanent link">&para;</a></h2>
+<p>Denote by <span class="arithmatex">\(X_t = \log S_t - \log S_0\)</span> the logarithmic return. Then the Heston model can be recast as</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; dX_t = \sqrt{v_t} \, dB_t - \frac12 v_t dt, \\
+&amp;&amp; d v_t = \lambda(m - v_t) dt + \eta \sqrt{v_t} \, dZ_t,
+\end{eqnarray*}
+\]</div>
+<p>where <span class="arithmatex">\(B_t = \rho Z_t + \bar\rho W_t\)</span> and <span class="arithmatex">\(W_t\)</span>, <span class="arithmatex">\(Z_t\)</span> are independent Brownian motions. <span class="arithmatex">\(\bar\rho = \sqrt{1 - \rho^2}\)</span>. </p>
+<h2 id="joint-characteristic-function-for-log-return-and-integrated-variance">Joint characteristic function for log return and integrated variance<a class="headerlink" href="#joint-characteristic-function-for-log-return-and-integrated-variance" title="Permanent link">&para;</a></h2>
+<p>We are interested in determining the joint characteristic function for the logarithmic return <span class="arithmatex">\(X_T\)</span> and the integrated variance <span class="arithmatex">\(\int_0^T v_t dt\)</span>. Namely,  </p>
+<div class="arithmatex">\[
+\Eof{e^{iu_1 X_T + iu_2 \int_0^T v_t dt}},
+\]</div>
+<p>where <span class="arithmatex">\(u_1, u_2 \in \R\)</span> are parameters. </p>
+<p>Notice that we have </p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+X_T &amp;=&amp; X_t + \rho \int_t^T \sqrt{v_\tau} dZ_\tau + \bar\rho \int_t^T \sqrt{v_\tau} dW_\tau - \frac12 \int_t^T v_\tau d\tau  \\
+&amp;=&amp; X_t + \frac\rho\eta \left\{v_T - v_t - \int_t^T \lambda(m - v_\tau) d\tau \right\} + \bar\rho \int_t^T \sqrt{v_\tau} dW_\tau - \frac12 \int_t^T v_\tau d\tau \\
+&amp;=&amp; X_t - \frac\rho\eta \{v_t + \lambda m (T - t)\} + \frac\rho\eta v_T + \int_t^T \left(\frac{\lambda\rho}\eta - \frac12\right) v_\tau d\tau + \bar\rho \int_t^T \sqrt{v_\tau} dW_\tau 
+\end{eqnarray*}
+\]</div>
+<p>Thus, </p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; \Eof{\left. e^{iu_1 X_T + iu_2\int_t^T v_\tau d\tau} \right|X_t=x, v_t=v} \\
+&amp;=&amp; \Eof{\left. e^{iu_1 \left\{ X_t - \frac\rho\eta \{v_t + \lambda m (T - t)\} + \frac\rho\eta v_T + \int_t^T \left(\frac{\lambda\rho}\eta - \frac12\right) v_\tau d\tau + \bar\rho \int_t^T \sqrt{v_\tau} dW_\tau \right\} + iu_2\int_t^T v_\tau d\tau} \right| v_t=v} \\
+&amp;=&amp; e^{iu_1\left(x - \frac\rho\eta \{v + \lambda m (T - t)\}\right)}\Eof{\left. e^{iu_1 \left\{\frac\rho\eta v_T + \int_t^T \left(\frac{\lambda\rho}\eta - \frac12\right) v_\tau d\tau + \bar\rho \int_t^T \sqrt{v_\tau} dW_\tau \right\} + iu_2\int_t^T v_\tau d\tau} \right|v_t=v} \\
+&amp;=&amp; e^{iu_1\left(x - \frac\rho\eta \{v + \lambda m (T - t)\}\right)}\Eof{\left. e^{iu_1 \left\{\frac\rho\eta v_T + \int_t^T \left(\frac{\lambda\rho}\eta - \frac12 + \frac{\bar\rho^2}2 \right) v_\tau d\tau \right\} + iu_2\int_t^T v_\tau d\tau} \right|v_t=v} \\
+&amp;=&amp; e^{iu_1\left(x - \frac\rho\eta \{v + \lambda m (T - t)\}\right)}\Eof{\left. e^{ iu_1\frac\rho\eta v_T + \int_t^T \left\{iu_1 \left(\frac{\lambda\rho}\eta - \frac{\rho^2}2 \right) + iu_2 \right\} v_\tau d\tau} \right|v_t=v}
+\end{eqnarray*}
+\]</div>
+<h2 id="feynman-kac-formula-again">Feynman-Kac formula again<a class="headerlink" href="#feynman-kac-formula-again" title="Permanent link">&para;</a></h2>
+<p>We proceed by applying the Feynman-Kac formula to evaluate the expectation.</p>
+<p>Let </p>
+<div class="arithmatex">\[
+u(t, v) = \Eof{\left. e^{ c_1 v_T - \int_t^T c_2 v_\tau d\tau} \right|v_t=v},
+\]</div>
+<p>where <span class="arithmatex">\(c_1 = iu_1\frac\rho\eta\)</span> and <span class="arithmatex">\(c_2 = -i\left\{u_1\left(\frac{\lambda\rho}\eta - \frac{\rho^2}2\right) + u_2\right\}\)</span>. Then <span class="arithmatex">\(u\)</span> is a solution to the (backward) PDE</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+u_t + \frac{\eta^2 v}2 u_{vv} + \lambda(m - v) u_v  = c_2 v u
+\end{eqnarray*}
+\]</div>
+<p>with terminal condition <span class="arithmatex">\(u(T, v) = e^{c_1 v}\)</span>.</p>
+<h2 id="solving-the-terminal-value-problem">Solving the terminal value problem<a class="headerlink" href="#solving-the-terminal-value-problem" title="Permanent link">&para;</a></h2>
+<p>Assume the ansatz of exponential affine</p>
+<div class="arithmatex">\[
+u(t, v) = e^{H_1 v + H_0}.
+\]</div>
+<p>The derivatives of <span class="arithmatex">\(u\)</span> are given by</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+&amp;&amp; u_t = (\dot H_1 v + \dot H_0) u, \\
+&amp;&amp; u_v = H_1 u, \\
+&amp;&amp; u_{vv} = H_1^2 u.
+\end{eqnarray*}
+\]</div>
+<p>Substuting the derivatives into the PDE yields </p>
+<div class="arithmatex">\[
+\dot H_1 v + \dot H_0 + \frac{\eta^2}2 v H_1^2 + \lambda(m - v) H_1 = c_2 v. 
+\]</div>
+<p>Compare the coefficients then we obtain the system of ODEs for <span class="arithmatex">\(H_1\)</span> and <span class="arithmatex">\(H_0\)</span></p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+v &amp;:&amp; \dot H_1 + \frac{\eta^2}2 H_1^2 - \lambda H_1 = c_2, \\
+1 &amp;:&amp; \dot H_0 + \lambda m H_1 = 0
+\end{eqnarray*}
+\]</div>
+<p>with terminal conditions <span class="arithmatex">\(H_1(T) = c_1\)</span> and <span class="arithmatex">\(H_0(T) = 0\)</span>.</p>
+<h2 id="solution-to-system-of-odes">Solution to system of ODEs<a class="headerlink" href="#solution-to-system-of-odes" title="Permanent link">&para;</a></h2>
+<p>The solution to the ODEs is given (formally) by </p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+H_1(t) &amp;=&amp; \frac{\lambda}{\eta^2} + \frac{\Delta}{\eta^2}  \tan \left(\arctan\left\{\frac{c_1 \eta^2 - \lambda}{\Delta}\right\} + \frac\Delta2 (T-t) \right), \\
+H_0(t) &amp;=&amp; \frac{2\lambda m}{\eta^2} \log \left(\cos \left\{\arctan\left(\frac{c_1 \eta^2 - \lambda}\Delta\right)\right\}\right) \\
+&amp;&amp; - \frac{2\lambda m}{\eta^2} \log \left(\cos \left\{ \frac\Delta2 (t-T) - \arctan \left(\frac{c_1 \eta ^2-\lambda }\Delta\right)\right\}\right) 
++ \frac{\lambda^2 m}{\eta^2}(T-t)
+\end{eqnarray*}
+\]</div>
+<p>where <span class="arithmatex">\(\Delta = \sqrt{-2 c_2 \eta^2 - \lambda^2}\)</span>.</p>
+<h4 id="note_9">Note<a class="headerlink" href="#note_9" title="Permanent link">&para;</a></h4>
+<p>Note that some of the parameters are complex, it causes some troubles when evaluating  logarithm etc. </p>
+<p>Thus, we can obtain the characteristic function for <span class="arithmatex">\(X_T\)</span> by simply setting <span class="arithmatex">\(u_2 = 0\)</span>.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月20日 12:58:20">2025年3月20日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月20日 12:58:20">2025年3月20日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 - 2025 <a href="https://github.com/Shocked-Pikachu" target="_blank" rel="noopener"> Haoyu Mo</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/Shocked-Pikachu" target="_blank" rel="noopener" title="My Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<mohy@stu.pku.edu.cn>" target="_blank" rel="noopener" title="Send Me An Email" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
