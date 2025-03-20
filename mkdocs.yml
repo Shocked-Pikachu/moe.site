@@ -179,6 +179,15 @@ nav:
         - Lecture 12: courses/financial-accounting/lecture-12.md
         - Lecture 13: courses/financial-accounting/lecture-13.md
         - Lecture 14: courses/financial-accounting/lecture-14.md
+    - 量化金融专题:
+        - courses/topics-quantitative-finance/index.md
+        - Lecture 1 Financial Engineering in a Nutshell: courses/topics-quantitative-finance/financial-engineering-nutshell.md
+        - Lecture 2 Crash Course on Stochastic Calculus: courses/topics-quantitative-finance/stochastic-calculus.md
+        - Lecture 3 The Black-Merton-Scholes Model and Beyond I: courses/topics-quantitative-finance/black-scholes-1.md
+        - Lecture 4 The Black-Merton-Scholes Model and Beyond II: courses/topics-quantitative-finance/black-scholes-2.md
+        - Lecture 5 Volatility and Volatility-Linked Derivatives: courses/topics-quantitative-finance/volatility.md
+        - Lecture 6 Brief Introduction to Variational and Control Problems: courses/topics-quantitative-finance/variational-control-problems.md
+        - Lecture 7 Optimal Execution under Price Impact: courses/topics-quantitative-finance/optimal-execution.md
     - 广义相对论:
         - courses/general-relativity/index.md
     - 人工智能基础:
