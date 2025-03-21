@@ -13,8 +13,11 @@ How to measure consumers' price sensitivity??
 我们无法抛开价格谈敏感度 >> 局部性质 >> 边际的引入
 
 需求价格弹性$E_D$=|需求量变动的百分比/价格变动的百分比|
+
 $$
+\begin{eqnarray*}
 E_D=\left|\frac{{\rm the\ percent\ change\ in\ quantity\ demanded}}{\rm the\ percent\ change\ in\ price}\right|
+\end{eqnarray*}
 $$
 
 两点间计算价格弹性：中点法
@@ -74,8 +77,11 @@ $$
 ## 供给弹性
 
 供给价格弹性$E_S$=供给量变动的百分比/价格变动的百分比
+
 $$
+\begin{eqnarray*}
 E_S=\frac{{\rm the\ percent\ change\ in\ quantity\ supplied}}{\rm the\ percent\ change\ in\ price}
+\end{eqnarray*}
 $$
 
 ### 单位弹性的供给 (unit elastic supply)
@@ -97,7 +103,9 @@ inferior good, normal good, necessity good, luxury good
 ## 需求交叉弹性 (Cross-Price Elasticity of Demand)
 
 $$
+\begin{eqnarray*}
 E_{12}=\frac{{\rm \%\ change\ in\ quantity\ demanded\ of\ 2}}{\rm \%\ change\ in\ price\ of\ 1}.
+\end{eqnarray*}
 $$
 
 总之，A-B弹性就是A的变化率除以B的变化率

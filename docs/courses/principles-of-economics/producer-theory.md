@@ -27,9 +27,13 @@ opportunity costs = explicit costs + implicit costs
 ### 生产函数
 
 生产函数 (production function)：从要素到最终产品的一个映射
+
 $$
+\begin{eqnarray*}
 Q=f(K,L),{\rm where}\ K\ {\rm is\ the\ capital\ and}\ L\ {\rm is\ the\ labor.}
+\end{eqnarray*}
 $$
+
 我们假定煎饼的生产只需要投入劳动力 >> 好处：对于每一个数量我们都可以唯一确定投入的要素，不需要考虑厂商在要素投入中的权衡取舍，极大的简化了我们的分析
 
 生产函数的基本性质：

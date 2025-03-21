@@ -236,7 +236,7 @@ bs_call(100,101, 0.3, 1), bs_put(100,101, 0.3, 1)['p']
 
 ## Volatility smile of SPX on Sep-15, 2011
 
-![impv](../../../assets/img//topics-quantitative-finance/lecture-4/impv.jpg)
+![impv](../../assets/img//topics-quantitative-finance/lecture-4/impv.jpg)
 
 
 ## Gaussian process revisited
@@ -574,7 +574,7 @@ plt.ylabel(r'$y$', fontsize=15)
 plt.legend();
 ```
 
-![png](../../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_16_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_16_0.png)
 ​    
 
 
@@ -673,7 +673,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_20_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_20_0.png)
 ​    
 
 
@@ -697,7 +697,7 @@ for i, sigma in zip(range(len(sigmas)), sigmas):
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_21_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_21_0.png)
 ​    
 
 
@@ -735,7 +735,7 @@ plt.ylabel(r'implied volatility', fontsize=15);
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_23_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_23_0.png)
 ​    
 
 
@@ -754,7 +754,7 @@ plt.ylabel('call prices', fontsize=15);
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_24_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_24_0.png)
 ​    
 
 
@@ -1030,7 +1030,7 @@ plt.xlabel('moneyness', fontsize=15);
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_39_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-4/black-scholes-2_39_0.png)
 ​    
 
 

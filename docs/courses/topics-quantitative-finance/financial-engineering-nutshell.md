@@ -1128,7 +1128,7 @@ plt.grid()
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-1/NSD_Lec01-FinancialEngineering_Summer2024_72_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-1/NSD_Lec01-FinancialEngineering_Summer2024_72_0.png)
 ​    
 
 
@@ -1258,7 +1258,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-1/NSD_Lec01-FinancialEngineering_Summer2024_76_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-1/NSD_Lec01-FinancialEngineering_Summer2024_76_0.png)
 ​    
 
 
@@ -1281,7 +1281,7 @@ plt.legend();
 ```
 
 
-![png](../../../assets/img//topics-quantitative-finance/lecture-1/NSD_Lec01-FinancialEngineering_Summer2024_78_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-1/NSD_Lec01-FinancialEngineering_Summer2024_78_0.png)
 ​    
 
 
@@ -1300,6 +1300,6 @@ plt.legend();
 ```
 
 
-![png](../../../assets/img//topics-quantitative-finance/lecture-1/NSD_Lec01-FinancialEngineering_Summer2024_79_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-1/NSD_Lec01-FinancialEngineering_Summer2024_79_0.png)
 ​    
 

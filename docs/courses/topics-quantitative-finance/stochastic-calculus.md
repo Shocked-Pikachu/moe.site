@@ -393,7 +393,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_21_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_21_0.png)
 ​    
 
 
@@ -454,7 +454,7 @@ plt.xlabel('$t$', fontsize=18);
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_24_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_24_0.png)
 ​    
 
 
@@ -521,7 +521,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_27_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_27_0.png)
 ​    
 
 
@@ -762,7 +762,7 @@ sns.histplot(X[:,-1], bins=50, stat='density', color='green', element='step');
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_36_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_36_0.png)
 ​    
 
 
@@ -801,7 +801,7 @@ sns.histplot(X[:,-1], bins=50, stat='density', color='green');
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_38_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_38_0.png)
 ​    
 
 
@@ -1159,7 +1159,7 @@ plt.ylabel('sample variance');
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_52_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_52_0.png)
 ​    
 
 
@@ -1392,7 +1392,7 @@ where $i = \sqrt{-1}$.
 
 ## Paul Lévy
 
-<h2><img src="../../../assets/img//topics-quantitative-finance/lecture-2/plevy.jpg" align = "center" width=160></h2>
+<h2><img src="../../assets/img//topics-quantitative-finance/lecture-2/plevy.jpg" align = "center" width=160></h2>
 
 Courtesy: Photo from [Wikipedia](https://en.wikipedia.org/wiki/Paul_Lévy_(mathematician))
 
@@ -1429,7 +1429,7 @@ plt.plot([W[-1], W[0]], [Z[-1], Z[0]], 'ro-', lw=1);
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_65_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_65_0.png)
 ​    
 
 

@@ -39,9 +39,14 @@ Therefore, the **contribution of asset $i$ to $\sigma_m^2$ is $w_i\sigma_{im}$**
 The key idea is that **$i$'s contribution to risk premium = $i$'s contribution to risk variance**
 
 Result:
+
 $$
-E(r_i)=r_f+\frac{\sigma_{im}}{\sigma_m^2}(E(r_m)-r_f)\nonumber=r_f+\beta_i(E(r_m)-r_f)
+\begin{eqnarray*}
+E(r_i)&=&r_f+\frac{\sigma_{im}}{\sigma_m^2}(E(r_m)-r_f)\nonumber\\
+&=&r_f+\beta_i(E(r_m)-r_f)
+\end{eqnarray*}
 $$
+
 Risk premium is proportional to $\beta_i$, which reflects the contribution of asset $i$ to market variance
 
 Graphically, this line is called **Security Market Line**

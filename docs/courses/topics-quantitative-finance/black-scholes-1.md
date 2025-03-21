@@ -336,7 +336,7 @@ plt.plot(x, y, color='green', ls='dashdot', lw=3);
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_16_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_16_0.png)
 ​    
 
 
@@ -426,7 +426,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_19_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_19_0.png)
 ​    
 
 
@@ -455,7 +455,7 @@ plt.ylabel('put price', fontsize=15);
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_20_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_20_0.png)
 ​    
 
 
@@ -484,7 +484,7 @@ plt.ylabel('put price', fontsize=15);
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_21_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_21_0.png)
 ​    
 
 
@@ -513,7 +513,7 @@ plt.ylabel('put price', fontsize=15);
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_22_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_22_0.png)
 ​    
 
 
@@ -841,7 +841,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_32_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_32_0.png)
 ​    
 
 
@@ -861,7 +861,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_33_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_33_0.png)
 ​    
 
 
@@ -1076,7 +1076,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_37_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_37_0.png)
 ​    
 
 
@@ -1097,7 +1097,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_38_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_38_0.png)
 ​    
 
 
@@ -1915,7 +1915,7 @@ weekly = DDPG(n_path=n_path, m=m, T=T, r=r, q=q, sigma=sigma, S0=S0, K=K, model_
 
 
 
-![png](../../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_61_1.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_61_1.png)
     
 
 
@@ -1932,7 +1932,7 @@ plotAction(weekly)
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_63_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_63_0.png)
 ​    
 
 
@@ -1965,7 +1965,7 @@ tridaily = DDPG(n_path=n_path, m=m, T=T, r=r, q=q, sigma=sigma, S0=S0, K=K, mode
 
 
 
-![png](../../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_65_1.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_65_1.png)
     
 
 
@@ -1981,7 +1981,7 @@ plotAction(tridaily)
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_66_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_66_0.png)
 ​    
 
 
@@ -2014,7 +2014,7 @@ weekly_3m = DDPG(n_path=n_path, m=m, T=T, r=r, q=q, sigma=sigma, S0=S0, K=K, mod
 
 
 
-![png](../../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_68_1.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_68_1.png)
     
 
 
@@ -2029,7 +2029,7 @@ plotAction(weekly_3m)
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_69_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-3/black-scholes-1_69_0.png)
 ​    
 
 

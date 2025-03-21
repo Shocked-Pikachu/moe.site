@@ -778,7 +778,7 @@ ve1.W_hist()
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_39_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_39_0.png)
 ​    
 
 
@@ -789,7 +789,7 @@ ve1.V_hist()
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_40_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_40_0.png)
 ​    
 
 
@@ -800,7 +800,7 @@ ve1.sample_path()
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_41_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_41_0.png)
 ​    
 
 
@@ -828,7 +828,7 @@ ve2.W_hist()
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_44_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_44_0.png)
 ​    
 
 
@@ -839,7 +839,7 @@ ve2.V_hist()
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_45_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_45_0.png)
 ​    
 
 
@@ -850,7 +850,7 @@ ve2.sample_path()
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_46_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_46_0.png)
 ​    
 
 
@@ -883,7 +883,7 @@ ve_opt.sample_path()
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_49_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_49_0.png)
 ​    
 
 
@@ -900,7 +900,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_51_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_51_0.png)
 ​    
 
 
@@ -917,7 +917,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_53_0.png)
+![png](../../assets/img//topics-quantitative-finance/lecture-6/variational-control-problems_53_0.png)
 ​    
 
 

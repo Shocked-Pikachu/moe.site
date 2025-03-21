@@ -23,9 +23,13 @@
 边际产出带来的负外部性在图形上表现为将供给曲线向上移（把需求曲线向下移）。**注意负外部性只能算一次（供给曲线和需求曲线不能都移动）！**
 
 企业不考虑负外部性：
+
 $$
+\begin{eqnarray*}
 SMC({\rm Social\ Marginal\ Cost})>PMC({\rm Private\ Marginal\ Cost}).
+\end{eqnarray*}
 $$
+
 负外部性使得均衡产量**高于**社会最优产量 $Q^*>Q^{\rm eff}$ >> 生产过剩 (overproduction)
 
 负外部性存在时：

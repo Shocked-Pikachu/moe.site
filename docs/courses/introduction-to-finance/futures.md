@@ -19,9 +19,14 @@ Only 1-3% of contracts result in actual delivery of the underlying commodity (Th
 ## Convergence Property
 
 The futures price and the spot price must converge at maturity
+
 $$
-{\rm Basis}_t={\rm Spot\ Price-Future\ Price}=S_t-F_t\nonumber
+\begin{eqnarray*}
+{\rm Basis}_t&=&{\rm Spot\ Price-Future\ Price}\\
+&=&S_t-F_t\nonumber
+\end{eqnarray*}
 $$
+
 The difference is approximately 5 percent
 
 Why buy/sell futures?

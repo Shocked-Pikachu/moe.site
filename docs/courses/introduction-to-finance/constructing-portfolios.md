@@ -8,9 +8,12 @@ Asset returns are random variables $r_1$ and $r_2$.
 Portfolio: $r_p=\sum_{i=1}^{N}w_ir_i$
 
 Portfolio expected return and risk:
+
 $$
-E(r_p)=w_1E(r_1)+w_2E(r_2)\\
-\sigma_p^2=w_1^2\sigma_1^2+w_2^2\sigma_2^2+2w_1w_2\sigma_{12}\nonumber
+\begin{eqnarray*}
+&E(r_p)&=w_1E(r_1)+w_2E(r_2)\\
+&\sigma_p^2&=w_1^2\sigma_1^2+w_2^2\sigma_2^2+2w_1w_2\sigma_{12}\nonumber
+\end{eqnarray*}
 $$
 
 ## Portfolios with a risk-free asset

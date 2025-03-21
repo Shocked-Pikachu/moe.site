@@ -221,7 +221,7 @@ plt.title('Almgren-Chriss price path', fontsize=18);
 
 
 ​    
-![png](../../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_15_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_15_0.png)
 ​    
 
 
@@ -412,7 +412,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_25_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_25_0.png)
 ​    
 
 
@@ -595,7 +595,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_35_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_35_0.png)
 ​    
 
 
@@ -770,7 +770,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_43_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_43_0.png)
 ​    
 
 
@@ -1103,7 +1103,7 @@ plt.hlines(y=0, xmin=0, xmax=1, ls='dotted');
 
 
 ​    
-![png](../../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_63_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_63_0.png)
 ​    
 
 
@@ -1119,7 +1119,7 @@ plt.hlines(y=0, xmin=0, xmax=1, ls='dotted', color='k');
 
 
 ​    
-![png](../../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_64_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_64_0.png)
 ​    
 
 
@@ -1140,7 +1140,7 @@ plt.ylabel(r'$v$', fontsize=15);
 
 
 ​    
-![png](../../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_65_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_65_0.png)
 ​    
 
 
@@ -1152,7 +1152,7 @@ plt.plot(t[1:], np.diff(x)/np.diff(t));
 
 
 ​    
-![png](../../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_66_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_66_0.png)
 ​    
 
 
@@ -1270,7 +1270,7 @@ print(n_path)
 
 
 
-![png](../../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_73_1.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_73_1.png)
     
 
 
@@ -1281,7 +1281,7 @@ vd_twap.V_hist()
 
 
 ​    
-![png](../../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_74_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_74_0.png)
 ​    
 
 
@@ -1315,7 +1315,7 @@ vd_opt.V_hist()
 
 
 ​    
-![png](../../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_78_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_78_0.png)
 ​    
 
 
@@ -1329,7 +1329,7 @@ sns.histplot(vd_opt.V, bins=50, stat='density', color='orange', element='step', 
 
 
 ​    
-![png](../../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_80_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_80_0.png)
 ​    
 
 
@@ -1352,7 +1352,7 @@ n_path
 
 
 ​    
-![png](../../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_82_1.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_82_1.png)
 ​    
 
 
@@ -1371,7 +1371,7 @@ plt.plot(t, vd_twap.y[n_path,:]);
 
 
 ​    
-![png](../../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_84_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-7/optimal-execution_84_0.png)
 ​    
 
 

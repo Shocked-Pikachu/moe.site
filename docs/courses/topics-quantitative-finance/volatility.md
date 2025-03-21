@@ -50,7 +50,7 @@ $$
 <font size=5, color=blue> Tai-Ho Wang (王 太和)</font>
 </center>
 <center>
-<img src="../../../assets/img//topics-quantitative-finance/baruch-logo.jpg" align = "center" width=450>
+<img src="../../../assets/img/topics-quantitative-finance/baruch-logo.jpg" align = "center" width=450>
 </center>
 
 ## Agenda
@@ -582,7 +582,7 @@ plt.grid();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_17_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_17_0.png)
 ​    
 
 
@@ -629,7 +629,7 @@ plt.grid();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_19_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_19_0.png)
 ​    
 
 
@@ -776,7 +776,7 @@ plt.grid();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_23_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_23_0.png)
 ​    
 
 
@@ -795,7 +795,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_24_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_24_0.png)
 ​    
 
 
@@ -908,7 +908,7 @@ plt.grid();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_30_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_30_0.png)
 ​    
 
 
@@ -3340,7 +3340,7 @@ spx_opt.plot_arb()
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_53_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_53_0.png)
 ​    
 
 
@@ -3351,7 +3351,7 @@ spx_opt.plot_parity()
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_54_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_54_0.png)
 ​    
 
 
@@ -3409,13 +3409,13 @@ spx_opt.plot_imp_vols2(), spx_opt.plot_imp_vols1();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_57_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_57_0.png)
 ​    
 
 
 
 
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_57_1.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_57_1.png)
     
 
 
@@ -3464,7 +3464,7 @@ spx_opt1.plot_arb()
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_62_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_62_0.png)
 ​    
 
 
@@ -3475,7 +3475,7 @@ spx_opt1.plot_parity()
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_63_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_63_0.png)
 ​    
 
 
@@ -3518,13 +3518,13 @@ spx_opt1.plot_imp_vols2(), spx_opt1.plot_imp_vols1();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_66_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_66_0.png)
 ​    
 
 
 
 
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_66_1.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_66_1.png)
     
 
 
@@ -3705,7 +3705,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_70_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_70_0.png)
 ​    
 
 
@@ -3772,7 +3772,7 @@ pd.DataFrame(abs_errs).describe().transpose()
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_71_1.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_71_1.png)
 ​    
 
 
@@ -3875,7 +3875,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_77_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_77_0.png)
 ​    
 
 
@@ -3942,7 +3942,7 @@ pd.DataFrame(abs_errs).describe().transpose()
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_78_1.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_78_1.png)
 ​    
 
 
@@ -4234,7 +4234,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_88_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_88_0.png)
 ​    
 
 
@@ -4249,7 +4249,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_89_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_89_0.png)
 ​    
 
 
@@ -4832,7 +4832,7 @@ vix_opt.plot_arb()
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_104_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_104_0.png)
 ​    
 
 
@@ -4843,7 +4843,7 @@ vix_opt.plot_parity()
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_105_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_105_0.png)
 ​    
 
 
@@ -4854,13 +4854,13 @@ vix_opt.plot_imp_vols2(), vix_opt.plot_imp_vols1();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_106_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_106_0.png)
 ​    
 
 
 
 
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_106_1.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_106_1.png)
     
 
 
@@ -5014,7 +5014,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_109_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_109_0.png)
 ​    
 
 
@@ -5081,7 +5081,7 @@ pd.DataFrame(abs_errs).describe().transpose()
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_110_1.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_110_1.png)
 ​    
 
 
@@ -6048,7 +6048,7 @@ spx_rv.plot(color='red', grid=True, title='SPX realized variance',
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_129_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_129_0.png)
 ​    
 
 
@@ -6227,7 +6227,7 @@ plt.legend();
 
 
 ​    
-![png](../../../assets/img//topics-quantitative-finance/lecture-5/volatility_137_0.png)
+![png](../../assets/img/topics-quantitative-finance/lecture-5/volatility_137_0.png)
 ​    
 
 

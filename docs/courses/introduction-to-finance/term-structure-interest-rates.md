@@ -6,6 +6,8 @@ The yield curve displays the relationship between yield to maturity (YTM) and ti
 
 We care about pure yield curve (uses zero coupon bonds).
 
+![yield-curve](../../assets/img/introduction-to-finance/yield-curve.png)
+
 ## Zero Coupon Bonds (Zeros)
 
 We can construct a zero coupon bond using a ZCB and a non-ZCB (long one and short another to cancel out cash flow on the coupon date).
