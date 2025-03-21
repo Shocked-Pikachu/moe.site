@@ -5887,7 +5887,7 @@ B_t = \sqrt{2} \sum_{n=1}^\infty \xi_n \frac{\sin \left(\left(n - \frac{1}{2}\ri
 <a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </code></pre></div>
 <p>​  <br />
-<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_21_0.png" />
+<img alt="png" src="../../../assets/img/topics-quantitative-finance/lecture-2/stochastic-calculus_21_0.png" />
 ​    </p>
 <h2 id="donskers-invariance-principle">Donsker's invariance principle<a class="headerlink" href="#donskers-invariance-principle" title="Permanent link">&para;</a></h2>
 <ul>
@@ -5933,7 +5933,7 @@ B_t = \sqrt{2} \sum_{n=1}^\infty \xi_n \frac{\sin \left(\left(n - \frac{1}{2}\ri
 <a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$t$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
 </code></pre></div>
 <p>​  <br />
-<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_24_0.png" />
+<img alt="png" src="../../../assets/img/topics-quantitative-finance/lecture-2/stochastic-calculus_24_0.png" />
 ​    </p>
 <h2 id="simulation-of-brownian-motion">Simulation of Brownian motion<a class="headerlink" href="#simulation-of-brownian-motion" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Simulate BM by using the Donsker&#39;s invariance principle</span>
@@ -5990,7 +5990,7 @@ B_t = \sqrt{2} \sum_{n=1}^\infty \xi_n \frac{\sin \left(\left(n - \frac{1}{2}\ri
 <a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </code></pre></div>
 <p>​  <br />
-<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_27_0.png" />
+<img alt="png" src="../../../assets/img/topics-quantitative-finance/lecture-2/stochastic-calculus_27_0.png" />
 ​    </p>
 <h2 id="brownian-motion-with-drift">Brownian motion with drift<a class="headerlink" href="#brownian-motion-with-drift" title="Permanent link">&para;</a></h2>
 <p>Let <span class="arithmatex">\((\Omega,\F_t,\P)\)</span> be a filtered probability space and <span class="arithmatex">\(B_t\)</span> a Brownian motion on <span class="arithmatex">\(\Omega\)</span>. 
@@ -6189,7 +6189,7 @@ I(f) = \sum_{i=1}^n a_i \Delta B_i \sim N\left(0,\sum_{i=1}^n a_i^2 \Delta t_i \
 <a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">);</span>
 </code></pre></div>
 <p>​  <br />
-<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_36_0.png" />
+<img alt="png" src="../../../assets/img/topics-quantitative-finance/lecture-2/stochastic-calculus_36_0.png" />
 ​    </p>
 <h2 id="simulation-of-stochastic-integral-right-endpoint-rule">Simulation of stochastic integral: right endpoint rule<a class="headerlink" href="#simulation-of-stochastic-integral-right-endpoint-rule" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># What happens if we use right endpoints? </span>
@@ -6221,7 +6221,7 @@ I(f) = \sum_{i=1}^n a_i \Delta B_i \sim N\left(0,\sum_{i=1}^n a_i^2 \Delta t_i \
 <a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">);</span>
 </code></pre></div>
 <p>​  <br />
-<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_38_0.png" />
+<img alt="png" src="../../../assets/img/topics-quantitative-finance/lecture-2/stochastic-calculus_38_0.png" />
 ​    </p>
 <h2 id="ito-kiyoshi-sensei">伊藤 清 先生 (Itô, Kiyoshi sensei)<a class="headerlink" href="#ito-kiyoshi-sensei" title="Permanent link">&para;</a></h2>
 <h2><img src="http://upload.wikimedia.org/wikipedia/commons/c/c1/Kiyosi_Ito.jpg" align = "center" width=160></h2>
@@ -6509,7 +6509,7 @@ dX_t = (\mu_1 X_t + \mu_0) dt + (\sigma_1 X_t + \sigma_0) dB_t.
 <a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;sample variance&#39;</span><span class="p">);</span>
 </code></pre></div>
 <p>​  <br />
-<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_52_0.png" />
+<img alt="png" src="../../../assets/img/topics-quantitative-finance/lecture-2/stochastic-calculus_52_0.png" />
 ​    </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </code></pre></div>
@@ -6661,7 +6661,7 @@ A_t = \frac12 \int_0^t W_s dZ_s - Z_s dW_s
 \]</div>
 <p>where <span class="arithmatex">\(i = \sqrt{-1}\)</span>.</p>
 <h2 id="paul-levy">Paul Lévy<a class="headerlink" href="#paul-levy" title="Permanent link">&para;</a></h2>
-<h2><img src="../../../assets/img//topics-quantitative-finance/lecture-2/plevy.jpg" align = "center" width=160></h2>
+<h2><img src="../../assets/img//topics-quantitative-finance/lecture-2/plevy.jpg" align = "center" width=160></h2>
 
 <p>Courtesy: Photo from <a href="https://en.wikipedia.org/wiki/Paul_Lévy_(mathematician)">Wikipedia</a></p>
 <p>Rama Cont in an article wrote:</p>
@@ -6693,7 +6693,7 @@ infinitely divisible laws and pioneered the study of processes with independent 
 <a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">W</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">Z</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">Z</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="s1">&#39;ro-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 </code></pre></div>
 <p>​  <br />
-<img alt="png" src="../../../assets/img//topics-quantitative-finance/lecture-2/stochastic-calculus_65_0.png" />
+<img alt="png" src="../../../assets/img/topics-quantitative-finance/lecture-2/stochastic-calculus_65_0.png" />
 ​    </p>
 <h2 id="distribution-of-levy-area">Distribution of Lévy area<a class="headerlink" href="#distribution-of-levy-area" title="Permanent link">&para;</a></h2>
 <p>First notice that <span class="arithmatex">\(A_t\)</span> is a (continuous, Brownian) martingale with quadratc variation <span class="arithmatex">\([A]_t\)</span> given by </p>
@@ -6802,7 +6802,7 @@ u(t, r) &amp;=&amp; e^{-\frac\xi4 \tanh\left(\frac\xi2 (T - t)\right)r - \log\co
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月20日 12:58:20">2025年3月20日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月21日 10:33:48">2025年3月21日</span>
   </span>
 
     
