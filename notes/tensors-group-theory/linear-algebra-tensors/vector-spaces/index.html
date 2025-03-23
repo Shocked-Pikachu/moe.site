@@ -1,0 +1,4846 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://shocked-pikachu.github.io/moe.site/notes/tensors-group-theory/linear-algebra-tensors/vector-spaces/">
+      
+      
+        <link rel="prev" href="../../">
+      
+      
+        <link rel="next" href="../tensors/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>矢量空间 - Moe's Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vector-spaces" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="Moe&#39;s Site" class="md-header__button md-logo" aria-label="Moe's Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moe's Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              矢量空间
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Shocked-Pikachu/moe.site" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Shocked-Pikachu/moe.site
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../courses/" class="md-tabs__link">
+          
+  
+    
+  
+  课程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+    
+  
+  笔记
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../about/" class="md-tabs__link">
+          
+  
+    
+  
+  关于
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Moe&#39;s Site" class="md-nav__button md-logo" aria-label="Moe's Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    Moe's Site
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Shocked-Pikachu/moe.site" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Shocked-Pikachu/moe.site
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../courses/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    课程
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../courses/electrodynamics/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    电动力学
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            电动力学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../courses/musical-modernism/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    现代主义音乐：挑战与挑衅
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            现代主义音乐：挑战与挑衅
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../courses/modern-physics-lab/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    近代物理实验
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            近代物理实验
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../courses/principles-of-economics/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    经济学原理（I）
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            经济学原理（I）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/principles-of-economics/principles-economics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    经济学基本原理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/principles-of-economics/gains-from-trade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    双赢的贸易
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/principles-of-economics/market-forces-supply-demand/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    供需的市场力量
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/principles-of-economics/elasticity-application/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    弹性及其应用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/principles-of-economics/markets-government-policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    市场与政策
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/principles-of-economics/market-efficiency/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    市场效率
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/principles-of-economics/externality-public-goods/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    外部性及公共品
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/principles-of-economics/consumer-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    消费者理论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/principles-of-economics/producer-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    厂商理论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/principles-of-economics/firms-competitive-markets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    竞争市场中的企业
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/principles-of-economics/monopoly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垄断
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/principles-of-economics/monopolistic-competition-markets-factors-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垄断竞争及生产要素市场
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/principles-of-economics/oligopoly-game-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    寡头与博弈论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/principles-of-economics/miscellany-frontiers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    杂及前沿
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../courses/introduction-to-finance/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    金融学概论
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            金融学概论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/time-value-money/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Allocating Resources Over Time
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/asset-classes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Asset Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/trading-margin-short-sale/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trading, Margin and Short Sale
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/stock-market-indexes-funds/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stock Market Indexes & Funds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/historical-returns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Historical Returns on Risky Portfolios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/introduction-portfolio-choice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Portfolio Choice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/constructing-portfolios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Constructing Portfolios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/optimal-risky-portfolios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimal Risky Portfolios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/markowitz-portfolio-selection-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markowitz Portfolio Selection Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/index-models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/capital-asset-pricing-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Capital Asset Pricing Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/arbitrage-pricing-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arbitrage Pricing Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/bond-prices-yields/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bond Prices and Yields
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/term-structure-interest-rates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Term Structure of Interest Rates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/equity-valuation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Equity Valuation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/option-strategies-put-call-parity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Option Strategies and Put-Call Parity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/option-pricing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Option Pricing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/futures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Futures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/structured-finance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structured Finance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/introduction-to-finance/financial-fragility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Financial Fragility
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../courses/financial-accounting/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    财务会计
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            财务会计
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-accounting/lecture-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-accounting/lecture-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-accounting/lecture-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-accounting/lecture-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-accounting/lecture-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-accounting/lecture-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-accounting/lecture-7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-accounting/lecture-8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-accounting/lecture-9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-accounting/lecture-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 10
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-accounting/lecture-11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 11
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-accounting/lecture-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 12
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-accounting/lecture-13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 13
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-accounting/lecture-14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 14
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../courses/topics-quantitative-finance/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    量化金融专题
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            量化金融专题
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/topics-quantitative-finance/financial-engineering-nutshell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 1 Financial Engineering in a Nutshell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/topics-quantitative-finance/stochastic-calculus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 2 Crash Course on Stochastic Calculus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/topics-quantitative-finance/black-scholes-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 3 The Black-Merton-Scholes Model and Beyond I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/topics-quantitative-finance/black-scholes-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 4 The Black-Merton-Scholes Model and Beyond II
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/topics-quantitative-finance/volatility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 5 Volatility and Volatility-Linked Derivatives
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/topics-quantitative-finance/variational-control-problems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 6 Brief Introduction to Variational and Control Problems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/topics-quantitative-finance/optimal-execution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 7 Optimal Execution under Price Impact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../courses/general-relativity/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    广义相对论
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            广义相对论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../courses/ai-basis/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    人工智能基础
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../courses/industrial-organization-theory/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    产业组织理论
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            产业组织理论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/industrial-organization-theory/introduction-comp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    产业组织简介，完全竞争
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/industrial-organization-theory/monopoly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垄断
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/industrial-organization-theory/oligopoly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    寡头
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/industrial-organization-theory/monocom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垄断竞争
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/industrial-organization-theory/price-discrimination/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    非线性定价与区别定价
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/industrial-organization-theory/tie-in-sale/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    捆绑销售
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/industrial-organization-theory/strategic-behavior/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    策略行为
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/industrial-organization-theory/durables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    耐用品
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/industrial-organization-theory/information/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    广告与信息
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/industrial-organization-theory/research-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    研究与开发
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/industrial-organization-theory/horizontal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    水平合并
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/industrial-organization-theory/vertical/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    垂直合并
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/industrial-organization-theory/international-trade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    国际贸易
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../courses/baroque-classical-style-music/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    17 与 18 世纪的欧洲艺术音乐：巴洛克与古典风格
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_12" id="__nav_2_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_12">
+            <span class="md-nav__icon md-icon"></span>
+            17 与 18 世纪的欧洲艺术音乐：巴洛克与古典风格
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/baroque-classical-style-music/end-renaissance-concept-baroque/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    “巴洛克”？从⽂艺复兴末期出发
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/baroque-classical-style-music/monteverdi-madrigals-operas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    歌剧的诞⽣：“从蒙特威尔第的牧歌到蒙特威尔第的歌剧”
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/baroque-classical-style-music/spectacle-power-pleasure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    法国抒情悲剧中的权⼒与愉悦：从吕利到拉莫
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/baroque-classical-style-music/baroque-keyboard-tradition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    法国、意⼤利与北德的键盘音乐：L. 库普兰、弗雷斯科巴尔蒂、扬·皮泰尔索恩·斯韦林克、F. 库普兰、布克斯特胡德
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/baroque-classical-style-music/italian-concerto-style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    意⼤利协奏曲风格与调性的兴起：科雷利与维瓦尔第
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/baroque-classical-style-music/handel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    亨德尔的意⼤利歌剧、英国神剧与器乐作品
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/baroque-classical-style-music/introduction-bach/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    巴赫的键盘音乐：键盘十二平均律、哥德堡变奏曲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/baroque-classical-style-music/bach-dance-suite-concertos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    巴赫的协奏曲与组曲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/baroque-classical-style-music/bach-cantatas-passions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    巴赫的声乐作品：康塔塔与受难曲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/baroque-classical-style-music/early-classical-styles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    喜歌剧的兴起：佩格莱西与歌剧中的⼆维性格
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/baroque-classical-style-music/emergence-comic-operas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    奏鸣曲式：鍵盤奏鸣曲、早期交响乐与协奏曲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/baroque-classical-style-music/enlightenment-mozart-operas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    莫扎特的喜歌剧：启蒙主义精神的体现
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/baroque-classical-style-music/haydn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    有幽默感的海顿：弦乐四重奏与交响乐
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../courses/financial-statement-analysis/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    财务报表分析
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_13" id="__nav_2_13_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_13">
+            <span class="md-nav__icon md-icon"></span>
+            财务报表分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-statement-analysis/lecture-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-statement-analysis/lecture-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-statement-analysis/lecture-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-statement-analysis/lecture-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-statement-analysis/lecture-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-statement-analysis/lecture-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-statement-analysis/lecture-7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-statement-analysis/lecture-8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-statement-analysis/lecture-9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-statement-analysis/lecture-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 10
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-statement-analysis/lecture-11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 11
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../courses/financial-statement-analysis/lecture-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 12
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    笔记
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    张量和群论简介
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            张量和群论简介
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    线性代数和张量
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            线性代数和张量
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    矢量空间
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    矢量空间
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      记号汇总
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      一些基本定义（Basic Definitions）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-independence-bases-and-span" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性无关，基和张成空间（Linear Independence, Bases, and Span）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    <span class="md-ellipsis">
+      分量（Components）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性算符（Linear Operators）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dual-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      对偶空间（Dual Spaces）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-degenerate-hermitian-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      非退化的厄米形式（Non-degenerate Hermitian Forms）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-degenerate-hermitian-forms-and-dual-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      非退化的厄米形式及对偶空间（Non-degenerate Hermitian Forms and Dual Spaces）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epilogue-tiers-of-structure-in-linear-algebra" class="md-nav__link">
+    <span class="md-ellipsis">
+      后记：线性代数的层级结构（Epilogue: Tiers of Structure in Linear Algebra）
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    张量
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    群论
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            群论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../group-theory/groups-lie-algebras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    群，李群和李代数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../group-theory/representation-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    群表示论基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../about/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    关于
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            关于
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      记号汇总
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      一些基本定义（Basic Definitions）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-independence-bases-and-span" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性无关，基和张成空间（Linear Independence, Bases, and Span）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    <span class="md-ellipsis">
+      分量（Components）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性算符（Linear Operators）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dual-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      对偶空间（Dual Spaces）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-degenerate-hermitian-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      非退化的厄米形式（Non-degenerate Hermitian Forms）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-degenerate-hermitian-forms-and-dual-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      非退化的厄米形式及对偶空间（Non-degenerate Hermitian Forms and Dual Spaces）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epilogue-tiers-of-structure-in-linear-algebra" class="md-nav__link">
+    <span class="md-ellipsis">
+      后记：线性代数的层级结构（Epilogue: Tiers of Structure in Linear Algebra）
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="vector-spaces">矢量空间（Vector Spaces）<a class="headerlink" href="#vector-spaces" title="Permanent link">&para;</a></h1>
+<h2 id="_1">记号汇总<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<table border="0" class="dataframe" style="border-collapse: separate; border-spacing: 30px 0;">
+  <tr>
+    <th style="text-align: left;"><b>符号</b></th>
+    <th style="text-align: left;"><b>含义</b></th>
+  </tr>
+  <tr>
+    <td>\(\mathbb{R}^n\)</td>
+    <td>\(n\) 维实矢量空间</td>
+  </tr>
+  <tr>
+    <td>\(\mathbb{C}^n\)</td>
+    <td>\(n\) 维复矢量空间</td>
+  </tr>
+  <tr>
+    <td>\(M_n(\mathbb{R})\)</td>
+    <td>矩阵元为实数的 \(n\times n\) 矩阵</td>
+  </tr>
+  <tr>
+    <td>\(M_n(\mathbb{C})\)</td>
+    <td>矩阵元为复数的 \(n\times n\) 矩阵</td>
+  </tr>
+  <tr>
+    <td>\(H_n(\mathbb{C})\)</td>
+    <td>矩阵元为复数的 \(n\times n\) 厄米矩阵（Hermitian matrices）</td>
+  </tr>
+  <tr>
+    <td>\(L^2([a,b])\)</td>
+    <td>在 \([a,b]\) 区间内平方可积的复值函数</td>
+  </tr>
+  <tr>
+    <td>\(\mathcal{H}_l(\mathbb{R}^3)\)</td>
+    <td>调和函数（harmonic polynomials），满足 \(\nabla^2f=0\) 的 \(l\) 阶多项式</td>
+  </tr>
+  <tr>
+    <td>\(\tilde{\mathcal{H}}_l\)</td>
+    <td>球谐函数（spherical harmonics）</td>
+  </tr>
+  <tr>
+    <td>\(GL(n,\mathbb{R})\)</td>
+    <td>一般线性群（general linear group），\(n\times n\) 可逆矩阵构成的群</td>
+  </tr>
+  <tr>
+    <td>&emsp;</td>
+    <td>&emsp;</td>
+  </tr>
+  <tr>
+    <td>\([v]_\mathcal{B}\)</td>
+    <td>矢量 \(v\) 在基 \(\mathcal{B}\) 下的分量表示（坐标）</td>
+  </tr>
+  <tr>
+    <td>&emsp;</td>
+    <td>&emsp;</td>
+  </tr>
+  <tr>
+    <td>\(\mathcal{L}(V)\)</td>
+    <td>所有作用在 \(V\) 上的线性算符构成的矢量空间</td>
+  </tr>
+  <tr>
+    <td>\([T]_\mathcal{B}\)</td>
+    <td>线性算符 \(T\) 在基 \(\mathcal{B}\) 下的分量表示（矩阵）</td>
+  </tr>
+  <tr>
+    <td>&emsp;</td>
+    <td>&emsp;</td>
+  </tr>
+  <tr>
+    <td>\(V^*\)</td>
+    <td>矢量空间 \(V\)的对偶空间（dual space）</td>
+  </tr>
+  <tr>
+    <td>\(\delta\)</td>
+    <td>狄拉克泛函（Dirac delta functional），满足 \(\delta(f(x))\equiv f(0)\)</td>
+  </tr>
+  <tr>
+    <td>\(\delta(x)\)</td>
+    <td>狄拉克函数（Dirac delta function），满足 \(\int \delta(x)f(x)dx= f(0)\)</td>
+  </tr>
+  <tr>
+    <td>&emsp;</td>
+    <td>&emsp;</td>
+  </tr>
+  <tr>
+    <td>\(\mathcal{H}\)</td>
+    <td>希尔伯特空间</td>
+  </tr>
+  <tr>
+    <td>\(P(\mathbb{R})\)</td>
+    <td>所有系数为实数的多项式组成的矢量空间</td>
+  </tr>
+</table>
+
+<h2 id="basic-definitions">一些基本定义（Basic Definitions）<a class="headerlink" href="#basic-definitions" title="Permanent link">&para;</a></h2>
+<p>在线性代数中，我们已经学习过关于线性空间的定义，而在这本书中，我们将线性空间称作矢量空间（vector space），这是因为我们将这个空间中的所有元素都称为矢量。</p>
+<div class="admonition info">
+<p class="admonition-title">注：</p>
+<p>其实这里的矢量空间（vector space）就是我们在线性代数中学习过的线性空间（linear space），矢量（vector）就是数学中的向量。但是为了保持和书本中的术语一致，我们后面统一使用矢量空间这个名词。</p>
+</div>
+<p><u><strong>定义</strong></u>：一个矢量空间包含：一个集合 <span class="arithmatex">\(V\)</span>，其中所有元素被称作矢量，一个标量的集合 <span class="arithmatex">\(C\)</span>（对于我们来说一般是 <span class="arithmatex">\(\mathbb{R}\)</span> 或者 <span class="arithmatex">\(\mathbb{C}\)</span>）和一组封闭的加法和标量乘法运算，满足以下条件：</p>
+<ol>
+<li><span class="arithmatex">\(v+w=w+v,\ \forall v\in V\)</span> (Commutativity)</li>
+<li><span class="arithmatex">\(v+(w+x)=(v+w)+x,\ \forall v,w,x\in V\)</span> (Associativity)</li>
+<li>存在 0 矢量使得 <span class="arithmatex">\(v+0=0+v=v,\ \forall v\in V\)</span></li>
+<li>对 <span class="arithmatex">\(V\)</span> 中所有矢量 <span class="arithmatex">\(v\)</span> 存在一个矢量 <span class="arithmatex">\(-v\)</span> 使得 <span class="arithmatex">\(v+(-v)=0\)</span></li>
+<li><span class="arithmatex">\(c(v+w)=cv+cw,\ \forall v,w \in V,\ \forall c\in C\)</span> (Distributivity)</li>
+<li><span class="arithmatex">\(1v=v,\ \forall v\in V\)</span></li>
+<li><span class="arithmatex">\((c_1+c_2)v=c_1v+c_2v,\ \forall v\in V,\ \forall c_1,c_2\in C\)</span></li>
+<li><span class="arithmatex">\((c_1c_2)v=c_1c_2v,\ \forall v\in V,\ \forall c_1,c_2\in C\)</span></li>
+</ol>
+<details class="note" open="open">
+<summary><span class="arithmatex">\(\mathbb{R}^n\)</span> 和 <span class="arithmatex">\(\mathbb{C}^n\)</span></summary>
+<p>这两个矢量空间在物理上是常常用到的，我们在规定这两个矢量空间的时候常常规定对于 <span class="arithmatex">\(\mathbb{R}^n\)</span> 有 <span class="arithmatex">\(V=\mathbb{R}^n,C=\mathbb{R}\)</span>，而对于 <span class="arithmatex">\(\mathbb{C}^n\)</span> 有 <span class="arithmatex">\(V=\mathbb{C}^n,C=\mathbb{C}\)</span>。但值得注意的是，对于 <span class="arithmatex">\(\mathbb{C}^n\)</span> 我们并没有具体规定 <span class="arithmatex">\(C=\mathbb{C}\)</span>，事实上，我们可以定义 <span class="arithmatex">\(C=\mathbb{R}\)</span>，此时我们会将原来的空间写作 <span class="arithmatex">\(\mathbb{C}^n_\mathbb{R}\)</span>，这样能够提醒我们，我们在把 <span class="arithmatex">\(\mathbb{C}^n\)</span> 作为一个实矢量空间来考虑。这事实上涉及到基选取的问题（在后面的章节会涉及到）。目前，我们应该默认对于 <span class="arithmatex">\(\mathbb{C}^n\)</span> 来说 <span class="arithmatex">\(C=\mathbb{C}\)</span>，除非有另外的明确说明。</p>
+</details>
+<p><u><strong>实例</strong></u>：<em><span class="arithmatex">\(M_n(\mathbb{R})\)</span> 和 <span class="arithmatex">\(M_n(\mathbb{C})\)</span>，矩阵元为实数或者复数的 <span class="arithmatex">\(n\times n\)</span> 矩阵</em></p>
+<p><u><strong>实例</strong></u>：<em><span class="arithmatex">\(H_n(\mathbb{C})\)</span>，矩阵元为复数的 <span class="arithmatex">\(n\times n\)</span> 厄米矩阵（Hermitian matrices）</em></p>
+<p><span class="arithmatex">\(H_n(\mathbb{C})\)</span> 是 <span class="arithmatex">\(M_n(\mathbb{C})\)</span> 的一个子空间，在量子力学中我们知道可观测量必须是厄米算符，如果这个算符是有限维的，就被包含在矢量空间 <span class="arithmatex">\(H_n(\mathbb{C})\)</span> 中。例如 1/2 自旋的粒子，其态空间（ket space）就是 <span class="arithmatex">\(\mathbb{C}^2\)</span>，而角动量算符就属于 <span class="arithmatex">\(H_2(\mathbb{C})\)</span>，我们常使用<strong><em>泡利算符（Pauli matrices）</em></strong>来描述</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+\sigma_x\equiv\begin{pmatrix}
+0&amp;1\\
+1&amp;0
+\end{pmatrix},\ \sigma_y\equiv\begin{pmatrix}
+0&amp;-i\\
+i&amp;0
+\end{pmatrix},\ \sigma_z\equiv\begin{pmatrix}
+1&amp;0\\
+0&amp;-1
+\end{pmatrix}
+\end{eqnarray*}
+\]</div>
+<p>这里应该注意的是，<span class="arithmatex">\(H_n(\mathbb{C})\)</span> <strong>不是一个复矢量空间</strong>，因为如果将 <span class="arithmatex">\(H_n(\mathbb{C})\)</span> 中的元素乘以 <span class="arithmatex">\(i\)</span>，那么这个矩阵就不再是厄米的。也就是说虽然 <span class="arithmatex">\(H_n(\mathbb{C})\)</span> 中包含复数，但是它是一个实矢量空间！</p>
+<p><u><strong>实例</strong></u>：<em><span class="arithmatex">\(L^2([a,b])\)</span>，在 <span class="arithmatex">\([a,b]\)</span> 区间内平方可积的复值函数</em>
+$$
+\int^b_a|f(x)|^2dx&lt;\infty,\ [a,b]\subset\mathbb{R}
+$$
+<u><strong>实例</strong></u>：<em><span class="arithmatex">\(\mathcal{H}_l(\mathbb{R}^3)\)</span> 和 <span class="arithmatex">\(\tilde{\mathcal{H}}_l\)</span>，调和函数（Harmonic Polynomials）和球谐函数（Spherical Harmonics）</em></p>
+<p>考虑 <span class="arithmatex">\(\mathbb{R}^3\)</span> 上所有固定阶数的复系数多项式函数集合 <span class="arithmatex">\(P_l(\mathbb{R}^3)\)</span>，也就是说所有 <span class="arithmatex">\(x^iy^jz^k\)</span> 形式项的线性组合，且满足 <span class="arithmatex">\(i+j+k=l\)</span>。而矢量子空间 <span class="arithmatex">\(\mathcal{H}_l(\mathbb{R}^3)\subset P_l(\mathbb{R}^3)\)</span> 是 <span class="arithmatex">\(l\)</span> 次的调和多项式的集合，也就是满足拉普拉斯方程的 <span class="arithmatex">\(l\)</span> 次多项式
+$$
+\nabla^2 f=0
+$$
+使用分离变量法，我们可以在球坐标下求解拉普拉斯方程，得到
+$$
+f(r,\theta,\phi)=r^l Y^l_m(\theta,\phi)
+$$
+其中 <span class="arithmatex">\(Y_m^l(\theta,\phi)\)</span> 就是球谐函数。因此令 <span class="arithmatex">\(r=1\)</span> 我们就得到了球谐函数，而取 <span class="arithmatex">\(l\)</span> 阶的球谐函数并乘以 <span class="arithmatex">\(r^l\)</span> 就可以得到调和函数：</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+\mathcal{H}_l(\mathbb{R}^3)&amp;\longleftrightarrow&amp;\tilde{\mathcal{H}}_l\\
+f&amp;\longrightarrow&amp;f(r=1,\theta,\phi)\\
+r^lY(\theta,\phi)&amp;\longleftarrow &amp;Y(\theta,\phi)
+\end{eqnarray*}
+\]</div>
+<p><center>
+  <b>The familiar spherical harmonics <span class="arithmatex">\(Y^l_m(\theta,\phi)\)</span> are just the restriction of  particular harmonic degree <span class="arithmatex">\(l\)</span> polynomials to the unit sphere.</b>
+</center></p>
+<details class="note" open="open">
+<summary>反例：一般线性群 <span class="arithmatex">\(GL(n,\mathbb{R})\)</span>，可逆的 <span class="arithmatex">\(n\times n\)</span> 矩阵</summary>
+<p>一般线性群 <span class="arithmatex">\(GL(n,\mathbb{R})\)</span>（general linear group）是 <span class="arithmatex">\(M_n(\mathbb{R})\)</span> 的子集，定义为所有可逆的 <span class="arithmatex">\(n\times n\)</span> 矩阵，并不是一个矢量空间。因为里面不存在零元素（显然零矩阵是不可逆的，不属于 <span class="arithmatex">\(GL(n,\mathbb{R})\)</span>）。</p>
+</details>
+<h2 id="linear-independence-bases-and-span">线性无关，基和张成空间（Linear Independence, Bases, and Span）<a class="headerlink" href="#linear-independence-bases-and-span" title="Permanent link">&para;</a></h2>
+<p><u><strong>定义</strong></u>：一个矢量的集合被称为<strong><em>线性无关的（linearly independent）</em></strong>，如果
+$$
+c^1v_1+\cdots+c^mv_m=0,\ v^i\in S
+$$
+当且仅当 <span class="arithmatex">\(c^1=\cdots=c^m=0\)</span>，也就是说，不可能找到一个非零的数组，使得矢量的线性叠加为零。这件事情等价于：<span class="arithmatex">\(S\)</span> 中的任意一个矢量不能够被其他所有矢量线性表出。</p>
+<p>有了线性无关的概念，我们就可以定义<strong><em>基（basis）</em></strong>：矢量空间 <span class="arithmatex">\(V\)</span> 中最大的线性无关的集合就是 <span class="arithmatex">\(V\)</span> 的一个基 <span class="arithmatex">\(\mathcal{B}\)</span>，通过这个基可以张成整个线性空间，线性空间的<strong><em>维数（dimension）</em></strong>就被定义为基中元素的个数。</p>
+<p>线性代数中，我们已经证明，对于有限维的矢量空间 <span class="arithmatex">\(V\)</span>，不论怎么取，基中元素的个数都是相同的，说明我们上面对于维数的定义是良好的。如果我们找不到有限元素构成的基，那么这个矢量空间就是无穷维的（infinite-dimensional）。</p>
+<div class="admonition info">
+<p class="admonition-title">注：</p>
+<p>一般我们使用 <span class="arithmatex">\(e_i\)</span> 而不是 <span class="arithmatex">\(v_i\)</span> 表示基矢量。</p>
+</div>
+<details class="note" open="open">
+<summary><span class="arithmatex">\(\mathbb{C}^n\)</span> 和 <span class="arithmatex">\(\mathbb{C}^n_\mathbb{R}\)</span></summary>
+<p>之前我们谈到过 <span class="arithmatex">\(\mathbb{C}^n\)</span> 和 <span class="arithmatex">\(\mathbb{C}^n_\mathbb{R}\)</span> 的问题，事实上，这两个矢量空间不同的地方就在于他们的基和维数不同。考虑 <span class="arithmatex">\(n=1\)</span> 的最简单的情况，<span class="arithmatex">\(\mathbb{C}^1\)</span> 是一个 1 维的矢量空间：<span class="arithmatex">\(\mathbb{C}^1=\text{Span}\{1\}\)</span> ，而 <span class="arithmatex">\(\mathbb{C}^1_\mathbb{R}\)</span>  是一个 2 维的矢量空间 <span class="arithmatex">\(\mathbb{C}^1_\mathbb{R}=\text{Span}\{1,i\}\)</span>。所以说，虽然说这两个矢量空间所包含的元素都是一样的（两个集合一致），但是因为数域选取不同，他们有了不同的维数。我们有时会说，<span class="arithmatex">\(\mathbb{C}^1\)</span> 的复维数为 1（complex dimension），实维数（real dimension）为 2。</p>
+</details>
+<p><u><strong>实例</strong></u>：<em><span class="arithmatex">\(M_n(\mathbb{R})\)</span> 和 <span class="arithmatex">\(M_n(\mathbb{C})\)</span></em></p>
+<p>考虑 <span class="arithmatex">\(E_{ij}\)</span> 为第 <span class="arithmatex">\(i\)</span> 行、第 <span class="arithmatex">\(j\)</span> 列为 1，其他矩阵元皆为零的 <span class="arithmatex">\(n\times n\)</span> 矩阵，那么显然 <span class="arithmatex">\(\{E_{ij}\}_{i,j=1,...,n}\)</span> 就是 <span class="arithmatex">\(M_n(\mathbb{R})\)</span> 和 <span class="arithmatex">\(M_n(\mathbb{C})\)</span> 一组基。当然我们也可以考虑其他形式的基，如对称化的基 <span class="arithmatex">\(S_{ij}\equiv E_{ij}+E_{ji}\)</span>，和反对称化的基 <span class="arithmatex">\(A_{ij}\equiv E_{ij}-E_{ji}\)</span></p>
+<p><strong><u>实例</u></strong>：<span class="arithmatex">\(H_2(\mathbb{C})\)</span></p>
+<p><span class="arithmatex">\(H_2(\mathbb{C})\)</span> 是 <span class="arithmatex">\(2\times 2\)</span> 的厄米矩阵，其元素满足 <span class="arithmatex">\(A=A^\dagger\)</span>，事实上我们可以将 <span class="arithmatex">\(H_2(\mathbb{C})\)</span> 中元素的普遍形式写为</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+\begin{pmatrix}
+t+z&amp;x-iy\\
+x+iy&amp;t-z
+\end{pmatrix}=tI+x\sigma_x+y\sigma_y+z\sigma_z
+\end{eqnarray*}
+\]</div>
+<p>其中 <span class="arithmatex">\(I\)</span> 是单位矩阵，<span class="arithmatex">\(\sigma_i\)</span> 是泡利矩阵。于是我们就找到了 <span class="arithmatex">\(H_2(\mathbb{C})\)</span> 的一组基：<span class="arithmatex">\(\mathcal{B}=\{I,\sigma_x,\sigma_y,\sigma_z\}\)</span>，同时我们也知道 <span class="arithmatex">\(\dim H_2(\mathbb{C})=4\)</span>。</p>
+<div class="admonition info">
+<p class="admonition-title">注：</p>
+<p>始终注意 <span class="arithmatex">\(H_2(\mathbb{C})\)</span> 是一个实矢量空间，也就是说 <span class="arithmatex">\((t,x,y,z)\)</span> 是一个实数组！</p>
+</div>
+<h2 id="components">分量（Components）<a class="headerlink" href="#components" title="Permanent link">&para;</a></h2>
+<p>给定 <span class="arithmatex">\(V\)</span> 中元素 <span class="arithmatex">\(v\)</span>，以及一个 <span class="arithmatex">\(V\)</span> 中的基 <span class="arithmatex">\(\mathcal{B}=\{e_i\}_{i=1,...,n}\)</span>，我们有</p>
+<p>$$
+\boxed{
+v=\sum_{i=1}^nv^ie_i
+}
+$$
+其中 <span class="arithmatex">\(v^i\)</span> 是数字，称作 <span class="arithmatex">\(v\)</span> 在 <span class="arithmatex">\(\mathcal{B}\)</span> 下的<strong><em>分量（components）</em></strong>，我们也可以将 <span class="arithmatex">\(v\)</span> 表示为列向量的形式，记做 <span class="arithmatex">\([v]_\mathcal{B}\)</span></p>
+<div class="arithmatex">\[
+[v]_\mathcal{B}=\begin{pmatrix}
+v^1\\
+v^2\\
+\vdots\\
+v^n
+\end{pmatrix}
+\]</div>
+<p>或者行向量的形式</p>
+<div class="arithmatex">\[
+[v]^T_\mathcal{B}=(v^1,v^2,...,v^n)
+\]</div>
+<p>只要选择一个基，任何一个矢量空间都可以“看起来像”一个 <span class="arithmatex">\(\mathbb{R}^n\)</span> 或者 <span class="arithmatex">\(\mathbb{C}^n\)</span>。值得注意的是，<strong>矢量本身和我们选择的基并没有关系，矢量是独立于基存在的</strong>（可以将矢量看作物理实体而基是坐标系，显然物理实体并不因为坐标系的选取发生变化而变化）。</p>
+<p><strong><u>实例</u></strong>：<em>刚体运动</em></p>
+<p>在我们处理刚体运动的时候，我们往往会选取两种坐标系，固定坐标系（坐标系不随刚体运动而改变）<span class="arithmatex">\(K'=\{\hat{\boldsymbol{x}}',\hat{\boldsymbol{y}}',\hat{\boldsymbol{z}}'\}\)</span> 和本体坐标系（坐标系和刚体的相对位置不发生改变）<span class="arithmatex">\(K=\{\hat{\boldsymbol{x}}(t),\hat{\boldsymbol{y}}(t),\hat{\boldsymbol{z}}(t)\}\)</span>。而当我们描述诸如角动量这样的矢量的时候，我们要注意我们所处的坐标系，这是因为矢量的分量表示（component expression）会随着坐标系的变化而变化。例如在无外力矩的刚体定点运动中，<span class="arithmatex">\([L]_{K'}\)</span> 是一个常数，但是 <span class="arithmatex">\([L]_K\)</span> 会随着时间变化。</p>
+<p><u><strong>实例</strong></u>：<span class="arithmatex">\(L^2([-a,a])\)</span></p>
+<p>在高数中，我们知道在 <span class="arithmatex">\([-a,a]\)</span> 区间平方可积的函数能够进行如下展开
+$$
+f=\sum_{m=-\infty}^\infty c_me^{i\frac{m\pi x}{a}}
+$$
+这被称作傅里叶展开，而 <span class="arithmatex">\(c_m\)</span> 是傅里叶级数。事实上，我们完全可以将 <span class="arithmatex">\(c_m\)</span> 看作矢量 <span class="arithmatex">\(f\)</span> 在基 <span class="arithmatex">\(\{\exp({i\frac{m\pi x}{a}})\}_{m\in\mathbb{Z}}\)</span> 下的分量，而这个矢量所在的空间显然是一个无穷维的矢量空间。</p>
+<h2 id="linear-operators">线性算符（Linear Operators）<a class="headerlink" href="#linear-operators" title="Permanent link">&para;</a></h2>
+<p><strong><u>定义</u></strong>：在 <span class="arithmatex">\(V\)</span> 上的线性算符就是从 <span class="arithmatex">\(V\)</span> 到自身的映射函数 <span class="arithmatex">\(T:V \rightarrow V\)</span>，且满足如下的线性条件
+$$
+T(cv+w)=cT(v)+T(w)
+$$</p>
+<div class="admonition info">
+<p class="admonition-title">注：</p>
+<p>有时我们也会将 <span class="arithmatex">\(T(v)\)</span> 写为 <span class="arithmatex">\(Tv\)</span>，对应线性代数中学习的矩阵和向量的乘法。</p>
+</div>
+<p>所有在 <span class="arithmatex">\(V\)</span> 上的线性算符也会构成一个线性空间，使用 <span class="arithmatex">\(\mathcal{L}(V)\)</span> 表示。最简单的例子就是作用在 <span class="arithmatex">\(\mathbb{R}^n\)</span> 上的 <span class="arithmatex">\(n\times n\)</span> 矩阵，这些矩阵既是线性算符，也构成了矢量空间 <span class="arithmatex">\(M_n(\mathbb{R})\)</span>（对于矢量空间 <span class="arithmatex">\(M_n(\mathbb{C})\)</span> 也同理）。</p>
+<details class="note" open="open">
+<summary>物理量作为线性算符</summary>
+<p>之前我们提到过 <span class="arithmatex">\(H_2(\mathbb{C})\subset M_2(\mathbb{C})\)</span>，在当时我们将 <span class="arithmatex">\(H_2(\mathbb{C})\)</span> 理解为矢量空间。而事实上，我们会用 <span class="arithmatex">\(H_2(\mathbb{C})\)</span> 中的元素来定义量子力学中的角动量算符（注意这个算符所在的矢量空间是线性的，而算符本身也是线性算符）。</p>
+</details>
+<p><strong><u>实例</u></strong>：<em>位置算符 <span class="arithmatex">\(\hat{x}\)</span>，动量算符 <span class="arithmatex">\(\hat{p}\)</span> 和角动量算符 <span class="arithmatex">\(\hat{L}\)</span></em></p>
+<p>位置算符 <span class="arithmatex">\(\hat{x}\)</span> 和动量算符 <span class="arithmatex">\(\hat{p}\)</span> 是作用在矢量空间 <span class="arithmatex">\(L^2([-a,a])\)</span> 上的，满足</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+(\hat{x}f)(x)&amp;=&amp;xf(x)\\
+(\hat{p}f)(x)&amp;=&amp;-i\frac{\partial f}{\partial x}(x)
+\end{eqnarray*}
+\]</div>
+<p>同样的，我们可以定义作用在矢量空间 <span class="arithmatex">\(P_l(\mathbb{R}^3)\)</span> 上的角动量算符</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+L_x(f)&amp;=&amp;-i\left(y\frac{\partial f}{\partial z}-z\frac{\partial f}{\partial y}\right)\\
+L_y(f)&amp;=&amp;-i\left(z\frac{\partial f}{\partial x}-x\frac{\partial f}{\partial z}\right)\\
+L_z(f)&amp;=&amp;-i\left(x\frac{\partial f}{\partial y}-y\frac{\partial f}{\partial x}\right)
+\end{eqnarray*}
+\]</div>
+<p><u><strong>实例</strong></u>：作用在 <span class="arithmatex">\(\mathcal{L}(V)\)</span> 上的 <span class="arithmatex">\(\mathcal{L}(V)\)</span></p>
+<p>我们熟悉于作用在矢量上的线性算符，但是<strong>线性算符也是可以作用在线性算符上的</strong>，作用规则如下：给定 <span class="arithmatex">\(A,B\in \mathcal{L}(V)\)</span>，定义作用在 <span class="arithmatex">\(B\)</span> 上的线性算符 <span class="arithmatex">\(\text{ad}_A\in \mathcal{L}(\mathcal{L}(V))\)</span> 满足
+$$
+\text{ad}_A(B)\equiv[A,B]
+$$</p>
+<p>其中 <span class="arithmatex">\([\cdot,\cdot]\)</span> 表示对易子（commutator），注意这里 <span class="arithmatex">\(\text{ad}_A\)</span> 就是一个<strong>作用在由线性算符构成的（矢量）空间的一个线性算符</strong>。而 <span class="arithmatex">\(A\)</span> 对 <span class="arithmatex">\(\mathcal{L}(V)\)</span> 的这种作用被称作<strong><em>伴随作用（adjoint action）</em></strong>或者<strong><em>伴随表示（adjoint representation）</em></strong>。</p>
+<div class="admonition info">
+<p class="admonition-title">注：</p>
+<p>注意这里是 <span class="arithmatex">\(\text{ad}_A\)</span> 作用在线性算符（或者说矢量）<span class="arithmatex">\(B\)</span> 上。线性算符可以是一个算符，但同时其一定是在一个矢量空间中的矢量。而这里使用到“伴随表示（adjoint representation）”是因为这样的操作在后面章节李群的表示中会再次出现。</p>
+</div>
+<p>伴随表示在量子力学中十分重要，例如海森堡绘景下我们会强调物理量的变化（即线性算符空间 <span class="arithmatex">\(\mathcal{L}(V)\)</span> 的变化）而不是态矢量（即矢量空间 <span class="arithmatex">\(V\)</span> 的变化）。在海森堡绘景下，哈密顿量就变成了作用在物理量（线性算符）上的线性算符，对于客观测量量 <span class="arithmatex">\(A\)</span>，海森堡方程为
+$$
+\frac{dA}{dt}=i\ \text{ad}_H(A)
+$$</p>
+<p>伴随表示对于理解球张量至关重要，我们将会在下面的章节再次提及。</p>
+<details class="note" open="open">
+<summary>线性算符的可逆性（invertibility）</summary>
+<p>线性算符的可逆性是一个非常重要的性质，但不是所有线性算符都是可逆的。可逆算符能够一对一的将一个矢量空间中的两个矢量建立映射，也就是说对于可逆线性算符 <span class="arithmatex">\(F\)</span> 有</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+F(v_1)=F(v_2)\Longrightarrow v_1=v_2,\ \forall v_1,v_2\in V
+\end{eqnarray*}
+\]</div>
+<p>而对于可逆线性算符的正式定义为：
+<center><b><span class="arithmatex">\(T\)</span> is invertible if and only if the only vector it sends to 0 is the zero vector.</b></center></p>
+</details>
+<p>值得注意的是，<strong>线性算符不完全等同于矩阵</strong>。如同矢量一样，当基被选定的时候，线性算符的表示（即矩阵）就会被给定。当给定一组基 <span class="arithmatex">\(\mathcal{B}=\{e_i\}_{i=1,...,n}\)</span> 后，线性算符 <span class="arithmatex">\(T\)</span> 的作用完全由其对基向量的作用决定</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+T(v)=T\left(\sum_{i=1}^nv^ie_i\right)=\sum_{i=1}^nv^iT(e_i)=\sum_{i,j=1}^nv^iT_i^{\ j}e_j
+\end{eqnarray*}
+\]</div>
+<p>这里的 <span class="arithmatex">\(T_i^{\ j}\)</span> 是一个<strong>数字</strong>，也称作 <strong><span class="arithmatex">\(T\)</span> 在基 <span class="arithmatex">\(\mathcal{B}\)</span> 下的分量</strong>，定义为
+$$
+\boxed{
+T(e_i)=\sum_{j=1}^nT_i^{\ j}e_j
+}
+$$</p>
+<p>注意到 <span class="arithmatex">\(T_i^{\ j}=T(e_i)^j\)</span>，也就是矢量 <span class="arithmatex">\(T(e_i)\)</span> 的第 <span class="arithmatex">\(j\)</span> 个分量，于是我们有</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+[v]_\mathcal{B}=\begin{pmatrix}
+v^1\\
+v^2\\
+\vdots\\
+v^n
+\end{pmatrix},\ [T(v)]_\mathcal{B}=\begin{pmatrix}
+\sum_{i=1}^nv^iT_i^{\ 1}\\
+\sum_{i=1}^nv^iT_i^{\ 2}\\
+\vdots\\
+\sum_{i=1}^nv^iT_i^{\ n}
+\end{pmatrix}
+\end{eqnarray*}
+\]</div>
+<p>于是 <span class="arithmatex">\(T\)</span> 作用在 <span class="arithmatex">\(v\)</span> 上的形式就是我们熟悉的矩阵乘法了，若我们定义线性算符在基 <span class="arithmatex">\(\mathcal{B}\)</span> 下的分量表示为</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+[T]_\mathcal{B}=\begin{pmatrix}
+T_1^{\ 1}&amp;T_2^{\ 1}&amp;\cdots&amp;T_n^{\ 1}\\
+T_1^{\ 2}&amp;T_2^{\ 2}&amp;\cdots&amp;T_n^{\ 2}\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+T_1^{\ n}&amp;T_n^{\ n}&amp;\cdots&amp;T_n^{\ n}
+\end{pmatrix}
+\end{eqnarray*}
+\]</div>
+<p>那么我们有</p>
+<div class="arithmatex">\[
+\boxed{
+[T(v)]_\mathcal{B}=[T]_\mathcal{B}[v]_\mathcal{B}
+}
+\]</div>
+<details class="note" open="open">
+<summary>关于矩阵的上下标问题</summary>
+<p>在我们上面用到的符号 <span class="arithmatex">\(T_i^{\ j}\)</span> 中，下标（靠左）<span class="arithmatex">\(i\)</span> 是列指标，上标（靠右）<span class="arithmatex">\(j\)</span> 是行指标。上下标和行列指标的对应一直是混乱的，并没有统一标准，我们在第二部分（即群论）中可能还会将这样的规定颠倒过来，需要格外注意。但是虽然行列指标是不清晰的，但是求和指标总是清晰的，在后面引入 Einstein 求和规则之后会更清晰的看到这一点。</p>
+</details>
+<p><u><strong>实例</strong></u>：<em><span class="arithmatex">\(L_z\)</span>，<span class="arithmatex">\(\mathcal{H}_l(\mathbb{R}^3)\)</span> 和球谐函数</em></p>
+<p>调和函数集 <span class="arithmatex">\(\mathcal{H}_l(\mathbb{R}^3)\)</span> 是满足拉普拉斯方程的函数集，<span class="arithmatex">\(\mathcal{H}_1(\mathbb{R}^3)\)</span> 的基可以用球谐函数表示出来：</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+\{rY^i_m\}_{-1\leq m\leq 1}=\left\{\frac{1}{\sqrt{2}}(x+iy),z,-\frac{1}{\sqrt{2}}(x-iy)\right\}
+\end{eqnarray*}
+\]</div>
+<p>考虑 <span class="arithmatex">\(z\)</span> 方向的角动量算符 <span class="arithmatex">\(L_z=-i\left(x\frac{\partial }{\partial y}-y\frac{\partial}{\partial x}\right)\)</span>，将 <span class="arithmatex">\(L_z\)</span> 作用在 <span class="arithmatex">\(\mathcal{H}_1(\mathbb{R}^3)\)</span> 的基上，我们得到</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+\frac{1}{\sqrt{2}}L_z(x+iy)&amp;=&amp;\frac{1}{\sqrt{2}}L_z(x+iy)\\
+L_z(z)&amp;=&amp;0\\
+-\frac{1}{\sqrt{2}}L_z(x-iy)&amp;=&amp;\frac{1}{\sqrt{2}}L_z(x-iy)
+\end{eqnarray*}
+\]</div>
+<p>于是我们就得到了 <span class="arithmatex">\(L_z\)</span> 在球谐函数表示的基下的分量为
+$$
+[L_z]_{rY_m^1}=\begin{pmatrix}
+1&amp;0&amp;0\\
+0&amp;0&amp;0\\
+0&amp;0&amp;-1
+\end{pmatrix}
+$$</p>
+<p>注意到这个矩阵是一个对角矩阵，所以 <span class="arithmatex">\(rY_m^1\)</span> 是 <span class="arithmatex">\(z\)</span> 方向角动量算符 <span class="arithmatex">\(L_z\)</span> 的本征矢量！当然我们还可以用笛卡尔基 <span class="arithmatex">\(\{x,y,z\}\)</span> 来写出 <span class="arithmatex">\(L_z\)</span> 的分量，将 <span class="arithmatex">\(L_z\)</span> 作用在 <span class="arithmatex">\(\{x,y,z\}\)</span> 上，我们有</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+L_z(x)&amp;=&amp;iy\\
+L_z(y)&amp;=&amp;-ix\\
+L_z(z)&amp;=&amp;0\\
+\end{eqnarray*}
+\]</div>
+<p>于是我们就得到了 <span class="arithmatex">\(L_z\)</span> 在笛卡尔基下的分量为</p>
+<div class="arithmatex">\[
+[L_z]_{\{x,y,z\}}=\begin{pmatrix}
+0&amp;-i&amp;0\\\
+i&amp;0&amp;0\\\
+0&amp;0&amp;0
+\end{pmatrix}
+\]</div>
+<p>这里我们可以直观感受到，同一个线性算符在不同的基下的分量（矩阵）是完全不同的！事实上，如果大家对于线性代数的知识还有印象，我们可以通过相似变换将两个矩阵联系起来，这也被叫做基变换。</p>
+<details class="note" open="open">
+<summary>本征矢量，本征值和矩阵对角化</summary>
+<p>我们提到过，上面给出的两个矩阵 <span class="arithmatex">\([L_z]_{rY_m^1}\)</span> 和 <span class="arithmatex">\([L_z]_{\{x,y,z\}}\)</span> 可以通过相似变换联系起来。而实际上，<span class="arithmatex">\([L_z]_{rY_m^1}\)</span> 就是对 <span class="arithmatex">\([L_z]_{\{x,y,z\}}\)</span> 进行对角化后得到的矩阵。对角化过程中得到的本征矢量正是 <span class="arithmatex">\(\{rY_m^1\}_{-1\leq m\leq 1}\)</span>，而相似变换矩阵就是本征矢量排出来的矩阵：<span class="arithmatex">\(S=(rY_{-1}^1, rY_{0}^1, rY_{1}^1)\)</span>。</p>
+</details>
+<h2 id="dual-spaces">对偶空间（Dual Spaces）<a class="headerlink" href="#dual-spaces" title="Permanent link">&para;</a></h2>
+<p><em>这部分是线性代数中不曾讲到过的内容，但是对于我们理解张量十分重要。对偶空间的定义能够帮助我们更好的理解量子力学中的左矢（bra）以及广义相对论中遇到的指标升降。</em></p>
+<p><u><strong>定义</strong></u>：给定一个矢量空间 <span class="arithmatex">\(V\)</span> 和数域 <span class="arithmatex">\(C\)</span>，<span class="arithmatex">\(V\)</span> 的<strong><em>对偶矢量（dual vector）</em></strong>是一个作用在 <span class="arithmatex">\(V\)</span> 上的 <span class="arithmatex">\(C\)</span> 值线性泛函（linear functional），满足
+$$
+f(cv+w)=cf(v)+f(w)
+$$
+我们很容易证明所有 <span class="arithmatex">\(V\)</span> 的对偶矢量会组成一个新的矢量空间，这个由对偶矢量组成的矢量空间就称作 <span class="arithmatex">\(V\)</span> 的<strong><em>对偶空间（dual space）</em></strong>，记做 <span class="arithmatex">\(V^*\)</span>。</p>
+<p>简单来讲，对偶矢量是一个线性泛函，它吃进去一个矢量，吐出来一个数字。</p>
+<div class="admonition info">
+<p class="admonition-title">注：</p>
+<p>上面的 <span class="arithmatex">\(f(cv+w)\)</span>、<span class="arithmatex">\(f(v)\)</span> 和 <span class="arithmatex">\(f(w)\)</span> 都是数域 <span class="arithmatex">\(C\)</span> 上的数字，<span class="arithmatex">\(cv+w\)</span> 是发生在 <span class="arithmatex">\(V\)</span> 中的加法，而 <span class="arithmatex">\(cf(v)+f(w)\)</span> 就是发生在数域中的加法。<br>这种运算有点类似于点乘的运算，我们可以进行如下的类比：<span class="arithmatex">\(f\cdot(cv+w)=c(f\cdot v)+f\cdot w\)</span>。但是要注意的是，点乘的两个矢量都是在同一个空间 <span class="arithmatex">\(V\)</span> 中的，但是上面定义的对偶矢量和矢量是在两个不同空间中的！</p>
+</div>
+<p>最简单的对偶矢量的例子：令 <span class="arithmatex">\(\{e_i\}\)</span> 为 <span class="arithmatex">\(V\)</span> 中的一组基，则 <span class="arithmatex">\(V\)</span> 中的所有矢量都可以写为 <span class="arithmatex">\(v=\sum_{i=1}^nv^ie_i\)</span>。于是我们可以定义对偶矢量 <span class="arithmatex">\(\{e^i\}\)</span><strong>（注意上下标的位置）</strong></p>
+<div class="arithmatex">\[
+\boxed{
+e^i(v)\equiv v^i
+}
+\]</div>
+<p>也就是说 <span class="arithmatex">\(e^i\)</span> 作用在 <span class="arithmatex">\(v\)</span> 上就等同于取出矢量 <span class="arithmatex">\(v\)</span> 的第 <span class="arithmatex">\(i\)</span> 个分量，值得注意的是，为了让上面的说法成立，我们必须<strong>提前先选定一组基</strong>。</p>
+<p>这样我们就会发现，<span class="arithmatex">\(\{e^i\}\)</span> 事实上构成了对偶空间 <span class="arithmatex">\(V^*\)</span> 的一组基，对于任意对偶矢量 <span class="arithmatex">\(f\)</span> 我们有</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+f(v)&amp;=&amp;f\left(\sum_{i=1}^nv^ie_i\right)\\
+&amp;=&amp;\sum_{i=1}^nv^if(e_i)\\
+&amp;\equiv&amp;\sum_{i=1}^nv^if_i
+\end{eqnarray*}
+\]</div>
+<p>其中</p>
+<p>$$
+\boxed{
+f_i\equiv f(e_i)
+}
+$$
+根据上面对于 <span class="arithmatex">\(e^i\)</span> 的定义，显然我们有 <span class="arithmatex">\(e^i(e_j)=\delta_j^i\)</span>，这样我们就可以将 <span class="arithmatex">\(f\)</span> 用基表示出来
+$$
+f=\sum_{i=1}^nf_ie^i
+$$
+不难说明，<span class="arithmatex">\(\{e^i\}_{i=1,...,n}\)</span> 和 <span class="arithmatex">\(\{e_i\}_{i=1,...,n}\)</span> 是一一对应的，所以 <span class="arithmatex">\(V\)</span> 和 <span class="arithmatex">\(V^*\)</span> 的维数相同，我们可以用同样的方式将 <span class="arithmatex">\(f\)</span> 在基 <span class="arithmatex">\(\{e^i\}\equiv \mathcal{B}^*\)</span> 上用列向量表达出来</p>
+<div class="arithmatex">\[
+[f]_{\mathcal{B}^*}=\begin{pmatrix}
+f^1\\\
+f^2\\\
+\vdots\\\
+f^n
+\end{pmatrix}
+\]</div>
+<p>我们还可以用向量的形式将上面 <span class="arithmatex">\(f(v)\)</span> 的运算写为</p>
+<div class="arithmatex">\[
+f(v)=[f]_{\mathcal{B}^*}^T[v]_{\mathcal{B}}=[f]^T[v]
+\]</div>
+<p>这就和我们线性代数中学到的点乘运算形式一致了！但这里要注意的是 <span class="arithmatex">\(f(v)\)</span> 本身和基的选取没有关系，我们<strong>在任何基下计算 <span class="arithmatex">\(f(v)\)</span> 结果都应该是一致的</strong>，因此在上式的最后，我们将 <span class="arithmatex">\(\mathcal{B}\)</span> 给略去了。</p>
+<div class="admonition info">
+<p class="admonition-title">注：</p>
+<p>我们在定义对偶矢量的时候从来说的都是对矢量空间 <span class="arithmatex">\(V\)</span> 定义对偶矢量，并且在定义对偶矢量的基的时候，我们只用到了 <span class="arithmatex">\(e^i(e_j)=\delta^i_j\)</span> 这个关系式，我们从来没有定义过 <span class="arithmatex">\(v\in V\)</span> 的对偶矢量是什么。换言之，仅仅在“对偶矢量”这个章节，<strong>我们并没有建立起 <span class="arithmatex">\(V\)</span> 和 <span class="arithmatex">\(V^*\)</span> 中元素的一一对应关系</strong>，只有当我们进一步引入矢量空间的其他性质的时候，我们才能够建立矢量和对偶矢量的对应关系。</p>
+</div>
+<p><strong><u>实例</u></strong>：<em><span class="arithmatex">\(M_n(\mathbb{R})\)</span> 和 <span class="arithmatex">\(M_n(\mathbb{C})\)</span> 的对偶空间</em></p>
+<p>对于 <span class="arithmatex">\(M_n(\mathbb{R})\)</span> 或 <span class="arithmatex">\(M_n(\mathbb{C})\)</span> 中的矢量（矩阵）<span class="arithmatex">\(A\)</span>，对偶空间的基 <span class="arithmatex">\(f^{ij}\)</span> 定义为 <span class="arithmatex">\(f^{ij}(A)=A_{ij}\)</span>，即取出矩阵 <span class="arithmatex">\(A\)</span> 的第 <span class="arithmatex">\(i\)</span> 行第 <span class="arithmatex">\(j\)</span> 列元素。这种运算看上去非常不自然，但有一个我们经常会用到的线性函数：<strong><em>迹（trace）</em></strong>，用 <span class="arithmatex">\(\text{Tr}\)</span> 表示
+$$
+\text{Tr}(A)=\sum_{i-1}^nA_{ii}
+$$
+事实上，迹就是一种对偶矢量：
+$$
+\text{Tr}=\sum_{i=1}f^{ii}
+$$</p>
+<p><u><strong>（不完全）实例</strong></u>：<em><span class="arithmatex">\(L^2([-a,a])\)</span> 的对偶空间</em></p>
+<p>我们在有限维处理对偶空间的时候，会发现其实 <span class="arithmatex">\(V^*\)</span> 在形式上和 <span class="arithmatex">\(V\)</span> 非常像（但本质上它们是两个不同的空间），但在无穷维的矢量空间中，这件事情可能会有所不同。考虑 <span class="arithmatex">\(L^2([-a,a])\)</span>，我们可以定义对偶基 <span class="arithmatex">\(\{e^n\}_{n\in\mathbb{Z}}\)</span></p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+e^n(f(x))\equiv \frac{1}{2a}\int_{-a}^ae^{-i\frac{n\pi x}{a}}f(x)dx
+\end{eqnarray*}
+\]</div>
+<p>这个定义满足 <span class="arithmatex">\(e^n(e^{i\frac{m\pi x}{a}})=\delta_n^m\)</span>，因此是 <span class="arithmatex">\(\{e^{i\frac{m\pi x}{a}}\}\)</span> 的对偶基。事实上，<span class="arithmatex">\(e^n\)</span> 作用在矢量上就相当于取出函数的 <span class="arithmatex">\(n\)</span> 阶傅里叶系数。但是存在不能够被 <span class="arithmatex">\(e^i\)</span> 线性表出的线性函数（对偶矢量），例如<strong><em>狄拉克泛函（Dirac delta functional）</em></strong><span class="arithmatex">\(\delta\)</span>，满足
+$$
+\delta(f(x))\equiv f(0)
+$$</p>
+<p>可能我们会更加熟悉于狄拉克函数，即满足下式的函数</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+\int \delta(x)f(x)dx=f(0),\ \forall f\in L^2([-a,a])
+\end{eqnarray*}
+\]</div>
+<p>我们在<a href="#non-degenerate-hermitian-forms-and-dual-spaces">非退化的厄米形式及对偶空间</a>一章会说明狄拉克函数 <span class="arithmatex">\(\delta(x)\)</span> 和狄拉克泛函 <span class="arithmatex">\(\delta\)</span> 的关系，并且说明 <span class="arithmatex">\(\delta\)</span> 是无法被上面的 <span class="arithmatex">\(e^i\)</span> 线性表出的。</p>
+<details class="note" open="open">
+<summary>对偶空间的对偶空间</summary>
+<p>我们这一章节讲到了 <span class="arithmatex">\(V\)</span> 的对偶空间是 <span class="arithmatex">\(V^*\)</span>，那很自然的我们会联想，是否存在 <span class="arithmatex">\(V^*\)</span> 的对偶空间 <span class="arithmatex">\(V^{**}\)</span>？实际上是存在的，但是我们可以直接将 <span class="arithmatex">\(V^{**}\)</span> 和 <span class="arithmatex">\(V\)</span> 等同起来。这种等同不仅仅是同构（因为我们知道有限维矢量空间只要维数相同就可以同构，因此 <span class="arithmatex">\(V\simeq V^*\simeq V^{**}\)</span>），而且是<strong>典范</strong>的。<br>
+关于典范的讨论，这里不展开太多，涉及到数学中范畴论的知识。我们可以做如下的直观理解：当我们取出 <span class="arithmatex">\(v\in V\)</span> 时，如果我们要确定 <span class="arithmatex">\(v^*\)</span>，就必须要先定一个一个基 <span class="arithmatex">\(\mathcal{B}=\{e_i\}\)</span>，再定义基的对偶矢量 <span class="arithmatex">\(\mathcal{B}^*=\{e^i\}\)</span>，才能够给出一般情况下 <span class="arithmatex">\(v^*\)</span> 的表达，所以我们说 <span class="arithmatex">\(V\simeq V^*\)</span> 不是典范的，也就是说 <span class="arithmatex">\(V^*\)</span> 包含了 <span class="arithmatex">\(V\)</span> 所不包含的一些信息。但是我们可以在不给出基的情况下就直接给出 <span class="arithmatex">\(v^{**}=v\)</span>（或者说他们各分量相同），这说明这两个空间是别无二致的。<br>
+因此我们就可以明白，为什么将 <span class="arithmatex">\(V^*\)</span> 命名为“对偶”空间了，其实更好的说法是：<strong><span class="arithmatex">\(V\)</span> 和 <span class="arithmatex">\(V^*\)</span> 互为对偶空间</strong>。</p>
+</details>
+<h2 id="non-degenerate-hermitian-forms">非退化的厄米形式（Non-degenerate Hermitian Forms）<a class="headerlink" href="#non-degenerate-hermitian-forms" title="Permanent link">&para;</a></h2>
+<p>其实这很类似于我们在线性代数中学习的双线性形式，但是由于我们是在复数空间讨论这个问题，所以我们将其重新命名为非退化的厄米形式。</p>
+<p><u><strong>定义</strong></u>：一个在 <span class="arithmatex">\(V\)</span> 中的<strong><em>非退化的厄米形式（Non-degenerate Hermitian Form）</em></strong>是一个 <span class="arithmatex">\(C\)</span> 值函数 <span class="arithmatex">\((\cdot|\cdot)\)</span>，这个函数将一组有序的矢量 <span class="arithmatex">\(v,w\in V\)</span> 映射到一个标量上，记为 <span class="arithmatex">\((v|w)\)</span>，并且满足以下条件：</p>
+<ul>
+<li><span class="arithmatex">\((v|w_1+cw_2)=(v|w_1)+c(v|w_2)\)</span> (linearity in the second argument)</li>
+<li><span class="arithmatex">\((v|w)=\overline{(w|v)}\)</span> (<strong>Hermiticity</strong>; the bar denotes complex conjugation)</li>
+<li>对于每一个非零的 <span class="arithmatex">\(v\)</span>，存在 <span class="arithmatex">\(w\in V\)</span> 使得 <span class="arithmatex">\((v|w)\neq 0\)</span> (non-degeneracy)</li>
+</ul>
+<p>注意第一个和第二个条件就说明了 <span class="arithmatex">\((cv|w)=\bar{c}(v|w)\)</span>，因此 <span class="arithmatex">\((\cdot|\cdot)\)</span> 对第一个矢量是<strong><em>共轭线性（conjugate-linear）</em></strong>的。对于实数矢量空间，<span class="arithmatex">\((v|w)=(w|v)\)</span>（这就是我们在线性代数中的双线性函数），这里 <span class="arithmatex">\((\cdot|\cdot)\)</span> 也被称作<strong><em>度量（metric）</em></strong>。如果我们在上面三个条件下加入第四个条件：</p>
+<ul>
+<li>对于所有非零的 <span class="arithmatex">\(v\)</span>，<span class="arithmatex">\((v|v)&gt;0\)</span> (positive-definiteness)</li>
+</ul>
+<p>那么我们就说 <span class="arithmatex">\((\cdot|\cdot)\)</span> 是一个<strong><em>内积（inner product）</em></strong>，而有内积结构的矢量空间又被称作<strong><em>内积空间（inner product space）</em></strong>，内积空间中可以引入“距离”（范数）
+$$
+||v||\equiv\sqrt{(v|v)}
+$$</p>
+<div class="admonition info">
+<p class="admonition-title">注：</p>
+<p>我们现在讨论的都是同一个矢量空间 <span class="arithmatex">\(V\)</span> 中的结构，这里我们还并<strong>没有</strong>引入对偶空间的概念。</p>
+</div>
+<p>有了非退化的厄米形式，我们就可以定义<strong><em>正交归一基（orthonormal bases）</em></strong><span class="arithmatex">\(\mathcal{B}=\{e_i\}\)</span>，满足 <span class="arithmatex">\((e_i|e_j)=\pm\delta_{ij}\)</span>，如果我们进一步在内积空间中讨论（<span class="arithmatex">\((\cdot|\cdot)\)</span> 具有正定性），正交归一基就会满足 <span class="arithmatex">\((e_i|e_j)=\delta_{ij}\)</span>，我们可以通过 Gram-Schmidt 正交化过程从任意一组基求出一组正交归一基。</p>
+<p><strong><u>实例</u></strong>：<em>欧几里得空间的度量 <span class="arithmatex">\((v|w)=v\cdot w=\sum_{i=1}^n v^iw^i\)</span></em></p>
+<p><strong><u>实例</u></strong>：<em><span class="arithmatex">\(\mathbb{C}^n\)</span> 上的厄米内积 <span class="arithmatex">\((v|w)=\sum_{i=1}^n \bar{v}^iw^i\)</span></em></p>
+<p><u><strong>实例</strong></u>：<em>4D Minkowski 时空 <span class="arithmatex">\(\mathbb{R^4}\)</span></em></p>
+<p>考虑 Minkowski 时空的两个矢量 <span class="arithmatex">\(v_i=(t_i,x_i,y_i,z_i)^T,i=1,2\)</span>，Minkowski 度规定义为</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+\eta(v_1,v_2)\equiv(v_1|v_2)= t_1t_2-x_1x_2-y_1y_2-z_1z_2
+\end{eqnarray*}
+\]</div>
+<p>这显然是一个双线性函数，但是它不是正定的，因此这不能够称作内积（虽然在实际我们常常也会称其为“内积”，但是始终要注意数学上内积是需要正定性的）。我们可以定义基 <span class="arithmatex">\(\mathcal{B}\)</span> 下 <span class="arithmatex">\(\eta\)</span> 的分量：</p>
+<div class="arithmatex">\[
+\boxed{
+\eta_{ij}\equiv \eta(e_i,e_j)
+}
+\]</div>
+<p>显然，根据（实）双线性函数的定义，<span class="arithmatex">\(\eta_{ij}\)</span> 是对称的。我们可以将 <span class="arithmatex">\([\eta]_\mathcal{B}\)</span> 写作矩阵形式</p>
+<div class="arithmatex">\[
+[\eta]_\mathcal{B}=\begin{pmatrix}
+1&amp;0&amp;0&amp;0\\\
+0&amp;-1&amp;0&amp;0\\\
+0&amp;0&amp;-1&amp;0\\\
+0&amp;0&amp;0&amp;-1
+\end{pmatrix}
+\]</div>
+<p>有了矩阵形式，我们就可以将度规写为
+$$
+\eta(v_1,v_2)=[v_2]^T[\eta][v_1]
+$$</p>
+<div class="admonition info">
+<p class="admonition-title">注：</p>
+<p>有的地方会将 Minkowski 时空写为 <span class="arithmatex">\(\mathbb{R^{1,3}}\)</span>，这其实是将度规（非退化厄米形式）融入到 <span class="arithmatex">\(\mathbb{R}^4\)</span> 后得到的记号。我们这里写 <span class="arithmatex">\(\mathbb{R}^4\)</span> 仅仅是表达这是一个 4 维的、实数的矢量空间，而 Minkowski 度规的信息并没有体现在 <span class="arithmatex">\(\mathbb{R}^4\)</span> 的记号中。</p>
+</div>
+<p><strong><u>实例</u></strong>：<em><span class="arithmatex">\(L^2([-a,a])\)</span> 上的厄米内积</em></p>
+<p>对于 <span class="arithmatex">\(f,g\in L^2([-a,a])\)</span>，定义
+$$
+(f|g)\equiv\frac{1}{2a}\int_{-a}^a\bar{f}gdx
+$$
+这显然是一个内积，并且 <span class="arithmatex">\(\{e^{i\frac{n\pi x}{a}}\}_{n\in \mathbb{Z}}\)</span> 是一个正交基，而定义了内积的 <span class="arithmatex">\(L^2([-a,a])\)</span> 就被称作<strong><em>希尔伯特空间（Hilbert Space）</em></strong>，这是一个完备的内积空间。我们用 <span class="arithmatex">\(\mathcal{H}\)</span> 表示希尔伯特空间，那么给定一个正交归一矢量集 <span class="arithmatex">\(\{e_i\}\subset\mathcal{H}\)</span>（集合元素可能有无穷多个），那么这个矢量集合被称作 <strong><span class="arithmatex">\(\mathcal{H}\)</span> 的正交归一基</strong>，如果
+$$
+(e_i|f)=0,\ \forall i\Longrightarrow f=0
+$$</p>
+<p>在无穷维的矢量空间中，我们并不要求 <span class="arithmatex">\(\text{Span}\{e_i\}=\mathcal{H}\)</span>（在张成的定义中，我们需要有限个矢量进行线性组合），那么任意无穷多基向量的组合都是 <span class="arithmatex">\(\mathcal{H}\)</span> 中的元素吗？实际上，并不是所有无穷多基向量的组合都是 <span class="arithmatex">\(\mathcal{H}\)</span> 中的元素（任何有穷多基向量的组合属于 <span class="arithmatex">\(\mathcal{H}\)</span>，这个是显然的）。对于 <span class="arithmatex">\(L^2([-a,a])\)</span>，若我们考虑正交基 <span class="arithmatex">\(\{e^{i\frac{n\pi x}{a}}\}_{n\in \mathbb{Z}}\)</span>，那么任何矢量（函数）都可以写为
+$$
+f=\sum_{n=-\infty}^{\infty}c_ne^{i\frac{n\pi x}{a}}
+$$</p>
+<p>其中必须要有</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+\frac{1}{2a}\int^a_{-a}|f|^2dx=\sum_{n=-\infty}^{\infty}|c_n|^2&lt;\infty
+\end{eqnarray*}
+\]</div>
+<p>只要满足上面的不等式，任意无穷多基向量的组合都还可以落在希尔伯特空间中。反过来也一样，对于希尔伯特空间中的任意矢量，上面的不等式也都成立。至此我们得到关于希尔伯特空间基向量的叙述：</p>
+<p><center><b>A basis for a Hilbert space is an infinite set whose infinite linear combinations, together with some suitable convergence condition, form the entire vector space.</b></center></p>
+<div class="admonition note">
+<p class="admonition-title">希尔伯特空间的完备性</p>
+<p>完备性的定义是比较复杂的，我们在这里不做过多讨论。简而言之，完备性就是指：在 <span class="arithmatex">\(L^2([-a,a])\)</span> 上的任何函数列的极限还属于 <span class="arithmatex">\(L^2([-a,a])\)</span>。当然关于这部分的证明是数学分析中的内容，已经完全超出物理人所关心的范围了（x）。</p>
+</div>
+<p><strong><u>实例</u></strong>：<em>在实多项式 <span class="arithmatex">\(P(\mathbb{R})\)</span> 空间中的各种内积</em></p>
+<p><span class="arithmatex">\(P(\mathbb{R})\)</span> 就是所有系数为实数的多项式构成的矢量空间，显然这是一个无穷多维的空间。一个显然的基选取方式是 <span class="arithmatex">\(\mathcal{B}=\{1,x,x^2,...\}\)</span>，但是这并不是最有用的选择。实际上，我们可以选取一个正交归一基，而要定义“正交归一”这个词就要我们先定义内积。第一种我们常见的内积定义是
+$$
+(f|g)\equiv\int_a^b f(x)g(x)W(x)dx
+$$
+其中 <span class="arithmatex">\(W(x)\)</span> 被称作<strong><em>权重函数（weight function）</em></strong>，不同的积分区间 <span class="arithmatex">\([a,b]\)</span> 和不同的权重函数 <span class="arithmatex">\(W(x)\)</span> 给出了不同的正交归一基（可以通过对 <span class="arithmatex">\(\{1,x,x^2,...\}\)</span> 进行 Gram-Schmidt 正交化得到正交归一基）。有趣的是，这样得到的不同的正交归一基就是各种各样的我们会在电动力学和量子力学中碰到的正交多项式（Legendre、Hermite、Laguerre 多项式等等）！</p>
+<p>例如让 <span class="arithmatex">\([a,b]=[-1,1]\)</span> 且 <span class="arithmatex">\(W(x)=1\)</span>，通过对 <span class="arithmatex">\(\{1,x,x^2,...\}\)</span> 进行 Gram-Schmidt 正交化，我们就可以得到 <strong><em>Legendre 多项式</em></strong>：</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+P_0(x)&amp;=&amp;1\\
+P_1(x)&amp;=&amp;x\\
+P_2(x)&amp;=&amp;\frac{1}{2}(3x^2-1)\\
+P_3(x)&amp;=&amp;\frac{1}{2}(5x^3-3x)\\
+&amp;\vdots&amp;
+\end{eqnarray*}
+\]</div>
+<p>让 <span class="arithmatex">\([a,b]=(-\infty,\infty)\)</span> 且 <span class="arithmatex">\(W(x)=e^{-x^2}\)</span>，通过对 <span class="arithmatex">\(\{1,x,x^2,...\}\)</span> 进行 Gram-Schmidt 正交化，我们就可以得到 <strong><em>Hermite 多项式</em></strong>：</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+H_0(x)&amp;=&amp;1\\
+H_1(x)&amp;=&amp;2x\\
+H_2(x)&amp;=&amp;4x^2-2\\
+H_3(x)&amp;=&amp;8x^3-12x\\
+&amp;\vdots&amp;
+\end{eqnarray*}
+\]</div>
+<p>Hermite 多项式会在量子力学中求解一维谐振子的时候碰到。注意到这里 <span class="arithmatex">\(W(x)=e^{-x^2}\)</span> 正是高斯函数，也就是谐振子的基态波函数！</p>
+<h2 id="non-degenerate-hermitian-forms-and-dual-spaces">非退化的厄米形式及对偶空间（Non-degenerate Hermitian Forms and Dual Spaces）<a class="headerlink" href="#non-degenerate-hermitian-forms-and-dual-spaces" title="Permanent link">&para;</a></h2>
+<p>现在我们考虑非退厄米形式以及对偶空间的关系。这会让我们更充分的了解 bra 和 ket，协变和逆变指标，以及狄拉克函数。</p>
+<p>在<u>有限维</u>矢量空间 <span class="arithmatex">\(V\)</span> 中给定一个非退化的厄米形式 <span class="arithmatex">\((\cdot|\cdot)\)</span>，我们可以定义 <span class="arithmatex">\(v\in V\)</span> 的对偶向量 <span class="arithmatex">\(\tilde{v}\in V^*\)</span>：
+$$
+\boxed{
+\tilde{v}(w)=(v|w)
+}
+$$
+这定义了一个重要的映射（注意在“对偶矢量”这个章节我们并没有定义这样的映射，只有引入非退化的厄米形式之后我们才能够建立这样的映射！）</p>
+<div class="arithmatex">\[
+\boxed{
+\begin{eqnarray*}
+L:V &amp;\rightarrow&amp; V^*\\
+v &amp;\mapsto&amp; \tilde{v}
+\end{eqnarray*}}
+\]</div>
+<p>有时我们也会将 <span class="arithmatex">\(\tilde{v}\)</span> 写作 <span class="arithmatex">\(L(v)\)</span> 或者 <span class="arithmatex">\((v|\cdot)\)</span>，这被称作 <span class="arithmatex">\(v\)</span> 的 <strong><em>metric dual</em></strong>。</p>
+<div class="admonition info">
+<p class="admonition-title">注：</p>
+<p>到这里我们看到，非退化厄米形式中，<span class="arithmatex">\(v\)</span> 和 <span class="arithmatex">\(w\)</span> 的顺序是重要的。我们将 <span class="arithmatex">\(v\)</span> 的对偶矢量定义为 <span class="arithmatex">\(\tilde{v}(w)=(v|w)\)</span>，但我们前面说明过，对偶矢量的对偶矢量就是这个矢量本身，那么显然 <span class="arithmatex">\(w\)</span> 也可以作用在 <span class="arithmatex">\(\tilde{v}\)</span> 上，那么 <span class="arithmatex">\(w\)</span> 作用在 <span class="arithmatex">\(\tilde{v}\)</span> 上的结果是什么呢？事实上，就是 <span class="arithmatex">\(w(\tilde{v})=(v|w)\)</span>，注意到括号里的顺序并没有改变！这是因为 <span class="arithmatex">\((\cdot|\cdot)\)</span> 是在矢量空间 <span class="arithmatex">\(V\)</span> 定义的而非在 <span class="arithmatex">\(V^*\)</span> 中定义的，于是 <span class="arithmatex">\(V\)</span> 和 <span class="arithmatex">\(V^*\)</span> 的地位就不平等了。</p>
+</div>
+<p><span class="arithmatex">\(L\)</span> 是共轭线性的（conjugate-linear），考虑 <span class="arithmatex">\(v=cx+y \in V\)</span>，我们有</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+L(v)=(v|\cdot)=(cx+y|\cdot)=\bar{c}(x|\cdot)+(y|\cdot)=\bar{c}L(x)+L(y)
+\end{eqnarray*}
+\]</div>
+<p>上面第三个等号是我们在定义非退化厄米形式的时候就提到的 hermiticity 性质。注意：从 <span class="arithmatex">\(V\to V^*\)</span> 的映射，<span class="arithmatex">\(L\)</span> 是共轭线性的，但是 <span class="arithmatex">\(L(v)\)</span> 作为一个对偶矢量（线性泛函），是一个从 <span class="arithmatex">\(V\to C\)</span> 的完全线性的映射（请分清楚两个映射是从哪里到哪里的映射）！</p>
+<details class="note" open="open">
+<summary><span class="arithmatex">\(e^i\)</span> 和 <span class="arithmatex">\(L(e_i)\)</span></summary>
+<p>假设我们选取了 <span class="arithmatex">\(V\)</span> 中的一组基 <span class="arithmatex">\(\{e_i\}\)</span>，那么我们可以给出两组对偶矢量，一个是由 <span class="arithmatex">\(e^i(e_j)=\delta^i_j\)</span> 定义的，另一个是由上面的非厄米形式定义的 <span class="arithmatex">\(L(e_i)\)</span>。很重要的是，给定 <span class="arithmatex">\(i\)</span>，<strong>对偶矢量 <span class="arithmatex">\(e^i\)</span> 和 metric dual <span class="arithmatex">\(L(e_i)\)</span> 不一定一样！</strong>具体来说，对偶矢量 <span class="arithmatex">\(e^i\)</span> 是用整个基 <span class="arithmatex">\(\{e_i\}_{i=1,...,n}\)</span> 定义的（注意 <span class="arithmatex">\(e^i\)</span> 的定义式），但是 <span class="arithmatex">\(L(e_i)\)</span> 只和 <span class="arithmatex">\(e_i\)</span> 以及非退化厄米形式有关，和其他所有基向量无关。只有当我们选取的基是正交归一的，才有 <span class="arithmatex">\(e^i=L(e_i)\)</span>。<br>最简单的例子：Minkowski 4 维时空中，<span class="arithmatex">\(e^i(e_j)=\delta^i_j\)</span>，而 <span class="arithmatex">\(L(e^i)(e_j)=(e^i|e_j)=\eta_{ij}\)</span>，两者显然不相等。</p>
+</details>
+<p><strong><u>实例</u></strong>：<em>量子力学中的左矢（bra）和右矢（ket）</em></p>
+<p>大多数量子力学的书籍都略过了 bra 和 ket 是什么的讨论，只告诉我们 <span class="arithmatex">\(c|{\psi}\rangle\)</span> 对应的 bra 是 <span class="arithmatex">\(\bar{c}\langle{\psi}|\)</span>，而从这里我们就可以看出：</p>
+<p><center><b>Bras are nothing but dual vectors.</b></center></p>
+<p>左矢 <span class="arithmatex">\(\langle{\psi}|\)</span> 就是 <span class="arithmatex">\(L(\psi)\)</span>，或者说 <span class="arithmatex">\((\psi|\cdot)\)</span>。到这里我们看到我们在定义 bra 的时候，要事先将希尔伯特空间中的非退化厄米形式定义清楚，然后 bra 就可以和 ket 发生一一对应。</p>
+<p><u><strong>实例</strong></u>：<em>相对论中的升降指标</em></p>
+<p>考虑四维时空的 Minkowski 度规，并分别令 <span class="arithmatex">\(\mathcal{B}=\{e_\mu\}_{\mu=1,...,4}\)</span> 和 <span class="arithmatex">\(\mathcal{B}^*=\{e^\mu\}_{\mu=1,...,4}\)</span> 为 <span class="arithmatex">\(\mathbb{R}^4\)</span> 的标准基和对偶基。令 <span class="arithmatex">\(v=\sum_{\mu=1}^4v^\mu e_\mu\in\mathbb{R}^4\)</span>，那么 <span class="arithmatex">\(v\)</span> 的对偶矢量 <span class="arithmatex">\(\tilde{v}\)</span> 的分量由下式决定：</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+\tilde{v}_\mu=\tilde{v}(e_\mu)=(v|e_\mu)=\sum_\nu v^\nu(e_\nu|e_\mu)=\sum_\nu v^\nu\eta_{\nu\mu}
+\end{eqnarray*}
+\]</div>
+<p>用矩阵表示即为
+$$
+[\tilde{v}]_{\mathcal{B}^<em>}=[\eta]<em>\mathcal{B}[v]</em>\mathcal{B}
+$$
+若 <span class="arithmatex">\(L\)</span> 是可逆的，我们就可以考虑 <span class="arithmatex">\(L^{-1}\)</span> 的分量形式 <span class="arithmatex">\([\eta]^{-1}\)</span>，由 <span class="arithmatex">\(\eta^{\mu\nu}\)</span> 表示（满足 <span class="arithmatex">\(\sum_\lambda\eta^{\lambda\mu}\eta_{\nu\lambda}=\delta^\mu_\nu\)</span>）。考虑对偶矢量 <span class="arithmatex">\(\tilde{f}\)</span>，<span class="arithmatex">\(\tilde{f}\)</span> 的对偶矢量（即 <span class="arithmatex">\(\mathbb{R}^4\)</span> 中的矢量）<span class="arithmatex">\(f\equiv L^{-1}(\tilde{f})\)</span>，我们有
+$$
+f^\mu=\sum_\nu\eta^{\mu\nu}\tilde{f}_\nu
+$$
+ 在相对论中，我们常常将 <span class="arithmatex">\(v^\mu\)</span> 称为</em><strong>逆变分量（contravariant components）</strong><em>，将 <span class="arithmatex">\(v_\mu\)</span> 称为</em><strong>协变分量（covariant components）</strong>*。于是我们知道</p>
+<p><center><b>The contravariant components of a vector are just its usual components, while its covariant components are actually the components of the associated dual vector <span class="arithmatex">\(\tilde{v}\)</span></b></center></p>
+<p>对于对偶矢量（dual vector），情况正相反：逆变分量是实际的分量，而协变分量是其对偶矢量的分量。而指标的上升和下降实际上就是在使用 <span class="arithmatex">\(L\)</span> 进行映射。</p>
+<p><u><strong>实例</strong></u>：<em><span class="arithmatex">\(L^2([-a,a])\)</span> 和其对偶矢量</em></p>
+<p>注意我们在定义 <span class="arithmatex">\(L\)</span> 映射的时候，我们规定 <span class="arithmatex">\(V\)</span> 必须是有限维的。而在无限维的情况下，可能。。考虑对偶矢量狄拉克泛函 <span class="arithmatex">\(\delta\in L^2([-a,a])\)</span> 存在一个函数（矢量）<span class="arithmatex">\(f(x)\in L^2([-a,a])\)</span> 使得 <span class="arithmatex">\(L(f(x))=\delta\)</span> 吗？如果存在，那么我们就有</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+g(0)=\delta(g)=(f(x)|g)=\int_{-a}^a f(x)g(x)dx
+\end{eqnarray*}
+\]</div>
+<p>这样我们就发现了，满足这样的函数正是之前定义过的狄拉克函数 <span class="arithmatex">\(f(x)=\delta(x)\)</span>。这是一个平方可积的函数吗？考虑将 <span class="arithmatex">\(g\)</span> 写为
+$$
+g(x)=\sum_{n=-\infty}^\infty d_ne^{-\frac{n\pi x}{a}}
+$$
+那么我们就有
+$$
+g(0)=\sum_{n=-\infty}^\infty d_n\overset{?}{=}(\delta(x)|g)
+$$
+而我们又知道，对于 <span class="arithmatex">\(f(x)=\sum_{n=-\infty}^\infty c_ne^{-\frac{n\pi x}{a}}\)</span> 和 <span class="arithmatex">\(g(x)=\sum_{n=-\infty}^\infty d_ne^{-\frac{n\pi x}{a}}\)</span> 有
+$$
+(f|g)=\sum_{n=-\infty}^\infty \tilde{c}_nd_n
+$$
+这说明狄拉克函数 <span class="arithmatex">\(\delta(x)\)</span> 的各个傅里叶系数都是 1！显然，这样的函数是不满足平方可积的。也就是说，<span class="arithmatex">\(L^2([-a,a])\)</span> 中没有狄拉克函数 <span class="arithmatex">\(\delta(x)\)</span>，但是 <span class="arithmatex">\(L^2([-a,a])^*\)</span> 中有狄拉克泛函 <span class="arithmatex">\(\delta\)</span>，也就是说上面定义的 <span class="arithmatex">\(L\)</span> 在这里会出一些问题。</p>
+<p><strong>不过物理学家显然是不在乎数学上的严谨性的</strong>，所以为了方便，我们仍然认为 <span class="arithmatex">\(\delta\)</span> 是 <span class="arithmatex">\(\delta(x)\)</span> 的对偶矢量，<span class="arithmatex">\(\delta(x)\)</span> 是可以参与进我们的运算中的。不过 <span class="arithmatex">\(\delta(x)\)</span> 只会出现在积分中，所以对我们的运算并不会造成很大的影响。</p>
+<h2 id="epilogue-tiers-of-structure-in-linear-algebra">后记：线性代数的层级结构（Epilogue: Tiers of Structure in Linear Algebra）<a class="headerlink" href="#epilogue-tiers-of-structure-in-linear-algebra" title="Permanent link">&para;</a></h2>
+<p>如果对数学比较热衷，自然会发现上面的一步步定义实际上是从集合到矢量空间到内积空间的不断演进。我们通过对集合定义“加法”和“数乘”，定义了矢量空间，又通过非退化厄米形式、对偶矢量等概念定义了内积空间。这些概念看起来并不是特别抽象，即使没有一步步小心的定义和推导，我们也可以直观上理解这些概念。但数学的强大之处在于，如果我们将所有结构严谨的抽象出来，那么这个结构就是普适性的，我们能够在各种情景中运用这个结构，并且对我们所处理问题的认识理解的更加深入。</p>
+<p><img alt="tier-structure" src="../../../../assets/img/tensors-group-theory/tier-structure.png" /></p>
+<p><center><b>Algebra is generous: she often gives more than is asked for.</b><br>D MacHale, Comic Sections (Dublin 1993)</center></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月24日 00:49:34">2025年3月24日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月24日 00:49:34">2025年3月24日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 - 2025 <a href="https://github.com/Shocked-Pikachu" target="_blank" rel="noopener"> Haoyu Mo</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/Shocked-Pikachu" target="_blank" rel="noopener" title="My Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<mohy@stu.pku.edu.cn>" target="_blank" rel="noopener" title="Send Me An Email" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
