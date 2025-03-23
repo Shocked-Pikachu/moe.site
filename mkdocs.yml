@@ -66,17 +66,17 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - footnotes
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.highlight:
       anchor_linenums: true
   - toc:
       permalink: true
   - pymdownx.arithmatex:
       generic: true
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_div_format
+  - pymdownx.superfences
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -236,4 +236,17 @@ nav:
         - Lecture 10: courses/financial-statement-analysis/lecture-10.md
         - Lecture 11: courses/financial-statement-analysis/lecture-11.md
         - Lecture 12: courses/financial-statement-analysis/lecture-12.md
-  - 关于: about/index.md
+  
+  - 笔记:
+    - notes/index.md
+    - 张量和群论简介:
+        - notes/tensors-group-theory/index.md
+        - 线性代数和张量:
+          - 矢量空间: notes/tensors-group-theory/linear-algebra-tensors/vector-spaces.md
+          - 张量: notes/tensors-group-theory/linear-algebra-tensors/tensors.md
+        - 群论:
+          - 群，李群和李代数: notes/tensors-group-theory/group-theory/groups-lie-algebras.md
+          - 群表示论基础: notes/tensors-group-theory/group-theory/representation-theory.md
+
+  - 关于:
+    - about/index.md
