@@ -4122,7 +4122,6 @@
     <td>矢量 \(v\) 和 \(w\) 的张量积</td>
   </tr>
 </table>
-
 <details class="note" open="open">
 <summary>Einstein 求和法则</summary>
 <p>从这一章起我们开始使用 Einstein 求和法则：当表达式中出现两个重复指标（且一个为上指标一个为下指标）的时候，就意味着要对这个重复的指标求和。比如我们将 <span class="arithmatex">\(v=\sum_{i=1}^nv^ie_i\)</span> 写为 <span class="arithmatex">\(v=v^ie_i\)</span>，将线性算符作用在矢量上写为
@@ -4131,10 +4130,10 @@ Te_j=\sum_{i=1}^n {T_j}^{i}e_i={T_j}^{i}e_i
 $$ 被求和的指标称为<strong><em>哑指标（dummy index）</em></strong>，而未被求和的指标就被称为<strong><em>自由指标（free index）</em></strong>。例如在上面的例子中，<span class="arithmatex">\(i\)</span> 是哑指标而 <span class="arithmatex">\(j\)</span> 是自由指标。</p>
 </details>
 <h2 id="basic-definitions">一些基本定义（Basic Definitions）<a class="headerlink" href="#basic-definitions" title="Permanent link">&para;</a></h2>
-<p><u><strong>定义</strong></u>：在矢量空间 <span class="arithmatex">\(V\)</span> 中的 <span class="arithmatex">\((r,s)\)</span> 张量就是定义在下面空间的 <span class="arithmatex">\(C\)</span> 值函数 <span class="arithmatex">\(T\)</span>
-$$
-\underbrace{V\times \cdots \times V}<em _text_="\text{" s="s" times="times">{r \text{ times}}\times\underbrace{V^<em>\times \cdots \times V^</em>}</em>
-$$}</p>
+<p><u><strong>定义</strong></u>：在矢量空间 <span class="arithmatex">\(V\)</span> 中的 <span class="arithmatex">\((r,s)\)</span> 张量就是定义在下面空间的 <span class="arithmatex">\(C\)</span> 值函数 <span class="arithmatex">\(T\)</span></p>
+<div class="arithmatex">\[
+\underbrace{V\times \cdots \times V}_{r \text{ times}}\times\underbrace{V^*\times \cdots \times V^*}_{s \text{ times}}
+\]</div>
 <p>且对于每一个分量都是线性的，即</p>
 <div class="arithmatex">\[
 \begin{eqnarray*}
@@ -4336,15 +4335,15 @@ A^{n}_{1'}&amp;A^{n}_{2'}&amp;\cdots&amp;A^{n}_{n'}
 \]</div>
 <p>这样我们就能够清晰的看出两个变换矩阵之间的互逆关系：<span class="arithmatex">\(A^{-1}A=AA^{-1}=I\)</span>。</p>
 <p><u><strong>实例</strong></u>：<em>矢量和对偶矢量</em></p>
-<p>有了上面张量的变换的规律，考虑矢量（即 <span class="arithmatex">\((0,1)\)</span> 张量）的变换
-$$
-v^{i'}=A^{i'}<em i_="i'">jv^j
-$$
-而对偶矢量（即 <span class="arithmatex">\((1,0)\)</span> 张量）的变换
-$$
-f</em>^jf^j
-$$
-现在我们终于看到 }=A_{i'<span class="arithmatex">\(v\)</span> 的分量是用 <span class="arithmatex">\(A^{i'}_j\)</span> 进行变换的，而基 <span class="arithmatex">\(\{e_i\}\)</span> 是用 <span class="arithmatex">\(A^j_{i'}\)</span> 变换的，所以矢量的分量相对于基矢量的变换遵循的是相反的规则（'contra'），即逆变（contravariant）。同样的，对偶矢量的分量相对于基矢量的变化遵循的是相同的规则，即协变（convariant）。</p>
+<p>有了上面张量的变换的规律，考虑矢量（即 <span class="arithmatex">\((0,1)\)</span> 张量）的变换</p>
+<div class="arithmatex">\[
+v^{i'}=A^{i'}_jv^j
+\]</div>
+<p>而对偶矢量（即 <span class="arithmatex">\((1,0)\)</span> 张量）的变换</p>
+<div class="arithmatex">\[
+f_{i'}=A_{i'}^jf^j
+\]</div>
+<p>现在我们终于看到 <span class="arithmatex">\(v\)</span> 的分量是用 <span class="arithmatex">\(A^{i'}_j\)</span> 进行变换的，而基 <span class="arithmatex">\(\{e_i\}\)</span> 是用 <span class="arithmatex">\(A^j_{i'}\)</span> 变换的，所以矢量的分量相对于基矢量的变换遵循的是相反的规则（'contra'），即逆变（contravariant）。同样的，对偶矢量的分量相对于基矢量的变化遵循的是相同的规则，即协变（convariant）。</p>
 <p>矢量的分量和基矢量的变换规则相反，这看上去一件很有道理的事情，因为矢量 <span class="arithmatex">\(v\)</span> 本身并不应该随着基矢量的变换而变化（物理规律不随着坐标的变换而变化），所以 <span class="arithmatex">\(v^i\)</span> 和 <span class="arithmatex">\(e_i\)</span> 的变换规律应该是相反的。这对于对偶矢量也是成立的。</p>
 <details class="note" open="open">
 <summary>关于 Einstein 求和规则</summary>
@@ -4384,7 +4383,7 @@ $$ 这里 <span class="arithmatex">\(\tau\)</span> 是扭矩，<span class="arit
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月24日 21:01:31">2025年3月24日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月24日 21:08:44">2025年3月24日</span>
   </span>
 
     
