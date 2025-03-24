@@ -113,13 +113,13 @@
 
 <u>**定义**</u>：一个矢量空间包含：一个集合 $V$，其中所有元素被称作矢量，一个标量的集合 $C$（对于我们来说一般是 $\mathbb{R}$ 或者 $\mathbb{C}$）和一组封闭的加法和标量乘法运算，满足以下条件：
 
-1. $v+w=w+v,\ \forall v\in V$ (Commutativity)
+1. $v+w=w+v,\ \forall v,w\in V$ (Commutativity)
 2. $v+(w+x)=(v+w)+x,\ \forall v,w,x\in V$ (Associativity)
 3. 存在 0 矢量使得 $v+0=0+v=v,\ \forall v\in V$
 4. 对 $V$ 中所有矢量 $v$ 存在一个矢量 $-v$ 使得 $v+(-v)=0$
 5. $c(v+w)=cv+cw,\ \forall v,w \in V,\ \forall c\in C$ (Distributivity)
 6. $1v=v,\ \forall v\in V$
-7. $(c_1+c_2)v=c_1v+c_2v,\ \forall v\in V,\ \forall c_1,c_2\in C$
+7. $(c_1+c_2)v=c_1v+c_2v,\ \forall v\in V,$ $\forall c_1,c_2\in C$
 8. $(c_1c_2)v=c_1c_2v,\ \forall v\in V,\ \forall c_1,c_2\in C$
 
 ???+ note "$\mathbb{R}^n$ 和 $\mathbb{C}^n$"
@@ -639,7 +639,7 @@ $$
 
 <center><b>A basis for a Hilbert space is an infinite set whose infinite linear combinations, together with some suitable convergence condition, form the entire vector space.</b></center>
 
-!!! note "希尔伯特空间的完备性"
+???+ note "希尔伯特空间的完备性"
 	完备性的定义是比较复杂的，我们在这里不做过多讨论。简而言之，完备性就是指：在 $L^2([-a,a])$ 上的任何函数列的极限还属于 $L^2([-a,a])$。当然关于这部分的证明是数学分析中的内容，已经完全超出物理人所关心的范围了（x）。
 
 **<u>实例</u>**：*在实多项式 $P(\mathbb{R})$ 空间中的各种内积*
@@ -699,7 +699,7 @@ $$
 有时我们也会将 $\tilde{v}$ 写作 $L(v)$ 或者 $(v|\cdot)$，这被称作 $v$ 的 ***metric dual***。
 
 !!! info "注："
-	到这里我们看到，非退化厄米形式中，$v$ 和 $w$ 的顺序是重要的。我们将 $v$ 的对偶矢量定义为 $\tilde{v}(w)=(v|w)$，但我们前面说明过，对偶矢量的对偶矢量就是这个矢量本身，那么显然 $w$ 也可以作用在 $\tilde{v}$ 上，那么 $w$ 作用在 $\tilde{v}$ 上的结果是什么呢？事实上，就是 $w(\tilde{v})=(v|w)$，注意到括号里的顺序并没有改变！这是因为 $(\cdot|\cdot)$ 是在矢量空间 $V$ 定义的而非在 $V^*$ 中定义的，于是 $V$ 和 $V^*$ 的地位就不平等了。
+	到这里我们看到，非退化厄米形式中，$v$ 和 $w$ 的顺序是重要的。我们将 $v$ 的对偶矢量定义为 $\tilde{v}(w)=(v|w)$，但我们前面说明过，对偶矢量的对偶矢量就是这个矢量本身，那么显然 $w$ 也可以作用在 $\tilde{v}$ 上，那么 $w$ 作用在 $\tilde{v}$ 上的结果是什么呢？事实上，就是 $w(\tilde{v})=(v|w)$，注意到括号里的顺序并没有改变！这是因为 $(\cdot|\cdot)$ 是在矢量空间 $V$ 中定义的，而非 $V^*$ 中，于是 $V$ 和 $V^*$ 的地位就不平等了。
 
 $L$ 是共轭线性的（conjugate-linear），考虑 $v=cx+y \in V$，我们有
 
@@ -712,7 +712,7 @@ $$
 上面第三个等号是我们在定义非退化厄米形式的时候就提到的 hermiticity 性质。注意：从 $V\to V^*$ 的映射，$L$ 是共轭线性的，但是 $L(v)$ 作为一个对偶矢量（线性泛函），是一个从 $V\to C$ 的完全线性的映射（请分清楚两个映射是从哪里到哪里的映射）！
 
 ???+ note "$e^i$ 和 $L(e_i)$"
-	假设我们选取了 $V$ 中的一组基 $\{e_i\}$，那么我们可以给出两组对偶矢量，一个是由 $e^i(e_j)=\delta^i_j$ 定义的，另一个是由上面的非厄米形式定义的 $L(e_i)$。很重要的是，给定 $i$，**对偶矢量 $e^i$ 和 metric dual $L(e_i)$ 不一定一样！**具体来说，对偶矢量 $e^i$ 是用整个基 $\{e_i\}_{i=1,...,n}$ 定义的（注意 $e^i$ 的定义式），但是 $L(e_i)$ 只和 $e_i$ 以及非退化厄米形式有关，和其他所有基向量无关。只有当我们选取的基是正交归一的，才有 $e^i=L(e_i)$。<br>最简单的例子：Minkowski 4 维时空中，$e^i(e_j)=\delta^i_j$，而 $L(e^i)(e_j)=(e^i|e_j)=\eta_{ij}$，两者显然不相等。
+	假设我们选取了 $V$ 中的一组基 $\{e_i\}$，那么我们可以给出两组对偶矢量：一个是由 $e^i(e_j)=\delta^i_j$ 定义的**对偶空间的基**，另一个是由上面的非厄米形式定义的 **metric dual** $L(e_i)$。很重要的是，给定 $i$，**对偶矢量基 $e^i$ 和 metric dual $L(e_i)$ 不一定一样！**具体来说，对偶矢量 $e^i$ 是用整个基 $\{e_i\}_{i=1,...,n}$ 定义的（注意 $e^i$ 的定义式），但是 $L(e_i)$ 只和 $e_i$ 以及非退化厄米形式有关，和其他所有基向量无关。只有当我们选取的基是正交归一的，才有 $e^i=L(e_i)$。<br>最简单的例子：Minkowski 4 维时空中，$e^i(e_j)=\delta^i_j$，而 $L(e_i)(e_j)=(e_i|e_j)=\eta_{ij}$，两者显然不相等，也就是说 $e_i$ 对应的对偶矢量不是 $e^i$ 而是 $\sum_{j=1}^4e^j\eta_{ij}$。
 
 **<u>实例</u>**：*量子力学中的左矢（bra）和右矢（ket）*
 
@@ -732,19 +732,27 @@ $$
 \end{eqnarray*}
 $$
 
+!!! info "注："
+	第一次读到这里的时候总是被一些定义给混淆。这里再次说明，我们在一开始定义对偶空间的时候，引入了对偶空间的基 $\{e^i\}$，满足 $e^i(e_j)=\delta^i_j$，可以看出对偶空间基的选取是要建立在 $V$ 的一组基 $\{e_i\}$ 的基础上的。但是在我们引入非退化厄米形式，以及 $L:V\rightarrow V^*$ 的映射关系后，我们才建立起 $v$ 和其对偶矢量 $\tilde{v}$ 的一一对应关系。上面公式推导中，$\tilde{v}_\mu=\tilde{v}(e_\mu)$ 这一步是没有用到 $L$ 映射的，我们使用的是 $e^i(e_j)=\delta^i_j$ 性质：$\tilde{v}(e_\mu)=\sum_{\nu}\tilde{v}_\nu e^\nu (e_\mu)=\sum_\nu \tilde{v}_\nu\delta_\mu^\nu=\tilde{v}_\mu$。只有在下一步 $\tilde{v}(e_\mu)=(v|e_\mu)$ 中我们才用到了 $L$ 这个映射。
+
 用矩阵表示即为
+
 $$
 [\tilde{v}]_{\mathcal{B}^*}=[\eta]_\mathcal{B}[v]_\mathcal{B}
 $$
-若 $L$ 是可逆的，我们就可以考虑 $L^{-1}$ 的分量形式 $[\eta]^{-1}$，由 $\eta^{\mu\nu}$ 表示（满足 $\sum_\lambda\eta^{\lambda\mu}\eta_{\nu\lambda}=\delta^\mu_\nu$）。考虑对偶矢量 $\tilde{f}$，$\tilde{f}$ 的对偶矢量（即 $\mathbb{R}^4$ 中的矢量）$f\equiv L^{-1}(\tilde{f})$，我们有
+
+若 $L$ 是可逆的，我们就可以考虑 $L^{-1}$ 的分量形式 $[\eta]^{-1}$，由 $\eta^{\mu\nu}$ 表示（满足 $\sum_\lambda\eta^{\lambda\mu}\eta_{\nu\lambda}=\delta^\mu_\nu$）。考虑对偶空间中矢量 $f\in V^*$，$f$ 的对偶矢量（即 $\mathbb{R}^4$ 中的矢量）$\tilde{f}\equiv L^{-1}(f)$，我们有（注意 tilde 只是代表 $f$ 和 $\tilde{f}$ 互为对偶矢量，不是说明 $f$ 或者 $\tilde{f}$ 所在的空间）
 $$
-f^\mu=\sum_\nu\eta^{\mu\nu}\tilde{f}_\nu
+\tilde{f}^\mu=\sum_\nu\eta^{\nu\mu}f_\nu
 $$
- 在相对论中，我们常常将 $v^\mu$ 称为***逆变分量（contravariant components）***，将 $v_\mu$ 称为***协变分量（covariant components）***。于是我们知道
+在相对论中，我们常常将 $v^\mu$ 称为***逆变分量（contravariant components）***，将 $v_\mu$ 称为***协变分量（covariant components）***。于是我们知道
 
 <center><b>The contravariant components of a vector are just its usual components, while its covariant components are actually the components of the associated dual vector \(\tilde{v}\)</b></center>
 
 对于对偶矢量（dual vector），情况正相反：逆变分量是实际的分量，而协变分量是其对偶矢量的分量。而指标的上升和下降实际上就是在使用 $L$ 进行映射。
+
+!!! info "注："
+	在相对论中，矢量 $v$ 和对偶矢量 $\tilde{v}$ 是物理实体，是不会随着基的选取不同（坐标系变换）而改变的。但是我们说的逆变分量和协变分量都一定要在某一组基下讨论才有意义，并且在不同的基下同一个（对偶）矢量的逆变/协变分量是不同的。
 
 <u>**实例**</u>：*$L^2([-a,a])$ 和其对偶矢量*
 
@@ -774,7 +782,7 @@ $$
 
 ## 后记：线性代数的层级结构（Epilogue: Tiers of Structure in Linear Algebra）
 
-如果对数学比较热衷，自然会发现上面的一步步定义实际上是从集合到矢量空间到内积空间的不断演进。我们通过对集合定义“加法”和“数乘”，定义了矢量空间，又通过非退化厄米形式、对偶矢量等概念定义了内积空间。这些概念看起来并不是特别抽象，即使没有一步步小心的定义和推导，我们也可以直观上理解这些概念。但数学的强大之处在于，如果我们将所有结构严谨的抽象出来，那么这个结构就是普适性的，我们能够在各种情景中运用这个结构，并且对我们所处理问题的认识理解的更加深入。
+如果对数学的语言比较敏感，自然会发现上面的一步步定义实际上是从集合到矢量空间到内积空间的不断演进。我们通过对集合定义“加法”和“数乘”，定义了矢量空间，又通过非退化厄米形式、对偶矢量等概念定义了内积空间。这些概念看起来并不是特别抽象，即使没有一步步小心的定义和推导，我们也可以直观上理解这些概念。但数学的强大之处在于，如果我们将所有结构严谨的抽象出来，那么这个结构就是普适性的，我们能够在各种情景中运用这个结构，并且对我们所处理问题的认识理解的更加深入。
 
 ![tier-structure](../../../assets/img/tensors-group-theory/tier-structure.png)
 

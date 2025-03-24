@@ -67,10 +67,10 @@
   </tr>
   <tr>
     <td>\(\mathbb{R}^n\)</td>
-    <td>\(\underbrace{\mathbb{R} \times \ldots \times \mathbb{R}}_{n \text{ times}}\)</td>
+    <td>\(\underbrace{\mathbb{R} \times \cdots \times \mathbb{R}}_{n \text{ times}}\)</td>
   </tr>
   <tr>
     <td>\(\mathbb{C}^n\)</td>
-    <td>\(\underbrace{\mathbb{C} \times \ldots \times \mathbb{C}}_{n \text{ times}}\)</td>
+    <td>\(\underbrace{\mathbb{C} \times \cdots \times \mathbb{C}}_{n \text{ times}}\)</td>
   </tr>
 </table>
