@@ -4181,13 +4181,13 @@
 </div>
 <p><u><strong>定义</strong></u>：一个矢量空间包含：一个集合 <span class="arithmatex">\(V\)</span>，其中所有元素被称作矢量，一个标量的集合 <span class="arithmatex">\(C\)</span>（对于我们来说一般是 <span class="arithmatex">\(\mathbb{R}\)</span> 或者 <span class="arithmatex">\(\mathbb{C}\)</span>）和一组封闭的加法和标量乘法运算，满足以下条件：</p>
 <ol>
-<li><span class="arithmatex">\(v+w=w+v,\ \forall v\in V\)</span> (Commutativity)</li>
+<li><span class="arithmatex">\(v+w=w+v,\ \forall v,w\in V\)</span> (Commutativity)</li>
 <li><span class="arithmatex">\(v+(w+x)=(v+w)+x,\ \forall v,w,x\in V\)</span> (Associativity)</li>
 <li>存在 0 矢量使得 <span class="arithmatex">\(v+0=0+v=v,\ \forall v\in V\)</span></li>
 <li>对 <span class="arithmatex">\(V\)</span> 中所有矢量 <span class="arithmatex">\(v\)</span> 存在一个矢量 <span class="arithmatex">\(-v\)</span> 使得 <span class="arithmatex">\(v+(-v)=0\)</span></li>
 <li><span class="arithmatex">\(c(v+w)=cv+cw,\ \forall v,w \in V,\ \forall c\in C\)</span> (Distributivity)</li>
 <li><span class="arithmatex">\(1v=v,\ \forall v\in V\)</span></li>
-<li><span class="arithmatex">\((c_1+c_2)v=c_1v+c_2v,\ \forall v\in V,\ \forall c_1,c_2\in C\)</span></li>
+<li><span class="arithmatex">\((c_1+c_2)v=c_1v+c_2v,\ \forall v\in V,\)</span> <span class="arithmatex">\(\forall c_1,c_2\in C\)</span></li>
 <li><span class="arithmatex">\((c_1c_2)v=c_1c_2v,\ \forall v\in V,\ \forall c_1,c_2\in C\)</span></li>
 </ol>
 <details class="note" open="open">
@@ -4613,10 +4613,10 @@ $$</p>
 \]</div>
 <p>只要满足上面的不等式，任意无穷多基向量的组合都还可以落在希尔伯特空间中。反过来也一样，对于希尔伯特空间中的任意矢量，上面的不等式也都成立。至此我们得到关于希尔伯特空间基向量的叙述：</p>
 <p><center><b>A basis for a Hilbert space is an infinite set whose infinite linear combinations, together with some suitable convergence condition, form the entire vector space.</b></center></p>
-<div class="admonition note">
-<p class="admonition-title">希尔伯特空间的完备性</p>
+<details class="note" open="open">
+<summary>希尔伯特空间的完备性</summary>
 <p>完备性的定义是比较复杂的，我们在这里不做过多讨论。简而言之，完备性就是指：在 <span class="arithmatex">\(L^2([-a,a])\)</span> 上的任何函数列的极限还属于 <span class="arithmatex">\(L^2([-a,a])\)</span>。当然关于这部分的证明是数学分析中的内容，已经完全超出物理人所关心的范围了（x）。</p>
-</div>
+</details>
 <p><strong><u>实例</u></strong>：<em>在实多项式 <span class="arithmatex">\(P(\mathbb{R})\)</span> 空间中的各种内积</em></p>
 <p><span class="arithmatex">\(P(\mathbb{R})\)</span> 就是所有系数为实数的多项式构成的矢量空间，显然这是一个无穷多维的空间。一个显然的基选取方式是 <span class="arithmatex">\(\mathcal{B}=\{1,x,x^2,...\}\)</span>，但是这并不是最有用的选择。实际上，我们可以选取一个正交归一基，而要定义“正交归一”这个词就要我们先定义内积。第一种我们常见的内积定义是
 $$
@@ -4663,7 +4663,7 @@ v &amp;\mapsto&amp; \tilde{v}
 <p>有时我们也会将 <span class="arithmatex">\(\tilde{v}\)</span> 写作 <span class="arithmatex">\(L(v)\)</span> 或者 <span class="arithmatex">\((v|\cdot)\)</span>，这被称作 <span class="arithmatex">\(v\)</span> 的 <strong><em>metric dual</em></strong>。</p>
 <div class="admonition info">
 <p class="admonition-title">注：</p>
-<p>到这里我们看到，非退化厄米形式中，<span class="arithmatex">\(v\)</span> 和 <span class="arithmatex">\(w\)</span> 的顺序是重要的。我们将 <span class="arithmatex">\(v\)</span> 的对偶矢量定义为 <span class="arithmatex">\(\tilde{v}(w)=(v|w)\)</span>，但我们前面说明过，对偶矢量的对偶矢量就是这个矢量本身，那么显然 <span class="arithmatex">\(w\)</span> 也可以作用在 <span class="arithmatex">\(\tilde{v}\)</span> 上，那么 <span class="arithmatex">\(w\)</span> 作用在 <span class="arithmatex">\(\tilde{v}\)</span> 上的结果是什么呢？事实上，就是 <span class="arithmatex">\(w(\tilde{v})=(v|w)\)</span>，注意到括号里的顺序并没有改变！这是因为 <span class="arithmatex">\((\cdot|\cdot)\)</span> 是在矢量空间 <span class="arithmatex">\(V\)</span> 定义的而非在 <span class="arithmatex">\(V^*\)</span> 中定义的，于是 <span class="arithmatex">\(V\)</span> 和 <span class="arithmatex">\(V^*\)</span> 的地位就不平等了。</p>
+<p>到这里我们看到，非退化厄米形式中，<span class="arithmatex">\(v\)</span> 和 <span class="arithmatex">\(w\)</span> 的顺序是重要的。我们将 <span class="arithmatex">\(v\)</span> 的对偶矢量定义为 <span class="arithmatex">\(\tilde{v}(w)=(v|w)\)</span>，但我们前面说明过，对偶矢量的对偶矢量就是这个矢量本身，那么显然 <span class="arithmatex">\(w\)</span> 也可以作用在 <span class="arithmatex">\(\tilde{v}\)</span> 上，那么 <span class="arithmatex">\(w\)</span> 作用在 <span class="arithmatex">\(\tilde{v}\)</span> 上的结果是什么呢？事实上，就是 <span class="arithmatex">\(w(\tilde{v})=(v|w)\)</span>，注意到括号里的顺序并没有改变！这是因为 <span class="arithmatex">\((\cdot|\cdot)\)</span> 是在矢量空间 <span class="arithmatex">\(V\)</span> 中定义的，而非 <span class="arithmatex">\(V^*\)</span> 中，于是 <span class="arithmatex">\(V\)</span> 和 <span class="arithmatex">\(V^*\)</span> 的地位就不平等了。</p>
 </div>
 <p><span class="arithmatex">\(L\)</span> 是共轭线性的（conjugate-linear），考虑 <span class="arithmatex">\(v=cx+y \in V\)</span>，我们有</p>
 <div class="arithmatex">\[
@@ -4674,7 +4674,7 @@ L(v)=(v|\cdot)=(cx+y|\cdot)=\bar{c}(x|\cdot)+(y|\cdot)=\bar{c}L(x)+L(y)
 <p>上面第三个等号是我们在定义非退化厄米形式的时候就提到的 hermiticity 性质。注意：从 <span class="arithmatex">\(V\to V^*\)</span> 的映射，<span class="arithmatex">\(L\)</span> 是共轭线性的，但是 <span class="arithmatex">\(L(v)\)</span> 作为一个对偶矢量（线性泛函），是一个从 <span class="arithmatex">\(V\to C\)</span> 的完全线性的映射（请分清楚两个映射是从哪里到哪里的映射）！</p>
 <details class="note" open="open">
 <summary><span class="arithmatex">\(e^i\)</span> 和 <span class="arithmatex">\(L(e_i)\)</span></summary>
-<p>假设我们选取了 <span class="arithmatex">\(V\)</span> 中的一组基 <span class="arithmatex">\(\{e_i\}\)</span>，那么我们可以给出两组对偶矢量，一个是由 <span class="arithmatex">\(e^i(e_j)=\delta^i_j\)</span> 定义的，另一个是由上面的非厄米形式定义的 <span class="arithmatex">\(L(e_i)\)</span>。很重要的是，给定 <span class="arithmatex">\(i\)</span>，<strong>对偶矢量 <span class="arithmatex">\(e^i\)</span> 和 metric dual <span class="arithmatex">\(L(e_i)\)</span> 不一定一样！</strong>具体来说，对偶矢量 <span class="arithmatex">\(e^i\)</span> 是用整个基 <span class="arithmatex">\(\{e_i\}_{i=1,...,n}\)</span> 定义的（注意 <span class="arithmatex">\(e^i\)</span> 的定义式），但是 <span class="arithmatex">\(L(e_i)\)</span> 只和 <span class="arithmatex">\(e_i\)</span> 以及非退化厄米形式有关，和其他所有基向量无关。只有当我们选取的基是正交归一的，才有 <span class="arithmatex">\(e^i=L(e_i)\)</span>。<br>最简单的例子：Minkowski 4 维时空中，<span class="arithmatex">\(e^i(e_j)=\delta^i_j\)</span>，而 <span class="arithmatex">\(L(e^i)(e_j)=(e^i|e_j)=\eta_{ij}\)</span>，两者显然不相等。</p>
+<p>假设我们选取了 <span class="arithmatex">\(V\)</span> 中的一组基 <span class="arithmatex">\(\{e_i\}\)</span>，那么我们可以给出两组对偶矢量：一个是由 <span class="arithmatex">\(e^i(e_j)=\delta^i_j\)</span> 定义的<strong>对偶空间的基</strong>，另一个是由上面的非厄米形式定义的 <strong>metric dual</strong> <span class="arithmatex">\(L(e_i)\)</span>。很重要的是，给定 <span class="arithmatex">\(i\)</span>，<strong>对偶矢量基 <span class="arithmatex">\(e^i\)</span> 和 metric dual <span class="arithmatex">\(L(e_i)\)</span> 不一定一样！</strong>具体来说，对偶矢量 <span class="arithmatex">\(e^i\)</span> 是用整个基 <span class="arithmatex">\(\{e_i\}_{i=1,...,n}\)</span> 定义的（注意 <span class="arithmatex">\(e^i\)</span> 的定义式），但是 <span class="arithmatex">\(L(e_i)\)</span> 只和 <span class="arithmatex">\(e_i\)</span> 以及非退化厄米形式有关，和其他所有基向量无关。只有当我们选取的基是正交归一的，才有 <span class="arithmatex">\(e^i=L(e_i)\)</span>。<br>最简单的例子：Minkowski 4 维时空中，<span class="arithmatex">\(e^i(e_j)=\delta^i_j\)</span>，而 <span class="arithmatex">\(L(e_i)(e_j)=(e_i|e_j)=\eta_{ij}\)</span>，两者显然不相等，也就是说 <span class="arithmatex">\(e_i\)</span> 对应的对偶矢量不是 <span class="arithmatex">\(e^i\)</span> 而是 <span class="arithmatex">\(\sum_{j=1}^4e^j\eta_{ij}\)</span>。</p>
 </details>
 <p><strong><u>实例</u></strong>：<em>量子力学中的左矢（bra）和右矢（ket）</em></p>
 <p>大多数量子力学的书籍都略过了 bra 和 ket 是什么的讨论，只告诉我们 <span class="arithmatex">\(c|{\psi}\rangle\)</span> 对应的 bra 是 <span class="arithmatex">\(\bar{c}\langle{\psi}|\)</span>，而从这里我们就可以看出：</p>
@@ -4687,17 +4687,25 @@ L(v)=(v|\cdot)=(cx+y|\cdot)=\bar{c}(x|\cdot)+(y|\cdot)=\bar{c}L(x)+L(y)
 \tilde{v}_\mu=\tilde{v}(e_\mu)=(v|e_\mu)=\sum_\nu v^\nu(e_\nu|e_\mu)=\sum_\nu v^\nu\eta_{\nu\mu}
 \end{eqnarray*}
 \]</div>
-<p>用矩阵表示即为
+<div class="admonition info">
+<p class="admonition-title">注：</p>
+<p>第一次读到这里的时候总是被一些定义给混淆。这里再次说明，我们在一开始定义对偶空间的时候，引入了对偶空间的基 <span class="arithmatex">\(\{e^i\}\)</span>，满足 <span class="arithmatex">\(e^i(e_j)=\delta^i_j\)</span>，可以看出对偶空间基的选取是要建立在 <span class="arithmatex">\(V\)</span> 的一组基 <span class="arithmatex">\(\{e_i\}\)</span> 的基础上的。但是在我们引入非退化厄米形式，以及 <span class="arithmatex">\(L:V\rightarrow V^*\)</span> 的映射关系后，我们才建立起 <span class="arithmatex">\(v\)</span> 和其对偶矢量 <span class="arithmatex">\(\tilde{v}\)</span> 的一一对应关系。上面公式推导中，<span class="arithmatex">\(\tilde{v}_\mu=\tilde{v}(e_\mu)\)</span> 这一步是没有用到 <span class="arithmatex">\(L\)</span> 映射的，我们使用的是 <span class="arithmatex">\(e^i(e_j)=\delta^i_j\)</span> 性质：<span class="arithmatex">\(\tilde{v}(e_\mu)=\sum_{\nu}\tilde{v}_\nu e^\nu (e_\mu)=\sum_\nu \tilde{v}_\nu\delta_\mu^\nu=\tilde{v}_\mu\)</span>。只有在下一步 <span class="arithmatex">\(\tilde{v}(e_\mu)=(v|e_\mu)\)</span> 中我们才用到了 <span class="arithmatex">\(L\)</span> 这个映射。</p>
+</div>
+<p>用矩阵表示即为</p>
+<div class="arithmatex">\[
+[\tilde{v}]_{\mathcal{B}^*}=[\eta]_\mathcal{B}[v]_\mathcal{B}
+\]</div>
+<p>若 <span class="arithmatex">\(L\)</span> 是可逆的，我们就可以考虑 <span class="arithmatex">\(L^{-1}\)</span> 的分量形式 <span class="arithmatex">\([\eta]^{-1}\)</span>，由 <span class="arithmatex">\(\eta^{\mu\nu}\)</span> 表示（满足 <span class="arithmatex">\(\sum_\lambda\eta^{\lambda\mu}\eta_{\nu\lambda}=\delta^\mu_\nu\)</span>）。考虑对偶空间中矢量 <span class="arithmatex">\(f\in V^*\)</span>，<span class="arithmatex">\(f\)</span> 的对偶矢量（即 <span class="arithmatex">\(\mathbb{R}^4\)</span> 中的矢量）<span class="arithmatex">\(\tilde{f}\equiv L^{-1}(f)\)</span>，我们有（注意 tilde 只是代表 <span class="arithmatex">\(f\)</span> 和 <span class="arithmatex">\(\tilde{f}\)</span> 互为对偶矢量，不是说明 <span class="arithmatex">\(f\)</span> 或者 <span class="arithmatex">\(\tilde{f}\)</span> 所在的空间）
 $$
-[\tilde{v}]_{\mathcal{B}^<em>}=[\eta]<em>\mathcal{B}[v]</em>\mathcal{B}
+\tilde{f}^\mu=\sum_\nu\eta^{\nu\mu}f_\nu
 $$
-若 <span class="arithmatex">\(L\)</span> 是可逆的，我们就可以考虑 <span class="arithmatex">\(L^{-1}\)</span> 的分量形式 <span class="arithmatex">\([\eta]^{-1}\)</span>，由 <span class="arithmatex">\(\eta^{\mu\nu}\)</span> 表示（满足 <span class="arithmatex">\(\sum_\lambda\eta^{\lambda\mu}\eta_{\nu\lambda}=\delta^\mu_\nu\)</span>）。考虑对偶矢量 <span class="arithmatex">\(\tilde{f}\)</span>，<span class="arithmatex">\(\tilde{f}\)</span> 的对偶矢量（即 <span class="arithmatex">\(\mathbb{R}^4\)</span> 中的矢量）<span class="arithmatex">\(f\equiv L^{-1}(\tilde{f})\)</span>，我们有
-$$
-f^\mu=\sum_\nu\eta^{\mu\nu}\tilde{f}_\nu
-$$
- 在相对论中，我们常常将 <span class="arithmatex">\(v^\mu\)</span> 称为</em><strong>逆变分量（contravariant components）</strong><em>，将 <span class="arithmatex">\(v_\mu\)</span> 称为</em><strong>协变分量（covariant components）</strong>*。于是我们知道</p>
+在相对论中，我们常常将 <span class="arithmatex">\(v^\mu\)</span> 称为<strong><em>逆变分量（contravariant components）</em></strong>，将 <span class="arithmatex">\(v_\mu\)</span> 称为<strong><em>协变分量（covariant components）</em></strong>。于是我们知道</p>
 <p><center><b>The contravariant components of a vector are just its usual components, while its covariant components are actually the components of the associated dual vector <span class="arithmatex">\(\tilde{v}\)</span></b></center></p>
 <p>对于对偶矢量（dual vector），情况正相反：逆变分量是实际的分量，而协变分量是其对偶矢量的分量。而指标的上升和下降实际上就是在使用 <span class="arithmatex">\(L\)</span> 进行映射。</p>
+<div class="admonition info">
+<p class="admonition-title">注：</p>
+<p>在相对论中，矢量 <span class="arithmatex">\(v\)</span> 和对偶矢量 <span class="arithmatex">\(\tilde{v}\)</span> 是物理实体，是不会随着基的选取不同（坐标系变换）而改变的。但是我们说的逆变分量和协变分量都一定要在某一组基下讨论才有意义，并且在不同的基下同一个（对偶）矢量的逆变/协变分量是不同的。</p>
+</div>
 <p><u><strong>实例</strong></u>：<em><span class="arithmatex">\(L^2([-a,a])\)</span> 和其对偶矢量</em></p>
 <p>注意我们在定义 <span class="arithmatex">\(L\)</span> 映射的时候，我们规定 <span class="arithmatex">\(V\)</span> 必须是有限维的。而在无限维的情况下，可能。。考虑对偶矢量狄拉克泛函 <span class="arithmatex">\(\delta\in L^2([-a,a])\)</span> 存在一个函数（矢量）<span class="arithmatex">\(f(x)\in L^2([-a,a])\)</span> 使得 <span class="arithmatex">\(L(f(x))=\delta\)</span> 吗？如果存在，那么我们就有</p>
 <div class="arithmatex">\[
@@ -4720,7 +4728,7 @@ $$
 这说明狄拉克函数 <span class="arithmatex">\(\delta(x)\)</span> 的各个傅里叶系数都是 1！显然，这样的函数是不满足平方可积的。也就是说，<span class="arithmatex">\(L^2([-a,a])\)</span> 中没有狄拉克函数 <span class="arithmatex">\(\delta(x)\)</span>，但是 <span class="arithmatex">\(L^2([-a,a])^*\)</span> 中有狄拉克泛函 <span class="arithmatex">\(\delta\)</span>，也就是说上面定义的 <span class="arithmatex">\(L\)</span> 在这里会出一些问题。</p>
 <p><strong>不过物理学家显然是不在乎数学上的严谨性的</strong>，所以为了方便，我们仍然认为 <span class="arithmatex">\(\delta\)</span> 是 <span class="arithmatex">\(\delta(x)\)</span> 的对偶矢量，<span class="arithmatex">\(\delta(x)\)</span> 是可以参与进我们的运算中的。不过 <span class="arithmatex">\(\delta(x)\)</span> 只会出现在积分中，所以对我们的运算并不会造成很大的影响。</p>
 <h2 id="epilogue-tiers-of-structure-in-linear-algebra">后记：线性代数的层级结构（Epilogue: Tiers of Structure in Linear Algebra）<a class="headerlink" href="#epilogue-tiers-of-structure-in-linear-algebra" title="Permanent link">&para;</a></h2>
-<p>如果对数学比较热衷，自然会发现上面的一步步定义实际上是从集合到矢量空间到内积空间的不断演进。我们通过对集合定义“加法”和“数乘”，定义了矢量空间，又通过非退化厄米形式、对偶矢量等概念定义了内积空间。这些概念看起来并不是特别抽象，即使没有一步步小心的定义和推导，我们也可以直观上理解这些概念。但数学的强大之处在于，如果我们将所有结构严谨的抽象出来，那么这个结构就是普适性的，我们能够在各种情景中运用这个结构，并且对我们所处理问题的认识理解的更加深入。</p>
+<p>如果对数学的语言比较敏感，自然会发现上面的一步步定义实际上是从集合到矢量空间到内积空间的不断演进。我们通过对集合定义“加法”和“数乘”，定义了矢量空间，又通过非退化厄米形式、对偶矢量等概念定义了内积空间。这些概念看起来并不是特别抽象，即使没有一步步小心的定义和推导，我们也可以直观上理解这些概念。但数学的强大之处在于，如果我们将所有结构严谨的抽象出来，那么这个结构就是普适性的，我们能够在各种情景中运用这个结构，并且对我们所处理问题的认识理解的更加深入。</p>
 <p><img alt="tier-structure" src="../../../../assets/img/tensors-group-theory/tier-structure.png" /></p>
 <p><center><b>Algebra is generous: she often gives more than is asked for.</b><br>D MacHale, Comic Sections (Dublin 1993)</center></p>
 
@@ -4745,7 +4753,7 @@ $$
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月24日 00:49:34">2025年3月24日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月24日 21:01:31">2025年3月24日</span>
   </span>
 
     
