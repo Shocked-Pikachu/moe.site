@@ -4106,6 +4106,10 @@
     <th style="text-align: left;"><b>含义</b></th>
   </tr>
   <tr>
+    <td>\(\mathcal{T}^r_s\)</td>
+    <td>矢量空间 \(V\) 上的 \((r,s)\) 张量空间</td></td>
+  </tr>
+  <tr>
     <td>\(\epsilon\)</td>
     <td>Levi-Citita 张量</td></td>
   </tr>
@@ -4122,6 +4126,7 @@
     <td>矢量 \(v\) 和 \(w\) 的张量积</td>
   </tr>
 </table>
+
 <details class="note" open="open">
 <summary>Einstein 求和法则</summary>
 <p>从这一章起我们开始使用 Einstein 求和法则：当表达式中出现两个重复指标（且一个为上指标一个为下指标）的时候，就意味着要对这个重复的指标求和。比如我们将 <span class="arithmatex">\(v=\sum_{i=1}^nv^ie_i\)</span> 写为 <span class="arithmatex">\(v=v^ie_i\)</span>，将线性算符作用在矢量上写为
@@ -4130,31 +4135,31 @@ Te_j=\sum_{i=1}^n {T_j}^{i}e_i={T_j}^{i}e_i
 $$ 被求和的指标称为<strong><em>哑指标（dummy index）</em></strong>，而未被求和的指标就被称为<strong><em>自由指标（free index）</em></strong>。例如在上面的例子中，<span class="arithmatex">\(i\)</span> 是哑指标而 <span class="arithmatex">\(j\)</span> 是自由指标。</p>
 </details>
 <h2 id="basic-definitions">一些基本定义（Basic Definitions）<a class="headerlink" href="#basic-definitions" title="Permanent link">&para;</a></h2>
-<p><u><strong>定义</strong></u>：在矢量空间 <span class="arithmatex">\(V\)</span> 中的 <span class="arithmatex">\((r,s)\)</span> 张量就是定义在下面空间的 <span class="arithmatex">\(C\)</span> 值函数 <span class="arithmatex">\(T\)</span></p>
-<div class="arithmatex">\[
-\underbrace{V\times \cdots \times V}_{r \text{ times}}\times\underbrace{V^*\times \cdots \times V^*}_{s \text{ times}}
-\]</div>
-<p>且对于每一个分量都是线性的，即</p>
-<div class="arithmatex">\[
-\begin{eqnarray*}
-&amp;T&amp;(v_1+cw,v_2,...,v_r,f_1,...,f_s)\\
-=&amp;T&amp;(v_1,v_2,...,v_r,f_1,...,f_s)+cT(w,v_2,...,v_r,f_1,...,f_s)
-\end{eqnarray*}
-\]</div>
-<p>这个性质也被称作<strong><em>多重线性（multilinearity）</em></strong>。按照这样的定义，对偶矢量可以被看作 <span class="arithmatex">\((1,0)\)</span> 张量，矢量可以被看作 <span class="arithmatex">\((0,1)\)</span> 张量。特别的，我们规定标量是 <span class="arithmatex">\((0,0)\)</span> 张量。如果我们将 <span class="arithmatex">\(V\)</span> 上的 <span class="arithmatex">\((r,s)\)</span> 张量记做 <span class="arithmatex">\(\mathcal{T}_s^r(V)\)</span> 或者 <span class="arithmatex">\(\mathcal{T}^r_s\)</span>，那么所有 <span class="arithmatex">\((r,s)\)</span> 张量共同构成一个新的矢量空间（check it!）。</p>
+<p><u><strong>定义</strong></u>：在矢量空间 <span class="arithmatex">\(V\)</span> 中的 <span class="arithmatex">\((r,s)\)</span> 张量就是定义在下面空间的 <span class="arithmatex">\(C\)</span> 值函数 <span class="arithmatex">\(T\)</span>
+[
+\underbrace{V\times \cdots \times V}<em _text_="\text{" s="s" times="times">{r \text{ times}}\times\underbrace{V^<em>\times \cdots \times V^</em>}</em>
+]
+且对于每一个分量都是线性的，即
+$$
+\begin{align}<em>}
+&amp;T(v_1+cw,v_2,...,v_r,f_1,...,f_s)\
+=&amp;T(v_1,v_2,...,v_r,f_1,...,f_s)+cT(w,v_2,...,v_r,f_1,...,f_s)
+\end{align</em>}
+$$</p>
+<p>这个性质也被称作<strong><em>多重线性（multilinearity）</em></strong>。按照这样的定义，对偶矢量可以被看作 <span class="arithmatex">\((1,0)\)</span> 张量，矢量可以被看作 <span class="arithmatex">\((0,1)\)</span> 张量。特别的，我们规定标量是 <span class="arithmatex">\((0,0)\)</span> 张量。如果我们将 <span class="arithmatex">\(V\)</span> 上的 <span class="arithmatex">\((r,s)\)</span> 张量集合记做 <span class="arithmatex">\(\mathcal{T}_s^r(V)\)</span> 或者 <span class="arithmatex">\(\mathcal{T}^r_s\)</span>，那么所有 <span class="arithmatex">\((r,s)\)</span> 张量共同构成一个新的矢量空间（check it!）。</p>
 <p>考虑选取 <span class="arithmatex">\(V\)</span> 的一组基 <span class="arithmatex">\(\{e_i\}_{i=1,...,n}\)</span>，对应的对偶基为 <span class="arithmatex">\(\{e^i\}_{i=1,...,n}\)</span>，并将 <span class="arithmatex">\(v_p\)</span> 的第 <span class="arithmatex">\(i\)</span> 个分量记做 <span class="arithmatex">\(v_p^i\)</span>，将 <span class="arithmatex">\(f_q\)</span> 的第 <span class="arithmatex">\(j\)</span> 个分量记做 <span class="arithmatex">\(f_{qj}\)</span>，那么根据张量的多重线性，我们有</p>
 <div class="arithmatex">\[
-\begin{eqnarray*}
-T(v_1,...,v_r,f_1,...,f_s)&amp;=&amp;v_1^{i_1}...v_r^{i_r}f_{1j_1}...f_{sj_s}T(e_{i1},...,e_{i_r},e^{j_1},...,e^{j_s})\\
-&amp;\equiv&amp;v_1^{i_1}...v_r^{i_r}f_{1j_1}...f_{sj_s}{T_{i_1\cdots i_r}}^{j_1\cdots j_s}
-\end{eqnarray*}
+\begin{align*}
+T(v_1,...,v_r,f_1,...,f_s)&amp;=v_1^{i_1}...v_r^{i_r}f_{1j_1}...f_{sj_s}T(e_{i1},...,e_{i_r},e^{j_1},...,e^{j_s})\\
+&amp;\equiv v_1^{i_1}...v_r^{i_r}f_{1j_1}...f_{sj_s}{T_{i_1\cdots i_r}}^{j_1\cdots j_s}
+\end{align*}
 \]</div>
 <p>其中</p>
 <div class="arithmatex">\[
 \boxed{
-\begin{eqnarray*}
+\begin{align*}
 {T_{i_1\cdots i_r}}^{j_1\cdots j_s}\equiv T(e_{i_1},...,e_{i_r},e^{j_1},...,e^{j_s})
-\end{eqnarray*}}
+\end{align*}}
 \]</div>
 <p>定义为 <span class="arithmatex">\(T\)</span> 在基 <span class="arithmatex">\(\{e_i\}_{i=1,...,n}\)</span> 下的<strong><em>分量（component）</em></strong>（注意分量是数字！）。<em>张量的分量实际上就是张量作用在基向量后得到的值。</em></p>
 <p>我们可以通过在上一部分提到的 <span class="arithmatex">\(L:V\rightarrow V^*\)</span> 映射以及 <span class="arithmatex">\(L^{-1}\)</span> 来改变 <span class="arithmatex">\(T\)</span> 的类型。比如，如果 <span class="arithmatex">\(T\)</span> 是一个 <span class="arithmatex">\((1,1)\)</span> 张量，分量为 <span class="arithmatex">\({T_i}^j\)</span>，那么我们就可以将其变成 <span class="arithmatex">\((2,0)\)</span> 张量 <span class="arithmatex">\(\tilde{T}\)</span>：
@@ -4177,11 +4182,11 @@ $$
 $$
 考虑量子力学的线性算符。给定希尔伯特空间中的一个算符 <span class="arithmatex">\(H\)</span>，并且取一组正交归一基 <span class="arithmatex">\(\{e_i\}\)</span>（在狄拉克记号中我们写作 <span class="arithmatex">\(\{|i\rangle\}\)</span>），我们常常会将 <span class="arithmatex">\(H(e_i)\)</span> 写作 <span class="arithmatex">\(H|i\rangle\)</span>，将 将 <span class="arithmatex">\(\tilde{e}_j(e_i)=(e_j|e_i)\)</span> 写作 <span class="arithmatex">\(\langle j|i\rangle\)</span>，将 <span class="arithmatex">\((e_j|He_i)\)</span> 写作 <span class="arithmatex">\(\langle j|H|i\rangle\)</span>。因此根据上面的定义，我们得到</p>
 <div class="arithmatex">\[
-\begin{eqnarray*}
-{H_i}^j&amp;=&amp;H(e_i,e^j)\\
-&amp;=&amp;e^j(He_i)\\
-&amp;=&amp;\langle j|H|i\rangle
-\end{eqnarray*}
+\begin{align*}
+{H_i}^j&amp;=H(e_i,e^j)\\\
+&amp;=e^j(He_i)\\\
+&amp;=\langle j|H|i\rangle
+\end{align*}
 \]</div>
 <p>这些分量就是<strong><em>矩阵元（matrix element）</em></strong>，我们也可以将 <span class="arithmatex">\({H_i}^j\)</span> 编排为矩阵形式。</p>
 <p><strong><u>实例</u></strong>：<em>Levi-Civita 张量</em></p>
@@ -4191,21 +4196,21 @@ $$
 $$
 从它的定义中我们看出，<span class="arithmatex">\(\epsilon\)</span> 就类似于计算平行六面体体积的算符。考虑 Levi-Civita 张量的分量，若取 <span class="arithmatex">\(\mathbb{R}^3\)</span> 的一组标准基 <span class="arithmatex">\(\{e_1,e_2,e_3\}\)</span>，则我们有</p>
 <div class="arithmatex">\[
-\begin{eqnarray*}
-\epsilon_{ijk}&amp;=&amp;\epsilon(e_i,e_j,e_k)\\
-&amp;=&amp;(e_i\times e_j)\cdot e_k\\
-&amp;=&amp;\bar{\epsilon}_{ijk}
-\end{eqnarray*}
+\begin{align*}
+\epsilon_{ijk}&amp;=\epsilon(e_i,e_j,e_k)\\
+&amp;=(e_i\times e_j)\cdot e_k\\
+&amp;=\bar{\epsilon}_{ijk}
+\end{align*}
 \]</div>
 <p>其中 <span class="arithmatex">\(\bar{\epsilon}_{ijk}\)</span> 是 Levi-Civita 符号，也就是 <span class="arithmatex">\(\epsilon\)</span> 张量的分量 <span class="arithmatex">\(\epsilon_{ijk}\)</span>（注意符号的区别），定义为</p>
 <div class="arithmatex">\[
-\begin{eqnarray*}
+\begin{align*}
 \bar{\epsilon}_{ijk}=\begin{cases}
 +1&amp;\text{if}\ \{ijk\}=\{1,2,3\},\{2,3,1\},\text{or}\ \{3,1,2\}\\
 -1&amp;\text{if}\ \{ijk\}=\{3,2,1\},\{1,3,2\},\text{or}\ \{2,1,3\}\\
 0&amp;\text{otherwise}
 \end{cases}
-\end{eqnarray*}
+\end{align*}
 \]</div>
 <div class="admonition info">
 <p class="admonition-title">注：</p>
@@ -4222,10 +4227,10 @@ L=\mathcal{I}\omega
 $$
 而如果用矩阵（分量）的形式写出来，上面两个式子就会变成（注意当我们说“矩阵”的时候，就默认已经选定了一组基）</p>
 <div class="arithmatex">\[
-\begin{eqnarray*}
-K&amp;=&amp;\frac12[\omega]^T[\mathcal{I}][\omega]\\
-[L]&amp;=&amp;[\mathcal{I}][\omega]
-\end{eqnarray*}
+\begin{align*}
+K&amp;=\frac12[\omega]^T[\mathcal{I}][\omega]\\
+[L]&amp;=[\mathcal{I}][\omega]
+\end{align*}
 \]</div>
 <p>注意由于我们是在三维欧几里得空间使用正交归一基，所以指标的上升和下降不会对张量的矩阵形式产生影响（度规是单位矩阵），因此在这里 <span class="arithmatex">\((2,0)\)</span> 张量和 <span class="arithmatex">\((1,1)\)</span> 张量的矩阵是一样的。</p>
 <p><u><strong>实例</strong></u>：<em>度规张量</em></p>
@@ -4235,10 +4240,10 @@ $$
 $$
 这是因为</p>
 <div class="arithmatex">\[
-\begin{eqnarray*}
-{g_i}^j&amp;=&amp;g(e_i,e^j)\equiv g(e_i,\tilde{e^j})\\
-&amp;=&amp;g(e_i,g^{jk}e_k)=g^{jk}g_{ik}={\delta_i}^j
-\end{eqnarray*}
+\begin{align*}
+{g_i}^j&amp;=g(e_i,e^j)\equiv g(e_i,\tilde{e^j})\\
+&amp;=g(e_i,g^{jk}e_k)=g^{jk}g_{ik}={\delta_i}^j
+\end{align*}
 \]</div>
 <details class="note" open="open">
 <summary>为什么我们不考虑 <span class="arithmatex">\(\mathbb{C}^n\)</span> 的度规？</summary>
@@ -4255,26 +4260,32 @@ e_i=A_i^{j'}e_{j'}
 $$</p>
 <div class="admonition info">
 <p class="admonition-title">注：</p>
-<p>这里要说明一下，我们在写 <span class="arithmatex">\(\mathcal{B}\)</span> 的时候，应该在两个指标上打撇，即 <span class="arithmatex">\(\{e'_{i'}\}\)</span>，代表基矢量变化，并且指标也发生变化。但是为了简洁，我们只在指标上打撇以表示我们使用了不同的基和不同的指标，即用 <span class="arithmatex">\(e_{i'}\)</span> 表示 <span class="arithmatex">\(e'_{i'}\)</span>。另外 <span class="arithmatex">\(A_{i'}^j\)</span> 和 <span class="arithmatex">\(A_i^{j'}\)</span> 不是简单将指标改变，实际上这两个变换矩阵都是不同的，实际上应写成 <span class="arithmatex">\(A_{i'}^j\)</span> 和 <span class="arithmatex">\({A'}_i^{j'}\)</span>，而由于打撇的指标不同（一个在上方打撇，一个在下方打撇，这也说明了为什么我们给 <span class="arithmatex">\(\mathcal{B}'\)</span> 中的基向量的指标要加撇），所以我们能够分清两个矩阵，我们也就不在 <span class="arithmatex">\(A\)</span> 上打撇了。</p>
+<p>这里要说明一下，我们在写 <span class="arithmatex">\(\mathcal{B}\)</span> 的时候，应该在基矢上打撇，即 <span class="arithmatex">\(\{e'_{i}\}\)</span>，代表不同基下的矢量。但是由于我们在变换矩阵上要区别每一个指标来自于哪一个基的矢量，所以我们在指标上打撇以表示我们使用了不同的基，即用 <span class="arithmatex">\(e_{i'}\)</span> 表示 <span class="arithmatex">\(e'_{i}\)</span>。另外 <span class="arithmatex">\(A_{i'}^j\)</span> 和 <span class="arithmatex">\(A_i^{j'}\)</span> 不是简单将指标改变，实际上这两个变换矩阵都是不同的，实际上应写成 <span class="arithmatex">\(A_{i'}^j\)</span> 和 <span class="arithmatex">\({A'}_i^{j'}\)</span>，而由于打撇的指标不同（一个在上方打撇，一个在下方打撇，这也说明了为什么我们给 <span class="arithmatex">\(\mathcal{B}'\)</span> 中的基向量的指标要加撇），所以我们能够分清两个矩阵，我们也就不在 <span class="arithmatex">\(A\)</span> 上打撇了。</p>
 </div>
 <p>这样我们就有</p>
-<div class="arithmatex">\[
+<div>
+$$
 e_i=A^{j'}_ie_{j'}=A^{j'}_iA^k_{j'}e_k
-\]</div>
+$$
+</div>
 <p>于是</p>
-<div class="arithmatex">\[
+<div>
+$$
 A^{j'}_iA^k_{j'}=\delta_i^k
-\]</div>
+$$
+</div>
 <p>若将上式打撇和不打撇的指标交换，我们也有</p>
-<div class="arithmatex">\[
+<div>
+$$
 A^{j}_{i'}A^{k'}_{j}=\delta_{i'}^{k'}
-\]</div>
+$$
+</div>
 <p>这说明 <span class="arithmatex">\(A^{j'}_i\)</span> 和 <span class="arithmatex">\(A^j_{i'}\)</span> 互为逆矩阵（这两个矩阵是不同的）。要注意的是，<span class="arithmatex">\(A^{j'}_i\)</span> 和 <span class="arithmatex">\(A^j_{i'}\)</span> 并<strong>不是张量</strong>，它们的指标代表的是不同的基。这也就是为什么我们直接将上指标和下指标垂直排列，而没有像张量一样错开。</p>
 <p>考虑 <span class="arithmatex">\(\mathcal{B}\)</span> 和 <span class="arithmatex">\(\mathcal{B}'\)</span> 的对偶基 <span class="arithmatex">\(\{e^i\}_{i=1,...,n}\)</span> 和 <span class="arithmatex">\(\mathcal{B}'=\{e^{i'}\}_{i'=1,...,n}\)</span>，根据对偶基的定义</p>
 <div class="arithmatex">\[
-\begin{eqnarray*}
+\begin{align*}
 e^{i'}(e_j)=e^{i'}(A^{k'}_je_{k'})=A^{k'}_j\delta^{i'}_{k'}=A^{i'}_j
-\end{eqnarray*}
+\end{align*}
 \]</div>
 <p>即
 $$
@@ -4290,35 +4301,34 @@ $$</p>
 </div>
 <p>考虑 <span class="arithmatex">\((1,1)\)</span> 张量分量在不同基下的变换</p>
 <div class="arithmatex">\[
-\begin{eqnarray*}
-{T_{i'}}^{j'}&amp;=&amp;T(e_{i'},e^{j'})\\
-&amp;=&amp;T(A^k_{i'}e_{k},A_l^{j'}e^{l})\\
-&amp;=&amp;A^k_{i'}A_l^{j'}T(e_{k},e^{l})\\
-&amp;=&amp;A^k_{i'}A_l^{j'}{T_k}^l
-\end{eqnarray*}
+\begin{align*}
+{T_{i'}}^{j'}&amp;=T(e_{i'},e^{j'})\\\
+&amp;=T(A^k_{i'}e_{k},A_l^{j'}e^{l})\\\
+&amp;=A^k_{i'}A_l^{j'}T(e_{k},e^{l})\\\
+&amp;=A^k_{i'}A_l^{j'}{T_k}^l
+\end{align*}
 \]</div>
 <p>考虑更一般的 <span class="arithmatex">\((r,s)\)</span> 张量</p>
 <div class="arithmatex">\[
-\begin{eqnarray*}
-{T_{i_1',...,i_r'}}^{j_1',...,j_s'}&amp;=&amp;T(e_{i_1'},...,e_{i_r'},e^{j_1'},...,e^{j_s'})\\
-&amp;=&amp;T(A^{k_1}_{i_1'}e_{k_1},...,A^{k_r}_{i_r'}e_{k_r},A_{l_1}^{j_1'}e^{l_1},...,A_{l_s}^{j_s'}e^{l_s})\\
-&amp;=&amp;A^{k_1}_{i_1'}\cdots A^{k_r}_{i_r'}A_{l_1}^{j_1'}\cdots A_{l_s}^{j_s'}T(e_{k_1},...,e_{k_r},e^{l_1},...,e^{l_s})\\
-&amp;=&amp;A^{k_1}_{i_1'}\cdots A^{k_r}_{i_r'}A_{l_1}^{j_1'}\cdots A_{l_s}^{j_s'}{T_{k_1,...,k_r}}^{l_1,...,l_s}
-\end{eqnarray*}
+\begin{align*}
+{T_{i_1',\dots,i_r'}}^{j_1',\dots,j_s'} &amp;= T(e_{i_1'},\dots,e_{i_r'},e^{j_1'},\dots,e^{j_s'}) \\
+&amp;= T\left(A^{k_1}_{i_1'}e_{k_1}, \dots, A^{k_r}_{i_r'}e_{k_r}, A_{l_1}^{j_1'}e^{l_1}, \dots, A_{l_s}^{j_s'}e^{l_s}\right) \\
+&amp;= A^{k_1}_{i_1'} \cdots A^{k_r}_{i_r'} A_{l_1}^{j_1'} \cdots A_{l_s}^{j_s'} T(e_{k_1},\dots,e_{k_r},e^{l_1},\dots,e^{l_s}) \\
+&amp;= A^{k_1}_{i_1'} \cdots A^{k_r}_{i_r'} A_{l_1}^{j_1'} \cdots A_{l_s}^{j_s'} {T_{k_1,\dots,k_r}}^{l_1,\dots,l_s}
+\end{align*}
 \]</div>
 <p>总结起来就是</p>
 <div class="arithmatex">\[
 \boxed{
-\begin{eqnarray*}
+\begin{align*}
 {T_{i_1',...,i_r'}}^{j_1',...,j_s'}=A^{k_1}_{i_1'}\cdots A^{k_r}_{i_r'}A_{l_1}^{j_1'}\cdots A_{l_s}^{j_s'}{T_{k_1,...,k_r}}^{l_1,...,l_s}
-\end{eqnarray*}
+\end{align*}
 }
 \]</div>
 <p>这就是一般的张量在基变换下满足的定律，也是在物理中我们给“张量”的定义，其实这种物理的定义和我们上面多线性函数的定义是完全一致的。</p>
-<p>最后我们引入变换矩阵（要注意不同指标代表不同矩阵！）/</p>
+<p>最后我们引入变换矩阵（要注意不同指标代表不同矩阵！）</p>
 <div class="arithmatex">\[
 \boxed{
-\begin{eqnarray*}
 A=\begin{pmatrix}
 A^{1'}_{1}&amp;A^{1'}_{2}&amp;\cdots&amp;A^{1'}_{n}\\
 A^{2'}_{1}&amp;A^{2'}_{2}&amp;\cdots&amp;A^{2'}_{n}\\
@@ -4330,7 +4340,6 @@ A^{2}_{1'}&amp;A^{2}_{2'}&amp;\cdots&amp;A^{2}_{n'}\\
 \vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
 A^{n}_{1'}&amp;A^{n}_{2'}&amp;\cdots&amp;A^{n}_{n'}
 \end{pmatrix}
-\end{eqnarray*}
 }
 \]</div>
 <p>这样我们就能够清晰的看出两个变换矩阵之间的互逆关系：<span class="arithmatex">\(A^{-1}A=AA^{-1}=I\)</span>。</p>
@@ -4352,11 +4361,194 @@ $$
 \tau_i=\lambda_i\dot{\omega_i}+\sum_{j,k}\epsilon_{ijk}\lambda_k\omega_j\omega_k
 $$ 这里 <span class="arithmatex">\(\tau\)</span> 是扭矩，<span class="arithmatex">\(\lambda_i\)</span> 是惯量张量的特征值（或者叫主惯量系数），<span class="arithmatex">\(\omega\)</span> 是角动量。我们看到，对于第一项我们就不需要对 <span class="arithmatex">\(i\)</span> 求和，对于第二项如果我们要对 <span class="arithmatex">\(j,k\)</span> 求和，就需要写出求和符号。事实上，这里出现两个重复的不求和下标，是因为我们选取了特殊的坐标系（惯量主坐标系），而这个方程就不是在任何坐标系都成立的方程。另外，也不是只要求和了就代表这个规律是和坐标无关的，我们必须还要看求和的两个量是不是随坐标的变换规律相反。</p>
 </details>
+<p>若使用上面定义的变换矩阵，我们也可以将上面矢量和对偶矢量的变换写为</p>
+<div class="arithmatex">\[
+\begin{align*}
+[v]_{\mathcal{B}'}&amp;=A[v]_{\mathcal{B}}\\
+[f]_{\mathcal{B}'}&amp;=(A^{-1})^T[f]_{\mathcal{B}}\\
+\end{align*}
+\]</div>
+<p>在不同的基下，<span class="arithmatex">\(f(v)\)</span> 的值不会发生改变，我们也可以用矩阵形式验证这一点：</p>
+<div class="arithmatex">\[
+\begin{align*}
+[f]_{\mathcal{B}'}^T[v]_{\mathcal{B}'}&amp;=\left((A^{-1})^T[f]_{\mathcal{B}}\right)^TA[v]_{\mathcal{B}}\\
+&amp;=[f]_{\mathcal{B}}^T A^{-1}A[v]_{\mathcal{B}}\\
+&amp;=[f]_{\mathcal{B}}^T[v]_{\mathcal{B}}
+\end{align*}
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">注：</p>
+<p>这里如果用矩阵形式写的话会有一点需要注意的地方。我们看到基矢量的变换是 <span class="arithmatex">\(e_{i'}=A_{i'}^je_j\)</span>，若要将这个式子写成矩阵形式，要注意这里的 <span class="arithmatex">\(i'\)</span> 和 <span class="arithmatex">\(j\)</span> 不是分量指标，而是基矢量的 index，所以这本身不是一个分量形式的方程。考虑在 <span class="arithmatex">\(\mathcal{B}\)</span> 下，<span class="arithmatex">\(e_j\)</span> 就是第 <span class="arithmatex">\(j\)</span> 个分量为 1，其余分量为 0 的矢量，因此 <span class="arithmatex">\(e_{i'}\)</span> 的第 <span class="arithmatex">\(j\)</span> 个分量就是 <span class="arithmatex">\(A_{i'}^j\)</span>，因而我们可以将基矢量的变换写成下面的矩阵形式<br><center><span class="arithmatex">\([e_{i'}]_\mathcal{B}=A^{-1}[e_{i}]_\mathcal{B}\)</span></center><br>而矢量分量的变换写为<br><center><span class="arithmatex">\([v]_{\mathcal{B}'}=A[v]_{\mathcal{B}}\)</span></center><br>注意到这两个式子左右两边在哪个基下写分量是有区别的！</p>
+</div>
+<p>当我们选取的基 <span class="arithmatex">\(\mathcal{B}\)</span> 和 <span class="arithmatex">\(\mathcal{B}'\)</span> 都是正交归一基时，<span class="arithmatex">\(A\)</span> 必须是一个正交矩阵（这样才能保证变换的过程中不破坏基矢量的正交归一性），有 <span class="arithmatex">\(A^{-1}=A^T\)</span>，于是我们看到 <span class="arithmatex">\(v\)</span> 和 <span class="arithmatex">\(f\)</span> 的分量在基变换下满足同样的变换规律。这也是合理的，因为在正交归一基下，对于矢量 <span class="arithmatex">\(v\)</span>，其对偶矢量 <span class="arithmatex">\(\tilde{v}=L(v)=(v|\cdot)\)</span> 的分量和 <span class="arithmatex">\(v\)</span> 是相同的，即 <span class="arithmatex">\(v^i=v_i\)</span>（check it!）。</p>
 <p><strong><u>实例</u></strong>：<em>线性算符</em></p>
+<p>线性算符可以看作 <span class="arithmatex">\((1,1)\)</span> 张量，于是我们可以在基变换下写出线性算符的矩阵元（分量）
+$$
+{T_{i'}}^{j'}=A^k_{i'}A^{j'}_l {T_k}^l
+$$</p>
+<p>而写为矩阵形式就是</p>
+<div class="arithmatex">\[
+[T]_{\mathcal{B}'}=A[T]_{\mathcal{B}}A^{-1}
+\]</div>
+<p>这就是一个矩阵的<strong><em>相似变换（similarity transformation）</em></strong>，这和我们在线性代数中学的是完全一样的。</p>
+<p>另外，给定 <span class="arithmatex">\(T\in\mathcal{L}(V)\)</span> 和 <span class="arithmatex">\(V\)</span> 的一组基 <span class="arithmatex">\(\mathcal{B}\)</span>，定义 <span class="arithmatex">\(T\)</span> 的迹（trace）为
+$$
+\text{Tr}(T)\equiv\text{Tr}([T]_{\mathcal{B}})
+$$
+显然，迹是不随基的选取而改变的（相似变换不改变矩阵的迹）。事实上，我们已经在第一部分定义过迹，它可以看作 <span class="arithmatex">\(M_n(\mathbb{R})\)</span> 或者 <span class="arithmatex">\(M_n(\mathbb{C})\)</span> 的对偶空间中的对偶矢量，当然对偶矢量作用在矢量上这件事情是不随基的变化而改变的（这句话中我们又将 <span class="arithmatex">\(T\)</span> 看作一个矢量空间中的矢量）。</p>
+<div class="admonition info">
+<p class="admonition-title">注：</p>
+<p>实际上，在欧几里得空间，由于度规是正定的，我们可以取正交归一的基矢量。而在正交归一基下，矢量 <span class="arithmatex">\(v\)</span> 的对偶矢量形式上和 <span class="arithmatex">\(v\)</span> 完全一致（两者的分量一样），所以我们看似就不需要区分这两个矢量空间。因此，我们不用处理烦人的上下标而认为它们都是一样的，这样不会引入任何计算上的错误。但是在度规非正定的空间中（如 Minkowski 空间），我们无法选取正交归一基，上下标的引入就是必要的。</p>
+</div>
 <p><strong><u>实例</u></strong>：<em><span class="arithmatex">\((2,0)\)</span> 张量</em></p>
+<p><span class="arithmatex">\((2,0)\)</span> 张量对于 Minkowski 空间和欧几里得空间是很重要的，其变换规则为
+$$
+g_{i'j'}=A^k_{i'}A^l_{j'}g_{kl}
+$$
+或者矩阵形式：<span class="arithmatex">\([g]_{\mathcal{B}'}=(A^{-1})^T[g]_{\mathcal{B}}A^{-1}\)</span>。</p>
+<p>值得注意的是，如果 <span class="arithmatex">\(\mathcal{B}\)</span> 和 <span class="arithmatex">\(\mathcal{B}'\)</span> 都是正交归一基，那么 <span class="arithmatex">\(A\)</span> 必须是正交矩阵，此时上面对 <span class="arithmatex">\((2,0)\)</span> 张量 <span class="arithmatex">\(g\)</span> 的变换关系和上例对 <span class="arithmatex">\((1,1)\)</span> 张量 <span class="arithmatex">\(T\)</span> 的变换关系就是一样的，因此我们实际上无需区分 <span class="arithmatex">\((2,0)\)</span> 张量和 <span class="arithmatex">\((1,1)\)</span> 张量（事实上我们在过去在欧几里得空间也从未区分过）！但是在 Minkowski 4 维时空中基不是正交归一的，取 <span class="arithmatex">\(g=\eta\)</span>，由于在<strong>基变化过程中要保度规不变</strong>，所以我们有</p>
+<div class="arithmatex">\[
+\begin{align*}
+[\eta]=&amp;(A^{-1})^T[\eta]A^{-1}\\\
+\text{or}\ [\eta]=&amp;A^T[\eta]A
+\end{align*}
+\]</div>
+<p>其中
+$$
+[\eta]=\begin{pmatrix}
+1&amp;0&amp;0&amp;0\\
+0&amp;-1&amp;0&amp;0\\
+0&amp;0&amp;-1&amp;0\\
+0&amp;0&amp;0&amp;-1
+\end{pmatrix}
+$$
+满足上式的 <span class="arithmatex">\(A\)</span> 就被称作 <strong><em>Lorentz 变换</em></strong>，在这个变换下，矢量和对偶矢量，<span class="arithmatex">\((2,0)\)</span> 张量和 <span class="arithmatex">\((1,1)\)</span> 张量的变换形式就不一样了。</p>
 <h2 id="active-and-passive-transformations">主动和被动变换（Active and Passive Transformations）<a class="headerlink" href="#active-and-passive-transformations" title="Permanent link">&para;</a></h2>
+<p>在 <em>An Introduction to Tensors and Group Theory for Physicists</em> 这本书中，作者又引入了一个张量 <span class="arithmatex">\(U\)</span>，为了说明 <span class="arithmatex">\(A_{i}^{j'}\)</span> 也是这个张量的分量（我们前面一直用“矩阵元”而不是张量分量来称呼 <span class="arithmatex">\(A_i^{j'}\)</span>）。而且在后面非常清楚地展示了主动和被动变换的区别（而在我们之前的学习之中，这一直是个模糊的领域）。这也是我喜欢这本书的地方：里面所有的 notation 都是 explicit &amp; unambiguous 的！</p>
+<p>考虑一个线性算符 <span class="arithmatex">\(U\)</span>（或者 <span class="arithmatex">\((1,1)\)</span> 张量），其将新基 <span class="arithmatex">\(\mathcal{B'}\)</span> 中的矢量映射到旧基 <span class="arithmatex">\(\mathcal{B}\)</span> 中的矢量，即 <span class="arithmatex">\(U(e_{i'})=e_i\)</span>，考虑<strong>在旧基 <span class="arithmatex">\(\mathcal{B}\)</span> 下</strong>写出 <span class="arithmatex">\(U\)</span> 的分量</p>
+<div class="arithmatex">\[
+\begin{align*}
+{U_i}^j&amp;=U(e_i,e^j)=e^j(Ue_i)=e^j(U(A_i^{k'}e_{k'}))\\\
+&amp;=A_i^{k'}e^j(U(e_{k'}))=A_i^{k'}e^j(e_k)\\\
+&amp;=A_i^{k'}\delta^j_k=A_i^{j'}
+\end{align*}
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">注：</p>
+<p>到这里我们可以更直观的看到打撇和不打撇的指标是不改变指标的值的（在上面最后一步中 <span class="arithmatex">\(j\)</span> 和 <span class="arithmatex">\(j'\)</span> 数字的值是相同的），是否打撇只是为了方便我们看出这是哪一个基下的矢量/分量。</p>
+</div>
+<p>我们看到其实 <span class="arithmatex">\(A_{i}^{j'}\)</span> 是张量 <span class="arithmatex">\(U\)</span> 的分量！但是为什么我们不使用 <span class="arithmatex">\({U_i}^j\)</span> 来表示变换矩阵呢？这仅仅是因为符号的问题，通过 <span class="arithmatex">\(A_{i}^{j'}\)</span> 这种打撇的符号，我们能够更好的分清从 <span class="arithmatex">\(\mathcal{B}\)</span> 到 <span class="arithmatex">\(\mathcal{B'}\)</span> 的变换和 <span class="arithmatex">\(\mathcal{B'}\)</span> 到 <span class="arithmatex">\(\mathcal{B}\)</span> 的变换。但是如果我们用 <span class="arithmatex">\({U_i}^j\)</span> 来表示变换矩阵，我们可能就会分不清楚变换的方向。另外 <span class="arithmatex">\({U_i}^j\)</span> 还和基的选取有关（在 <span class="arithmatex">\(\mathcal{B}\)</span> 和 <span class="arithmatex">\(\mathcal{B}'\)</span> 下的分量表示不一样），但是我们使用的 <span class="arithmatex">\(A_i^{j'}\)</span> 记号可以根据打撇的指标确定是 <span class="arithmatex">\(A\)</span> 还是 <span class="arithmatex">\(A^{-1}\)</span> 变换矩阵（这段有些绕，可能要多读一会才能知道在说什么）。</p>
+<p>如果我们将 <span class="arithmatex">\(U\)</span> 写成矩阵，有（注意下面所有表示都是在<strong>旧基 <span class="arithmatex">\(\mathcal{B}\)</span> 下</strong>写出来的）</p>
+<div class="arithmatex">\[
+[e_i]_\mathcal{B}=[U]_\mathcal{B}[e_{i'}]_\mathcal{B}=A[e_{i'}]_\mathcal{B}
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">注：</p>
+<p>这里我在第一次读的时候有一些混乱，但是要注意上面是矩阵乘法，我们没有写成分量形式，角标 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(i'\)</span> 只是矢量的 index，如果写成分量形式应该是：
+$$
+[e_i]^j={U_k}^j[e_{i'}]^k
+$$ 式中的 <span class="arithmatex">\(j,k\)</span> 才是分量指标。当然我们知道，在基 <span class="arithmatex">\(\mathcal{B}\)</span> 下，<span class="arithmatex">\([e_i]^j=\delta_i^j\)</span>。</p>
+</div>
+<p>这要和上面基变换下矢量分量的变换式 <span class="arithmatex">\([v]_{\mathcal{B}'}=A[v]_\mathcal{B}\)</span> 区分开来。<span class="arithmatex">\([e_i]_\mathcal{B}=A[e_{i'}]_\mathcal{B}\)</span> 称作<strong><em>主动变换（active transformation）</em></strong>，因为这个线性变换改变了基矢量，即将 <span class="arithmatex">\(e_{i'}\)</span> 变成 <span class="arithmatex">\(e_i\)</span>，注意这个式子是在<strong>同一个基 <span class="arithmatex">\(\mathcal{B}\)</span> 下</strong>写出来的。而 <span class="arithmatex">\([v]_{\mathcal{B}'}=A[v]_\mathcal{B}\)</span> 称为<strong><em>被动变换（passive transformation）</em></strong>，因为这个变换不改变矢量 <span class="arithmatex">\(v\)</span> 本身，而是同时改变了基矢量和 <span class="arithmatex">\(v\)</span> 的分量，注意这个式子的左右两侧是<strong>分别在基 <span class="arithmatex">\(\mathcal{B}'\)</span> 和基 <span class="arithmatex">\(\mathcal{B}\)</span> 下</strong>写出来的。我们将主动变换和被动变换总结如下：</p>
+<table border="0" class="dataframe" style="border-collapse: separate; border-spacing: 30px 0;">
+  <tr>
+    <th style="text-align: left;"><b>Summary</b></th>
+  </tr>
+  <tr>
+    <td>\([e_i]_\mathcal{B}=A[e_{i'}]_\mathcal{B}\)</td>
+    <td>Active transformation</td></td>
+  </tr>
+  <tr>
+    <td>\([v]_{\mathcal{B}'}=A[v]_\mathcal{B}\)</td>
+    <td>Passive tranformation</td>
+  </tr>
+</table>
+<p>然而不幸的是，在主流的物理教科书中，我们都不会区分这两种变换，一般来说书上的写法是
+$$
+\boldsymbol{r}'=A\boldsymbol{r}
+$$
+这既可以被解读为主动变换，也可以被解读为被动变换。如果将其理解为主动变换，那么就是 <span class="arithmatex">\(A\)</span> 将一个矢量 <span class="arithmatex">\(\boldsymbol{r}\)</span> 变成了一个<strong>新的矢量</strong> <span class="arithmatex">\(\boldsymbol{r}\)</span>，而其分量是在<strong>同一个基 <span class="arithmatex">\(\mathcal{B}\)</span> 下</strong>表示的：<span class="arithmatex">\([\boldsymbol{r}']_{\mathcal{B}}=A[\boldsymbol{r}]_{\mathcal{B}}\)</span>（注意在主动变换下 <span class="arithmatex">\([\boldsymbol{r}]_\mathcal{B}\)</span> 和 <span class="arithmatex">\([\boldsymbol{r}']_{\mathcal{B'}}\)</span> 是一样的）。如果将其理解为被动变换，那么 <span class="arithmatex">\(A\)</span> 就是将 <span class="arithmatex">\(\boldsymbol{r}\)</span> 在旧基 <span class="arithmatex">\(\mathcal{B}\)</span> 下的表示变成新基 <span class="arithmatex">\(\mathcal{B'}\)</span> 下的表示，矢量 <span class="arithmatex">\(\boldsymbol{r}\)</span> 本身是不发生任何变化的：<span class="arithmatex">\([\boldsymbol{r}]_{\mathcal{B'}}=A[\boldsymbol{r}]_{\mathcal{B}}\)</span>。</p>
+<details class="note" open="open">
+<summary>主动变换和被动变换之间的关系</summary>
+<p>在学习的时候，大家如果认识到主动线性变换和基变换是两个不同变换，那么大家一定会意识到这两种变换的方向是看上去是“相反”的。例如在二维平面内考虑下面的矩阵
+$$
+A=\begin{pmatrix}
+\cos\theta&amp;-\sin\theta\\
+\sin\theta&amp;\cos\theta
+\end{pmatrix}
+$$ 如果考虑主动线性变换，就有 <span class="arithmatex">\([r']_\mathcal{B}=A[r]_\mathcal{B}\)</span>，这显然是将 <span class="arithmatex">\(v\)</span> 做一个逆时针旋转 <span class="arithmatex">\(\theta\)</span> 的操作。但是如果考虑被动变换（基变换），有 <span class="arithmatex">\([e_{i'}]_\mathcal{B}=A[e_i]_\mathcal{B}\)</span>，这样会有 <span class="arithmatex">\([r]_{\mathcal{B'}}=A^{-1}[r]_\mathcal{B}\)</span>，看上去两个变换是相反的？其实这并没有什么矛盾，要注意在主动和被动变换下，等式左右两边的基是不一样的，而我们在上面就已经说过，矢量的分量也被称作“逆变分量”，其变换规律刚好和基矢量的变换规律是相反的！</p>
+</details>
+<p><strong><u>实例</u></strong>：<em>薛定谔和海森堡绘景下的主动和被动变换</em></p>
+<p>在薛定谔表象下，可观测量作用在一个变化的态矢量上，而基矢量（basis ket）是不发生变化的，这是主动变换的视角。而在海森堡表象下，态矢量是不发生变化的，我们认为可观测量是随时间变化的。由于可观测量随时间变化，其本征矢量（形成一组正交完备基）也是随时间变化的，这就是被动变换的视角。就像上面 <span class="arithmatex">\(\boldsymbol{r}'=A\boldsymbol{r}\)</span> 有两种视角一样，一个可观测量的期望值</p>
+<div class="arithmatex">\[
+\begin{align*}
+\langle \hat{x}(t)\rangle&amp;=\langle \psi|(U^\dagger\hat{x}U)|\psi\rangle\\
+&amp;=(\langle \psi|U^\dagger)\hat{x}(U|\psi\rangle)
+\end{align*}
+\]</div>
+<p>其中 <span class="arithmatex">\(U\)</span> 是时间演化算符，也可以有两种解释的视角：时间演化算符作用在可观测量上（被动变换），或者时间演化算符作用在态矢量上（主动变换）。</p>
 <h2 id="the-tensor-product-definition-and-properties">张量积：定义和性质（The Tensor Product: Definition and Properties）<a class="headerlink" href="#the-tensor-product-definition-and-properties" title="Permanent link">&para;</a></h2>
+<p>接下来我们介绍张量积，这是物理中用到的十分广泛的运算。我们之前在物理中已经接触过张量积，知道 <span class="arithmatex">\(n\)</span> 维空间和 <span class="arithmatex">\(m\)</span> 维空间做张量积后得到 <span class="arithmatex">\(nm\)</span> 维的空间。而这里我们将张量积这个概念定义清楚。</p>
+<p><u><strong>定义</strong></u>：给定两个有限维度的矢量空间 <span class="arithmatex">\(V\)</span> 和 <span class="arithmatex">\(W\)</span>，定义<strong><em>张量积（tensor product）</em></strong><span class="arithmatex">\(V\otimes W\)</span> 为所有作用在 <span class="arithmatex">\(V^*\times W^*\)</span> 上的 <span class="arithmatex">\(C\)</span> 值双线性函数的集合。并且给定 <span class="arithmatex">\(v\in V,w\in W\)</span>，我们定义张量积 <span class="arithmatex">\(v\otimes w\)</span> 为 <span class="arithmatex">\(V\otimes W\)</span> 中的元素，且满足</p>
+<div class="arithmatex">\[
+\boxed{
+\begin{align*}
+(v\otimes w)(h,g)\equiv h(v)w(g),\ \forall h\in V^*,g\in W^*
+\end{align*}}
+\]</div>
+<p>值得说明的是，上面的定义中 <span class="arithmatex">\(V\otimes W\)</span> 是一个新的空间，<span class="arithmatex">\(v\otimes w\)</span> 是这个空间中的一个元素。而 <span class="arithmatex">\(V^*\times W^*\)</span> 是两个对偶空间 <span class="arithmatex">\(V^*\)</span> 和 <span class="arithmatex">\(W^*\)</span> 分别取出一个元素构成的有序对的集合（分清楚 <span class="arithmatex">\(\otimes\)</span> 和 <span class="arithmatex">\(\times\)</span> 的差别）。</p>
+<p>由于我们定义 <span class="arithmatex">\(T=v\otimes w\in V\otimes W\)</span> 是一个双线性函数，所以
+$$
+T(h,g)=h_ig_jT(e^i,f^j)=h_ig_jT^{ij}
+$$
+其中 <span class="arithmatex">\(T^{ij}\equiv T(e^i,e^j)\)</span>。我们也可以说明 <span class="arithmatex">\(e_i\otimes e_j\)</span> 是 <span class="arithmatex">\(V\otimes W\)</span> 的一个基矢量，考虑表达式 <span class="arithmatex">\(T^{ij}e_i\otimes e_j\)</span></p>
+<div class="arithmatex">\[
+\begin{align*}
+(T^{ij}e_i\otimes e_j)(e^k,f^l)&amp;=T^{ij}e_i(e^k)f_j(f^l)\\
+&amp;=T^{ij}\delta_i^k\delta_j^l\\
+&amp;=T^{kl}
+\end{align*}
+\]</div>
+<p>这说明 <span class="arithmatex">\(T=T^{ij}e_i\otimes e_j\)</span>，由此我们得到 <span class="arithmatex">\(V\otimes W=\text{Span}\{e_i\otimes f_j\}\)</span>，<span class="arithmatex">\(V\otimes W\)</span> 是一个 <span class="arithmatex">\(mn\)</span> 维的空间。</p>
+<div class="admonition info">
+<p class="admonition-title">注：</p>
+<p>这里的逻辑可能要再次申明：我们是先有张量分量的定义 <span class="arithmatex">\(T^{kl}\equiv T(e^k,e^l)\)</span>，然后用 <span class="arithmatex">\(T^{ij}e_i\otimes e_j\)</span> 这个表达式也计算 <span class="arithmatex">\((T^{ij}e_i\otimes e_j)(e^k,f^l)\)</span>，发现算出来的结果是 <span class="arithmatex">\(T^{kl}\)</span>，这就说明 <span class="arithmatex">\(T^{ij}e_i\otimes e_j=T\)</span>。</p>
+</div>
+<p>除了双线性之外，张量积还有两个重要的特点，第一个是可以和对偶互换，即</p>
+<div class="arithmatex">\[
+(V\otimes W)^*=V^*\otimes W^*
+\]</div>
+<p>第二个是具有结合律（assocative），也就是</p>
+<div class="arithmatex">\[
+(V_1\otimes V_2)\otimes V_3=V_1\otimes (V_2\otimes V_3)
+\]</div>
+<p>我们当然可以很形式的证明这些性质，当然这些看上去很符合直觉，我们也不在这里多花时间证明。有了上面的性质，我们就可以没有歧义的写出诸如 <span class="arithmatex">\(V_1\otimes \cdots \otimes V_n\)</span> 这样的张量积，而 <span class="arithmatex">\(V_1\otimes \cdots \otimes V_n\)</span> 实际上就是定义在 <span class="arithmatex">\(V_1^*\times\cdots V_n^*\)</span> 上的 <span class="arithmatex">\(C\)</span> 值函数。</p>
 <h2 id="v-v-tensor-products-of-v-and-v"><span class="arithmatex">\(V\)</span> 和 <span class="arithmatex">\(V^*\)</span> 的张量积（Tensor Products of <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(V^*\)</span>）<a class="headerlink" href="#v-v-tensor-products-of-v-and-v" title="Permanent link">&para;</a></h2>
+<p>有了上面的 <span class="arithmatex">\(V\otimes W\)</span> 的定义，我们很容易就能够写出矢量空间和其对偶空间的张量积</p>
+<p><strong><u>定义</u></strong>：给定矢量空间 <span class="arithmatex">\(V\)</span> 和对偶空间 <span class="arithmatex">\(V^*\)</span>，定义下面形式的张量积</p>
+<div class="arithmatex">\[
+\begin{align*}
+\underbrace{V^* \otimes \cdots \otimes V^*}_{r \text{ times}}\otimes\underbrace{V \otimes \cdots \otimes V}_{s \text{ times}}
+\end{align*}
+\]</div>
+<p>为作用在下面有序数对集合的多线性函数</p>
+<div class="arithmatex">\[
+\begin{align*}
+\underbrace{V \times \cdots \times V}_{r \text{ times}}\times\underbrace{V^* \times \cdots \times V^*}_{s \text{ times}}
+\end{align*}
+\]</div>
+<p>这个多线性函数空间实际上就是 <span class="arithmatex">\(V\)</span> 上的 <span class="arithmatex">\((r,s)\)</span> 张量空间 <span class="arithmatex">\(\mathcal{T}^r_s\)</span>！对于 张量 <span class="arithmatex">\(T\in \mathcal{T}^r_s\)</span>，在基 <span class="arithmatex">\(\mathcal{B}^r_s=\{e^{i_1}\otimes \cdots e^{i_r}\otimes e_{j_1}\otimes\cdots \otimes e_{j_s}\}\)</span> 下可以写出</p>
+<div class="arithmatex">\[
+\boxed{
+\begin{align*}
+T={T_{i_1,...,i_r}}^{j_1,...,j_s}e^{i_1}\otimes \cdots e^{i_r}\otimes e_{j_1}\otimes\cdots \otimes e_{j_s}
+\end{align*}}
+\]</div>
+<p>容易证明，这样的写法就是正确的（和上面两个空间的张量积证明过程一致）。<strong>注意现在我们有两个解读分量的方式</strong>：</p>
+<ol>
+<li>作为张量作用在基矢量上的值（<a href="#basic-definitions">第一部分</a>中的定义）</li>
+<li>作为给定基后的展开系数（这里的定义）</li>
+</ol>
 <h2 id="applications-of-the-tensor-product-in-quantum-physics">张量积在量子力学中的运用（Applications of the Tensor Product in Quantum Physics）<a class="headerlink" href="#applications-of-the-tensor-product-in-quantum-physics" title="Permanent link">&para;</a></h2>
 <h2 id="symmetric-tensors">对称张量（Symmetric Tensors）<a class="headerlink" href="#symmetric-tensors" title="Permanent link">&para;</a></h2>
 <h2 id="antisymmetric-tensors">反对称张量（Antisymmetric Tensors）<a class="headerlink" href="#antisymmetric-tensors" title="Permanent link">&para;</a></h2>
@@ -4383,7 +4575,7 @@ $$ 这里 <span class="arithmatex">\(\tau\)</span> 是扭矩，<span class="arit
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月24日 21:08:44">2025年3月24日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月26日 13:57:30">2025年3月26日</span>
   </span>
 
     
