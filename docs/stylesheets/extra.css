@@ -6,3 +6,6 @@
     color: #eeeeee;
 }
 
+span.MathJax_Preview {
+    padding: 0 !important;
+}

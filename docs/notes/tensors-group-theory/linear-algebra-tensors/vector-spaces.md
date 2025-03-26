@@ -60,6 +60,10 @@
     <td>所有作用在 \(V\) 上的线性算符构成的矢量空间</td>
   </tr>
   <tr>
+    <td>\(\text{ad}_A\)</td>
+    <td>对线性空间 \(\mathcal{L}(V)\) 的伴随作用（adjoint action），满足 \(\text{ad}_A(B)\equiv [A,B]\)</td>
+  </tr>
+  <tr>
     <td>\([T]_\mathcal{B}\)</td>
     <td>线性算符 \(T\) 在基 \(\mathcal{B}\) 下的分量表示（矩阵）</td>
   </tr>
