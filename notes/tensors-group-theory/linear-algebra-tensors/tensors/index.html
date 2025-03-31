@@ -4861,7 +4861,7 @@ $$</p>
 <p>正是因为我们要完成升降指标的操作，我们才将 <span class="arithmatex">\(T(e_i,e^j)\)</span> 写为 <span class="arithmatex">\({T_i}^j\)</span> 而不是 <span class="arithmatex">\(T_i^j\)</span>。如果写成后一种形式，上下标没有前后之分，那么升降指标的操作就会出现歧义！</p>
 </div>
 <p>当然如果我们只写分量的话，我们一般就会略去 tilde 符号（写 <span class="arithmatex">\(T_{ij}\)</span> 而非 <span class="arithmatex">\(\tilde{T}_{ij}\)</span>），而根据上下标来判断其是什么张量。</p>
-<h3 id="_2">实例：<em>量子力学中的线性算符</em><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_2"><strong>实例</strong>：<em>量子力学中的线性算符</em><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>事实上，我们可以将我们可以将线性算符看作 <span class="arithmatex">\((1,1)\)</span> 张量：
 $$
     A(v,f)\equiv f(Av)
@@ -4875,7 +4875,7 @@ $$
 \end{align*}
 \]</div>
 <p>这些分量就是<strong><em>矩阵元（matrix element）</em></strong>，我们也可以将 <span class="arithmatex">\({H_i}^j\)</span> 编排为矩阵形式。</p>
-<h3 id="levi-civita">实例：<em>Levi-Civita 张量</em><a class="headerlink" href="#levi-civita" title="Permanent link">&para;</a></h3>
+<h3 id="levi-civita"><strong>实例</strong>：<em>Levi-Civita 张量</em><a class="headerlink" href="#levi-civita" title="Permanent link">&para;</a></h3>
 <p>考虑 <span class="arithmatex">\(\mathbb{R}^3\)</span> 中的 <strong><em>Levi-Civita 张量</em></strong>：
 $$
 \epsilon(u,v,w)\equiv(u\times v)\cdot w
@@ -4902,7 +4902,7 @@ $$
 <p class="admonition-title">注：</p>
 <p>实际上叉乘这个运算只能存在于 3 维空间（还有 7 维空间），而在其他维度的矢量空间中都不是良好定义的。原因在后面的章节会提到，这里我们先接受在 <span class="arithmatex">\(\mathbb{R}^3\)</span> 上存在叉乘的运算，并且运算规则就是平常我们大家学习过的那种。</p>
 </div>
-<h3 id="_3">实例：<em>转动惯量张量</em><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_3"><strong>实例</strong>：<em>转动惯量张量</em><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>惯量张量 <span class="arithmatex">\(\mathcal{I}\)</span> 是一个在 <span class="arithmatex">\(\mathbb{R}^3\)</span> 中的 <span class="arithmatex">\((2,0)\)</span> 张量，通过作用在角速度矢量上得到刚体转动的动能
 $$
 \frac12\mathcal{I}(\omega,\omega)=K
@@ -4919,7 +4919,7 @@ K&amp;=\frac12[\omega]^T[\mathcal{I}][\omega]\\
 \end{align*}
 \]</div>
 <p>注意由于我们是在三维欧几里得空间使用正交归一基，所以指标的上升和下降不会对张量的矩阵形式产生影响（度规是单位矩阵），因此在这里 <span class="arithmatex">\((2,0)\)</span> 张量和 <span class="arithmatex">\((1,1)\)</span> 张量的矩阵是一样的。</p>
-<h3 id="_4">实例：<em>度规张量</em><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_4"><strong>实例</strong>：<em>度规张量</em><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>欧几里得空间 <span class="arithmatex">\(\mathbb{R}^n\)</span> 和 Minkowski 4 维时空 <span class="arithmatex">\(\mathbb{R}^4\)</span> 度规是一个对称的 <span class="arithmatex">\((2,0)\)</span> 张量：<span class="arithmatex">\(g_{ij}= g(e_i,e_j)\equiv (e_i|e_j)\)</span>，我们也可以定义反度规（inverse metric）<span class="arithmatex">\(g^{ij}\)</span>，这是一个 <span class="arithmatex">\((0,2)\)</span> 张量。另外对于 <span class="arithmatex">\(V\)</span> 上的度规，我们有
 $$
 {g_i}^j={\delta_i}^j
@@ -4935,7 +4935,7 @@ $$
 <summary>为什么我们不考虑 <span class="arithmatex">\(\mathbb{C}^n\)</span> 的度规？</summary>
 <p>如果在 <span class="arithmatex">\(\mathbb{C}^n\)</span> 上定义度规，那么 <span class="arithmatex">\(g(w,v)=(w|v)\)</span> 就不是双线性的，<span class="arithmatex">\(g\)</span> 对于 <span class="arithmatex">\(w\)</span> 是共轭线性的，这不满足张量的定义！</p>
 </details>
-<h3 id="_5">实例：<em>二阶非线性极化率</em><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_5"><strong>实例</strong>：<em>二阶非线性极化率</em><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p><em>这部分是书中没有的，但是我在学习非线性光学的时候碰到了，发现是一个很好的张量的例子，所以放在这里。</em></p>
 <p>一阶级化率是一个线性算符，即 <span class="arithmatex">\((1,1)\)</span> 张量，其输入一个电场矢量，吐出一个一阶极化强度矢量，写成分量式是</p>
 <div class="arithmatex">\[
@@ -5051,7 +5051,7 @@ A^{n}_{1'}&amp;A^{n}_{2'}&amp;\cdots&amp;A^{n}_{n'}
 }
 \]</div>
 <p>这样我们就能够清晰的看出两个变换矩阵之间的互逆关系：<span class="arithmatex">\(A^{-1}A=AA^{-1}=I\)</span>。</p>
-<h3 id="_6">实例：<em>矢量和对偶矢量</em><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_6"><strong>实例</strong>：<em>矢量和对偶矢量</em><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>有了上面张量的变换的规律，考虑矢量（即 <span class="arithmatex">\((0,1)\)</span> 张量）的变换</p>
 <div class="arithmatex">\[
 v^{i'}=A^{i'}_jv^j
@@ -5089,7 +5089,7 @@ $$ 这里 <span class="arithmatex">\(\tau\)</span> 是扭矩，<span class="arit
 <p>这里如果用矩阵形式写的话会有一点需要注意的地方。我们看到基矢量的变换是 <span class="arithmatex">\(e_{i'}=A_{i'}^je_j\)</span>，若要将这个式子写成矩阵形式，要注意这里的 <span class="arithmatex">\(i'\)</span> 和 <span class="arithmatex">\(j\)</span> 不是分量指标，而是基矢量的 index，所以这本身不是一个分量形式的方程。考虑在 <span class="arithmatex">\(\mathcal{B}\)</span> 下，<span class="arithmatex">\(e_j\)</span> 就是第 <span class="arithmatex">\(j\)</span> 个分量为 1，其余分量为 0 的矢量，因此 <span class="arithmatex">\(e_{i'}\)</span> 的第 <span class="arithmatex">\(j\)</span> 个分量就是 <span class="arithmatex">\(A_{i'}^j\)</span>，因而我们可以将基矢量的变换写成下面的矩阵形式<br><center><span class="arithmatex">\([e_{i'}]_\mathcal{B}=A^{-1}[e_{i}]_\mathcal{B}\)</span></center><br>而矢量分量的变换写为<br><center><span class="arithmatex">\([v]_{\mathcal{B}'}=A[v]_{\mathcal{B}}\)</span></center><br>注意到这两个式子左右两边在哪个基下写分量是有区别的！</p>
 </div>
 <p>当我们选取的基 <span class="arithmatex">\(\mathcal{B}\)</span> 和 <span class="arithmatex">\(\mathcal{B}'\)</span> 都是正交归一基时，<span class="arithmatex">\(A\)</span> 必须是一个正交矩阵（这样才能保证变换的过程中不破坏基矢量的正交归一性），有 <span class="arithmatex">\(A^{-1}=A^T\)</span>，于是我们看到 <span class="arithmatex">\(v\)</span> 和 <span class="arithmatex">\(f\)</span> 的分量在基变换下满足同样的变换规律。这也是合理的，因为在正交归一基下，对于矢量 <span class="arithmatex">\(v\)</span>，其对偶矢量 <span class="arithmatex">\(\tilde{v}=L(v)=(v|\cdot)\)</span> 的分量和 <span class="arithmatex">\(v\)</span> 是相同的，即 <span class="arithmatex">\(v^i=v_i\)</span>（check it!）。</p>
-<h3 id="_7">实例：<em>线性算符</em><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_7"><strong>实例</strong>：<em>线性算符</em><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>线性算符可以看作 <span class="arithmatex">\((1,1)\)</span> 张量，于是我们可以在基变换下写出线性算符的矩阵元（分量）
 $$
 {T_{i'}}^{j'}=A^k_{i'}A^{j'}_l {T_k}^l
@@ -5108,7 +5108,7 @@ $$
 <p class="admonition-title">注：</p>
 <p>实际上，在欧几里得空间，由于度规是正定的，我们可以取正交归一的基矢量。而在正交归一基下，矢量 <span class="arithmatex">\(v\)</span> 的对偶矢量形式上和 <span class="arithmatex">\(v\)</span> 完全一致（两者的分量一样），所以我们看似就不需要区分这两个矢量空间。因此，我们不用处理烦人的上下标而认为它们都是一样的，这样不会引入任何计算上的错误。但是在度规非正定的空间中（如 Minkowski 空间），我们无法选取正交归一基，上下标的引入就是必要的。</p>
 </div>
-<h3 id="20">实例：<em><span class="arithmatex">\((2,0)\)</span> 张量</em><a class="headerlink" href="#20" title="Permanent link">&para;</a></h3>
+<h3 id="20"><strong>实例</strong>：<em><span class="arithmatex">\((2,0)\)</span> 张量</em><a class="headerlink" href="#20" title="Permanent link">&para;</a></h3>
 <p><span class="arithmatex">\((2,0)\)</span> 张量对于 Minkowski 空间和欧几里得空间是很重要的，其变换规则为
 $$
 g_{i'j'}=A^k_{i'}A^l_{j'}g_{kl}
@@ -5186,7 +5186,7 @@ A=\begin{pmatrix}
 \end{pmatrix}
 $$ 如果考虑主动线性变换，就有 <span class="arithmatex">\([r']_\mathcal{B}=A[r]_\mathcal{B}\)</span>，这显然是将 <span class="arithmatex">\(v\)</span> 做一个逆时针旋转 <span class="arithmatex">\(\theta\)</span> 的操作。但是如果考虑被动变换（基变换），有 <span class="arithmatex">\([e_{i'}]_\mathcal{B}=A[e_i]_\mathcal{B}\)</span>，这样会有 <span class="arithmatex">\([r]_{\mathcal{B'}}=A^{-1}[r]_\mathcal{B}\)</span>，看上去两个变换是相反的？其实这并没有什么矛盾，要注意在主动和被动变换下，等式左右两边的基是不一样的，而我们在上面就已经说过，矢量的分量也被称作“逆变分量”，其变换规律刚好和基矢量的变换规律是相反的！</p>
 </details>
-<h3 id="_8">实例：<em>薛定谔和海森堡绘景下的主动和被动变换</em><a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="_8"><strong>实例</strong>：<em>薛定谔和海森堡绘景下的主动和被动变换</em><a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>在薛定谔表象下，可观测量作用在一个变化的态矢量上，而基矢量（basis ket）是不发生变化的，这是主动变换的视角。而在海森堡表象下，态矢量是不发生变化的，我们认为可观测量是随时间变化的。由于可观测量随时间变化，其本征矢量（形成一组正交完备基）也是随时间变化的，这就是被动变换的视角。就像上面 <span class="arithmatex">\(\boldsymbol{r}'=A\boldsymbol{r}\)</span> 有两种视角一样，一个可观测量的期望值</p>
 <div class="arithmatex">\[
 \begin{align*}
@@ -5319,7 +5319,7 @@ $$ 于是我们有<br><center>
 =&amp;T(v_1,...,v_{r-1},e_{j'},f_1,...,f_{s-1},e^{j'})\\
 \end{align*}\)</span></center><br> 注意在上面的计算中，有 Einstein 求和约定。由此我们说明了指标收缩生成的张量不依赖于基的选择。</p>
 </details>
-<h3 id="votimes-v">实例：<span class="arithmatex">\(V^*\otimes V\)</span><a class="headerlink" href="#votimes-v" title="Permanent link">&para;</a></h3>
+<h3 id="votimes-v"><strong>实例</strong>：<span class="arithmatex">\(V^*\otimes V\)</span><a class="headerlink" href="#votimes-v" title="Permanent link">&para;</a></h3>
 <p><span class="arithmatex">\(V^*\otimes V\)</span> 是物理中经常碰到的一种张量积，会得到 <span class="arithmatex">\(\mathcal{T}_1^1\)</span>，即线性算符构成的矢量空间。具体来说，给定 <span class="arithmatex">\({T_i}^je^i\otimes e_j\in V^*\otimes V\)</span>，我们可以定义线性算符 <span class="arithmatex">\(T\)</span>
 $$
 T(v)={T_i}^je^i(v)e_j=v^i{T_i}^je_j
@@ -5338,7 +5338,7 @@ $$
 <p>在量子力学课本中，我们会将上面的张量积说成直积（direct product）或者外积（outer product），这几种说法是等价的。我们将其称作“外积”是为了和“内积”的概念区别分开来，因为两种运算都需要一个矢量和对偶矢量，但是外积生成的是一个线性算符而内积会生成一个数（严格来说，内积的运算需要两个矢量，我们使用到的是非退化厄米形式 <span class="arithmatex">\((w|v)=L(w)(v)\)</span>，不过如果形式的写出来内积的形式就会出现一个对偶矢量，这个对偶矢量就是我们定义的 <span class="arithmatex">\(L(w)=(w|\cdot)\)</span>）。</p>
 </details>
 <h2 id="applications-of-the-tensor-product-in-classical-physics">张量积在经典力学中的运用（Applications of the Tensor Product in Classical Physics）<a class="headerlink" href="#applications-of-the-tensor-product-in-classical-physics" title="Permanent link">&para;</a></h2>
-<h3 id="maxwell-stress-tensor">实例：<em>麦克斯韦应力张量（Maxwell Stress Tensor）</em><a class="headerlink" href="#maxwell-stress-tensor" title="Permanent link">&para;</a></h3>
+<h3 id="maxwell-stress-tensor"><strong>实例</strong>：<em>麦克斯韦应力张量（Maxwell Stress Tensor）</em><a class="headerlink" href="#maxwell-stress-tensor" title="Permanent link">&para;</a></h3>
 <p>我们在学习电磁场的动量守恒的时候会引入一个 2 阶张量，称为麦克斯韦应力张量（如果是在 4 维时空中写就是电磁场能动量张量）
 $$
 T_{(2,0)}=\boldsymbol{E}\otimes \boldsymbol{E}+\boldsymbol{B}\otimes \boldsymbol{B}-\frac12(\boldsymbol{E}\cdot\boldsymbol{E}+\boldsymbol{B}\cdot\boldsymbol{B})g
@@ -5347,7 +5347,7 @@ $$
 $$
 T_{ij}=E_iE_j+B_iB_j-\frac12(\boldsymbol{E}\cdot\boldsymbol{E}+\boldsymbol{B}\cdot\boldsymbol{B})\delta_{ij}
 $$</p>
-<h3 id="the-electromagnetic-field-tensor">实例：<em>电磁场张量（The Electromagnetic Field Tensor）</em><a class="headerlink" href="#the-electromagnetic-field-tensor" title="Permanent link">&para;</a></h3>
+<h3 id="the-electromagnetic-field-tensor"><strong>实例</strong>：<em>电磁场张量（The Electromagnetic Field Tensor）</em><a class="headerlink" href="#the-electromagnetic-field-tensor" title="Permanent link">&para;</a></h3>
 <p>在相对论电动力学中，我们会引入 2 阶反对称的电磁场张量，如果用分量的形式写出来就是（<span class="arithmatex">\(A_\mu\)</span> 是四维矢势的协变分量）
 $$
 F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu
@@ -5408,7 +5408,7 @@ $$
 \psi(x)=\langle x|\psi\rangle
 $$
 这给出了 <span class="arithmatex">\(\psi(x)\)</span> 的另一种理解方式：<span class="arithmatex">\(|\psi\rangle\)</span> 作用在基对偶矢量 <span class="arithmatex">\(\langle x|\)</span> 给出的结果。这其实和我们在上面对于张量分量的两种理解是一致的（作为张量的展开系数，或者作为张量作用在基向量后得到的值）。</p>
-<h3 id="the-momentum-representation">实例：<em>动量表象（The Momentum Representation）</em><a class="headerlink" href="#the-momentum-representation" title="Permanent link">&para;</a></h3>
+<h3 id="the-momentum-representation"><strong>实例</strong>：<em>动量表象（The Momentum Representation）</em><a class="headerlink" href="#the-momentum-representation" title="Permanent link">&para;</a></h3>
 <p>在量子力学中，动量算符写为 <span class="arithmatex">\(\hat{p}=-i\frac{d}{dx}\)</span>，其对应的本征矢量为 <span class="arithmatex">\(\{e^{ipx}\}_{p\in\mathbb{R}}\)</span>，当然这一组本征矢量也能够构成 <span class="arithmatex">\(L^2(\mathbb{R})\)</span> 的一组基。实际上，和上面的操作一样，我们可以用积分代替求和对矢量 <span class="arithmatex">\(\psi\)</span> 进行展开
 $$
 \psi(x)=\frac{1}{2\pi}\int_{-\infty}^\infty dp\ \phi(p)e^{ipx}
@@ -5448,14 +5448,14 @@ $$ 这其实就是 <span class="arithmatex">\(e_{i'}=A_{i'}^je_j\)</span> 从求
 (v_1\otimes v_2|w_1\otimes w_2)\equiv (v_1|w_1)_1\cdot (v_2|w_2)_2
 \]</div>
 <p>最后还有一个话题是关于<strong><em>矢量算符（vector operators）</em></strong>的。</p>
-<p><strong><u>定义</u></strong>：矢量算符是在总角动量算符 <span class="arithmatex">\(J_i\)</span> 的伴随作用下像三维矢量一样变换的算符集合。也就是说算符集 <span class="arithmatex">\(\{B_i\}_{i=1,2,3}\)</span>（也会写成“矢量”形式 <span class="arithmatex">\(\boldsymbol{B}\)</span>）满足
-$$
-\text{ad}<em k="1">{J_i}(B_j)=[J_i,B_j]=i\sum</em>B_k
-$$
-我们可以验证坐标算符 }^3\bar{\epsilon}_{ijk<span class="arithmatex">\(\hat{\boldsymbol{r}}=\{\hat{x},\hat{y},\hat{z}\}\)</span>，动量算符 <span class="arithmatex">\(\hat{\boldsymbol{p}}=\{\hat{p_x},\hat{p_y},\hat{p_z}\}\)</span> 和角动量算符 <span class="arithmatex">\(\hat{\boldsymbol{L}}=\{\hat{L_x},\hat{L_y},\hat{L_z}\}\)</span> 都是矢量算符。</p>
+<p><strong><u>定义</u></strong>：矢量算符是在总角动量算符 <span class="arithmatex">\(J_i\)</span> 的伴随作用下像三维矢量一样变换的算符集合。也就是说算符集 <span class="arithmatex">\(\{B_i\}_{i=1,2,3}\)</span>（也会写成“矢量”形式 <span class="arithmatex">\(\boldsymbol{B}\)</span>）满足</p>
+<div class="arithmatex">\[
+\text{ad}_{J_i}(B_j)=[J_i,B_j]=i\sum_{k=1}^3\bar{\epsilon}_{ijk}B_k
+\]</div>
+<p>我们可以验证坐标算符 <span class="arithmatex">\(\hat{\boldsymbol{r}}=\{\hat{x},\hat{y},\hat{z}\}\)</span>，动量算符 <span class="arithmatex">\(\hat{\boldsymbol{p}}=\{\hat{p_x},\hat{p_y},\hat{p_z}\}\)</span> 和角动量算符 <span class="arithmatex">\(\hat{\boldsymbol{L}}=\{\hat{L_x},\hat{L_y},\hat{L_z}\}\)</span> 都是矢量算符。</p>
 <p>接下来我们再考虑一些例子，我们会将下面这句话作为公理：</p>
 <p><center><b>Adding degrees of freedom is implemented by taking tensor products of the corresponding Hilbert spaces.</b></center></p>
-<h3 id="_9">实例：从一维粒子到三维粒子<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h3 id="_9"><strong>实例</strong>：从一维粒子到三维粒子<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>三维空间中的希尔伯特空间可以表示为 <span class="arithmatex">\(L^2(\mathbb{R})\otimes L^2(\mathbb{R})\otimes L^2(\mathbb{R})=L^2(\mathbb{R}^3)\)</span>，对于其中的态矢量，可以按本征态展开为</p>
 <div class="arithmatex">\[
 \begin{align*}
@@ -5468,7 +5468,7 @@ $$
 |\psi\rangle=\int_{-\infty}^\infty d^3\boldsymbol{r}\ \psi(\boldsymbol{r})|\boldsymbol{r}\rangle
 \end{align*}
 \]</div>
-<h3 id="_10">实例：两粒子系统<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h3 id="_10"><strong>实例</strong>：两粒子系统<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>考虑三维空间中的两个粒子，量子力学告诉我们一个系统的希尔伯特空间由其各个粒子的希尔伯特空间直积得到，因此两个粒子的希尔伯特空间为 <span class="arithmatex">\(L^2(\mathbb{R}^3)\otimes L^2(\mathbb{R}^3)\)</span>，空间的基写为 <span class="arithmatex">\(\{|\boldsymbol{r_1}\rangle\otimes|\boldsymbol{r_2}\rangle\}\)</span>，我们也经常将中间的 <span class="arithmatex">\(\otimes\)</span> 省略而直接写成 <span class="arithmatex">\(|\boldsymbol{r_1}\rangle|\boldsymbol{r_2}\rangle\)</span> 或者 <span class="arithmatex">\(|\boldsymbol{r_1},\boldsymbol{r_2}\rangle\)</span>。这样希尔伯特空间中的态可以按本征态展开为</p>
 <div class="arithmatex">\[
 \begin{align*}
@@ -5476,7 +5476,7 @@ $$
 \end{align*}
 \]</div>
 <p>我们可以将 <span class="arithmatex">\(\psi(\boldsymbol{r}_1,\boldsymbol{r}_2)\)</span> 看作同时在 <span class="arithmatex">\(\boldsymbol{r}_1\)</span> 处找到 1 粒子，在 <span class="arithmatex">\(\boldsymbol{r}_2\)</span> 处找到 2 粒子的概率。</p>
-<h3 id="_11">实例：轨道角动量和自旋角动量<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h3 id="_11"><strong>实例</strong>：轨道角动量和自旋角动量<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p class="annotate">考虑一个三维的、带自旋 <span class="arithmatex">\(s\)</span> 的自旋粒子，自旋空间是 <span class="arithmatex">\(\mathbb{C}^{2s+1}\)</span>(1)，我们可以取自旋空间的基为 <span class="arithmatex">\(\{|m\rangle\}_{-s\leq m\leq s}\)</span>，这些基是 <span class="arithmatex">\(z\)</span> 方向自旋算符 <span class="arithmatex">\(S_z\)</span> 的本征态，本征值为 <span class="arithmatex">\(m\)</span>。那么这样同时考虑空间的希尔伯特空间和自旋的希尔伯特空间，总的空间就是 <span class="arithmatex">\(L^2(\mathbb{R}^3)\otimes \mathbb{C}^{2s+1}\)</span>，将基写为 <span class="arithmatex">\(\{|\boldsymbol{r},m\rangle\}\)</span>，这样希尔伯特空间中的态可以按本征态展开为</p>
 <ol>
 <li>注意这里的复矢量空间对应的数域是复数，详细可以参考第一章对于<a href="../vector-spaces/#complex-space">复矢量空间</a>的讨论</li>
@@ -5499,7 +5499,7 @@ $$
 \psi_{-s}
 \end{pmatrix}
 \]</div>
-<h3 id="_12">实例：量子纠缠<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<h3 id="_12"><strong>实例</strong>：量子纠缠<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>考虑两个希尔伯特空间 <span class="arithmatex">\(\mathcal{H}_1\)</span> 和 <span class="arithmatex">\(\mathcal{H}_2\)</span> 以及它们的张量积 <span class="arithmatex">\(\mathcal{H}_1\otimes \mathcal{H}_2\)</span>。<span class="arithmatex">\(\mathcal{H}_1\otimes \mathcal{H}_2\)</span> 中只有部分矢量可以被写成 <span class="arithmatex">\(\psi\otimes\phi\)</span> 的形式，这些矢量被称作<strong><em>可分离态（separable/product states）</em></strong>。而其他 <span class="arithmatex">\(\mathcal{H}_1\otimes \mathcal{H}_2\)</span> 中的矢量只能够写成 <span class="arithmatex">\(\sum_i\psi_i\otimes\phi_i\)</span> 这样的线性组合的形式，这些矢量就被称为<strong><em>纠缠的（entangled）</em></strong>，因为 <span class="arithmatex">\(\mathcal{H}_1\)</span> 中的测量会影响到 <span class="arithmatex">\(\mathcal{H}_2\)</span> 中自由度的测量。</p>
 <p>最简单的例子是两个自旋数为二分之一的粒子 <span class="arithmatex">\(s_1=s_2=1/2\)</span> ，将 <span class="arithmatex">\(\mathbb{C}^2\)</span> 的基写为 <span class="arithmatex">\(\{|+\rangle,|-\rangle\}\)</span>，考虑下面的态
 $$
@@ -5519,7 +5519,7 @@ T(v_1,...,v_i,...,v_j,...,v_r)=T(v_1,...,v_j,...,v_i,...,v_r),\ \forall i,j
 <p class="admonition-title">注：</p>
 <p>上面我们的讨论只针对 <span class="arithmatex">\((r,0)\)</span> 和 <span class="arithmatex">\((0,r)\)</span> 张量，一个 <span class="arithmatex">\((1,1)\)</span> 张量，即线性算符是没有“对称”一说的。我们平常可能会碰到“线性算符是对称”的说法，这个意思是：在某些特殊的基下，线性算符的矩阵是对称的，但是在其他基下，矩阵就可能不是对称的了。</p>
 </div>
-<h3 id="s2mathbbr2">实例：<span class="arithmatex">\(S^2(\mathbb{R}^{2*})\)</span><a class="headerlink" href="#s2mathbbr2" title="Permanent link">&para;</a></h3>
+<h3 id="s2mathbbr2"><strong>实例</strong>：<span class="arithmatex">\(S^2(\mathbb{R}^{2*})\)</span><a class="headerlink" href="#s2mathbbr2" title="Permanent link">&para;</a></h3>
 <p>考虑集合 <span class="arithmatex">\(\{e^1\otimes e^1,e^2\otimes e^2,e^1\otimes e^2+e^2\otimes e^1\}\subset S^2(\mathbb{R}^{2*})\)</span>，其中 <span class="arithmatex">\(\{e^i\}_{i=1,2}\)</span> 是标准对偶基，这就是一组 <span class="arithmatex">\(S^2(\mathbb{R}^{2*})\)</span> 的基。任意对称张量都可以写成这些基的线性组合</p>
 <div class="arithmatex">\[
 \begin{align*}
@@ -5597,7 +5597,7 @@ $$
 T\wedge U=T_{ij}U_{kl}e^i\wedge e^j\wedge e^k\wedge e^l
 $$ 注意这样的定义是不依赖于基的选取的，虽然我们这里看上去随意地选取了一组基，但是实际上如果我们将 <span class="arithmatex">\(T\)</span> 写为形如 <span class="arithmatex">\(\sum_i f_i\otimes g_i\)</span> 这样的形式，那么 <span class="arithmatex">\(T\)</span> 和 <span class="arithmatex">\(U\)</span> 之间的楔积也是将所有的 <span class="arithmatex">\(\otimes\)</span> 改为 <span class="arithmatex">\(\wedge\)</span>。有的地方会将楔积定义为只有反对称张量之间才能够进行的运算，道理也是一样的，关键在于<strong>通过楔积运算可以让非对称张量变为反对称的</strong>。</p>
 </details>
-<h3 id="mathbbr3">实例：<em><span class="arithmatex">\(\mathbb{R}^3\)</span> 上的反对称张量</em><a class="headerlink" href="#mathbbr3" title="Permanent link">&para;</a></h3>
+<h3 id="mathbbr3"><strong>实例</strong>：<em><span class="arithmatex">\(\mathbb{R}^3\)</span> 上的反对称张量</em><a class="headerlink" href="#mathbbr3" title="Permanent link">&para;</a></h3>
 <p>有了上面的讨论，我们可以在 <span class="arithmatex">\(\mathbb{R}^3\)</span> 上的写出 <span class="arithmatex">\(r\)</span> 阶的反对称张量的基</p>
 <div class="arithmatex">\[
 \begin{align*}
@@ -5606,7 +5606,7 @@ $$ 注意这样的定义是不依赖于基的选取的，虽然我们这里看�
 \Lambda^3 &amp; \mathbb{R}^{3*}\text{ has basis }\{e^1\wedge e^2\wedge e^3\}
 \end{align*}
 \]</div>
-<h3 id="identical-particles">实例：<em>全同粒子（Identical particles）</em><a class="headerlink" href="#identical-particles" title="Permanent link">&para;</a></h3>
+<h3 id="identical-particles"><strong>实例</strong>：<em>全同粒子（Identical particles）</em><a class="headerlink" href="#identical-particles" title="Permanent link">&para;</a></h3>
 <p>考虑在势阱中的 <span class="arithmatex">\(n\)</span> 个无相互作用的氢原子，如果这些粒子是可以被区分的，那么系统的总希尔伯特空间 <span class="arithmatex">\(\mathcal{H}_\text{tot}\)</span> 就是单粒子希尔伯特空间 <span class="arithmatex">\(\mathcal{H}\)</span> 的 <span class="arithmatex">\(n\)</span> 次张量积。但是根据量子力学的<strong><em>全同粒子假设（symmetrization postulate）</em></strong>，这样直接将各个粒子的希尔伯特空间直积起来是有问题的！考虑 <span class="arithmatex">\(\mathcal{H}_\text{tot}\)</span> 中的一个态 <span class="arithmatex">\(|\psi\rangle\otimes |\phi\rangle\in\mathcal{H}_\text{tot}=\mathcal{H}\otimes \mathcal{H}\)</span>，但是我们可以区分这个态和 <span class="arithmatex">\(|\phi\rangle\otimes |\psi\rangle\)</span> 这个态，这说明 <span class="arithmatex">\(\mathcal{H}\otimes \mathcal{H}\)</span> 这个总希尔伯特空间是有 redundancy 的。</p>
 <p>为了解决这个问题，我们要引入一个作用在 <span class="arithmatex">\(\mathcal{H}_\text{tot}\)</span> 上的线性“排列算符”（permutation operator）<span class="arithmatex">\(P\)</span>，定义为
 $$
@@ -5620,7 +5620,7 @@ $$
 \end{align*}
 \]</div>
 <p>对于<strong><em>玻色子（bosons）</em></strong>，只有 <span class="arithmatex">\(S^2(\mathcal{H})\)</span> 中的态是被准许的；而对于<strong><em>费米子（fermions）</em></strong>，只有 <span class="arithmatex">\(\Lambda^2\mathcal{H}\)</span> 中的态是被准许的。也正是因为这点，对于两个费米子，它们不能够处在同一个态，因为 <span class="arithmatex">\(|\psi\rangle|\psi\rangle\notin\Lambda^2\mathcal{H}\)</span>，这也被称作<strong><em>泡利不相容原理（Pauli Exclusion Principle）</em></strong> 。</p>
-<h3 id="levi-civita_1">实例：<em>Levi-Civita 张量</em><a class="headerlink" href="#levi-civita_1" title="Permanent link">&para;</a></h3>
+<h3 id="levi-civita_1"><strong>实例</strong>：<em>Levi-Civita 张量</em><a class="headerlink" href="#levi-civita_1" title="Permanent link">&para;</a></h3>
 <p>考虑带标准内积的 <span class="arithmatex">\(\mathbb{R}^n\)</span> 空间，在<strong>正交归一基</strong> <span class="arithmatex">\(\{e_i\}_{i=1,...,n}\)</span> 下考虑张量</p>
 <div class="arithmatex">\[
 \boxed{
@@ -5642,7 +5642,7 @@ $$
 <p class="admonition-title">注：</p>
 <p>上面的定义中，<strong>正交归一基</strong>是非常重要的，如果 <span class="arithmatex">\(\{e_{i'}\}\)</span> 不是正交归一基，那么 <span class="arithmatex">\(\epsilon\)</span> 就不可以写成 <span class="arithmatex">\(e^{1'}\wedge\cdots \wedge e^{n'}\)</span> 的形式（具体为什么在<a href="#levi-civita">下面</a>会说明）。</p>
 </div>
-<h3 id="_13">实例：<em>行列式</em><a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<h3 id="_13"><strong>实例</strong>：<em>行列式</em><a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <p>在线性代数课程中，或许我们第二章就接触到了行列式，并且学习了各种各样的计算行列式的方法。而在这里，我们会用另一种角度看行列式。</p>
 <p>将 <span class="arithmatex">\(n\times n\)</span> 的矩阵 <span class="arithmatex">\(A\)</span> 看作 <span class="arithmatex">\(n\)</span> 个 <span class="arithmatex">\(\mathbb{R}^n\)</span> 中列向量的排列，即
 $$
@@ -5664,7 +5664,7 @@ $$
 $$
 这样我们就<strong>通过 Levi-Civita 张量定义了行列式</strong>（注意在线性代数中分量形式才是我们更加熟悉的定义）。从这个定义我们立刻就知道行列式的一些性质，如在交换矩阵的两列后要变号，以及行的加法下的不变性等等，这些都不过来源于 <span class="arithmatex">\(\epsilon\)</span> 的多重线性和反对称性。</p>
 <p>由于我们可以将 Levi-Civita 张量看作各个矢量围成的“有向体积”，因此从上面的行列式定义中我们也不难猜测，行列式应该也是某种“有向体积”。实际上行列式正是将正交基 <span class="arithmatex">\(\{e_i\}\)</span> 通过矩阵 <span class="arithmatex">\(A\)</span> 进行线性变换后得到的新基 <span class="arithmatex">\(\{Ae_i\}\)</span> 围成的有向体积，这也是我们在线性代数中熟悉的部分。</p>
-<h3 id="levi-civita_2">实例：<em>Levi-Civita 张量的定向</em><a class="headerlink" href="#levi-civita_2" title="Permanent link">&para;</a></h3>
+<h3 id="levi-civita_2"><strong>实例</strong>：<em>Levi-Civita 张量的定向</em><a class="headerlink" href="#levi-civita_2" title="Permanent link">&para;</a></h3>
 <p>考虑一个基变换 <span class="arithmatex">\(\{e_{i'}=A^j_{i'}e_j\}\)</span>，在这个基下写出 Levi-Civita 张量</p>
 <div class="arithmatex">\[
 \begin{align*}
@@ -5766,7 +5766,7 @@ $$
 [J(\alpha)]_{\mathcal{B}'}&amp;=A[J(\alpha)]_\mathcal{B}
 \end{align*}
 \]</div>
-<p>让我们考虑一个实例：让 <span class="arithmatex">\(A\)</span> 是绕 <span class="arithmatex">\(z\)</span> 轴旋转 <span class="arithmatex">\(\theta\)</span> 的操作</p>
+<p>让我们考虑一个<strong>实例</strong>：让 <span class="arithmatex">\(A\)</span> 是绕 <span class="arithmatex">\(z\)</span> 轴旋转 <span class="arithmatex">\(\theta\)</span> 的操作</p>
 <p>$$
 A=\begin{pmatrix}
 \cos\theta&amp;-\sin\theta&amp;0\\
@@ -5827,7 +5827,7 @@ $$
 \]</div>
 <p>因此我们发现，对于旋转 <span class="arithmatex">\(|A|=1\)</span>，那么 <span class="arithmatex">\(J(\alpha)\)</span> 在坐标变换下就如同一个矢量变换。但是对于反演 <span class="arithmatex">\(|A|=|-I|=-1\)</span>，那么 <span class="arithmatex">\(J(\alpha)\)</span> 在坐标变换下不会改变符号。</p>
 <p>现在我们已经知道类似于角动量这种两个矢量叉乘得到的“矢量”实际上是赝矢量，其在旋转下和正常矢量一致，但是在反演变换中不改变符号。但是对于类似于角速度这样的赝矢量，其看上去不是两个矢量叉乘的结果，那么它是如何变成赝矢量的呢？</p>
-<h3 id="_14">实例：<em>角速度矢量</em><a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<h3 id="_14"><strong>实例</strong>：<em>角速度矢量</em><a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <p>我们最早对于角速度的定义是
 $$
 \boldsymbol{v}=\boldsymbol{\omega}\times\boldsymbol{r}
@@ -5841,15 +5841,15 @@ $$
 [\boldsymbol{r}]_{K'}=A[\boldsymbol{r}]_K
 $$
 而地面坐标系中的速度</p>
-<p>$$
-\begin{align<em>}
-[\boldsymbol{v}]<em K_="K'">{K'}&amp;=\frac{d}{dt}[\boldsymbol{r}]</em>\
-&amp;=\frac{d}{dt}A[\boldsymbol{r}]<em K="K">{K}\
-&amp;=\frac{dA}{dt}[\boldsymbol{r}]</em>]}\text{\quad since }[\boldsymbol{r<em K_="K'">K\text{ is constant}\
-&amp;=\frac{dA}{dt}A^{-1}[\boldsymbol{r}]</em>
-\end{align</em>}
-$$
-对于正交变换，<span class="arithmatex">\(A^{-1}=A^T\)</span>，因此我们可以证明 <span class="arithmatex">\(\frac{dA}{dt}A^{-1}\)</span> 是一个反对称矩阵：</p>
+<div class="arithmatex">\[
+\begin{align*}
+[\boldsymbol{v}]_{K'}&amp;=\frac{d}{dt}[\boldsymbol{r}]_{K'}\\
+&amp;=\frac{d}{dt}A[\boldsymbol{r}]_{K}\\
+&amp;=\frac{dA}{dt}[\boldsymbol{r}]_{K}\text{\quad since }[\boldsymbol{r}]_K\text{ is constant}\\
+&amp;=\frac{dA}{dt}A^{-1}[\boldsymbol{r}]_{K'}
+\end{align*}
+\]</div>
+<p>对于正交变换，<span class="arithmatex">\(A^{-1}=A^T\)</span>，因此我们可以证明 <span class="arithmatex">\(\frac{dA}{dt}A^{-1}\)</span> 是一个反对称矩阵：</p>
 <div class="arithmatex">\[
 \begin{align*}
 0&amp;=\frac{d}{dt}(I)\\
@@ -5876,15 +5876,15 @@ $$</p>
 \end{pmatrix}
 \end{align*}
 \]</div>
-<p>这样我们就可以验证
-$$
-\frac{dA}{dt}A^{-1}[\boldsymbol{r}]<em K_="K'">{K'}=[\boldsymbol{\omega}\times\boldsymbol{r}]</em>
-$$
-或者
-$$
-[\boldsymbol{v}]<em K_="K'">{K'}=[\boldsymbol{\omega}\times\boldsymbol{r}]</em>
-$$
-这说明角速度赝矢量就是和反对称矩阵 <span class="arithmatex">\(\frac{dA}{dt}A^{-1}\)</span> 相关的矢量 <span class="arithmatex">\(J(\frac{dA}{dt}A^{-1})\)</span>。</p>
+<p>这样我们就可以验证</p>
+<div class="arithmatex">\[
+\frac{dA}{dt}A^{-1}[\boldsymbol{r}]_{K'}=[\boldsymbol{\omega}\times\boldsymbol{r}]_{K'}
+\]</div>
+<p>或者</p>
+<div class="arithmatex">\[
+[\boldsymbol{v}]_{K'}=[\boldsymbol{\omega}\times\boldsymbol{r}]_{K'}
+\]</div>
+<p>这说明角速度赝矢量就是和反对称矩阵 <span class="arithmatex">\(\frac{dA}{dt}A^{-1}\)</span> 相关的矢量 <span class="arithmatex">\(J(\frac{dA}{dt}A^{-1})\)</span>。</p>
 
 
 
@@ -5907,7 +5907,7 @@ $$
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月31日 21:45:23">2025年3月31日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月31日 22:16:50">2025年3月31日</span>
   </span>
 
     
