@@ -825,7 +825,7 @@ $$
 
 <center><b>Adding degrees of freedom is implemented by taking tensor products of the corresponding Hilbert spaces.</b></center>
 
-### **实例**：从一维粒子到三维粒子
+### **实例**：*从一维粒子到三维粒子*
 
 三维空间中的希尔伯特空间可以表示为 $L^2(\mathbb{R})\otimes L^2(\mathbb{R})\otimes L^2(\mathbb{R})=L^2(\mathbb{R}^3)$，对于其中的态矢量，可以按本征态展开为
 
@@ -843,7 +843,7 @@ $$
 \end{align*}
 $$
 
-### **实例**：两粒子系统
+### **实例**：*两粒子系统*
 
 考虑三维空间中的两个粒子，量子力学告诉我们一个系统的希尔伯特空间由其各个粒子的希尔伯特空间直积得到，因此两个粒子的希尔伯特空间为 $L^2(\mathbb{R}^3)\otimes L^2(\mathbb{R}^3)$，空间的基写为 $\{|\boldsymbol{r_1}\rangle\otimes|\boldsymbol{r_2}\rangle\}$，我们也经常将中间的 $\otimes$ 省略而直接写成 $|\boldsymbol{r_1}\rangle|\boldsymbol{r_2}\rangle$ 或者 $|\boldsymbol{r_1},\boldsymbol{r_2}\rangle$。这样希尔伯特空间中的态可以按本征态展开为
 
@@ -855,7 +855,7 @@ $$
 
 我们可以将 $\psi(\boldsymbol{r}_1,\boldsymbol{r}_2)$ 看作同时在 $\boldsymbol{r}_1$ 处找到 1 粒子，在 $\boldsymbol{r}_2$ 处找到 2 粒子的概率。
 
-### **实例**：轨道角动量和自旋角动量
+### **实例**：*轨道角动量和自旋角动量*
 
 考虑一个三维的、带自旋 $s$ 的自旋粒子，自旋空间是 $\mathbb{C}^{2s+1}$(1)，我们可以取自旋空间的基为 $\{|m\rangle\}_{-s\leq m\leq s}$，这些基是 $z$ 方向自旋算符 $S_z$ 的本征态，本征值为 $m$。那么这样同时考虑空间的希尔伯特空间和自旋的希尔伯特空间，总的空间就是 $L^2(\mathbb{R}^3)\otimes \mathbb{C}^{2s+1}$，将基写为 $\{|\boldsymbol{r},m\rangle\}$，这样希尔伯特空间中的态可以按本征态展开为
 { .annotate }
@@ -883,7 +883,7 @@ $$
 \end{pmatrix}
 $$
 
-### **实例**：量子纠缠
+### **实例**：*量子纠缠*
 
 考虑两个希尔伯特空间 $\mathcal{H}_1$ 和 $\mathcal{H}_2$ 以及它们的张量积 $\mathcal{H}_1\otimes \mathcal{H}_2$。$\mathcal{H}_1\otimes \mathcal{H}_2$ 中只有部分矢量可以被写成 $\psi\otimes\phi$ 的形式，这些矢量被称作***可分离态（separable/product states）***。而其他 $\mathcal{H}_1\otimes \mathcal{H}_2$ 中的矢量只能够写成 $\sum_i\psi_i\otimes\phi_i$ 这样的线性组合的形式，这些矢量就被称为***纠缠的（entangled）***，因为 $\mathcal{H}_1$ 中的测量会影响到 $\mathcal{H}_2$ 中自由度的测量。
 
@@ -1303,7 +1303,7 @@ $$
 \begin{align*}
 [\boldsymbol{v}]_{K'}&=\frac{d}{dt}[\boldsymbol{r}]_{K'}\\
 &=\frac{d}{dt}A[\boldsymbol{r}]_{K}\\
-&=\frac{dA}{dt}[\boldsymbol{r}]_{K}\text{\quad since }[\boldsymbol{r}]_K\text{ is constant}\\
+&=\frac{dA}{dt}[\boldsymbol{r}]_{K}\quad\text{ since }[\boldsymbol{r}]_K\text{ is constant}\\
 &=\frac{dA}{dt}A^{-1}[\boldsymbol{r}]_{K'}
 \end{align*}
 $$
