@@ -62,6 +62,7 @@ theme:
     view: material/eye
 
 markdown_extensions:
+  - def_list
   - meta
   - attr_list
   - md_in_html
@@ -76,6 +77,8 @@ markdown_extensions:
       permalink: true
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.superfences
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
@@ -236,6 +239,15 @@ nav:
         - Lecture 10: courses/financial-statement-analysis/lecture-10.md
         - Lecture 11: courses/financial-statement-analysis/lecture-11.md
         - Lecture 12: courses/financial-statement-analysis/lecture-12.md
+    
+    - 公共财政学:
+        - courses/public-finance/index.md
+        - 导言 公共财政的含义: courses/public-finance/intro.md
+        - 第一章 福利经济学: courses/public-finance/welfare-economics.md
+        - 第二章 市场失灵: courses/public-finance/market-failure.md
+        - 第三章 公共选择理论: courses/public-finance/public-choice.md
+        - 第四章 成本收益分析: courses/public-finance/cost-benefit-analysis.md
+        - 第五章 公共支出概论: courses/public-finance/public-expenditure.md
   
   - 笔记:
     - notes/index.md
