@@ -569,6 +569,21 @@ $$
 
 要定义李群，需要拓扑和微分流形的知识，虽然微分流形的概念是很直观的（就是欧几里得空间的拓展），但是如果要严格定义这些内容还是要花费不少时间，所以我们这里给出一个李群的简单“定义”：*李群就是可以被连续的实变量参数化的群，其对应的李代数就是无限靠近单位元的群元。*
 
+如果我们用 $X$ 表示生成元，那么对于一个单参数的映射 $\gamma:\mathbb{R}\to G$，$\{\gamma(t)|t\in \mathbb{R}\}$ 构成了 $G$ 的一个单参数子群
+
+$$
+\begin{align*}
+\gamma(t)&=\lim_{n\to \infty}(\gamma(t/n))^n\\
+&=\lim_{n\to \infty}\left(\gamma(0)+\frac{t}{n}\frac{d\gamma(x)}{dx}\right)^n\\
+&=\lim_{n\to \infty}\left(\gamma(0)+\frac{t}{n}X\right)^n\\
+&=e^{tX}
+\end{align*}
+$$
+
+这里给出一个启发式的描述：如果我们将 $G$ 看作一个多维空间（流形）的话，$\gamma(t)=e^{tX}$ 就是一个参数化的曲线，而 $X$ 就是在单位元处沿着曲线 $\gamma(t)$ 的切向量。
+
+<center><img src="../../../../assets/img/tensors-group-theory/lie-group.png" alt="lie-group" style="zoom:30%;" /></center>
+
 ## 李代数：定义、性质和实例（Lie Algebras: Definition, Properties, and Examples）
 
 <u>**定义**</u>：给定李群 $G\subset GL(n,\mathbb{C})$，李代数（Lie algebra）$\mathfrak{g}$ 被定义为
