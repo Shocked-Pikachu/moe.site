@@ -811,7 +811,7 @@ $$
 (v_1\otimes v_2|w_1\otimes w_2)\equiv (v_1|w_1)_1\cdot (v_2|w_2)_2
 $$
 
-最后还有一个话题是关于***矢量算符（vector operators）***的。
+最后还有一个话题是关于***矢量算符（vector operators）***的。<a id="vector-operator"></a>
 
 **<u>定义</u>**：矢量算符是在总角动量算符 $J_i$ 的伴随作用下像三维矢量一样变换的算符集合。也就是说算符集 $\{B_i\}_{i=1,2,3}$（也会写成“矢量”形式 $\boldsymbol{B}$）满足
 
@@ -1174,7 +1174,7 @@ $$
 $$
 J:\Lambda^2\mathbb{R}^3\to \mathbb{R}^3
 $$
-这个映射定义如下：对于 $\alpha\in\Lambda^2\mathbb{R}^3$，用分量形式写出为
+这个映射定义如下：对于 $\alpha\in\Lambda^2\mathbb{R}^3$，用分量形式写出为<a id="jmap"></a>
 
 $$
 \begin{align*}
@@ -1319,11 +1319,11 @@ $$
 \end{align*}
 $$
 
-我们可以定义角动量 bivector $\tilde{\boldsymbol{\omega}}$ 为
+我们可以定义角速度 bivector $\tilde{\boldsymbol{\omega}}$ 为
 $$
 [\tilde{\boldsymbol{\omega}}]_{K'}=\frac{dA}{dt}A^{-1}
 $$
-而角动量矢量 $\tilde{\boldsymbol{\omega}}$ 就是
+而角速度矢量 $\tilde{\boldsymbol{\omega}}$ 就是
 $$
 \boldsymbol{\omega}\equiv J(\tilde{\boldsymbol{\omega}})
 $$

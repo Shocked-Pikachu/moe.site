@@ -97,17 +97,6 @@
   </tr>
 </table>
 
-
-
-
-
-
-
-
-
-
-
-
 ## 一些基本定义（Basic Definitions）
 
 在线性代数中，我们已经学习过关于线性空间的定义，而在这本书中，我们将线性空间称作矢量空间（vector space），这是因为我们将这个空间中的所有元素都称为矢量。
@@ -316,7 +305,7 @@ $$
 \text{ad}_A(B)\equiv[A,B]
 $$
 
-其中 $[\cdot,\cdot]$ 表示对易子（commutator），注意这里 $\text{ad}_A$ 就是一个**作用在由线性算符构成的（矢量）空间的一个线性算符**。而 $A$ 对 $\mathcal{L}(V)$ 的这种作用被称作***伴随作用（adjoint action）***或者***伴随表示（adjoint representation）***。
+其中 $[\cdot,\cdot]$ 表示对易子（commutator），注意这里 $\text{ad}_A$ 就是一个**作用在由线性算符构成的（矢量）空间的一个线性算符**。而 $A$ 对 $\mathcal{L}(V)$ 的这种作用被称作***伴随作用（adjoint action）***或者***伴随表示（adjoint representation）***。<a id="adjoint-action"></a>
 
 !!! info "注："
 	注意这里是 $\text{ad}_A$ 作用在线性算符（或者说矢量）$B$ 上。线性算符可以是一个算符，但同时其一定是在一个矢量空间中的矢量。而这里使用到“伴随表示（adjoint representation）”是因为这样的操作在后面章节李群的表示中会再次出现。
