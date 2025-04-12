@@ -5054,9 +5054,9 @@ f&amp;\longrightarrow&amp;f(r=1,\theta,\phi)\\
 r^lY(\theta,\phi)&amp;\longleftarrow &amp;Y(\theta,\phi)
 \end{eqnarray*}
 \]</div>
-<p><center>
-  <b>The familiar spherical harmonics <span class="arithmatex">\(Y^l_m(\theta,\phi)\)</span> are just the restriction of  particular harmonic degree <span class="arithmatex">\(l\)</span> polynomials to the unit sphere.</b>
-</center></p>
+<center>
+  <b>The familiar spherical harmonics \(Y^l_m(\theta,\phi)\) are just the restriction of  particular harmonic degree \(l\) polynomials to the unit sphere.</b>
+</center>
 <details class="note" open="open">
 <summary>反例：一般线性群 <span class="arithmatex">\(GL(n,\mathbb{R})\)</span>，可逆的 <span class="arithmatex">\(n\times n\)</span> 矩阵</summary>
 <p>一般线性群 <span class="arithmatex">\(GL(n,\mathbb{R})\)</span>（general linear group）是 <span class="arithmatex">\(M_n(\mathbb{R})\)</span> 的子集，定义为所有可逆的 <span class="arithmatex">\(n\times n\)</span> 矩阵，并不是一个矢量空间。因为里面不存在零元素（显然零矩阵是不可逆的，不属于 <span class="arithmatex">\(GL(n,\mathbb{R})\)</span>）。</p>
@@ -5158,7 +5158,7 @@ L_z(f)&amp;=&amp;-i\left(x\frac{\partial f}{\partial y}-y\frac{\partial f}{\part
 $$
 \text{ad}_A(B)\equiv[A,B]
 $$</p>
-<p>其中 <span class="arithmatex">\([\cdot,\cdot]\)</span> 表示对易子（commutator），注意这里 <span class="arithmatex">\(\text{ad}_A\)</span> 就是一个<strong>作用在由线性算符构成的（矢量）空间的一个线性算符</strong>。而 <span class="arithmatex">\(A\)</span> 对 <span class="arithmatex">\(\mathcal{L}(V)\)</span> 的这种作用被称作<strong><em>伴随作用（adjoint action）</em></strong>或者<strong><em>伴随表示（adjoint representation）</em></strong>。</p>
+<p>其中 <span class="arithmatex">\([\cdot,\cdot]\)</span> 表示对易子（commutator），注意这里 <span class="arithmatex">\(\text{ad}_A\)</span> 就是一个<strong>作用在由线性算符构成的（矢量）空间的一个线性算符</strong>。而 <span class="arithmatex">\(A\)</span> 对 <span class="arithmatex">\(\mathcal{L}(V)\)</span> 的这种作用被称作<strong><em>伴随作用（adjoint action）</em></strong>或者<strong><em>伴随表示（adjoint representation）</em></strong>。<a id="adjoint-action"></a></p>
 <div class="admonition info">
 <p class="admonition-title">注：</p>
 <p>注意这里是 <span class="arithmatex">\(\text{ad}_A\)</span> 作用在线性算符（或者说矢量）<span class="arithmatex">\(B\)</span> 上。线性算符可以是一个算符，但同时其一定是在一个矢量空间中的矢量。而这里使用到“伴随表示（adjoint representation）”是因为这样的操作在后面章节李群的表示中会再次出现。</p>
@@ -5449,7 +5449,8 @@ $$</p>
 \end{eqnarray*}
 \]</div>
 <p>只要满足上面的不等式，任意无穷多基向量的组合都还可以落在希尔伯特空间中。反过来也一样，对于希尔伯特空间中的任意矢量，上面的不等式也都成立。至此我们得到关于希尔伯特空间基向量的叙述：</p>
-<p><center><b>A basis for a Hilbert space is an infinite set whose infinite linear combinations, together with some suitable convergence condition, form the entire vector space.</b></center></p>
+<center><b>A basis for a Hilbert space is an infinite set whose infinite linear combinations, together with some suitable convergence condition, form the entire vector space.</b></center>
+
 <details class="note" open="open">
 <summary>希尔伯特空间的完备性</summary>
 <p>完备性的定义是比较复杂的，我们在这里不做过多讨论。简而言之，完备性就是指：在 <span class="arithmatex">\(L^2([-a,a])\)</span> 上的任何函数列的极限还属于 <span class="arithmatex">\(L^2([-a,a])\)</span>。当然关于这部分的证明是数学分析中的内容，已经完全超出物理人所关心的范围了（x）。</p>
@@ -5515,7 +5516,8 @@ L(v)=(v|\cdot)=(cx+y|\cdot)=\bar{c}(x|\cdot)+(y|\cdot)=\bar{c}L(x)+L(y)
 </details>
 <h3 id="braket"><strong>实例</strong>：<em>量子力学中的左矢（bra）和右矢（ket）</em><a class="headerlink" href="#braket" title="Permanent link">&para;</a></h3>
 <p>大多数量子力学的书籍都略过了 bra 和 ket 是什么的讨论，只告诉我们 <span class="arithmatex">\(c|{\psi}\rangle\)</span> 对应的 bra 是 <span class="arithmatex">\(\bar{c}\langle{\psi}|\)</span>，而从这里我们就可以看出：</p>
-<p><center><b>Bras are nothing but dual vectors.</b></center></p>
+<center><b>Bras are nothing but dual vectors.</b></center>
+
 <p>左矢 <span class="arithmatex">\(\langle{\psi}|\)</span> 就是 <span class="arithmatex">\(L(\psi)\)</span>，或者说 <span class="arithmatex">\((\psi|\cdot)\)</span>。到这里我们看到我们在定义 bra 的时候，要事先将希尔伯特空间中的非退化厄米形式定义清楚，然后 bra 就可以和 ket 发生一一对应。</p>
 <h3 id="_4"><strong>实例</strong>：<em>相对论中的升降指标</em><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>考虑四维时空的 Minkowski 度规，并分别令 <span class="arithmatex">\(\mathcal{B}=\{e_\mu\}_{\mu=1,...,4}\)</span> 和 <span class="arithmatex">\(\mathcal{B}^*=\{e^\mu\}_{\mu=1,...,4}\)</span> 为 <span class="arithmatex">\(\mathbb{R}^4\)</span> 的标准基和对偶基。令 <span class="arithmatex">\(v=\sum_{\mu=1}^4v^\mu e_\mu\in\mathbb{R}^4\)</span>，那么 <span class="arithmatex">\(v\)</span> 的对偶矢量 <span class="arithmatex">\(\tilde{v}\)</span> 的分量由下式决定：</p>
@@ -5537,7 +5539,8 @@ $$
 \tilde{f}^\mu=\sum_\nu\eta^{\nu\mu}f_\nu
 $$
 在相对论中，我们常常将 <span class="arithmatex">\(v^\mu\)</span> 称为<strong><em>逆变分量（contravariant components）</em></strong>，将 <span class="arithmatex">\(v_\mu\)</span> 称为<strong><em>协变分量（covariant components）</em></strong>。于是我们知道</p>
-<p><center><b>The contravariant components of a vector are just its usual components, while its covariant components are actually the components of the associated dual vector <span class="arithmatex">\(\tilde{v}\)</span></b></center></p>
+<center><b>The contravariant components of a vector are just its usual components, while its covariant components are actually the components of the associated dual vector \(\tilde{v}\)</b></center>
+
 <p>对于对偶矢量（dual vector），情况正相反：逆变分量是实际的分量，而协变分量是其对偶矢量的分量。而指标的上升和下降实际上就是在使用 <span class="arithmatex">\(L\)</span> 进行映射。</p>
 <div class="admonition info">
 <p class="admonition-title">注：</p>
@@ -5567,7 +5570,7 @@ $$
 <h2 id="epilogue-tiers-of-structure-in-linear-algebra">后记：线性代数的层级结构（Epilogue: Tiers of Structure in Linear Algebra）<a class="headerlink" href="#epilogue-tiers-of-structure-in-linear-algebra" title="Permanent link">&para;</a></h2>
 <p>如果对数学的语言比较敏感，自然会发现上面的一步步定义实际上是从集合到矢量空间到内积空间的不断演进。我们通过对集合定义“加法”和“数乘”，定义了矢量空间，又通过非退化厄米形式、对偶矢量等概念定义了内积空间。这些概念看起来并不是特别抽象，即使没有一步步小心的定义和推导，我们也可以直观上理解这些概念。但数学的强大之处在于，如果我们将所有结构严谨的抽象出来，那么这个结构就是普适性的，我们能够在各种情景中运用这个结构，并且对我们所处理问题的认识理解的更加深入。</p>
 <p><img alt="tier-structure" src="../../../../assets/img/tensors-group-theory/tier-structure.png" /></p>
-<p><center><b>Algebra is generous: she often gives more than is asked for.</b><br>D MacHale, Comic Sections (Dublin 1993)</center></p>
+<center><b>Algebra is generous: she often gives more than is asked for.</b><br>D MacHale, Comic Sections (Dublin 1993)</center>
 
 
 
@@ -5590,7 +5593,7 @@ $$
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月3日 00:02:40">2025年4月3日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月12日 18:37:37">2025年4月12日</span>
   </span>
 
     

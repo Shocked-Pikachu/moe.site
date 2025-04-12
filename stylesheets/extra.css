@@ -1,9 +1,27 @@
 [data-md-color-scheme="default"] h1 {
     color: #333333;
+    font-weight: 500;
 }
 
 [data-md-color-scheme="slate"] h1 {
     color: #eeeeee;
+    font-weight: 500;
+}
+
+[data-md-color-scheme="default"] h2 {
+    font-weight: 450;
+}
+
+[data-md-color-scheme="slate"] h2 {
+    font-weight: 450;
+}
+
+[data-md-color-scheme="default"] h3 {
+    font-weight: 450;
+}
+
+[data-md-color-scheme="slate"] h3 {
+    font-weight: 450;
 }
 
 span.MathJax_Preview {
