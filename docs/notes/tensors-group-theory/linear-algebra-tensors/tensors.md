@@ -682,9 +682,13 @@ $$
 ### **实例**：*麦克斯韦应力张量（Maxwell Stress Tensor）*
 
 我们在学习电磁场的动量守恒的时候会引入一个 2 阶张量，称为麦克斯韦应力张量（如果是在 4 维时空中写就是电磁场能动量张量）
+
 $$
+\begin{align*}
 T_{(2,0)}=\boldsymbol{E}\otimes \boldsymbol{E}+\boldsymbol{B}\otimes \boldsymbol{B}-\frac12(\boldsymbol{E}\cdot\boldsymbol{E}+\boldsymbol{B}\cdot\boldsymbol{B})g
+\end{align*}
 $$
+
 其中 $\boldsymbol{E}$ 和 $\boldsymbol{B}$ 是电磁场矢量的对偶矢量（当然在欧几里得空间中，矢量和对偶矢量的形式看上去是一样的）。$T(v,w)$ 给出了 $v$ 方向的动量流对垂直于 $w$ 平面的流量速率。如果写成分量形式就是
 $$
 T_{ij}=E_iE_j+B_iB_j-\frac12(\boldsymbol{E}\cdot\boldsymbol{E}+\boldsymbol{B}\cdot\boldsymbol{B})\delta_{ij}

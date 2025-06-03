@@ -1002,11 +1002,13 @@ L_1\equiv \begin{pmatrix}
 $$
 
 如果用分量的形式写出来就是
+
 $$
 \boxed{
 (L_i)_{jk}=-\epsilon_{ijk}
 }
 $$
+
 这说明 $\dim\mathfrak{so}(3)=3$。对任意 $X\in\mathfrak{so}(3)$，可以将其写为
 
 $$
@@ -1292,3 +1294,82 @@ $$
 \text{ad}_{[X,Y]}=[\text{ad}_X,\text{ad}_Y]
 $$
 （注意这里等式左边的李括号是作用在 $\mathfrak{g}$ 上的，右边的李括号是作用在 $\mathfrak{gl}(\mathfrak{g})$ 上的）那么线性映射 $\text{ad}_X$ 就是一个同态映射。我们可以发现，这个条件就等价于 Jacobi 恒等式！这就给了我们另一种解读 Jacobi 恒等式的视角——**Jacobi 恒等式使得 $\text{ad}_X$ 对任何 $X$ 都是一个同态映射**。
+
+**命题**：令 $\Phi:G\to H$ 为李群 $G$ 至 $H$ 的连续同态映射。那么我们就可以得到一个李代数的同构 $\phi:\mathfrak{g}\to \mathfrak{h}$
+$$
+\boxed{
+\phi(X)=\frac{d}{dt}\Phi(e^{tX})|_{t=0}
+}
+$$
+我们在之前说过 $\mathfrak{g}$ 可以看作李群 $G$ 在单位元处的切平面，于是我们很容易可以想到 $\Phi(G)$ 在单位元处的切平面就是 $\mathfrak{h}$，即 $\Phi(e^{tX})=e^{t\phi(X)}$。我们在这里不给出上面命题的详细证明，但要注意想要证明李代数同构就必须要满足下面条件：
+
+1. 映射是线性的，即 $\phi(sX)=s\phi(X)$ 和 $\phi(X+Y)=\phi(X)+\phi(Y)$
+2. 映射不改变李括号结构，即 $[\phi(X),\phi(Y)]=\phi([X,Y])$
+
+### **实例**：重新看 $SU(2)$ 和 $SO(3)$ 群
+
+我们之前说过 $SU(2)$ 和 $SO(3)$ 群是同态的，存在同态映射 $\rho:SU(2)\to SO(3)$
+
+$$
+[AXA^\dagger]_\mathcal{B}=\rho(A)[X]_\mathcal{B}
+$$
+
+其中 $X\in\mathfrak{su}(2)$，$A\in SU(2)$，$\mathcal{B}=\{S_x,S_y,S_z\}$。根据上面的命题，上面李群同态映射对应的李代数同态映射 $\phi$ 为
+
+$$
+\phi(Y)=\frac{d}{dt}\rho(e^{tY})|_{t=0}
+$$
+
+不难从上面式子得到 $\phi(S_i)=L_i,\ i=1,2,3$。也就是说 $\phi$ 是一个一对一的映射，并且由于 $S_i$ 和 $L_i$ 的对易关系是一样的，我们可以说 $\phi$ 是一个同构映射，即 $\mathfrak{su}(2)\simeq\mathfrak{su}(3)$。
+
+### **实例**：$\text{Ad}$ 与 $\text{ad}$ 同态
+
+我们已经知道对于 $A\in G$ 和 $X\in\mathfrak{g}$，有 $AXA^{-1}\in\mathfrak{g}$，于是我们可以定义一个作用在李代数 $\mathfrak{g}$ 上的线性算符 $\text{Ad}_A$
+
+$$
+\boxed{\text{Ad}_A(X)=AXA^{-1}, \ X\in\mathfrak{g}}
+$$
+
+这就相当于对 $X$ 进行相似变换，这种运算实际上就是定义了一个李群之间的同态
+
+$$
+\begin{align*}
+\text{Ad}:G&\rightarrow GL(\mathfrak{g})\\
+A&\mapsto \text{Ad}_A
+\end{align*}
+$$
+
+而根据上面的命题，从这个李群的同态可以构造一个李代数的同态映射 $\phi$
+
+$$
+\phi(X)=\left.\frac{d}{dt}\text{Ad}_{e^{tX}}\right|_{t=0}
+$$
+
+要计算这个同态映射的形式，我们可以将其作用在 $Y\in\mathfrak{g}$ 上：
+
+$$
+\begin{align*}
+\phi(X)(Y)&=\left.\frac{d}{dt}(\text{Ad}_{e^{tX}}(Y))\right|_{t=0}\\
+&=\left.\frac{d}{dt}(e^{tX}Ye^{-tX})\right|_{t=0}\\
+&=[X,Y]\\
+&=\text{ad}_X(Y)
+\end{align*}
+$$
+
+也就是说 $\phi$ 就是在前面定义的 $\text{ad}$ 同态。这下我们就可以看出 $\text{Ad}$ 和 $\text{ad}$ 的关系：$\text{ad}$ 是 $\text{Ad}$ 的“无穷小”版本，而对易子就是相似变换的无穷小版本。
+
+从 $\Phi(e^{tX})=e^{t\phi(X)}$ 我们可以得到
+
+$$
+\text{Ad}_{e^{tX}}=e^{t\ \text{ad}_X}
+$$
+
+展开上面的式子，我们马上得到
+
+$$
+\begin{align*}
+e^{tX}Ye^{-tX}=Y+t[X,Y]+\frac{t^2}{2!}[X,[X,Y]]+\frac{t^3}{3!}[X,[X,[X,Y]]]+\cdots
+\end{align*}
+$$
+
+这就是 Baker-Campbell-Hausdorff 公式（在量子力学中经常会用到的公式）！当然我们可以通过直接的 Taylor 展开证明上面的式子。
