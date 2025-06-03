@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.4af4bdda.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -4459,6 +4459,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#su2-so3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      实例：重新看 \(SU(2)\) 和 \(SO(3)\) 群
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textad-textad" class="md-nav__link">
+    <span class="md-ellipsis">
+      实例：\(\text{Ad}\) 与 \(\text{ad}\) 同态
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4950,6 +4968,24 @@
   <a href="#textad" class="md-nav__link">
     <span class="md-ellipsis">
       实例：\(\text{ad}\) 同态
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#su2-so3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      实例：重新看 \(SU(2)\) 和 \(SO(3)\) 群
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textad-textad" class="md-nav__link">
+    <span class="md-ellipsis">
+      实例：\(\text{Ad}\) 与 \(\text{ad}\) 同态
     </span>
   </a>
   
@@ -5829,13 +5865,13 @@ L_1\equiv \begin{pmatrix}
 \end{pmatrix}
 \end{align*}
 \]</div>
-<p>如果用分量的形式写出来就是
-$$
+<p>如果用分量的形式写出来就是</p>
+<div class="arithmatex">\[
 \boxed{
-(L_i)<em ijk="ijk">{jk}=-\epsilon</em>
+(L_i)_{jk}=-\epsilon_{ijk}
 }
-$$
-这说明 <span class="arithmatex">\(\dim\mathfrak{so}(3)=3\)</span>。对任意 <span class="arithmatex">\(X\in\mathfrak{so}(3)\)</span>，可以将其写为</p>
+\]</div>
+<p>这说明 <span class="arithmatex">\(\dim\mathfrak{so}(3)=3\)</span>。对任意 <span class="arithmatex">\(X\in\mathfrak{so}(3)\)</span>，可以将其写为</p>
 <div class="arithmatex">\[
 \begin{align*}
 X= \begin{pmatrix}
@@ -6069,6 +6105,64 @@ $$
 \text{ad}_{[X,Y]}=[\text{ad}_X,\text{ad}_Y]
 $$
 （注意这里等式左边的李括号是作用在 <span class="arithmatex">\(\mathfrak{g}\)</span> 上的，右边的李括号是作用在 <span class="arithmatex">\(\mathfrak{gl}(\mathfrak{g})\)</span> 上的）那么线性映射 <span class="arithmatex">\(\text{ad}_X\)</span> 就是一个同态映射。我们可以发现，这个条件就等价于 Jacobi 恒等式！这就给了我们另一种解读 Jacobi 恒等式的视角——<strong>Jacobi 恒等式使得 <span class="arithmatex">\(\text{ad}_X\)</span> 对任何 <span class="arithmatex">\(X\)</span> 都是一个同态映射</strong>。</p>
+<p><strong>命题</strong>：令 <span class="arithmatex">\(\Phi:G\to H\)</span> 为李群 <span class="arithmatex">\(G\)</span> 至 <span class="arithmatex">\(H\)</span> 的连续同态映射。那么我们就可以得到一个李代数的同构 <span class="arithmatex">\(\phi:\mathfrak{g}\to \mathfrak{h}\)</span>
+$$
+\boxed{
+\phi(X)=\frac{d}{dt}\Phi(e^{tX})|_{t=0}
+}
+$$
+我们在之前说过 <span class="arithmatex">\(\mathfrak{g}\)</span> 可以看作李群 <span class="arithmatex">\(G\)</span> 在单位元处的切平面，于是我们很容易可以想到 <span class="arithmatex">\(\Phi(G)\)</span> 在单位元处的切平面就是 <span class="arithmatex">\(\mathfrak{h}\)</span>，即 <span class="arithmatex">\(\Phi(e^{tX})=e^{t\phi(X)}\)</span>。我们在这里不给出上面命题的详细证明，但要注意想要证明李代数同构就必须要满足下面条件：</p>
+<ol>
+<li>映射是线性的，即 <span class="arithmatex">\(\phi(sX)=s\phi(X)\)</span> 和 <span class="arithmatex">\(\phi(X+Y)=\phi(X)+\phi(Y)\)</span></li>
+<li>映射不改变李括号结构，即 <span class="arithmatex">\([\phi(X),\phi(Y)]=\phi([X,Y])\)</span></li>
+</ol>
+<h3 id="su2-so3_1"><strong>实例</strong>：重新看 <span class="arithmatex">\(SU(2)\)</span> 和 <span class="arithmatex">\(SO(3)\)</span> 群<a class="headerlink" href="#su2-so3_1" title="Permanent link">&para;</a></h3>
+<p>我们之前说过 <span class="arithmatex">\(SU(2)\)</span> 和 <span class="arithmatex">\(SO(3)\)</span> 群是同态的，存在同态映射 <span class="arithmatex">\(\rho:SU(2)\to SO(3)\)</span></p>
+<div class="arithmatex">\[
+[AXA^\dagger]_\mathcal{B}=\rho(A)[X]_\mathcal{B}
+\]</div>
+<p>其中 <span class="arithmatex">\(X\in\mathfrak{su}(2)\)</span>，<span class="arithmatex">\(A\in SU(2)\)</span>，<span class="arithmatex">\(\mathcal{B}=\{S_x,S_y,S_z\}\)</span>。根据上面的命题，上面李群同态映射对应的李代数同态映射 <span class="arithmatex">\(\phi\)</span> 为</p>
+<div class="arithmatex">\[
+\phi(Y)=\frac{d}{dt}\rho(e^{tY})|_{t=0}
+\]</div>
+<p>不难从上面式子得到 <span class="arithmatex">\(\phi(S_i)=L_i,\ i=1,2,3\)</span>。也就是说 <span class="arithmatex">\(\phi\)</span> 是一个一对一的映射，并且由于 <span class="arithmatex">\(S_i\)</span> 和 <span class="arithmatex">\(L_i\)</span> 的对易关系是一样的，我们可以说 <span class="arithmatex">\(\phi\)</span> 是一个同构映射，即 <span class="arithmatex">\(\mathfrak{su}(2)\simeq\mathfrak{su}(3)\)</span>。</p>
+<h3 id="textad-textad"><strong>实例</strong>：<span class="arithmatex">\(\text{Ad}\)</span> 与 <span class="arithmatex">\(\text{ad}\)</span> 同态<a class="headerlink" href="#textad-textad" title="Permanent link">&para;</a></h3>
+<p>我们已经知道对于 <span class="arithmatex">\(A\in G\)</span> 和 <span class="arithmatex">\(X\in\mathfrak{g}\)</span>，有 <span class="arithmatex">\(AXA^{-1}\in\mathfrak{g}\)</span>，于是我们可以定义一个作用在李代数 <span class="arithmatex">\(\mathfrak{g}\)</span> 上的线性算符 <span class="arithmatex">\(\text{Ad}_A\)</span></p>
+<div class="arithmatex">\[
+\boxed{\text{Ad}_A(X)=AXA^{-1}, \ X\in\mathfrak{g}}
+\]</div>
+<p>这就相当于对 <span class="arithmatex">\(X\)</span> 进行相似变换，这种运算实际上就是定义了一个李群之间的同态</p>
+<div class="arithmatex">\[
+\begin{align*}
+\text{Ad}:G&amp;\rightarrow GL(\mathfrak{g})\\
+A&amp;\mapsto \text{Ad}_A
+\end{align*}
+\]</div>
+<p>而根据上面的命题，从这个李群的同态可以构造一个李代数的同态映射 <span class="arithmatex">\(\phi\)</span></p>
+<div class="arithmatex">\[
+\phi(X)=\left.\frac{d}{dt}\text{Ad}_{e^{tX}}\right|_{t=0}
+\]</div>
+<p>要计算这个同态映射的形式，我们可以将其作用在 <span class="arithmatex">\(Y\in\mathfrak{g}\)</span> 上：</p>
+<div class="arithmatex">\[
+\begin{align*}
+\phi(X)(Y)&amp;=\left.\frac{d}{dt}(\text{Ad}_{e^{tX}}(Y))\right|_{t=0}\\
+&amp;=\left.\frac{d}{dt}(e^{tX}Ye^{-tX})\right|_{t=0}\\
+&amp;=[X,Y]\\
+&amp;=\text{ad}_X(Y)
+\end{align*}
+\]</div>
+<p>也就是说 <span class="arithmatex">\(\phi\)</span> 就是在前面定义的 <span class="arithmatex">\(\text{ad}\)</span> 同态。这下我们就可以看出 <span class="arithmatex">\(\text{Ad}\)</span> 和 <span class="arithmatex">\(\text{ad}\)</span> 的关系：<span class="arithmatex">\(\text{ad}\)</span> 是 <span class="arithmatex">\(\text{Ad}\)</span> 的“无穷小”版本，而对易子就是相似变换的无穷小版本。</p>
+<p>从 <span class="arithmatex">\(\Phi(e^{tX})=e^{t\phi(X)}\)</span> 我们可以得到</p>
+<div class="arithmatex">\[
+\text{Ad}_{e^{tX}}=e^{t\ \text{ad}_X}
+\]</div>
+<p>展开上面的式子，我们马上得到</p>
+<div class="arithmatex">\[
+\begin{align*}
+e^{tX}Ye^{-tX}=Y+t[X,Y]+\frac{t^2}{2!}[X,[X,Y]]+\frac{t^3}{3!}[X,[X,[X,Y]]]+\cdots
+\end{align*}
+\]</div>
+<p>这就是 Baker-Campbell-Hausdorff 公式（在量子力学中经常会用到的公式）！当然我们可以通过直接的 Taylor 展开证明上面的式子。</p>
 
 
 
@@ -6091,7 +6185,7 @@ $$
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月12日 18:37:37">2025年4月12日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年6月3日 15:58:51 CST">2025年6月3日</span>
   </span>
 
     
@@ -6101,7 +6195,7 @@ $$
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月24日 00:49:34">2025年3月24日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年3月24日 00:49:34 CST">2025年3月24日</span>
   </span>
 
     
@@ -6182,10 +6276,10 @@ $$
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
