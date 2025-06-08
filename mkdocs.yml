@@ -248,6 +248,14 @@ nav:
         - 第三章 公共选择理论: courses/public-finance/public-choice.md
         - 第四章 成本收益分析: courses/public-finance/cost-benefit-analysis.md
         - 第五章 公共支出概论: courses/public-finance/public-expenditure.md
+    
+    - 音乐概论:
+        - courses/introduction-to-music/index.md
+        - 音乐基础: courses/introduction-to-music/fundamentals-music.md
+        - 到 1500 CE 时期的音乐: courses/introduction-to-music/music-history-1500.md
+        - 1500-1900 时期的音乐: courses/introduction-to-music/music-history-1500-1900.md
+        - 二十世纪的音乐: courses/introduction-to-music/music-history-twenty-century.md
+        - 千禧年后的音乐: courses/introduction-to-music/millennium-end.md
   
   - 笔记:
     - notes/index.md

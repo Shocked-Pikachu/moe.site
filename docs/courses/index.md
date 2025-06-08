@@ -32,4 +32,5 @@
 - [现代主义音乐：挑战与挑衅](musical-modernism/index.md)
 - [17 与 18 世纪的欧洲艺术音乐：巴洛克与古典风格](baroque-classical-style-music/index.md)
 - [人工智能基础](ai-basis/index.md)
+- [音乐概论](introduction-to-music/index.md)
 </div>

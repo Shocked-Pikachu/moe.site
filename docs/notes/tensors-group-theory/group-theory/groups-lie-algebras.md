@@ -3,7 +3,7 @@
 如果没有学过群论的话，这一章节可能读起来会有一些吃力，至少可能在一些 mathematical deduction 上会有所困惑。毕竟要在短短的两章过一遍群论的大部分内容本来就是一件困难的事情，因此这一章节起，我会以我自己的视角撰写笔记，对于书中一些简单的例子会选择性的删去，而主要保留最有 insight 的部分。下面是书中对于群、李群和李代数的描述：
 
 - *Group* is just a set of transformations that are composable and invertible.
-- *Lie group* is a group which can be smoothly parameterized by one or more contimuous variables.
+- *Lie group* is a group which can be smoothly parameterized by one or more continuous variables.
 - The vector space of infinitesimal generators of a matrix Lie group forms a *Lie algebra*.
 
 ## 记号汇总
